@@ -1,0 +1,54 @@
+.toc .body {
+  --c1: #e62929;
+  --c2: #ffb5b5;
+  --c3: #d92727;
+  --c4: #6b5b5b;
+  --c5: #b32020;
+}
+
+.toc .link-container {
+  list-style-type: none;
+  background-color: var(--c2);
+  border-radius: 0.6rem;
+  margin: 0.6rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.toc .link {
+  border-radius: 0.6rem;
+  width: 100px;
+  margin: 0.6rem;
+  padding: 1vh 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: break-spaces;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: var(--c2);
+  box-shadow: 0 0.1rem 0 var(--c4);
+  background-color: var(--c5);
+}
+
+.toc .link:hover {
+  background-color: var(--c3);
+}
+
+.toc .link:active {
+  background-color: var(--c1);
+  transform: translateY(0.1rem);
+  box-shadow: 0 0rem 0 var(--c4);
+}
+
+.toc .break {
+  flex-basis: 100%;
+  height: 0;
+}
+.toc .break.link {
+  background-color: var(--c4);
+}

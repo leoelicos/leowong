@@ -1,0 +1,169 @@
+/*************
+ * Universal * 
+ *************/
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/********
+ * Body *
+ ********/
+
+body {
+	background-color: #d9dcd6;
+}
+
+/**********
+ * Header *
+ **********/
+
+header {
+	padding: 20px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif; /* font stack for the name of the company */
+	background-color: #2a607c; /* dark color for good contrast to text*/
+	color: #ffffff; /* light color for good contrast to background */
+}
+
+h1 {
+	display: inline-block; /* to align the name of the website at the same level as the links*/
+	font-size: 48px; /* big text for the name of the company*/
+}
+
+.seo {
+	color: #d9dcd6; /* darken 'seo' to stand out from other letters in 'Horiseo' */
+}
+
+nav {
+	/* area for links */
+	padding-top: 15px;
+	margin-right: 20px;
+	float: right;
+	font-size: 20px; /* medium size for links */
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li {
+	display: inline-block; /* links appear in a line */
+	margin-left: 25px; /* space between links */
+}
+
+nav ul li a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/***********************************
+ * Big Image of the Office Workers *
+ ***********************************/
+
+#hero {
+	height: 800px;
+	width: 100%;
+	margin-bottom: 25px;
+	background-image: url('../images/digital-marketing-meeting.jpg'); /* a stock image of a digital marketing meeting */
+	background-size: cover; /* resize image to fit width of viewport */
+	background-position: center; /* position image in the center of viewport */
+}
+
+/*****************************************************
+ * Content: The three long panels at the bottom left *
+ *****************************************************/
+
+#content {
+	/* the container around the panels */
+	width: 75%; /* make the area fill most of the screen width */
+	display: inline-block;
+	margin-left: 20px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	/* font stack for the content */
+}
+
+#content article {
+	/* the articles */
+	margin-bottom: 20px;
+	padding: 50px;
+	height: 300px;
+	background-color: #0072bb; /* darker blue background for description*/
+	color: #ffffff; /* white text for description */
+}
+
+#content img {
+	/* the 3 images inside the articles */
+	max-height: 200px; /* stop the image from growing too much on big screens */
+}
+/* select articles 1 and 3 */
+#content article:nth-child(odd) img {
+	float: left;
+	margin-right: 25px;
+}
+/* select article 2 */
+#content article:nth-child(even) img {
+	float: right;
+	margin-left: 25px;
+}
+
+#content h2 {
+	margin-bottom: 20px;
+	font-size: 36px; /* make content headings slightly larger than context text */
+}
+
+#content p {
+	font-size: 16px; /* content text size */
+}
+
+/***************************************************
+ * Benefits: The vertical area at the bottom right *
+ ***************************************************/
+
+#benefits {
+	/* container for vertical area */
+	margin-right: 20px;
+	padding: 20px;
+	float: right;
+	width: 20%;
+	background-color: #2589bd; /* a slightly lighter blue color than the contents */
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* font stack for the benefits text */
+}
+
+#benefits article {
+	/* containers for each article */
+	margin-bottom: 32px;
+	color: #ffffff;
+}
+
+#benefits h3 {
+	/* headings for each article */
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#benefits img {
+	/* icons for each benefit */
+	display: block; /* have just the icon on the line */
+	margin: 10px auto;
+	max-width: 150px; /* don't let the image get too big in larger screens */
+}
+
+#benefits p {
+	font-size: 16px; /* benefits text size */
+}
+
+/**********
+ * Footer *
+ **********/
+
+footer {
+	padding: 30px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif; /* use the same font family as we did for the header */
+	text-align: center; /* position the footer text in the middle of the footer*/
+}
+
+footer h2 {
+	font-size: 20px; /* use a slightly larger size than the paragraph text*/
+}

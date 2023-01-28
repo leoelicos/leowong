@@ -56,15 +56,23 @@
   margin-top: 1em;
 }
 
-.app-01 #footer {
+.app-01 footer {
   padding: 20px 0;
   text-align: center;
-  background-color: #111111;
+  background-color: rgb(17, 17, 17);
   text-decoration: none;
+  cursor: pointer;
 }
-
-.app-01 #footer a {
+.app-01 footer:hover {
+  background-color: rgba(17, 17, 17, 0.9);
+}
+.app-01 footer:active {
+  background-color: rgba(17, 17, 17, 0.8);
+}
+.app-01 footer button {
   color: #ffffff;
+  background-color: transparent;
+  border: none;
 }
 .app-01 .social > li {
   display: inline-block;

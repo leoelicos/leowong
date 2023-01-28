@@ -1,3 +1,4 @@
+import './style/style.css'
 export default function CSSSnippetCheatsheet() {
   return (
     <div className='app-04'>

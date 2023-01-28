@@ -1,6 +1,8 @@
-import ImageArticle1 from '../images/search-engine-optimization.jpg'
-import ImageArticle2 from '../images/online-reputation-management.jpg'
-import ImageArticle3 from '../images/social-media-marketing.jpg'
+import {
+  ImageArticle1,
+  ImageArticle2,
+  ImageArticle3 //
+} from '../images'
 
 const articles = [
   {

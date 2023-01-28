@@ -1,6 +1,8 @@
-import ImageBenefit1 from '../images/lead-generation.png'
-import ImageBenefit2 from '../images/brand-awareness.png'
-import ImageBenefit3 from '../images/cost-management.png'
+import {
+  ImageBenefit1,
+  ImageBenefit2,
+  ImageBenefit3 //
+} from '../images/index.js'
 
 const benefits = [
   {

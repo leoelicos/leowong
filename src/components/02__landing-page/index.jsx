@@ -29,15 +29,14 @@ export default function LandingPage() {
                 <a href='#topofportfolios'>Portfolio</a>
               </li>
               <li>
-                <a
-                  href='#'
+                <button
                   id='button'
                   onClick={() => {
                     console.log('ClickedOpen')
                     handleOpenModal()
                   }}>
                   Contact Now
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
@@ -48,7 +47,7 @@ export default function LandingPage() {
             <img
               className='hero-img'
               src='https://unsplash.com/photos/gw-aplKL3Qg/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTV8fGpvdXJuZXl8ZW58MHx8fHwxNjQ1NDIxOTE5&force=true&w=2400'
-              alt='a picture of a forest path'
+              alt='a forest path'
             />
             <div className='hero-content'>
               <h1>
@@ -67,6 +66,7 @@ export default function LandingPage() {
             <a
               className='portfolio'
               target='_blank'
+              rel='noreferrer'
               href='https://bcs40.vercel.app/02-landing-page/'>
               <h3 className='portfolio-header'>Landing Page</h3>
               <p className='portfolio-text'>Designer Home Page</p>
@@ -80,6 +80,7 @@ export default function LandingPage() {
             <a
               className='portfolio'
               target='_blank'
+              rel='noreferrer'
               href='https://bcs40.vercel.app/05-professional-portfolio'>
               <h3 className='portfolio-header'>Code Refactor</h3>
               <p className='portfolio-text'>Accessiblility Driven Codebase</p>
@@ -93,13 +94,14 @@ export default function LandingPage() {
             <a
               className='portfolio'
               target='_blank'
+              rel='noreferrer'
               href='https://bcs40.vercel.app/04-css-snippet-cheatsheet/'>
               <h3 className='portfolio-header'>CSS Snippet Cheat Sheet</h3>
               <p className='portfolio-text'>Responsive Design</p>
               <img
                 className='portfolio-image'
                 src={ScreenshotCSSSnippetCheatsheet}
-                alt='image of HTML work'
+                alt='HTML work'
               />
             </a>
           </section>
@@ -127,11 +129,13 @@ export default function LandingPage() {
                   type='text'
                   placeholder='Email'
                 />
-                <a
-                  href='/'
-                  className='btn'>
+                <button
+                  className='btn'
+                  onClick={(e) => {
+                    e.preventDefault()
+                  }}>
                   Submit
-                </a>
+                </button>
               </form>
             </div>
           </section>

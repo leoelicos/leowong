@@ -101,6 +101,11 @@
   display: inline;
   padding: 6px;
 }
+.app-02 button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .app-02 a {
   text-decoration: none;
   color: black;

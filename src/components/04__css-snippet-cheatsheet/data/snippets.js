@@ -10,7 +10,7 @@ const snippets = [
   },
   {
     title: 'Flexbox Column',
-    description: 'se this to create a flexbox column layout.',
+    description: 'Use this to create a flexbox column layout.',
     code: `.column {
       display: flex;
       flex-direction: column;

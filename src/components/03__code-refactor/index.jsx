@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
 import articles from './data/articles'
 import benefits from './data/benefits'
+import { Hero } from './images'
 import './style/style.css'
 import useWindowDimensions from './useWindowDimensions'
 
@@ -60,7 +61,9 @@ export default function CodeRefactor() {
         </ul>
 
         <main>
-          <section id='hero'></section>
+          <section
+            id='hero'
+            style={{ backgroundImage: `url(${Hero})` }}></section>
           <div className='sections'>
             <section id='content'>
               {articles.map(({ id, imgSrc, imgAlt, heading, paragraph }) => {

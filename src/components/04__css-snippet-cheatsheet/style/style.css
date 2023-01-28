@@ -1,0 +1,145 @@
+/* font from Google */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* custom variables */
+.app-04 {
+  --bg-color: #333940;
+  --header-heading-color: rgb(232, 102, 236);
+  --header-text-color: #ffffff;
+  --card-header-color: rgb(232, 102, 236);
+  --card-header-bg-color: #333940;
+  --card-text-color: rgb(232, 102, 236);
+  --card-code-color: #ffffff;
+  --card-border-color: #ffffff;
+  --card-header-border-color: #ffffff;
+  --footer-text-color: rgb(232, 102, 236);
+}
+/* universal selector */
+.app-04 {
+  background-color: var(--bg-color);
+}
+
+.app-04 .body {
+  width: 100%;
+  height: 100vh;
+  display: flex; /* body is flexbox */
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding: 0 1rem;
+  font-family: Muli, 'Arial', 'sans-serif';
+}
+.app-04 header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+  margin-top: 3rem;
+}
+.app-04 main {
+  width: 100%;
+  max-width: 1200px;
+  padding-top: 1rem;
+  /* card container is a grid */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  column-gap: 1rem;
+  row-gap: 2rem;
+  margin-top: 3rem;
+}
+
+.app-04 footer {
+  margin-top: 2rem;
+  color: var(--footer-text-color);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-04 header h1 {
+  margin: 0 auto 1rem auto;
+  font-size: 20px;
+  color: var(--card-header-color);
+}
+.app-04 header p {
+  font-size: 12px;
+  color: var(--header-text-color);
+  margin: 0px auto;
+}
+
+/* Flexbox */
+.app-04 .code-card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+
+  border: 1px dashed white;
+  padding: 0.5rem;
+}
+/* Effects */
+.app-04 .code-card .card-header {
+  border-radius: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+.app-04 .code-card:hover,
+.app-04 .code-card:hover .card-header {
+  box-shadow: inset 0px 0px 0.5rem rgba(232, 102, 236, 1), 0 0 15px rgba(232, 102, 236, 1);
+}
+/* Linear Gradients */
+.app-04 .linear-gradient-background {
+  background-image: linear-gradient(rgba(232, 102, 236, 0.3) 0%, rgba(232, 102, 236, 0.6) 100%);
+}
+/* Overlay Card with Title */
+.app-04 .card-header {
+  margin-top: -1.5rem;
+  border: 1px solid var(--card-header-border-color);
+
+  padding: 2px 5px;
+  background-color: var(--card-header-bg-color);
+  color: var(--card-header-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+.app-04 .card-text {
+  font-size: 12px;
+  margin: 10px 0;
+  color: var(--card-text-color);
+}
+.app-04 .card-code {
+  flex: 1;
+  padding: 5px;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  justify-content: center;
+  white-space: pre-line;
+  user-select: all;
+  color: var(--card-code-color);
+}
+
+.app-04 pre::selection {
+  background-color: #47cdb5;
+}
+
+@media screen and (max-width: 991px) {
+  .app-04 .code-card {
+    width: 46%;
+  }
+}
+
+@media screen and (max-width: 747px) {
+  .app-04 .code-card {
+    max-width: 350px;
+    width: 100%;
+  }
+}
+
+.app-04 .alert {
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+}

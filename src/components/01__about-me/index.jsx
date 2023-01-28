@@ -1,6 +1,10 @@
 import './style/style.css'
 import Earthswell from './img/earthswell-clBQhoQ7yqU-unsplash.jpg'
+
 export default function AboutMe() {
+  const handleClickGithub = () => {
+    window.location.href = 'https://github.com/leoelicos'
+  }
   return (
     <div className='app-01'>
       <div className='body'>
@@ -19,10 +23,13 @@ export default function AboutMe() {
           <p>My dream job is to work for a web development company.</p>
         </section>
 
-        <footer id='footer'>
+        <footer
+          id='footer'
+          className='link-to-github'
+          onClick={handleClickGithub}>
           <ul className='social'>
             <li>
-              <a href='http://www.github.com/leoelicos'>Github</a>
+              <button>Github</button>
             </li>
           </ul>
         </footer>

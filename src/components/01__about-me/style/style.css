@@ -2,6 +2,10 @@
   color: #222222;
   font-size: 1em;
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .app-01 .content-footer,
@@ -11,8 +15,7 @@
 }
 
 .app-01 .masthead {
-  padding: 6em 0;
-  background-image: url('../img/earthswell-clBQhoQ7yqU-unsplash.jpg');
+  padding: 1rem 0;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -36,7 +39,6 @@
   max-width: 38em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2em;
 }
 
 .app-01 .details > p {
@@ -51,18 +53,26 @@
 }
 
 .app-01 section > h1 {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
-.app-01 #footer {
+.app-01 footer {
   padding: 20px 0;
   text-align: center;
-  background-color: #111111;
+  background-color: rgb(17, 17, 17);
   text-decoration: none;
+  cursor: pointer;
 }
-
-.app-01 #footer a {
+.app-01 footer:hover {
+  background-color: rgba(17, 17, 17, 0.9);
+}
+.app-01 footer:active {
+  background-color: rgba(17, 17, 17, 0.8);
+}
+.app-01 footer button {
   color: #ffffff;
+  background-color: transparent;
+  border: none;
 }
 .app-01 .social > li {
   display: inline-block;

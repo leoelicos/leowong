@@ -1,9 +1,12 @@
 import './style/style.css'
+import Earthswell from './img/earthswell-clBQhoQ7yqU-unsplash.jpg'
 export default function AboutMe() {
   return (
-    <div className='app-00'>
+    <div className='app-01'>
       <div className='body'>
-        <header className='masthead'>
+        <header
+          className='masthead'
+          style={{ backgroundImage: `url(${Earthswell})` }}>
           <p className='masthead-intro'>Hi I'm</p>
           <h1 className='masthead-heading'>Leo Wong</h1>
         </header>

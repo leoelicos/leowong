@@ -1,169 +1,224 @@
-/*************
- * Universal * 
- *************/
+.app-03 {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body:has(.app-03) {
+  overflow-x: hidden;
+}
+.app-03 .body {
+  background-color: #d9dcd6;
 
-* {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/********
- * Body *
- ********/
-
-body {
-	background-color: #d9dcd6;
+.app-03 header {
+  padding: 4px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif;
+  background-color: #2a607c;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
 }
 
-/**********
- * Header *
- **********/
-
-header {
-	padding: 20px;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif; /* font stack for the name of the company */
-	background-color: #2a607c; /* dark color for good contrast to text*/
-	color: #ffffff; /* light color for good contrast to background */
+/* menu */
+.app-03 header .hamburger {
+  /* override normalize */
+  background-color: transparent;
+  border: none;
+  /* button properties */
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+}
+.app-03 .hamburger.hide,
+.app-03 nav.hide {
+  display: none;
+}
+.app-03 ul.menu {
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif;
+  margin: 0;
+  background-color: rgba(42, 96, 124, 0.9);
+  width: 100%;
+  list-style-type: none;
+  /* position */
+  position: absolute;
+  top: 64px;
+  right: 0px;
+  transform: translateX(0%);
+  transition: transform 0.2s ease-in;
+}
+.app-03 ul.menu.hide {
+  transform: translateX(100%);
+  transition: transform 0.2s ease-in;
+}
+.app-03 ul.menu li {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+}
+.app-03 ul.menu li::after {
+  content: '\f054';
+  font-family: 'Font Awesome 5 Free';
+}
+.app-03 ul.menu li a {
+  padding: 1rem 0;
+  color: white;
+  text-decoration: none;
+}
+.app-03 ul.menu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-h1 {
-	display: inline-block; /* to align the name of the website at the same level as the links*/
-	font-size: 48px; /* big text for the name of the company*/
+.app-03 header h1 {
+  margin: 0;
+  font-size: 48px;
 }
 
-.seo {
-	color: #d9dcd6; /* darken 'seo' to stand out from other letters in 'Horiseo' */
+.app-03 .seo {
+  color: #d9dcd6;
 }
 
-nav {
-	/* area for links */
-	padding-top: 15px;
-	margin-right: 20px;
-	float: right;
-	font-size: 20px; /* medium size for links */
+.app-03 nav {
+  padding-top: 15px;
+  margin-right: 20px;
+  float: right;
+  font-size: 20px;
 }
 
-nav ul {
-	list-style-type: none;
+.app-03 nav ul {
+  list-style-type: none;
 }
 
-nav ul li {
-	display: inline-block; /* links appear in a line */
-	margin-left: 25px; /* space between links */
+.app-03 nav ul li {
+  display: inline-block;
+  margin-left: 25px;
 }
 
-nav ul li a {
-	color: #ffffff;
-	text-decoration: none;
+.app-03 nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
-/***********************************
- * Big Image of the Office Workers *
- ***********************************/
-
-#hero {
-	height: 800px;
-	width: 100%;
-	margin-bottom: 25px;
-	background-image: url('../images/digital-marketing-meeting.jpg'); /* a stock image of a digital marketing meeting */
-	background-size: cover; /* resize image to fit width of viewport */
-	background-position: center; /* position image in the center of viewport */
+.app-03 #hero {
+  height: 800px;
+  width: 100%;
+  margin-bottom: 25px;
+  background-image: url('../images/digital-marketing-meeting.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-/*****************************************************
- * Content: The three long panels at the bottom left *
- *****************************************************/
-
-#content {
-	/* the container around the panels */
-	width: 75%; /* make the area fill most of the screen width */
-	display: inline-block;
-	margin-left: 20px;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	/* font stack for the content */
+.app-03 #content {
+  flex-basis: 80%;
+  display: inline-block;
+  margin-left: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#content article {
-	/* the articles */
-	margin-bottom: 20px;
-	padding: 50px;
-	height: 300px;
-	background-color: #0072bb; /* darker blue background for description*/
-	color: #ffffff; /* white text for description */
+.app-03 #content article {
+  margin-bottom: 20px;
+  padding: 30px;
+  background-color: #0072bb;
+  color: #ffffff;
+  border-radius: 4px;
+  display: flex;
 }
 
-#content img {
-	/* the 3 images inside the articles */
-	max-height: 200px; /* stop the image from growing too much on big screens */
+.app-03 #content img {
+  max-height: 200px;
+  object-fit: cover;
+  object-position: top;
 }
-/* select articles 1 and 3 */
-#content article:nth-child(odd) img {
-	float: left;
-	margin-right: 25px;
+.app-03 #content article:nth-child(odd) img {
+  order: 1;
 }
-/* select article 2 */
-#content article:nth-child(even) img {
-	float: right;
-	margin-left: 25px;
+.app-03 #content article:nth-child(even) img {
+  order: -1;
 }
 
-#content h2 {
-	margin-bottom: 20px;
-	font-size: 36px; /* make content headings slightly larger than context text */
+.app-03 #content h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
 }
 
-#content p {
-	font-size: 16px; /* content text size */
+.app-03 #content p {
+  font-size: 16px;
 }
 
-/***************************************************
- * Benefits: The vertical area at the bottom right *
- ***************************************************/
-
-#benefits {
-	/* container for vertical area */
-	margin-right: 20px;
-	padding: 20px;
-	float: right;
-	width: 20%;
-	background-color: #2589bd; /* a slightly lighter blue color than the contents */
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* font stack for the benefits text */
+.app-03 #benefits {
+  flex-basis: 20%;
+  margin: 0 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-#benefits article {
-	/* containers for each article */
-	margin-bottom: 32px;
-	color: #ffffff;
+.app-03 #benefits article {
+  margin-bottom: 32px;
+  color: #ffffff;
+  background-color: #2589bd;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#benefits h3 {
-	/* headings for each article */
-	margin-bottom: 10px;
-	text-align: center;
+.app-03 #benefits h3 {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-#benefits img {
-	/* icons for each benefit */
-	display: block; /* have just the icon on the line */
-	margin: 10px auto;
-	max-width: 150px; /* don't let the image get too big in larger screens */
+.app-03 #benefits img {
+  display: block;
+  margin: 0;
+  max-width: 150px;
 }
 
-#benefits p {
-	font-size: 16px; /* benefits text size */
+.app-03 #benefits p {
+  font-size: 16px;
 }
 
-/**********
- * Footer *
- **********/
-
-footer {
-	padding: 30px;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif; /* use the same font family as we did for the header */
-	text-align: center; /* position the footer text in the middle of the footer*/
+.app-03 footer {
+  padding: 30px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans-serif;
+  text-align: center;
 }
 
-footer h2 {
-	font-size: 20px; /* use a slightly larger size than the paragraph text*/
+.app-03 footer h2 {
+  font-size: 20px;
+}
+
+.app-03 .sections {
+  display: flex;
+}
+
+@media screen and (width < 1174px) {
+  .sections {
+    flex-direction: column;
+  }
+  .app-03 #content,
+  .app-03 #benefits {
+    flex-basis: 100%;
+    margin: 0;
+    padding: 0 20px !important;
+  }
+  .app-03 #benefits {
+    display: flex;
+    padding: 0;
+    float: none !important;
+  }
+  .app-03 #content article {
+    flex-direction: column;
+  }
+  .app-03 #content article img {
+    order: 1 !important;
+  }
+  .app-03 #benefits article {
+    flex-direction: row;
+  }
 }

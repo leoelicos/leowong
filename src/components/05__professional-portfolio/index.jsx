@@ -528,7 +528,8 @@ export default function ProfessionalPortfolio() {
           onClick={() => {
             window.location.href = '/05-professional-portfolio#top'
           }}>
-          Back to Top <FontAwesomeIcon icon={faArrowUp} />
+          Back to Top&nbsp;
+          <FontAwesomeIcon icon={faArrowUp} />
         </footer>
       </div>
     </div>

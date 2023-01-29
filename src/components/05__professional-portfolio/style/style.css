@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-.app-05 {
+html:has(.app-05) {
   /* recycled colors */
   --sky-yellow: rgb(255, 242, 204);
   --primary-color: rgb(255, 255, 255);
@@ -49,7 +49,7 @@
   font-family: var(--font);
 }
 
-.app-05 {
+html:has(.app-05) {
   scroll-behavior: smooth; /* for smoother scrolling */
   background: var(--body-bg-color) url(../images/bg/mountain.png) center center/cover no-repeat fixed;
 }

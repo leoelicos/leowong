@@ -564,7 +564,7 @@
   width: 100%;
   color: var(--footer-color);
   cursor: pointer;
-  font-size: 12px;
+  font-size: 1rem;
   padding: 1rem 0;
   display: flex;
   flex-flow: row wrap;
@@ -574,10 +574,7 @@
   transform: translate3d(0, 0, 0);
   z-index: 9;
   background-color: white;
-  border-radius: 1vh;
   margin: 0 0.5vmin;
-  padding: 0.5vmin;
-  font-size: 1.5vmin;
   font-family: var(--font);
 }
 .app-05 footer:hover {

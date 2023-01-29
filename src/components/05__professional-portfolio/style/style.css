@@ -1,0 +1,592 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+html:has(.app-05) {
+  /* recycled colors */
+  --sky-yellow: rgb(255, 242, 204);
+  --primary-color: rgb(255, 255, 255);
+  --secondary-color: rgb(0, 0, 0);
+  --darkgreen: rgba(0, 60, 0, 1);
+
+  /* Background Colors */
+  --body-bg-color: var(--sky-yellow);
+  --nav-bg-color: rgba(255, 255, 255, 0.3);
+  --main-bg-color: var(--sky-yellow);
+  --contentheader-bg-color: var(--darkgreen);
+  --content-bg-color: rgba(255, 255, 255, 0.95);
+  --btnwrapper-bg-color: rgba(255, 255, 255, 0.8);
+  --btnwrapper-hover-color: rgba(0, 0, 0, 0.5);
+  --anchor-past-project-bg-color: var(--primary-color);
+  --form-bg-color: rgba(11, 95, 22, 1);
+  --input-bg-color: rgba(255, 255, 255, 0.5);
+
+  /* Text Colors */
+  --box-color: var(--primary-color);
+  --content-color: rgb(100, 80, 20);
+  --hashtags-color: rgb(0, 60, 0);
+  --anchor-color: var(--secondary-color);
+  --anchor-textshadow: rgba(255, 255, 255, 0.3);
+  --caret-color: var(--primary-color);
+  --footer-color: rgba(0, 0, 0, 0.5);
+
+  /* Border Colors */
+  --contentheader-border-color: var(--primary-color);
+  --content-border-color: var(--primary-color);
+  --avatar-border-color: var(--btnwrapper-bg-color);
+  --icon-border-color: var(--secondary-color);
+  --anchor-boxshadow: var(--primary-color);
+  --anchor-past-project-border-color: var(--primary-color);
+  --input-border-color: var(--primary-color);
+
+  /* Font */
+  --font: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.app-05 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  font-family: var(--font);
+}
+
+html:has(.app-05) {
+  scroll-behavior: smooth; /* for smoother scrolling */
+  background: var(--body-bg-color) url(../images/bg/mountain.png) center center/cover no-repeat fixed;
+}
+
+.app-05 .body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+
+  /* set a color to appear in the background, when the screen height is a lot smaller than width in landscape orientation */
+
+  display: flex; /* flex the sections so that on oversize screens the content centers */
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-05 .body > header {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+.app-05 nav {
+  margin: auto;
+
+  position: fixed;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  background-color: var(--darkgreen);
+  border-radius: 1vh;
+  padding: 4px;
+}
+
+.app-05 nav a {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 1vh;
+  margin: 0 2px;
+  padding: 4px;
+  font-size: 10px + 1vh;
+  font-family: var(--font);
+}
+
+.app-05 nav a:hover {
+  background-color: white;
+  color: var(--darkgreen);
+}
+
+.app-05 main {
+  /* limit the width by the scrolling images' original imagesize ratio (1499 x 842) so it doesn't skew the car's shape on the page */
+  max-width: calc(100vh * 2.33);
+}
+
+.app-05 figure {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-05 figure img {
+  align-self: center;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.app-05 #bg-mountain {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 0;
+}
+.app-05 #bg-motorway {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 1;
+  cursor: pointer;
+}
+.app-05 #bg-life {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 2;
+}
+
+.app-05 #bg-car {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 3;
+}
+
+.app-05 section,
+.app-05 article {
+  width: 100%;
+}
+
+.app-05 .scrolling {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 6;
+  /* flex parent so articles align in a column */
+  display: flex;
+  flex-flow: column; /* small screens under 576px only */
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.app-05 .about-me {
+  padding: 1vh;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 7;
+  background-color: rgba(0, 0, 0, 0.479);
+  max-height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app-05 .about-me .box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-05 .about-me .content {
+  padding: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-05 .about-me .content.icons {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.app-05 .about-me .content.icons > *:hover {
+  animation: around-the-world 0.3s ease-in;
+}
+
+.app-05 .about-me h1 {
+  font-size: calc(16px + 1vh);
+}
+.app-05 .about-me h3 {
+  font-size: calc(12px + 1vh);
+}
+.app-05 .about-me .hashtag {
+  font-size: calc(8px + 1vh);
+  padding: 0;
+}
+.app-05 .about-me .label {
+  font-size: calc(8px + 1vh);
+}
+
+.app-05 .about-me .content h3 {
+  margin: 0;
+}
+
+.app-05 .about-me .avatar {
+  height: 20vh;
+  border-radius: 50%;
+}
+
+.app-05 .about-me .avatar:hover {
+  animation: around-the-world 0.3s ease-in;
+}
+
+.app-05 .icon {
+  width: 30%;
+  height: 100%;
+  border: 1px solid var(--nav-bg-color); /* add a little shade behind icons */
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s linear;
+}
+
+.app-05 .icon img {
+  height: 6vh;
+}
+
+/* glow and enlarge on hover */
+.app-05 .icon:hover {
+  box-shadow: inset 0 0 2px var(--anchor-boxshadow), 0 0 10px var(--anchor-boxshadow);
+  transform: scale(1.02);
+  transition: transform 0.3s linear;
+}
+
+.app-05 .icon .image {
+  margin-bottom: 1vh;
+}
+
+.app-05 a,
+.app-05 a:visited,
+.app-05 a:active,
+.app-05 a:hover {
+  text-decoration: none;
+  color: var(--anchor-color);
+  transition: box-shadow 0.3s;
+}
+
+/* Articles */
+
+.app-05 .articles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2vmin;
+}
+
+.app-05 .articles .box {
+  margin-bottom: 1vmin;
+}
+
+.app-05 .articles .box {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  z-index: 8;
+  max-width: 800px;
+  font-family: var(--font);
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--box-color);
+}
+@media screen and (max-width: 768px) {
+  .app-05 .scrolling {
+    width: 90%;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .app-05 .scrolling {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .app-05 .about-me {
+    width: 50%;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+  .app-05 .articles {
+    width: 50%;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .app-05 .about-me {
+    width: 33%;
+  }
+  .app-05 .articles {
+    width: 66%;
+  }
+  .app-05 .articles .box {
+    width: 45%;
+  }
+}
+
+.app-05 .box p {
+  font-size: 16px;
+}
+
+.app-05 .content-header {
+  width: 100%;
+  background-color: var(--contentheader-bg-color);
+  border: 4px solid var(--contentheader-border-color);
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.4rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  color: var(--box-color);
+}
+
+.app-05 .content-header h1 {
+  font-size: 1.5rem;
+  margin: 0.3rem 0;
+}
+.app-05 .content-header h3 {
+  font-size: 1.25rem;
+}
+
+.app-05 .content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  justify-content: center;
+}
+
+.app-05 .content {
+  background-color: var(--content-bg-color);
+  border-top: 4px solid var(--content-border-color);
+  border-bottom: 4px solid var(--content-border-color);
+  color: var(--content-color);
+  padding: 0.6rem;
+  margin: 0.3rem 0;
+  width: 100%;
+}
+
+.app-05 .content h3 {
+  margin: 0.3rem 0;
+}
+
+.app-05 .content-image {
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: top;
+  width: 90%;
+  max-width: 300px;
+}
+
+.app-05 .content-image:hover {
+  animation: around-the-world 0.3s ease-in;
+}
+
+.app-05 .hashtags {
+  font-size: 12px;
+}
+
+.app-05 .hashtag {
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center; /* when they wrap on smaller screens */
+  color: var(--hashtags-color);
+  position: relative;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  margin: 0.15rem 0.3rem;
+}
+
+.app-05 .code-links {
+  margin-bottom: 0.3rem;
+  padding: 1vh 0;
+}
+
+.app-05 .repo,
+.app-05 .deployed {
+  border-radius: 0.6rem;
+  padding: 1vh 1vw;
+
+  line-height: 2;
+  cursor: pointer;
+}
+.app-05 .repo:hover,
+.app-05 .deployed:hover {
+  box-shadow: inset 0 0 2px var(--anchor-boxshadow), 0 0 10px var(--anchor-boxshadow);
+  transform: scale(1.02);
+  transition: transform 0.3s linear;
+  outline: none;
+}
+.app-05 .repo {
+  background-color: rgb(65, 161, 137);
+}
+.app-05 .deployed {
+  background-color: rgb(255, 255, 41);
+}
+
+.app-05 .btn-wrapper {
+  background-color: var(--btnwrapper-bg-color);
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  padding: 0.6rem;
+  margin: 0.3rem 0;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+.app-05 .btn-wrapper:hover {
+  transform: scale(0.98);
+  transition: transform 0.5s linear;
+  background-color: var(--btnwrapper-hover-color);
+  cursor: pointer;
+  position: relative;
+}
+.app-05 .btn:focus {
+  outline: 0;
+}
+
+.app-05 #portfolio-signature img {
+  width: 100% !important;
+  max-width: 350px;
+}
+
+@keyframes around-the-world {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.app-05 .anchor-past-project {
+  width: 90%;
+}
+
+.app-05 #contact {
+  width: 100% !important;
+}
+.app-05 form {
+  background-color: var(--form-bg-color);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 5px;
+
+  /* grid 2x3 to align labels and forms */
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-auto-rows: min-content;
+  gap: 1rem 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-05 label {
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.app-05 input {
+  background-color: var(--input-bg-color);
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 2px solid var(--input-border-color);
+  border-radius: 5px 5px 0 0;
+
+  text-align: left;
+  font-family: var(--font);
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .app-05 form {
+    padding: 0.3rem;
+    gap: 0.3rem;
+  }
+  .app-05 label {
+    grid-column: span 2;
+    text-align: center;
+    justify-content: center;
+    padding-left: 0;
+  }
+  .app-05 input {
+    grid-column: span 2;
+    text-align: center;
+    justify-content: center;
+  }
+  .app-05 .btn-wrapper {
+    padding: 0.3rem;
+    margin: 0.1rem 0;
+  }
+}
+
+.app-05 input[type='submit'] {
+  border-radius: 0;
+}
+
+.app-05 input:focus-visible {
+  outline: none;
+}
+
+.app-05 input,
+.app-05 textarea {
+  caret-color: var(--caret-color);
+}
+
+.app-05 #label-send {
+  grid-column: span 2;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.app-05 footer {
+  width: 100%;
+  color: var(--footer-color);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 9;
+  background-color: white;
+  margin: 0 0.5vmin;
+  font-family: var(--font);
+}
+.app-05 footer:hover {
+  background-color: var(--darkgreen);
+  color: white;
+}
+
+.app-05 ::-webkit-scrollbar {
+  display: none;
+}
+
+.app-05 .body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

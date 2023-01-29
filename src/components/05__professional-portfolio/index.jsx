@@ -94,7 +94,10 @@ export default function ProfessionalPortfolio() {
                     rel='noreferrer'
                     href='https://drive.google.com/file/d/1h8cJZCP00_rwluAvS5hHzIPyXsKbvkZm/view?usp=sharing'>
                     <p class='image download'>
-                      <FontAwesomeIcon icon={faArrowAltCircleDown} />
+                      <FontAwesomeIcon
+                        style={{ fontSize: '6vh' }}
+                        icon={faArrowAltCircleDown}
+                      />
                     </p>
                     <p class='label'>Resume</p>
                   </a>

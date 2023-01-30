@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.app-06 .body {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: wheat;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* padding: 1rem; */
+}
+
+.app-06 .instruction {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive;
+}
+
+.app-06 .game-container {
+  max-width: 900px;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.app-06 .game-container button {
+  width: 150px;
+  height: 150px;
+  transition: flex-basis 0.3s ease-in-out;
+  padding: 1rem;
+  cursor: pointer;
+  /* override button defaults */
+  background-color: gray;
+  color: wheat;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+}
+
+.app-06 .game-container button:hover {
+  /* opacity of background color */
+  opacity: 0.9;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.app-06 .game-container button::after {
+  box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.85);
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.app-06 .game-container button:not(.computer):hover::after {
+  /* opacity of box shadow */
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.app-06 .game-container button:active {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.app-06 .game-container button svg {
+  font-size: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .app-06 .game-container button {
+    width: 100px;
+    height: 100px;
+  }
+  .app-06 .game-container button svg {
+    font-size: 60px;
+  }
+  .app-06 .instruction {
+    font-size: 1rem;
+  }
+}
+
+.app-06 .active > * > svg {
+  color: black;
+}
+
+.app-06 .game-container button.computer {
+  background-color: transparent;
+  cursor: default;
+}
+.app-06 .game-container button.computer.active > * > svg {
+  color: black;
+}

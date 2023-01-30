@@ -19,10 +19,20 @@ export default function RockPaperScissors() {
   const [playerChoice, setPlayerChoice] = useState(undefined)
   const [computerChoice, setComputerChoice] = useState(undefined)
   const [win, setWin] = useState(undefined)
-  const [tally, setTally] = useState({ wins: 0, losses: 0, tally: 0 })
+  const [tally, setTally] = useState({ playerWins: 0, computerWins: 0, draws: 0 })
   const rotateTimer = useRef(null)
-  const handleChoice = (choice) => {
-    setPlayerChoice(choice)
+  const [isRotating, setIsRotating] = useState(false)
+  const handleChoice = (playerChoice) => {
+    setIsRotating(true)
+    setPlayerChoice(playerChoice)
+    const computerChoice = choices[Math.floor(Math.random() * 3)].id
+    let win = judge(playerChoice, computerChoice)
+    let newTally =
+      win === 'draw' //
+        ? { ...tally, draws: tally.draws + 1 }
+        : win === 'player'
+        ? { ...tally, playerWins: tally.playerWins + 1 }
+        : { ...tally, computerWins: tally.computerWins + 1 }
 
     rotateTimer.current = setInterval(() => {
       setComputerChoice((prev) => (prev === undefined || prev === 'scissors' ? 'rock' : prev === 'rock' ? 'paper' : 'scissors'))
@@ -30,20 +40,10 @@ export default function RockPaperScissors() {
 
     setTimeout(() => {
       clearInterval(rotateTimer.current)
-      let computerChoice = choices[Math.floor(Math.random() * 3)].id
       setComputerChoice(computerChoice)
-      let win = undefined
-      if (computerChoice === choice) {
-        win = 'draw'
-      } else if (
-        (computerChoice === 'rock' && playerChoice === 'scissors') || //
-        (computerChoice === 'paper' && playerChoice === 'rock') ||
-        (computerChoice === 'scissors' && playerChoice === 'paper')
-      )
-        win = 'computer'
-      else win = 'player'
-
       setWin(win)
+      setTally(newTally)
+      setIsRotating(false)
     }, 1000)
   }
   return (
@@ -51,11 +51,12 @@ export default function RockPaperScissors() {
       <div className='body'>
         <section className='instruction'>Choose wisely</section>
         <section className='game-container'>
-          {choices.map(({ icon, id }, i) => (
+          {choices.map(({ icon, id }) => (
             <button
               key={id}
               className={id === playerChoice ? 'active' : ''}
               onClick={() => {
+                if (isRotating) return
                 handleChoice(id)
               }}>
               <div className='icon-wrapper'>
@@ -83,6 +84,8 @@ export default function RockPaperScissors() {
             : win === 'draw'
             ? 'Draw'
             : ''}
+          <br />
+          {`${tally.playerWins} wins, ${tally.computerWins} losses, ${tally.draws} draws`}
         </section>
       </div>
     </div>

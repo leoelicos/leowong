@@ -35,6 +35,16 @@
   background-color: var(--c5);
 }
 
+.toc .link.finished {
+  background-color: hsl(113, 100%, 13%);
+}
+.toc .link.finished:hover {
+  background-color: hsl(113, 100%, 23%);
+}
+.toc .link.finished:active {
+  background-color: hsl(113, 100%, 33%);
+}
+
 .toc .link:hover {
   background-color: var(--c3);
 }

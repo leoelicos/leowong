@@ -7,24 +7,15 @@ function Toc() {
     <div className='toc'>
       <div className='body'>
         <section className='link-container'>
-          {list.map(({ name, link }) => {
-            if (name === 'break')
-              return (
-                <Link
-                  key='break'
-                  to={null}
-                  className='link break'
-                />
-              )
-            else
-              return (
-                <Link
-                  key={name}
-                  to={link}
-                  className='link'>
-                  {name.replace(' ', '\n')}
-                </Link>
-              )
+          {list.map(({ name, link, finished }) => {
+            return (
+              <Link
+                key={name}
+                to={link}
+                className={`link ${finished ? 'finished' : ''}`}>
+                {name.replace(' ', '\n')}
+              </Link>
+            )
           })}
         </section>
       </div>

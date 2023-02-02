@@ -1,3 +1,10 @@
+import './assets/css/body.css'
+import './assets/css/footer.css'
+import './assets/css/header.css'
+import './assets/css/main.css'
+
+import Elephant from './assets/images/elephantOrange.png'
+
 export default function WordGuess() {
   return (
     <div className='app-08'>
@@ -5,7 +12,7 @@ export default function WordGuess() {
         <header>
           <div className='logo'>
             <img
-              src='./assets/images/elephantOrange.png'
+              src={Elephant}
               alt='elephant logo'
             />
           </div>

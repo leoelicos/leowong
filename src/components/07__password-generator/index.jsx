@@ -30,8 +30,13 @@ export default function PasswordGenerator() {
     setSlider(newValue)
   }
   const handleClickGenerate = () => {
-    console.log('generating')
-    console.log({ options, slider })
+    const characters = slider
+    const randomNumbers = options[2]
+    const randomUpperLetters = options[1]
+    const randomLowerLetters = options[0]
+    const randomSymbols = options[3]
+    let p = getPassword(characters, randomNumbers, randomUpperLetters, randomLowerLetters, randomSymbols)
+    setPassword(p)
   }
   return (
     <Layout>
@@ -72,6 +77,7 @@ export default function PasswordGenerator() {
               Generate Password
             </Button>
             <TextArea
+              autoSize={true}
               onClick={async () => {
                 try {
                   await navigator.clipboard.writeText(password)
@@ -81,6 +87,9 @@ export default function PasswordGenerator() {
                 }
               }}
               value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
               placeholder='Your Secure Password'
               aria-label='Generated Password'
               style={{ cursor: 'pointer', resize: 'none' }}></TextArea>

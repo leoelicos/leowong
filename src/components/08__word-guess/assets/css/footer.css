@@ -1,0 +1,78 @@
+/* tally panel showing Wins and Losses */
+
+.app-08 .tally button {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: inline;
+  height: 62px;
+  margin: 6px 6px 11px 6px;
+  padding: 6px 12px;
+
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  text-align: left;
+
+  color: rgb(248, 249, 250);
+}
+
+.app-08 #button-tally-wins {
+  background-color: hsl(138, 97%, 38%);
+  border: 1px solid rgb(52, 206, 87);
+  box-shadow: rgb(72, 211, 104) 0px 0px 0px 0px, rgb(72, 211, 104) 0px 0px 0px 0px, rgb(72, 211, 104) 0px 1px 0px 0px, rgb(72, 211, 104) 0px 2px 0px 0px, rgb(72, 211, 104) 0px 3px 0px 0px, rgb(72, 211, 104) 0px 4px 0px 0px, rgb(72, 211, 104) 0px 5px 0px 0px, hsl(60, 100%, 80%) 2px 2.5px 4px 0px, hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
+}
+
+.app-08 #button-tally-losses {
+  background-color: hsl(359, 63%, 44%);
+  border: 1px solid hsl(359, 43%, 46%);
+  box-shadow: hsl(359, 43%, 46%) 0px 0px 0px 0px, hsl(359, 43%, 46%) 0px 0px 0px 0px, hsl(359, 43%, 46%) 0px 1px 0px 0px, hsl(359, 43%, 46%) 0px 2px 0px 0px, hsl(359, 43%, 46%) 0px 3px 0px 0px, hsl(359, 43%, 46%) 0px 4px 0px 0px, hsl(359, 43%, 46%) 0px 5px 0px 0px, hsl(60, 100%, 80%) 2px 2.5px 4px 0px, hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
+}
+
+/* footer buttons */
+
+.app-08 .footer-buttons {
+  display: block;
+
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/*  modal */
+
+.app-08 #modal {
+  width: 80%;
+  position: relative;
+  margin: auto;
+  top: -2%;
+
+  color: black;
+
+  z-index: 10;
+  padding-right: 1.5rem;
+}
+
+.app-08 #modal p {
+  padding: 0.6rem;
+  border-radius: 10px;
+  background-color: pink;
+  font-size: 13px;
+}
+
+.app-08 #closeModal {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.app-08 .hide {
+  display: none;
+}
+
+.app-08 .show {
+  display: block;
+}

@@ -1,0 +1,218 @@
+.app-08 .alarm {
+  display: inline-block;
+  transform: rotateX(20deg) rotateY(10deg) rotateZ(2.9deg);
+  background-color: black;
+  color: hsl(0, 0%, 100%);
+  padding: 0.5rem;
+  animation: glow 3s;
+  border-radius: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border: 3px solid hsl(0, 0%, 100%);
+  box-shadow: 7px -6px 0px 0px #b9b6b6, 10px -6px 6px 2px #ece47a;
+}
+
+.app-08 .tile-wrapper {
+  height: 200px;
+  width: 100%;
+  position: relative;
+}
+
+.app-08 .dash,
+.app-08 .tile {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: (0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.app-08 .tile {
+  width: 80px;
+  height: 80px;
+
+  padding: 2px;
+
+  color: white;
+
+  box-shadow: 0 0 #ece47a, 0 0 #ece47a, 0 1px #ece47a, 0 2px #ece47a, 0 3px #ece47a, 0 4px #ece47a, 0 5px #ece47a, 2px 2.5px 4px #fff, 0 -1px 2.5px #fff;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 1s;
+}
+
+.app-08 a.tile,
+.app-08 a.tile:focus,
+.app-08 a.tile:hover {
+  text-decoration: none;
+}
+
+.app-08 .dash {
+  height: 30px;
+  color: dodgerblue;
+  font-size: 4rem;
+}
+
+.app-08 #tile0 {
+  position: absolute;
+  left: 15%;
+  bottom: 15%;
+  background-color: #a7b9f2;
+  transform: translate3d(0, 0, 0) rotate(-4deg);
+  z-index: 5;
+}
+
+.app-08 #tile1 {
+  position: absolute;
+  left: 33%;
+  top: 20%;
+  background-color: #f79a99;
+  transform: translate3d(0, 0, 0) rotate(4deg);
+  z-index: 5;
+}
+
+.app-08 #tile2 {
+  position: absolute;
+  right: 33%;
+  top: 40%;
+  background-color: #77dd77;
+  transform: translate3d(0, 0, 0) rotate(-4deg);
+  z-index: 3;
+}
+
+.app-08 #tile3 {
+  position: absolute;
+  right: 15%;
+  top: 20%;
+  background-color: #ffc078;
+  transform: translate3d(0, 0, 0) rotate(4deg);
+  z-index: 1;
+}
+
+.app-08 .display-wrapper {
+  display: relative;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70%;
+  background-color: white;
+  border-radius: 0.6rem;
+  border: 1px solid gray;
+  padding: 10px 0px;
+  position: relative;
+}
+
+.app-08 input {
+  width: 100%;
+  height: 90%;
+  margin: 0;
+  text-align: center;
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: black;
+  cursor: text;
+}
+.app-08 input::placeholder {
+  color: hsl(25, 84%, 61%);
+}
+.app-08 input:active,
+.app-08 input:focus,
+.app-08 input:focus-within,
+.app-08 input:target,
+.app-08 input:hover,
+.app-08 input:visited,
+.app-08 input:focus-visible {
+  outline: none;
+}
+
+.app-08 input:active::placeholder,
+.app-08 input:focus::placeholder,
+.app-08 input:focus-within::placeholder,
+.app-08 input:target::placeholder,
+.app-08 input:visited::placeholder,
+.app-08 input:focus-visible::placeholder {
+  color: transparent;
+}
+
+.app-08 #guess {
+  position: relative;
+}
+
+.app-08 .small-button {
+  position: absolute;
+  top: 25%;
+  right: 2%;
+}
+.app-08 .small-button img {
+  height: 40px;
+}
+
+.app-08 button:focus-visible {
+  outline: none;
+}
+
+@media screen and (max-width: 585px) {
+  .app-08 #tile0 {
+    left: 10%;
+  }
+
+  .app-08 #tile1 {
+    left: 30%;
+  }
+
+  .app-08 #tile2 {
+    right: 30%;
+  }
+
+  .app-08 #tile3 {
+    right: 10%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .app-08 #tile0 {
+    left: 5%;
+  }
+
+  .app-08 #tile1 {
+    left: 28%;
+  }
+
+  .app-08 #tile2 {
+    right: 28%;
+  }
+
+  .app-08 #tile3 {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .app-08 #tile0 {
+    left: 2%;
+  }
+
+  .app-08 #tile1 {
+    left: 26%;
+  }
+
+  .app-08 #tile2 {
+    right: 26%;
+  }
+
+  .app-08 #tile3 {
+    right: 2%;
+  }
+}

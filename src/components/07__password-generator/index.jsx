@@ -1,6 +1,6 @@
 // import './css/style.css'
-import { Button, Input, message, Layout, Card, Space, Checkbox, Row, Col, Slider, InputNumber } from 'antd'
-import { useState } from 'react'
+import { Button, Input, notification, Layout, Card, Space, Checkbox, Row, Col, Slider, InputNumber } from 'antd'
+import React, { useMemo, useState } from 'react'
 const { Header, Content, Footer } = Layout
 const { TextArea } = Input
 const headerStyle = {
@@ -17,6 +17,9 @@ const footerStyle = {
   color: '#fff',
   backgroundColor: '#7dbcea'
 }
+const Context = React.createContext({
+  name: 'Default'
+})
 export default function PasswordGenerator() {
   const [password, setPassword] = useState('')
   const [options, setOptions] = useState([false, false, false, false])
@@ -38,6 +41,17 @@ export default function PasswordGenerator() {
     let p = getPassword(characters, randomNumbers, randomUpperLetters, randomLowerLetters, randomSymbols)
     setPassword(p)
   }
+  const [api, contextHolder] = notification.useNotification()
+
+  const openNotification = () => {
+    api.info({
+      //
+      message: 'Success!',
+      description: <Context.Consumer>{({ name }) => `${name}`}</Context.Consumer>,
+      placement: 'topLeft'
+    })
+  }
+  const contextValue = useMemo(() => ({ name: 'Password copied to clipboard' }), [])
   return (
     <Layout>
       <Header style={headerStyle}>Password Generator</Header>
@@ -76,23 +90,27 @@ export default function PasswordGenerator() {
               disabled={options.filter((v) => v).length === 0}>
               Generate Password
             </Button>
-            <TextArea
-              autoSize={true}
-              onClick={async () => {
-                try {
-                  await navigator.clipboard.writeText(password)
-                  message.success(`Copied password to clipboard`)
-                } catch (e) {
-                  console.error(e)
-                }
-              }}
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
-              placeholder='Your Secure Password'
-              aria-label='Generated Password'
-              style={{ cursor: 'pointer', resize: 'none' }}></TextArea>
+            <Context.Provider value={contextValue}>
+              {contextHolder}
+              <TextArea
+                autoSize={true}
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(password)
+
+                    openNotification()
+                  } catch (e) {
+                    console.error(e)
+                  }
+                }}
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
+                placeholder='Your Secure Password'
+                aria-label='Generated Password'
+                style={{ cursor: 'pointer', resize: 'none' }}></TextArea>{' '}
+            </Context.Provider>
           </Space>
         </Card>
       </Content>

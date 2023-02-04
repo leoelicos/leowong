@@ -1,0 +1,15 @@
+/* display at the top */
+
+/* Elephant Logo */
+.app-08 .logo img {
+  width: 100px;
+}
+
+/* Kiddle */
+.app-08 h1 {
+  font-family: 'Limelight', cursive;
+  color: #ffff98;
+  font-size: 3.7rem;
+  margin: 0px 0;
+  padding: 0;
+}

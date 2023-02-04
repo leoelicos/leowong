@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './assets/css/body.css'
 import './assets/css/footer.css'
 import './assets/css/header.css'
@@ -8,19 +8,36 @@ import Elephant from './assets/images/elephantOrange.png'
 
 import { getWord } from './data/wordlist'
 
+const useTimer = () => {
+  const [seconds, setSeconds] = useState(0)
+  const timeRef = useRef(null)
+  const startTimer = () => {
+    timeRef.current = setInterval(() => {
+      if (seconds === 0) stopTimer()
+      else return prev - 1
+    }, 1000)
+  }
+
+  const stopTimer = () => {
+    clearInterval(timeRef.current)
+  }
+  const resetTimer = () => {
+    setSeconds(10)
+  }
+  return [seconds, startTimer, stopTimer, resetTimer]
+}
+
 export default function WordGuess() {
+  const [seconds, startTimer, stopTimer, resetTimer] = useTimer()
   const [word, setWord] = useState(null)
-  const [secondsLeft, setSecondsLeft] = useState(null)
   const [finished, setFinished] = useState(true)
   const [buttonMessage, setButtonMessage] = useState('Start')
   const resetWord = () => {
     setWord(getWord())
   }
-  const resetTimer = () => {
-    setSecondsLeft(10)
-  }
+
   useEffect(() => {
-    resetWord()
+    stopTimer()
     resetTimer()
   }, [])
   return (

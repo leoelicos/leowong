@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './assets/css/body.css'
 import './assets/css/footer.css'
 import './assets/css/header.css'
@@ -5,22 +6,27 @@ import './assets/css/main.css'
 
 import Elephant from './assets/images/elephantOrange.png'
 
+import { getWord } from './data/wordlist'
+
 export default function WordGuess() {
+  const [word, setWord] = useState(null)
+  const [secondsLeft, setSecondsLeft] = useState(null)
+  const [finished, setFinished] = useState(true)
+  const [buttonMessage, setButtonMessage] = useState('Start')
+  const resetWord = () => {
+    setWord(getWord())
+  }
+  const resetTimer = () => {
+    setSecondsLeft(10)
+  }
+  useEffect(() => {
+    resetWord()
+    resetTimer()
+  }, [])
   return (
     <div className='app-08'>
       <div className='body'>
-        <header>
-          <div className='logo'>
-            <img
-              src={Elephant}
-              alt='elephant logo'
-            />
-          </div>
-          <div>
-            <h1>KIDDLE</h1>
-          </div>
-        </header>
-
+        <Header />
         <main>
           <section className='alarm-wrapper'>
             <div className='alarm'>
@@ -52,8 +58,15 @@ export default function WordGuess() {
           <section className='start-wrapper'>
             <button
               className='btn'
-              id='button-start-games'>
-              Start
+              id='button-start-games'
+              onClick={(e) => {
+                e.preventDefault()
+                if (!finished) return
+                setFinished(false)
+                resetWord()
+                resetTimer()
+              }}>
+              {buttonMessage}
             </button>
           </section>
         </main>
@@ -93,3 +106,17 @@ export default function WordGuess() {
     </div>
   )
 }
+
+const Header = () => (
+  <header>
+    <div className='logo'>
+      <img
+        src={Elephant}
+        alt='elephant logo'
+      />
+    </div>
+    <div>
+      <h1>KIDDLE</h1>
+    </div>
+  </header>
+)

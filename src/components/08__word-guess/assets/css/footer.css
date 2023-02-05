@@ -47,5 +47,12 @@
 }
 
 .app-08 .modal-start-button {
-   font-size: '1.1rem'; border-radius: '0.5rem'; border-color: '#deebf7'; box-shadow: '0px 1px 3px #ece47a'; color: 'hsl(25; 84%; 61%)'; background-color: '#deebf7'; padding: '0.3rem 1.6rem'; display: 'inline-block' >Start</button>
+  font-size: '1.1rem';
+  border-radius: '0.5rem';
+  border-color: '#deebf7';
+  box-shadow: '0px 1px 3px #ece47a';
+  color: 'hsl(25; 84%; 61%)';
+  background-color: '#deebf7';
+  padding: '0.3rem 1.6rem';
+  display: 'inline-block';
 }

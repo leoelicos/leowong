@@ -9,9 +9,7 @@
 .app-08 .body {
   width: 100vw;
   height: 100vh;
-}
 
-.app-08 .body {
   background-color: #ece47a;
   font-family: sans-serif;
   font-size: 16px;
@@ -29,55 +27,6 @@
 .app-08 footer {
   max-width: 500px;
   min-width: 350px;
-}
-
-.app-08 header {
-  background-color: hsl(25, 84%, 61%);
-  border-top: none;
-  width: 90%;
-  padding: 0.5rem 0;
-  border-radius: 0 0 1rem 1rem;
-
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-}
-
-@media screen and (max-height: 800px) {
-  .app-08 header {
-    flex-direction: row;
-  }
-}
-
-.app-08 main {
-  margin: 1rem 0;
-  background-color: #ffff98;
-
-  border-radius: 1rem;
-  width: 90%;
-  height: 100%;
-
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.app-08 footer {
-  background-color: hsl(25, 84%, 61%);
-
-  border-bottom: none;
-
-  width: 90%;
-  padding: 0.5rem 0;
-
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-evenly;
-
-  border-radius: 1rem 1rem 0 0;
 }
 
 .app-08 button {

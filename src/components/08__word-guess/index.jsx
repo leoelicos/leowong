@@ -167,13 +167,13 @@ const FooterButtons = ({ handleClickResetTally, handleClickHelp, handleClickModa
       }
       bodyStyle={{ fontFamily: 'Montserrat, sans-serif' }}>
       <p>
-        Click <ModalStartButton /> to play.<br />Type the letters to guess the word before the timer hits 0!
+        Click <button className='modal-start-button'>Start</button> to play.
+        <br />
+        Type the letters to guess the word before the timer hits 0!
       </p>
     </Modal>
   </section>
 )
-
-const ModalStartButton = () =>(<button className='modal-start-button'>Start</button>)
 
 const Header = () => (
   <header>

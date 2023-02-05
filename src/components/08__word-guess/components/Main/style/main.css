@@ -1,3 +1,16 @@
+.app-08 main {
+  margin: 1rem 0;
+  background-color: #ffff98;
+
+  border-radius: 1rem;
+  width: 90%;
+  height: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
 .app-08 .alarm {
   display: inline-block;
   transform: rotateX(20deg) rotateY(10deg) rotateZ(2.9deg);

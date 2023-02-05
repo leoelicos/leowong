@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-const useTimer = (endGame) => {
+const useTimer = () => {
   const [seconds, setSeconds] = useState(0)
   const intervalRef = useRef(null)
 
@@ -8,7 +8,6 @@ const useTimer = (endGame) => {
     clearInterval(intervalRef.current)
     intervalRef.current = setInterval(() => {
       setSeconds((prev) => {
-        if (prev === 1) endGame(false)
         return prev - 1
       })
     }, 1000)

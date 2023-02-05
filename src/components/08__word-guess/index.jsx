@@ -44,11 +44,11 @@ export default function WordGuess() {
   /* game logic */
   const startGame = () => {
     started.current = true
+    unguessed.current = getWord().split('')
+    setTiles(['_', '_', '_', '_'])
     setButtonMessage(`Quick! Guess the letters!`)
     resetTimer()
     startTimer()
-    resetUnguessed()
-    resetTiles()
   }
   const endGame = (win) => {
     if (!unguessed.current) return
@@ -73,14 +73,6 @@ export default function WordGuess() {
     })
   }
 
-  const resetUnguessed = () => {
-    unguessed.current = getWord().split('')
-  }
-
-  const resetTiles = () => {
-    setTiles(['_', '_', '_', '_'])
-  }
-
   /* event handlers */
   const handleClickModalOk = () => {
     setIsModalOpen(false)
@@ -88,6 +80,19 @@ export default function WordGuess() {
 
   const handleClickModalCancel = () => {
     setIsModalOpen(false)
+  }
+
+  const handleClickStart = () => {
+    if (started.current) return
+    startGame()
+  }
+
+  const handleClickResetTally = () => {
+    setTally({ wins: 0, losses: 0 })
+  }
+
+  const handleClickHelp = () => {
+    setIsModalOpen(true)
   }
 
   const handleKeyDown = (e) => {
@@ -104,19 +109,6 @@ export default function WordGuess() {
       if (newTile.every((v) => v !== '_')) endGame(true)
       return newTile
     })
-  }
-
-  const handleClickStart = () => {
-    if (started.current) return
-    startGame()
-  }
-
-  const handleClickResetTally = () => {
-    setTally({ wins: 0, losses: 0 })
-  }
-
-  const handleClickHelp = () => {
-    setIsModalOpen(true)
   }
 
   return (

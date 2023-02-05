@@ -1,5 +1,8 @@
 // declare wordlist
 // from https://www.thefreedictionary.com/4-letter-words.htm
+const getWord = () => words[Math.floor(Math.random() * words.length)]
+export { getWord }
+
 let words = [
   'able',
   'acid',
@@ -502,5 +505,3 @@ let words = [
   'zero',
   'zone'
 ]
-const getWord = () => words[Math.floor(Math.random() * words.length)]
-export { getWord }

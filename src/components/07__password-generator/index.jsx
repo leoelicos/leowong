@@ -48,7 +48,8 @@ export default function PasswordGenerator() {
       //
       message: 'Success!',
       description: <Context.Consumer>{({ name }) => `${name}`}</Context.Consumer>,
-      placement: 'topLeft'
+      placement: 'bottomRight',
+      duration: 1
     })
   }
   const contextValue = useMemo(() => ({ name: 'Password copied to clipboard' }), [])
@@ -92,8 +93,20 @@ export default function PasswordGenerator() {
             </Button>
             <Context.Provider value={contextValue}>
               {contextHolder}
+
               <TextArea
                 autoSize={true}
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
+                aria-label='Generated Password'
+                style={{ resize: 'none' }}
+                disabled={password.length === 0}></TextArea>
+              <Button
+                type='primary'
+                style={{ width: '100%' }}
+                disabled={password.length === 0}
                 onClick={async () => {
                   try {
                     await navigator.clipboard.writeText(password)
@@ -102,14 +115,9 @@ export default function PasswordGenerator() {
                   } catch (e) {
                     console.error(e)
                   }
-                }}
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value)
-                }}
-                placeholder='Your Secure Password'
-                aria-label='Generated Password'
-                style={{ cursor: 'pointer', resize: 'none' }}></TextArea>{' '}
+                }}>
+                Copy
+              </Button>
             </Context.Provider>
           </Space>
         </Card>

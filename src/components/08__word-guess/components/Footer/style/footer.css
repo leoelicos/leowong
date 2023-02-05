@@ -1,4 +1,18 @@
-/* tally panel showing Wins and Losses */
+.app-08 footer {
+  background-color: hsl(25, 84%, 61%);
+
+  border-bottom: none;
+
+  width: 90%;
+  padding: 0.5rem 0;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border-radius: 1rem 1rem 0 0;
+}
 
 .app-08 .tally button {
   align-items: flex-start;

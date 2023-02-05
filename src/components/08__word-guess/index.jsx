@@ -2,36 +2,56 @@ import { useEffect, useRef, useState } from 'react'
 import { getWord } from './data/wordlist'
 
 import Body from './components/Body'
-/**/ import Header from './components/Header'
-/**/ import Main from './components/Main'
-/**/ /**/ import Alarm from './components/Main/Alarm.jsx'
-/**/ /**/ import StartButton from './components/Main/StartButton.jsx'
-/**/ /**/ import Tiles from './components/Main/Tiles'
-/**/ import Footer from './components/Footer'
-/**/ /**/ import Tally from './components/Footer/Tally.jsx'
-/**/ /**/ import FooterButtons from './components/Footer/FooterButtons.jsx'
-/**/ /**/ import HelpModal from './components/Footer/HelpModal.jsx'
+import Header from './components/Header'
+import Main from './components/Main'
+import Alarm from './components/Main/Alarm.jsx'
+import StartButton from './components/Main/StartButton.jsx'
+import Tiles from './components/Main/Tiles'
+import Footer from './components/Footer'
+import Tally from './components/Footer/Tally.jsx'
+import FooterButtons from './components/Footer/FooterButtons.jsx'
+import HelpModal from './components/Footer/HelpModal.jsx'
 
 import useTimer from './hooks/useTimer'
 
 export default function WordGuess() {
+  /* state */
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handleClickModalOk = () => {
-    setIsModalOpen(false)
-  }
-  const handleClickModalCancel = () => {
-    setIsModalOpen(false)
-  }
   const [buttonMessage, setButtonMessage] = useState('Start')
   const [tally, setTally] = useState(JSON.parse(localStorage.getItem('tally')))
-  const unguessed = useRef('')
+  const [tiles, setTiles] = useState(['_', '_', '_', '_'])
 
+  /* ref */
+  const unguessed = useRef('')
+  const started = useRef(false)
+
+  /* hooks */
+  const [seconds, startTimer, stopTimer, resetTimer] = useTimer()
+
+  /* effect */
   useEffect(() => {
     if (tally !== null) localStorage.setItem('tally', JSON.stringify(tally))
   }, [tally])
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+  }, [])
+
+  useEffect(() => {
+    if (seconds === 0) endGame(false)
+  }, [seconds])
+
+  /* game logic */
+  const startGame = () => {
+    started.current = true
+    setButtonMessage(`Quick! Guess the letters!`)
+    resetTimer()
+    startTimer()
+    resetUnguessed()
+    resetTiles()
+  }
   const endGame = (win) => {
+    if (!unguessed.current) return
     stopTimer()
     started.current = false
     if (win) {
@@ -44,33 +64,30 @@ export default function WordGuess() {
   }
   const updateTally = (win) => {
     setTally((prev) => {
-      if (prev === null) return win ? { wins: 1, losses: 0 } : { wins: 0, losses: 1 }
-      const newTally = win ? { ...prev, wins: prev.wins + 1 } : { ...prev, losses: prev.losses + 1 }
+      let wins = prev?.wins || 0
+      let losses = prev?.losses || 0
+      if (win) wins++
+      else losses++
 
-      return newTally
+      return { wins, losses }
     })
   }
-  const [seconds, startTimer, stopTimer, resetTimer] = useTimer(endGame)
-  const started = useRef(false)
-  const blankTiles = ['_', '_', '_', '_']
-  const [tiles, setTiles] = useState(blankTiles)
 
   const resetUnguessed = () => {
     unguessed.current = getWord().split('')
-    unguessed.current = 'feet'.split('')
   }
 
   const resetTiles = () => {
-    setTiles(blankTiles)
+    setTiles(['_', '_', '_', '_'])
   }
 
-  const startGame = () => {
-    started.current = true
-    setButtonMessage(`Quick! Guess the letters!`)
-    resetTimer()
-    startTimer()
-    resetUnguessed()
-    resetTiles()
+  /* event handlers */
+  const handleClickModalOk = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleClickModalCancel = () => {
+    setIsModalOpen(false)
   }
 
   const handleKeyDown = (e) => {
@@ -89,10 +106,6 @@ export default function WordGuess() {
     })
   }
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-  }, [])
-
   const handleClickStart = () => {
     if (started.current) return
     startGame()
@@ -101,9 +114,11 @@ export default function WordGuess() {
   const handleClickResetTally = () => {
     setTally({ wins: 0, losses: 0 })
   }
+
   const handleClickHelp = () => {
     setIsModalOpen(true)
   }
+
   return (
     <div className='app-08'>
       <Body>

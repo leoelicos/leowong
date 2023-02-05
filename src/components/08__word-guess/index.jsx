@@ -5,15 +5,15 @@ import './assets/css/body.css'
 import './assets/css/footer.css'
 import './assets/css/header.css'
 import './assets/css/main.css'
-import { Modal } from 'antd'
+import { Modal, Button } from 'antd'
 
 export default function WordGuess() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleOk = () => {
+  const handleClickModalOk = () => {
     setIsModalOpen(false)
   }
-  const handleCancel = () => {
+  const handleClickModalCancel = () => {
     setIsModalOpen(false)
   }
   const [buttonMessage, setButtonMessage] = useState('Start')
@@ -115,35 +115,65 @@ export default function WordGuess() {
             wins={tally?.wins || 0}
             losses={tally?.losses || 0}
           />
-
-          <section className='footer-buttons'>
-            <button
-              className='btn'
-              id='button-reset-games'
-              onClick={handleClickResetTally}>
-              Reset
-            </button>
-            <button
-              className='btn'
-              id='button-help'
-              onClick={handleClickHelp}>
-              ?
-            </button>
-            <Modal
-              title='Instructions'
-              centered
-              open={isModalOpen}
-              okType={'danger'}
-              onOk={handleOk}
-              onCancel={handleCancel}>
-              <p>Click start to play. Type the letters to guess the word before the timer hits 0!</p>
-            </Modal>
-          </section>
+          <FooterButtons
+            handleClickResetTally={handleClickResetTally}
+            handleClickHelp={handleClickHelp}
+            handleClickModalOk={handleClickModalOk}
+            handleClickModalCancel={handleClickModalCancel}
+            isModalOpen={isModalOpen}
+          />
         </footer>
       </div>
     </div>
   )
 }
+const FooterButtons = ({ handleClickResetTally, handleClickHelp, handleClickModalOk, handleClickModalCancel, isModalOpen }) => (
+  <section className='footer-buttons'>
+    <button
+      className='btn'
+      id='button-reset-games'
+      onClick={handleClickResetTally}>
+      Reset
+    </button>
+    <button
+      className='btn'
+      id='button-help'
+      onClick={handleClickHelp}>
+      ?
+    </button>
+    <Modal
+      maskStyle={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+      title={
+        <section style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+          <h1 style={{ fontFamily: 'Limelight, cursive', color: '#ffff98' }}>
+            <span style={{ fontSize: '3.7rem', margin: '0', padding: '0' }}>KIDDLE</span>
+            <br />
+            instructions
+          </h1>
+        </section>
+      }
+      centered
+      open={isModalOpen}
+      okType={'danger'}
+      onOk={handleClickModalOk}
+      onCancel={handleClickModalCancel}
+      footer={
+        <Button
+          key='ok'
+          type='primary'
+          onClick={handleClickModalOk}>
+          OK
+        </Button>
+      }
+      bodyStyle={{ fontFamily: 'Montserrat, sans-serif' }}>
+      <p>
+        Click <ModalStartButton /> to play.<br />Type the letters to guess the word before the timer hits 0!
+      </p>
+    </Modal>
+  </section>
+)
+
+const ModalStartButton = () =>(<button className='modal-start-button'>Start</button>)
 
 const Header = () => (
   <header>

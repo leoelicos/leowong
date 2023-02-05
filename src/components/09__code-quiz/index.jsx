@@ -1,53 +1,34 @@
-import { useEffect } from 'react'
+import { faChartBar, faClock } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Fragment, useEffect, useState } from 'react'
 import questionBank from './data/questions'
+import Favicon from './image/favicon.png'
 import './style/style.css'
 export default function CodeQuiz() {
+  /* state */
+  const [splashVisible, setSplashVisible] = useState(true)
+  const [index, setIndex] = useState(0)
+  const [correctQuestions, setCorrectQuestions] = useState(0)
+  const [secondsLeft, setSecondsLeft] = useState(60)
+  const [highScoreButtonVisible, setHighScoreButtonVisible] = useState(true)
+
   useEffect(() => {
-    document.querySelector('#favicon').setAttribute('href', './favicon.png')
+    document.querySelector('#favicon').setAttribute('href', './image/favicon.png')
   }, [])
-  return (
-    <div className='app-09'>
-      <div className='body'>
-        <header></header>
-        <main></main>
-      </div>
-    </div>
-  )
-}
 
-const body = document.body
-const header = body.children[0]
-const main = body.children[1]
+  useEffect(() => {
+    startGame()
+  }, [])
 
-var timer
+  /* game logic */
+  function startGame() {
+    setIndex(0)
+    setCorrectQuestions(0)
+    setSecondsLeft(60)
 
-var index
-var correctQuestions = 0
-var currentQuestion = 0
-var secondsLeft
-
-var currentQuestionEl
-var startButtonEl
-var secondsEl
-var feedbackEl
-var section, p, icon, img, span, h1, button, ul, li, label, input
-
-init()
-
-function init() {
-  index = 0
-  currentQuestion = index + 1
-  correctQuestions = 0
-  secondsLeft = 60
-
-  renderSplashHeader()
-  renderSplashMain()
-
-  startButtonEl = document.getElementById('startTime')
-  startButtonEl.addEventListener('click', () => {
-    document.querySelector('.nav-view').parentNode.removeChild(document.querySelector('.nav-view'))
-    renderQuizQuestions(index)
-
+    setSplashVisible(true)
+  }
+  function startTimer() {
     timer = setInterval(() => {
       secondsLeft--
       secondsEl = document.getElementById('seconds')
@@ -58,116 +39,80 @@ function init() {
         secondsEl.textContent = "Time's up!"
       }
     }, 1000)
-  })
+  }
+  return (
+    <div className='app-09'>
+      <div className='body'>
+        <header>{splashVisible && <SplashHeader />}</header>
+        <main>{splashVisible && <SplashMain />}</main>
+      </div>
+    </div>
+  )
 }
 
-function renderSplashHeader() {
-  header.innerHTML = ''
-  header.classList = ''
+const SplashHeader = () => (
+  <>
+    <p className='nav-timer'>
+      <FontAwesomeIcon icon={faClock} />
+      <span>0:</span>
+      <span id='seconds'>60</span>
+    </p>
+    <p className='nav-question'>
+      Question <span id='currentQuestion' />
+      0/6
+    </p>
+    {highScoreButtonVisible && (
+      <p
+        className='nav-view'
+        onClick={renderHighScores}>
+        <FontAwesomeIcon icon={faChartBar} />
+      </p>
+    )}
+  </>
+)
 
-  p = document.createElement('p')
-  p.classList.add('nav-timer')
-  icon = document.createElement('i')
-  icon.classList.add('fa', 'fa-clock')
-  p.append(icon)
-  span = document.createElement('span')
-  span.append('0:')
-  p.append(span)
-  span = document.createElement('span')
-  span.setAttribute('id', 'seconds')
-  span.append('60')
-  p.append(span)
-  header.append(p)
+const SplashMain = () => (
+  <section id='splash'>
+    <image
+      className='splash-image'
+      src={Favicon}
+      alt='quiz icon'
+    />
+    <h1 className='splash-heading'>So You Think You Can Javascript?</h1>
+    <p className='splash-description'>{`${questionBank.length} questions.`}</p>
+    <p className='splash-description'>Wrong answers will deduct 10 seconds!</p>
+    <button
+      className='splash-start-button'
+      id='startTime'
+      onClick={() => {
+        setHighScoreButtonVisible(false)
+        renderQuizQuestions(index)
+        startTimer()
+      }}>
+      Ready?
+    </button>
+  </section>
+)
 
-  p = document.createElement('p')
-  p.classList.add('nav-question')
-  p.append('Question ')
-  span = document.createElement('span')
-  span.setAttribute('id', 'currentQuestion')
-  span.append('0/6')
-  p.append(span)
-  header.append(p)
-
-  p = document.createElement('p')
-  p.classList.add('nav-view')
-  icon = document.createElement('i')
-  icon.classList.add('far', 'fa-chart-bar')
-  p.append(icon)
-  p.addEventListener('click', renderHighScores)
-  header.append(p)
+// add to main
+const QuizQuestions = (index) => {
+  return (
+    <>
+      <p id='quiz-title'>{questionBank[index].title}</p>
+      <ul>
+        {questionBank[index].choices.map((newItem) => (
+          <li
+            key={newItem}
+            className='btn-wrapper'
+            onClick={checkAnswer}>
+            <button className='btn'>{newItem}</button>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
-function renderSplashMain() {
-  main.innerHTML = ''
-  main.classList = ''
-
-  section = document.createElement('section')
-  section.setAttribute('id', 'splash')
-
-  img = document.createElement('img')
-  img.classList.add('splash-image')
-  img.setAttribute('src', './assets/images/favicon.png')
-  img.setAttribute('alt', 'quiz icon')
-  section.append(img)
-
-  h1 = document.createElement('h1')
-  h1.classList.add('splash-heading')
-  h1.append('So You Think You Can Javascript?')
-  section.append(h1)
-
-  p = document.createElement('p')
-  p.classList.add('splash-description')
-  p.append(`${questionBank.length} questions.`)
-  section.append(p)
-
-  p = document.createElement('p')
-  p.classList.add('splash-description')
-  p.append(`${secondsLeft} seconds.`)
-  section.append(p)
-
-  p = document.createElement('p')
-  p.classList.add('splash-description')
-  p.append(`Wrong answers will deduct 10 seconds!`)
-  section.append(p)
-
-  button = document.createElement('button')
-  button.classList.add('splash-start-button')
-  button.setAttribute('id', 'startTime')
-  button.append('Ready?')
-  section.append(button)
-
-  main.append(section)
-}
-
-function renderQuizQuestions(index) {
-  currentQuestionEl = document.getElementById('currentQuestion')
-  currentQuestionEl.innerHTML = `${currentQuestion}/6`
-
-  main.innerHTML = ''
-  main.classList.add('quiz')
-
-  p = document.createElement('p')
-  p.setAttribute('id', 'quiz-title')
-  p.append(questionBank[index].title)
-
-  main.append(p)
-  ul = document.createElement('ul')
-
-  questionBank[index].choices.forEach((newItem) => {
-    button = document.createElement('button')
-    button.classList.add('btn')
-    button.textContent = newItem
-
-    li = document.createElement('li')
-    li.classList.add('btn-wrapper')
-    li.addEventListener('click', checkAnswer)
-    li.appendChild(button)
-
-    ul.appendChild(li)
-  })
-
-  main.appendChild(ul)
-}
 function checkAnswer(event) {
   feedbackEl = document.createElement('p')
   feedbackEl.setAttribute('id', 'feedback')
@@ -175,21 +120,23 @@ function checkAnswer(event) {
   if (event.target.textContent == questionBank[index].answer) {
     correctQuestions++
     feedbackEl.classList.add('greenfeedback')
-    feedbackEl.append(`Question ${currentQuestion} was correct!`)
+    feedbackEl.append(`Question ${index + 1} was correct!`)
   } else {
     secondsLeft = secondsLeft - 10
     feedbackEl.classList.add('redfeedback')
-    feedbackEl.innerHTML = `Question ${currentQuestion} was incorrect.<br>"${questionBank[index].title}"<br>Answer: "${questionBank[index].answer}".<br>Penalty: -10 seconds`
+    feedbackEl.innerHTML = `Question ${index + 1} was incorrect.<br>"${questionBank[index].title}"<br>Answer: "${questionBank[index].answer}".<br>Penalty: -10 seconds`
   }
 
   index++
-  currentQuestion = index + 1
 
   if (index >= questionBank.length) {
     secondsEl.textContent = secondsLeft.toString().padStart(2, '0')
     recordSection()
   } else {
     renderQuizQuestions(index)
+    currentQuestionEl = document.getElementById('currentQuestion')
+    currentQuestionEl.innerHTML = `${index + 1}/6`
+    main.classList.add('quiz')
     main.appendChild(feedbackEl)
   }
 }

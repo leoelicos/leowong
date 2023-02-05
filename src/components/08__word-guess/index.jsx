@@ -116,12 +116,6 @@ export default function WordGuess() {
             losses={tally?.losses || 0}
           />
 
-          <div
-            id='modal'
-            className='hide'>
-            <button id='closeModal'>X</button>
-            <p>Click start to play. Type the letters to guess the word before the timer hits 0!</p>
-          </div>
           <section className='footer-buttons'>
             <button
               className='btn'

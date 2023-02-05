@@ -1,122 +1,142 @@
-import { useEffect, useState } from 'react'
-import './assets/css/body.css'
-import './assets/css/footer.css'
-import './assets/css/header.css'
-import './assets/css/main.css'
-
-import Elephant from './assets/images/elephantOrange.png'
-
+import { useEffect, useRef, useState } from 'react'
 import { getWord } from './data/wordlist'
 
+import Body from './components/Body'
+import Header from './components/Header'
+import Main from './components/Main'
+import Alarm from './components/Main/Alarm.jsx'
+import StartButton from './components/Main/StartButton.jsx'
+import Tiles from './components/Main/Tiles'
+import Footer from './components/Footer'
+import Tally from './components/Footer/Tally.jsx'
+import FooterButtons from './components/Footer/FooterButtons.jsx'
+import HelpModal from './components/Footer/HelpModal.jsx'
+
+import useTimer from './hooks/useTimer'
+
 export default function WordGuess() {
-  const [word, setWord] = useState(null)
-  const [secondsLeft, setSecondsLeft] = useState(null)
-  const [finished, setFinished] = useState(true)
+  /* state */
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [buttonMessage, setButtonMessage] = useState('Start')
-  const resetWord = () => {
-    setWord(getWord())
-  }
-  const resetTimer = () => {
-    setSecondsLeft(10)
-  }
+  const [tally, setTally] = useState(JSON.parse(localStorage.getItem('tally')))
+  const [tiles, setTiles] = useState(['_', '_', '_', '_'])
+
+  /* ref */
+  const unguessed = useRef('')
+  const started = useRef(false)
+
+  /* hooks */
+  const [seconds, startTimer, stopTimer, resetTimer] = useTimer()
+
+  /* effect */
   useEffect(() => {
-    resetWord()
-    resetTimer()
+    if (tally !== null) localStorage.setItem('tally', JSON.stringify(tally))
+  }, [tally])
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
   }, [])
+
+  useEffect(() => {
+    if (seconds === 0) endGame(false)
+  }, [seconds])
+
+  /* game logic */
+  const startGame = () => {
+    started.current = true
+    unguessed.current = getWord().split('')
+    setTiles(['_', '_', '_', '_'])
+    setButtonMessage(`Quick! Guess the letters!`)
+    resetTimer()
+    startTimer()
+  }
+  const endGame = (win) => {
+    if (!unguessed.current) return
+    stopTimer()
+    started.current = false
+    if (win) {
+      setButtonMessage('You win! Start again?')
+      updateTally(true)
+    } else {
+      setButtonMessage(`Answer: '${unguessed.current.join('')}'. Start again?'`) // fix impure
+      updateTally(false)
+    }
+  }
+  const updateTally = (win) => {
+    setTally((prev) => {
+      let wins = (prev?.wins || 0) + win ? 1 : 0
+      let losses = (prev?.losses || 0) + win ? 0 : 1
+      return { wins, losses }
+    })
+  }
+
+  /* event handlers */
+  const handleClickStart = () => {
+    if (started.current) return
+    startGame()
+  }
+
+  const handleClickResetTally = () => {
+    setTally({ wins: 0, losses: 0 })
+  }
+
+  const handleClickHelp = () => {
+    setIsModalOpen(true)
+  }
+
+  const handleClickModalOk = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleClickModalCancel = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleKeyDown = (e) => {
+    if (!started.current) return
+
+    let match = e.key.match(/[a-z]/i)
+    if (!match) return
+
+    let key = match[0]
+    if (!unguessed.current.includes(key)) return
+
+    setTiles((prev) => {
+      const newTile = prev.map((letter, i) => (unguessed.current[i] === key ? key : letter))
+      if (newTile.every((v) => v !== '_')) endGame(true)
+      return newTile
+    })
+  }
+
   return (
     <div className='app-08'>
-      <div className='body'>
+      <Body>
         <Header />
-        <main>
-          <section className='alarm-wrapper'>
-            <div className='alarm'>
-              0:<span id='secondsLeft'>10</span>
-            </div>
-          </section>
-          <div className='tile-wrapper'>
-            <div
-              className='tile'
-              id='tile0'>
-              _
-            </div>
-            <div
-              className='tile'
-              id='tile1'>
-              _
-            </div>
-            <div
-              className='tile'
-              id='tile2'>
-              _
-            </div>
-            <div
-              className='tile'
-              id='tile3'>
-              _
-            </div>
-          </div>
-          <section className='start-wrapper'>
-            <button
-              className='btn'
-              id='button-start-games'
-              onClick={(e) => {
-                e.preventDefault()
-                if (!finished) return
-                setFinished(false)
-                resetWord()
-                resetTimer()
-              }}>
-              {buttonMessage}
-            </button>
-          </section>
-        </main>
+        <Main>
+          <Alarm seconds={seconds} />
+          <Tiles tiles={tiles} />
+          <StartButton
+            handleClickStart={handleClickStart}
+            buttonMessage={buttonMessage}
+          />
+        </Main>
 
-        <footer>
-          <section className='tally'>
-            <button id='button-tally-wins'>
-              <div id='tally-wins-label'>Wins:&nbsp;</div>
-              <div id='tally-wins-value'>0</div>
-            </button>
-
-            <button id='button-tally-losses'>
-              <div id='tally-losses-label'>Losses:&nbsp;</div>
-              <div id='tally-losses-value'>0</div>
-            </button>
-          </section>
-          <div
-            id='modal'
-            className='hide'>
-            <button id='closeModal'>X</button>
-            <p>Click start to play. Type the letters to guess the word before the timer hits 0!</p>
-          </div>
-          <section className='footer-buttons'>
-            <button
-              className='btn'
-              id='button-reset-games'>
-              Reset
-            </button>
-            <button
-              className='btn'
-              id='button-help'>
-              ?
-            </button>
-          </section>
-        </footer>
-      </div>
+        <Footer>
+          <Tally
+            wins={tally?.wins || 0}
+            losses={tally?.losses || 0}
+          />
+          <FooterButtons
+            handleClickResetTally={handleClickResetTally}
+            handleClickHelp={handleClickHelp}
+          />
+          <HelpModal
+            handleClickModalOk={handleClickModalOk}
+            handleClickModalCancel={handleClickModalCancel}
+            isModalOpen={isModalOpen}
+          />
+        </Footer>
+      </Body>
     </div>
   )
 }
-
-const Header = () => (
-  <header>
-    <div className='logo'>
-      <img
-        src={Elephant}
-        alt='elephant logo'
-      />
-    </div>
-    <div>
-      <h1>KIDDLE</h1>
-    </div>
-  </header>
-)

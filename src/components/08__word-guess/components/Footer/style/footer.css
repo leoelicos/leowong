@@ -1,4 +1,18 @@
-/* tally panel showing Wins and Losses */
+.app-08 footer {
+  background-color: hsl(25, 84%, 61%);
+
+  border-bottom: none;
+
+  width: 90%;
+  padding: 0.5rem 0;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border-radius: 1rem 1rem 0 0;
+}
 
 .app-08 .tally button {
   align-items: flex-start;
@@ -38,41 +52,21 @@
   align-items: center;
   justify-content: space-evenly;
 }
-
-/*  modal */
-
-.app-08 #modal {
-  width: 80%;
-  position: relative;
-  margin: auto;
-  top: -2%;
-
-  color: black;
-
-  z-index: 10;
-  padding-right: 1.5rem;
+/* modal */
+.ant-modal-content {
+  background-color: hsl(25, 84%, 61%) !important;
+}
+.ant-modal-header {
+  background: none !important;
 }
 
-.app-08 #modal p {
-  padding: 0.6rem;
-  border-radius: 10px;
-  background-color: pink;
-  font-size: 13px;
-}
-
-.app-08 #closeModal {
-  height: 30px;
-  width: 30px;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.app-08 .hide {
-  display: none;
-}
-
-.app-08 .show {
-  display: block;
+.app-08 .modal-start-button {
+  font-size: '1.1rem';
+  border-radius: '0.5rem';
+  border-color: '#deebf7';
+  box-shadow: '0px 1px 3px #ece47a';
+  color: 'hsl(25; 84%; 61%)';
+  background-color: '#deebf7';
+  padding: '0.3rem 1.6rem';
+  display: 'inline-block';
 }

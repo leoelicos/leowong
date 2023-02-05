@@ -1,11 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { getWord } from './data/wordlist'
-import Elephant from './assets/images/elephantOrange.png'
-import './assets/css/body.css'
-import './assets/css/footer.css'
-import './assets/css/header.css'
-import './assets/css/main.css'
-import { Modal, Button } from 'antd'
+
+import Body from './components/Body'
+/**/ import Header from './components/Header'
+/**/ import Main from './components/Main'
+/**/ /**/ import Alarm from './components/Main/Alarm.jsx'
+/**/ /**/ import StartButton from './components/Main/StartButton.jsx'
+/**/ /**/ import Tiles from './components/Main/Tiles'
+/**/ import Footer from './components/Footer'
+/**/ /**/ import Tally from './components/Footer/Tally.jsx'
+/**/ /**/ import FooterButtons from './components/Footer/FooterButtons.jsx'
+/**/ /**/ import HelpModal from './components/Footer/HelpModal.jsx'
+
+import useTimer from './hooks/useTimer'
 
 export default function WordGuess() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -99,18 +106,18 @@ export default function WordGuess() {
   }
   return (
     <div className='app-08'>
-      <div className='body'>
+      <Body>
         <Header />
-        <main>
+        <Main>
           <Alarm seconds={seconds} />
           <Tiles tiles={tiles} />
           <StartButton
             handleClickStart={handleClickStart}
             buttonMessage={buttonMessage}
           />
-        </main>
+        </Main>
 
-        <footer>
+        <Footer>
           <Tally
             wins={tally?.wins || 0}
             losses={tally?.losses || 0}
@@ -118,150 +125,14 @@ export default function WordGuess() {
           <FooterButtons
             handleClickResetTally={handleClickResetTally}
             handleClickHelp={handleClickHelp}
+          />
+          <HelpModal
             handleClickModalOk={handleClickModalOk}
             handleClickModalCancel={handleClickModalCancel}
             isModalOpen={isModalOpen}
           />
-        </footer>
-      </div>
+        </Footer>
+      </Body>
     </div>
   )
 }
-const FooterButtons = ({ handleClickResetTally, handleClickHelp, handleClickModalOk, handleClickModalCancel, isModalOpen }) => (
-  <section className='footer-buttons'>
-    <button
-      className='btn'
-      id='button-reset-games'
-      onClick={handleClickResetTally}>
-      Reset
-    </button>
-    <button
-      className='btn'
-      id='button-help'
-      onClick={handleClickHelp}>
-      ?
-    </button>
-    <Modal
-      maskStyle={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
-      title={
-        <section style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-          <h1 style={{ fontFamily: 'Limelight, cursive', color: '#ffff98' }}>
-            <span style={{ fontSize: '3.7rem', margin: '0', padding: '0' }}>KIDDLE</span>
-            <br />
-            instructions
-          </h1>
-        </section>
-      }
-      centered
-      open={isModalOpen}
-      okType={'danger'}
-      onOk={handleClickModalOk}
-      onCancel={handleClickModalCancel}
-      footer={
-        <Button
-          key='ok'
-          type='primary'
-          onClick={handleClickModalOk}>
-          OK
-        </Button>
-      }
-      bodyStyle={{ fontFamily: 'Montserrat, sans-serif' }}>
-      <p>
-        Click <button className='modal-start-button'>Start</button> to play.
-        <br />
-        Type the letters to guess the word before the timer hits 0!
-      </p>
-    </Modal>
-  </section>
-)
-
-const Header = () => (
-  <header>
-    <div className='logo'>
-      <img
-        src={Elephant}
-        alt='elephant logo'
-      />
-    </div>
-    <div>
-      <h1>KIDDLE</h1>
-    </div>
-  </header>
-)
-
-const useTimer = (endGame) => {
-  const [seconds, setSeconds] = useState(0)
-  const intervalRef = useRef(null)
-
-  const startTimer = () => {
-    clearInterval(intervalRef.current)
-    intervalRef.current = setInterval(() => {
-      setSeconds((prev) => {
-        if (prev === 1) endGame(false)
-        return prev - 1
-      })
-    }, 1000)
-  }
-
-  const stopTimer = () => {
-    clearInterval(intervalRef.current)
-  }
-  const resetTimer = () => {
-    setSeconds(10)
-  }
-
-  return [seconds, startTimer, stopTimer, resetTimer]
-}
-
-const Alarm = ({ seconds }) => {
-  return (
-    <section className='alarm-wrapper'>
-      <div className='alarm'>
-        0:<span id='secondsLeft'>{seconds.toString().padStart(2, '0')}</span>
-      </div>
-    </section>
-  )
-}
-
-const Tiles = ({ tiles }) => {
-  return (
-    <div className='tile-wrapper'>
-      {tiles.map((v, i) => (
-        <div
-          key={`tile${i}`}
-          className='tile'
-          id={`tile${i}`}>
-          {v}
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const StartButton = ({ handleClickStart, buttonMessage }) => (
-  <section className='start-wrapper'>
-    <button
-      className='btn'
-      id='button-start-games'
-      onClick={(e) => {
-        e.preventDefault()
-        handleClickStart()
-      }}>
-      {buttonMessage}
-    </button>
-  </section>
-)
-
-const Tally = ({ wins, losses }) => (
-  <section className='tally'>
-    <button id='button-tally-wins'>
-      <div id='tally-wins-label'>Wins:&nbsp;</div>
-      <div id='tally-wins-value'>{wins}</div>
-    </button>
-
-    <button id='button-tally-losses'>
-      <div id='tally-losses-label'>Losses:&nbsp;</div>
-      <div id='tally-losses-value'>{losses}</div>
-    </button>
-  </section>
-)

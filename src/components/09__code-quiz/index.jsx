@@ -1,3 +1,8 @@
 export default function CodeQuiz() {
-  return <div>CodeQuiz</div>
+  return (
+    <div>
+      <header></header>
+      <main></main>
+    </div>
+  )
 }

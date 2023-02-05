@@ -64,24 +64,13 @@ export default function WordGuess() {
   }
   const updateTally = (win) => {
     setTally((prev) => {
-      let wins = prev?.wins || 0
-      let losses = prev?.losses || 0
-      if (win) wins++
-      else losses++
-
+      let wins = (prev?.wins || 0) + win ? 1 : 0
+      let losses = (prev?.losses || 0) + win ? 0 : 1
       return { wins, losses }
     })
   }
 
   /* event handlers */
-  const handleClickModalOk = () => {
-    setIsModalOpen(false)
-  }
-
-  const handleClickModalCancel = () => {
-    setIsModalOpen(false)
-  }
-
   const handleClickStart = () => {
     if (started.current) return
     startGame()
@@ -93,6 +82,14 @@ export default function WordGuess() {
 
   const handleClickHelp = () => {
     setIsModalOpen(true)
+  }
+
+  const handleClickModalOk = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleClickModalCancel = () => {
+    setIsModalOpen(false)
   }
 
   const handleKeyDown = (e) => {

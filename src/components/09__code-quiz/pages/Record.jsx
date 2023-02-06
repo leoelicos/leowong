@@ -35,14 +35,6 @@ const Record = ({ score, secondsLeft, addHighScore, goHighScores, numQuestions, 
 
   return (
     <main className='recordSection'>
-      {hasFeedback && (
-        <Feedback
-          question={previousQuestion}
-          correct={previousCorrect}
-          questionNumber={previousQuestionNumber}
-        />
-      )}
-      <hr />
       <h1 id='victoryMessage'>{`${score}/${numQuestions}`}</h1>
       <h1 id='affirmation'>{affirmation}</h1>
       <p id='victoryScoreLabel'>{`Seconds remaining: ${Math.max(secondsLeft, 0)}`}</p>
@@ -68,6 +60,14 @@ const Record = ({ score, secondsLeft, addHighScore, goHighScores, numQuestions, 
         className={inputValid ? '' : 'redfeedback'}>
         {inputValid ? 'Submit' : 'Your initials please'}
       </button>
+      <hr />
+      {hasFeedback && (
+        <Feedback
+          question={previousQuestion}
+          correct={previousCorrect}
+          questionNumber={previousQuestionNumber}
+        />
+      )}
     </main>
   )
 }

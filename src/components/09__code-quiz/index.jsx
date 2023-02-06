@@ -61,12 +61,12 @@ export default function CodeQuiz() {
     resetTimer()
     startTimer()
 
-    setPage('Splash')
+    goGame()
   }
 
   function endGame() {
     stopTimer()
-    setPage('Record')
+    goRecord()
   }
 
   const handleClickAnswer = (answer) => {
@@ -88,6 +88,19 @@ export default function CodeQuiz() {
     setHighScores((prev) => [...prev, { initials, timestamp, score }])
   }
 
+  const goHighScores = () => {
+    setPage('High Scores')
+  }
+  const goSplash = () => {
+    setPage('Splash')
+  }
+  const goGame = () => {
+    setPage('Game')
+  }
+  const goRecord = () => {
+    setPage('Record')
+  }
+
   return (
     <div className='app-09'>
       <div className='body'>
@@ -95,7 +108,7 @@ export default function CodeQuiz() {
           secondsLeft={secondsLeft}
           currentQuestion={currentQuestion}
           page={page}
-          setPage={setPage}
+          goHighScores={goHighScores}
         />
         {page === 'Game' ? (
           <Game
@@ -112,7 +125,7 @@ export default function CodeQuiz() {
             score={results.reduce((a, b) => (b ? a + 1 : a), 0)}
             secondsLeft={secondsLeft}
             addHighScore={addHighScore}
-            setPage={setPage}
+            goHighScores={goHighScores}
             numQuestions={questions.length}
             hasFeedback={currentQuestion > 0}
             previousQuestion={currentQuestion > 0 ? questions[currentQuestion - 1] : undefined}
@@ -122,14 +135,14 @@ export default function CodeQuiz() {
         ) : page === 'High Scores' ? (
           <HighScores
             startGame={startGame}
-            setPage={setPage}
+            goSplash={goSplash}
             highScores={highScores}
             clearHighScores={clearHighScores}
           />
         ) : (
           <Splash
             startGame={startGame}
-            setPage={setPage}
+            goGame={goGame}
             numQuestions={questions.length}
           /> //
         )}

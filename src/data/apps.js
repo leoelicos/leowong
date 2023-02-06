@@ -48,7 +48,7 @@ const apps = [
   { finished: true, name: 'Professional Portfolio', link: '05-professional-portfolio', element: <ProfessionalPortfolio /> },
   { finished: true, name: 'Rock Paper Scissors', link: '06-rock-paper-scissors', element: <RockPaperScissors /> },
   { finished: true, name: 'Password Generator', link: '07-password-generator', element: <PasswordGenerator /> },
-  { finished: false, name: 'Word Guess', link: '08-word-guess', element: <WordGuess /> },
+  { finished: true, name: 'Word Guess', link: '08-word-guess', element: <WordGuess /> },
   { finished: false, name: 'Code Quiz', link: '09-code-quiz', element: <CodeQuiz /> },
   { finished: false, name: 'Project Tracker', link: '10-project-tracker', element: <ProjectTracker /> },
   { finished: false, name: 'Day Planner', link: '11-day-planner', element: <DayPlanner /> },

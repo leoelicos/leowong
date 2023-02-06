@@ -13,7 +13,7 @@ const affirmations = [
   { score: 6, text: 'Bingo! Hats off to you! 🎩' } //
 ]
 
-const Record = ({ score, secondsLeft, addHighScore, setPage, numQuestions, hasFeedback, previousQuestion, previousCorrect, previousQuestionNumber }) => {
+const Record = ({ score, secondsLeft, addHighScore, goHighScores, numQuestions, hasFeedback, previousQuestion, previousCorrect, previousQuestionNumber }) => {
   const [inputInitials, setInputInitials] = useState('')
   const [inputValid, setInputValid] = useState(true)
 
@@ -28,7 +28,7 @@ const Record = ({ score, secondsLeft, addHighScore, setPage, numQuestions, hasFe
       return
     }
     addHighScore(initials)
-    setPage('High Scores')
+    goHighScores()
   }
 
   const affirmation = affirmations.find((a) => a.score === score).text

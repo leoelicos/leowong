@@ -1,5 +1,5 @@
 import Logo from '../image/logo.png'
-const Splash = ({ setPage, startGame, numQuestions }) => (
+const Splash = ({ startGame, numQuestions }) => (
   <main>
     <section id='splash'>
       <img
@@ -15,7 +15,6 @@ const Splash = ({ setPage, startGame, numQuestions }) => (
         id='startTime'
         onClick={() => {
           startGame()
-          setPage('Game')
         }}>
         Ready?
       </button>

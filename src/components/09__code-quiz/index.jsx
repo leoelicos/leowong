@@ -47,7 +47,7 @@ export default function CodeQuiz() {
   }, [secondsLeft, stopTimer])
 
   const clearHighScores = () => {
-    localStorage.setItem('hs', JSON.stringify([]))
+    setHighScores([])
   }
 
   const resetResults = () => {
@@ -76,9 +76,8 @@ export default function CodeQuiz() {
     if (!isCorrect) penalize(10)
 
     setCurrentQuestion((prev) => {
-      if (currentQuestion === questions.length - 1) {
-        endGame()
-      } else return prev + 1
+      if (currentQuestion === questions.length - 1) endGame()
+      return prev + 1
     })
   }
 

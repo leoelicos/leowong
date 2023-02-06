@@ -1,11 +1,7 @@
 import { faChartBar, faClock } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Header = ({ secondsLeft, currentQuestion, page, setPage }) => {
-  const handleClickHighScores = () => {
-    setPage('High Scores')
-  }
-
+const Header = ({ secondsLeft, currentQuestion, page, goHighScores }) => {
   return page === 'High Scores' ? (
     <header className='highscore-header'>
       <FontAwesomeIcon
@@ -19,7 +15,10 @@ const Header = ({ secondsLeft, currentQuestion, page, setPage }) => {
     <header>
       <p className='nav-timer'>
         <FontAwesomeIcon icon={faClock} />
-        {secondsLeft === 0 ? ( //
+        &nbsp;
+        {page === 'Splash' ? (
+          <span>0:60</span>
+        ) : secondsLeft === 0 ? ( //
           "Time's up!"
         ) : (
           <>
@@ -35,7 +34,7 @@ const Header = ({ secondsLeft, currentQuestion, page, setPage }) => {
       {page === 'Splash' && (
         <p
           className='nav-view'
-          onClick={handleClickHighScores}>
+          onClick={goHighScores}>
           <FontAwesomeIcon icon={faChartBar} />
         </p>
       )}

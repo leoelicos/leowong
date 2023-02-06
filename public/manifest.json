@@ -3,7 +3,7 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "butterfly.png",
+      "src": "favicons/00-favicon.png",
       "sizes": "512x512",
       "type": "image/x-icon"
     }

@@ -1,4 +1,4 @@
-export default function HighScores({ startGame, setPage, highScores, clearHighScores }) {
+export default function HighScores({ goSplash, highScores, clearHighScores }) {
   return (
     <main className='highscore-main'>
       <ul id='hs'>
@@ -31,9 +31,7 @@ export default function HighScores({ startGame, setPage, highScores, clearHighSc
       <button
         className='splash-start-button'
         id='newGame'
-        onClick={() => {
-          setPage('Splash')
-        }}>
+        onClick={goSplash}>
         New game
       </button>
       <button

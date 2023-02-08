@@ -1,8 +1,8 @@
 function Header({ timeString, dateString, handleClickAdd }) {
   return (
-    <header class='jumbotron jumbotron-fluid custom-jumbotron'>
+    <header className='jumbotron jumbotron-fluid custom-jumbotron'>
       <div
-        class='container text-center'
+        className='container text-center'
         id='hero'>
         <h1>Project Tracker</h1>
         <h2>

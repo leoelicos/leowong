@@ -2,7 +2,6 @@ import { Table } from 'antd'
 const { Column } = Table
 
 function ProjectTable({ data }) {
-  console.log(data)
   return (
     <Table dataSource={data}>
       <Column

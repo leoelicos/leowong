@@ -2,7 +2,7 @@ import ProjectTable from './components/ProjectTable'
 import Header from './components/Header'
 import dummyData from './data/dummydata'
 import { useEffect, useRef, useState } from 'react'
-
+import HelpModal from './components/HelpModal'
 const useTime = () => {
   const [time, setTime] = useState(new Date().getTime())
   const timer = useRef(null)
@@ -26,6 +26,16 @@ export default function ProjectTracker() {
   const handleClickAdd = () => {
     setModal(true)
   }
+  const handleClickModalOk = () => {
+    setModal(false)
+  }
+
+  const handleClickModalCancel = () => {
+    setModal(false)
+  }
+  const handleSubmitProject = () => {
+    console.log('clicked submit')
+  }
   return (
     <main>
       <Header
@@ -34,6 +44,12 @@ export default function ProjectTracker() {
         handleClickAdd={handleClickAdd}
       />
       <ProjectTable data={dummyData} />
+      <HelpModal
+        handleClickModalOk={handleClickModalOk}
+        handleClickModalCancel={handleClickModalCancel}
+        modal={modal}
+        handleSubmitProject={handleSubmitProject}
+      />
     </main>
   )
 }

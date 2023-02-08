@@ -1,3 +1,6 @@
+import ProjectTable from './components/ProjectTable'
+import dummyData from './data/dummydata'
+console.log({ dummyData })
 export default function ProjectTracker() {
-  return <div>ProjectTracker</div>
+  return <ProjectTable data={dummyData} />
 }

@@ -5,6 +5,7 @@ const useData = () => {
 
   const addProject = (data) => {
     const { projectName, projectType, hours, hourlyRate, dueDate } = data
+    console.log({ dueDate })
     setData((prev) => {
       const timestamp = new Date().getTime()
       const serialized = {
@@ -14,7 +15,7 @@ const useData = () => {
         projectType,
         hours,
         hourlyRate,
-        dueDate
+        dueDate: dueDate.$d.toLocaleDateString()
       }
       return prev.concat(serialized)
     })

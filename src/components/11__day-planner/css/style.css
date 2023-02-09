@@ -1,0 +1,120 @@
+/* universal selector */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* semantic */
+body {
+	font-family: 'Poppins', sans-serif;
+	line-height: 1;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+}
+
+header {
+	text-align: center;
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
+	height: 15vh;
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	position: relative;
+}
+header > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2vmin;
+	font-size: calc(14px + 1vmin);
+}
+main {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transform: translate3d(0, 0, 0);
+	z-index: 2; /*prevents clock from overlapping on screens with small height */
+	transition: background-color 0.5s ease-in; /* so when the background color changes, it will fade in */
+	background-color: var(--tertiary-color);
+	color: var(--primary-color);
+}
+
+footer {
+	height: 5vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-color);
+}
+
+button,
+button:active,
+button:focus,
+button:focus-within,
+button:target,
+button:hover,
+button:visited,
+button:focus-visible {
+	outline: none;
+}
+
+i,
+i:active,
+i:focus,
+i:focus-within,
+i:target,
+i:hover,
+i:visited,
+i:focus-visible {
+	outline: none;
+}
+
+/* classes */
+
+/* header */
+
+.current-date {
+	font-size: calc(16px + 5vmin);
+	margin-right: 1vmin;
+}
+.date-container {
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: flex-end;
+}
+.currentDay {
+	font-size: calc(11px + 3vmin);
+}
+.currentMonthAndYear {
+	font-size: calc(5px + 1vmin);
+	font-family: 'Poppins', sans-serif;
+	letter-spacing: 0.5vmin;
+	font-weight: bold;
+}
+
+/*  right */
+
+/* main */
+
+.description {
+	white-space: pre-wrap;
+}
+
+article {
+	white-space: pre-wrap;
+	margin-top: 1px;
+	height: 8vh;
+	width: 50vw;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+}

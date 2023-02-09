@@ -1,0 +1,111 @@
+@media screen and (max-width: 576px) {
+	article {
+		width: 95vw;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	article {
+		width: 90vw;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	article {
+		width: 85vw;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	body {
+		flex-direction: row;
+		align-items: stretch;
+	}
+	header {
+		flex-direction: column;
+		width: 20vw;
+		height: 100vh;
+	}
+	.header-date {
+		flex-direction: column;
+	}
+	.clock-container {
+		flex-direction: column;
+	}
+	.currentMonthAndYear {
+		flex-wrap: wrap;
+	}
+	main {
+		height: 100vh;
+		width: 75vw;
+		justify-content: flex-start;
+		padding: 0 1vw;
+		flex-wrap: wrap;
+	}
+	article {
+		width: 35vw;
+		height: 18vh;
+		margin: 1vh 1vw;
+	}
+	footer {
+		height: 100vh;
+		width: 5vw;
+	}
+
+	#weather-container {
+		flex-direction: column;
+	}
+
+	.timeblock-hour {
+		width: calc(5px + 3vw);
+	}
+	.timeblock-save {
+		width: calc(5px + 3vw);
+	}
+
+	.container {
+		justify-content: flex-start;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	article {
+		width: 21vw;
+		height: 30vh;
+	}
+	.container {
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	header {
+		width: 100vw;
+	}
+	header-date {
+		flex: 1;
+	}
+
+	header .clock {
+		display: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+	header #location,
+	header #weather-temperature {
+		display: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	header #weather-description {
+		display: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}

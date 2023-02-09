@@ -1,0 +1,63 @@
+.app-11 {
+  --primary-color: #8f5fc2;
+  --secondary-color: hsl(0, 0%, 100%);
+  --tertiary-color: rgb(252, 239, 255);
+  --past: #f5de84;
+  --past-text: #40453b;
+  --present: #b478f5;
+  --present-text: #ffffff;
+  --future: #77c255;
+  --future-text: #000000;
+  --clock-hour-hand: #8f5fc2;
+  --clock-minute-hand: #8f5fc2;
+  --clock-second-hand: red;
+  --clock-face: var(--secondary-color);
+  --toggle-button-color: black;
+}
+
+.app-11 {
+  transition: background-color 0.5s ease-in; /* so when the background color changes, it will fade in */
+}
+
+.app-11.dark {
+  transition: background-color 0.5s ease-in; /* so when the background color changes, it will fade in */
+  --primary-color: #69468f;
+  --secondary-color: #ffffff;
+  --tertiary-color: #38254d;
+  --past: #836d38;
+  --past-text: #ffffff;
+  --present: #8f5fc2;
+  --present-text: #fff;
+  --future: #4b7b35;
+  --future-text: #fff;
+  --clock-hour-hand: var(--secondary-color);
+  --clock-minute-hand: var(--secondary-color);
+  --clock-second-hand: red;
+  --clock-face: var(--tertiary-color);
+  --toggle-button-color: white;
+  background-color: var(--tertiary-color);
+}
+
+.app-11 .toggle {
+  /* toggle dark mode button */
+  background-color: var(--primary-color);
+  color: var(--toggle-button-color);
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.app-11 .toggle:focus {
+  outline: none;
+}
+.app-11 .toggle:hover {
+  background-color: var(--present);
+}
+.app-11 .toggle:active {
+  transform: translateY(-1px);
+}
+
+.app-11 .bulb {
+  font-size: 4vh;
+}

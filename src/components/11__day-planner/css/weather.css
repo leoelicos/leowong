@@ -1,0 +1,33 @@
+#weather-container {
+	display: flex;
+	margin: 0;
+}
+#weather-temperature {
+	font-size: calc(5px + 1vmin);
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 0.5vmin;
+}
+
+#weather-description {
+	font-size: calc(5px + 1vmin);
+	white-space: wrap;
+}
+
+#weather-icon {
+	margin: 0;
+}
+
+#weather-container figcaption {
+	margin-left: -3px;
+	font-size: calc(5px + 1vmin);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+}
+
+.location {
+	font-size: calc(5px + 1vmin);
+	font-family: 'Poppins', sans-serif;
+	letter-spacing: 0.3vmin;
+	line-height: 1.5;
+}

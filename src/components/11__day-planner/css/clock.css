@@ -1,0 +1,73 @@
+/* analog clock */
+.clock-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	padding: 0 1vmin;
+}
+
+.clock {
+	position: relative;
+	width: 14vh;
+	height: 14vh;
+	border-radius: 50%;
+	background-color: var(--clock-face);
+}
+
+.needle {
+	background-color: var(--primary-color);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1vmin;
+	border-radius: 50%;
+	transform-origin: bottom center;
+}
+
+.needle.clock-hour {
+	height: 4vmin;
+	transform: translate(-50%, -100%) rotate(0deg);
+	background-color: var(--clock-hour-hand);
+}
+.needle.minute {
+	height: 6vmin;
+	transform: translate(-50%, -100%) rotate(0deg);
+	background-color: var(--clock-minute-hand);
+}
+.needle.second {
+	height: 6.5vmin;
+	width: 1px;
+	transform: translate(-50%, -100%) rotate(0deg);
+	background-color: var(--clock-second-hand);
+}
+
+.center-point {
+	background-color: hsl(6, 79%, 57%);
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%; /* this will make it a circle */
+}
+
+.center-point::after {
+	content: '';
+	background-color: var(--primary-color);
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%; /* this will make it a circle */
+}
+
+/* digital clock */
+.time {
+	margin-left: 0.5vw;
+	font-size: calc(16px + 2vmin);
+	font-family: 'Montserrat', sans-serif;
+}

@@ -1,6 +1,8 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Table } from 'antd'
+import { useRef } from 'react'
+import useResize from '../hooks/useResize'
 
 const { Column } = Table
 
@@ -42,9 +44,13 @@ const columns = [
   },
   { title: '', shortTitle: '', dataIndex: 'deleteButton' }
 ]
-function ProjectTable({ data, w, handleClickDelete }) {
+const ProjectTable = ({ data, onDelete }) => {
+  const tableRef = useRef(null)
+  const w = useResize(tableRef)
+
   const now = new Date().getTime()
   const deserialized = data.map(({ timestamp, projectName, projectType, hours, hourlyRate, dueDate }) => ({
+    key: timestamp,
     projectName,
     projectType,
     hours,
@@ -56,14 +62,16 @@ function ProjectTable({ data, w, handleClickDelete }) {
       <Button
         type='primary'
         onClick={() => {
-          handleClickDelete(timestamp)
+          onDelete(timestamp)
         }}>
         <FontAwesomeIcon icon={faTrash} />
       </Button>
     )
   }))
   return (
-    <Table dataSource={deserialized}>
+    <Table
+      dataSource={deserialized}
+      ref={tableRef}>
       {columns
         .filter(({ dataIndex }) => {
           if (w > 600) return true

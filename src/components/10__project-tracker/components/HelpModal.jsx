@@ -1,6 +1,7 @@
 import { faAdd } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Modal, Button, DatePicker, Form, Input, Select, InputNumber } from 'antd'
+import dayjs from 'dayjs'
 
 const Title = () => (
   <section style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
@@ -13,6 +14,8 @@ const Title = () => (
 )
 
 const HelpModal = ({ modal, onAdd, hideModal }) => {
+  const [form] = Form.useForm()
+
   return (
     <Modal
       maskStyle={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
@@ -28,9 +31,13 @@ const HelpModal = ({ modal, onAdd, hideModal }) => {
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
+        form={form}
         onFinish={(e) => {
           hideModal()
           onAdd(e)
+          setTimeout(() => {
+            form.resetFields()
+          }, 500)
         }}
         autoComplete='off'>
         <Form.Item
@@ -80,14 +87,40 @@ const HelpModal = ({ modal, onAdd, hideModal }) => {
           label='Due Date'
           name='dueDate'
           rules={[{ required: true, message: "Please input the project's Due Date" }]}>
-          <DatePicker />
+          <DatePicker format={'D MMM YYYY'} />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item wrapperCol={{ offset: 0, span: 18 }}>
           <Button
             type='primary'
-            htmlType='submit'>
+            htmlType='submit'
+            style={{ width: '50%' }}>
             Submit
+          </Button>
+
+          <Button
+            type='default'
+            htmlType='button'
+            onClick={() => {
+              form.resetFields()
+            }}
+            style={{ margin: '0 1rem' }}>
+            Reset
+          </Button>
+
+          <Button
+            type='link'
+            htmlType='button'
+            onClick={() => {
+              form.setFieldsValue({
+                projectName: 'Big Project',
+                projectType: 'Web Application (Back End)',
+                hourlyRate: 100,
+                hours: 20,
+                dueDate: dayjs()
+              })
+            }}>
+            Fill
           </Button>
         </Form.Item>
       </Form>

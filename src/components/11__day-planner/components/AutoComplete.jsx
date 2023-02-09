@@ -2,9 +2,8 @@ import duties from '../data/duties'
 
 import { AutoComplete } from 'antd'
 import { useState } from 'react'
-const mockVal = (str, repeat = 1) => ({
-  value: str.repeat(repeat)
-})
+import '../css/autocomplete.css'
+
 const App = () => {
   const [value, setValue] = useState('')
   const [options, setOptions] = useState([])
@@ -21,6 +20,7 @@ const App = () => {
   return (
     <>
       <AutoComplete
+        className='autocomplete'
         value={value}
         options={options}
         style={{
@@ -29,7 +29,7 @@ const App = () => {
         onSelect={onSelect}
         onSearch={onSearch}
         onChange={onChange}
-        placeholder='control mode'
+        placeholder='...'
       />
     </>
   )

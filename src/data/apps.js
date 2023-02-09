@@ -50,7 +50,7 @@ const apps = [
   { finished: true, name: 'Password Generator', link: '07-password-generator', element: <PasswordGenerator /> },
   { finished: true, name: 'Word Guess', link: '08-word-guess', element: <WordGuess /> },
   { finished: true, name: 'Code Quiz', link: '09-code-quiz', element: <CodeQuiz /> },
-  { finished: false, name: 'Project Tracker', link: '10-project-tracker', element: <ProjectTracker /> },
+  { finished: true, name: 'Project Tracker', link: '10-project-tracker', element: <ProjectTracker /> },
   { finished: false, name: 'Day Planner', link: '11-day-planner', element: <DayPlanner /> },
   { finished: false, name: 'Library Search Tool', link: '12-library-search-tool', element: <LibrarySearchTool /> },
   { finished: false, name: 'Weather Dashboard', link: '13-weather-dashboard', element: <WeatherDashboard /> },

@@ -1,14 +1,12 @@
 import { Typography } from 'antd'
 
 const { Text, Title } = Typography
-function ProjectTrackerHeader({ time, handleClickAdd }) {
+function ProjectTrackerHeader({ time, showModal }) {
   const d = new Date(time)
   const timeString = d.toLocaleTimeString([], { hourCycle: 'h11', hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' })
   const dateString = d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
   return (
-    <div
-      className='container text-center'
-      id='hero'>
+    <div>
       <Title level={1}>Project Tracker</Title>
       <Title level={2}>
         Time&ensp;<span id='time-display'>{timeString}</span>
@@ -16,7 +14,7 @@ function ProjectTrackerHeader({ time, handleClickAdd }) {
       <Title level={2}>
         Date&ensp;<span id='date-display'>{dateString}</span>
       </Title>
-      <button onClick={handleClickAdd}>
+      <button onClick={showModal}>
         <Text>Add Project</Text>
       </button>
     </div>

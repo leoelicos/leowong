@@ -54,7 +54,7 @@
 .app-11 .toggle:hover {
   background-color: var(--present);
 }
-.app-11 .toggle:active {
+.app-11 .toggle:active .bulb {
   transform: translateY(-1px);
 }
 

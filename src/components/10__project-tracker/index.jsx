@@ -1,55 +1,50 @@
-import ProjectTable from './components/ProjectTable'
-import Header from './components/Header'
-import dummyData from './data/dummydata'
-import { useEffect, useRef, useState } from 'react'
-import HelpModal from './components/HelpModal'
-const useTime = () => {
-  const [time, setTime] = useState(new Date().getTime())
-  const timer = useRef(null)
+/* AntD components */
+import { Layout } from 'antd'
+import { Content, Header } from 'antd/es/layout/layout'
 
-  const incrementTime = () => {
-    setTime((prev) => prev + 1)
-  }
-  useEffect(() => {
-    clearInterval(timer.current)
-    timer.current = setInterval(incrementTime, 1000)
-  }, [])
-  const newTime = new Date(time)
-  const timeString = newTime.toLocaleTimeString([], { hour12: true })
-  const dateString = newTime.toLocaleDateString()
-  return [timeString, dateString]
-}
+/* custom components */
+import ProjectTrackerHeader from './components/ProjectTrackerHeader'
+import ProjectTable from './components/ProjectTable'
+import HelpModal from './components/HelpModal'
+
+/* custom hooks */
+import useTime from './hooks/useTime'
+import useData from './hooks/useData'
+import useModal from './hooks/useModal'
 
 export default function ProjectTracker() {
-  const [modal, setModal] = useState(false)
-  const [timeString, dateString] = useTime()
-  const handleClickAdd = () => {
-    setModal(true)
-  }
-  const handleClickModalOk = () => {
-    setModal(false)
-  }
+  /* time */
+  const time = useTime()
 
-  const handleClickModalCancel = () => {
-    setModal(false)
-  }
-  const handleSubmitProject = () => {
-    console.log('clicked submit')
-  }
+  /* data and data methods */
+  const { data, addProject, deleteProject } = useData()
+
+  /* modal and modal methods */
+  const { modal, showModal, hideModal } = useModal()
+
+  const headerStyle = { height: '300px', background: '#eee', display: 'flex', justifyContent: 'center', textAlign: 'center' }
+
   return (
-    <main>
-      <Header
-        timeString={timeString}
-        dateString={dateString}
-        handleClickAdd={handleClickAdd}
-      />
-      <ProjectTable data={dummyData} />
+    <Layout>
+      <Header style={headerStyle}>
+        <ProjectTrackerHeader
+          time={time}
+          showModal={showModal}
+        />
+      </Header>
+      <Layout>
+        <Content>
+          <ProjectTable
+            data={data}
+            onDelete={deleteProject}
+          />
+        </Content>
+      </Layout>
       <HelpModal
-        handleClickModalOk={handleClickModalOk}
-        handleClickModalCancel={handleClickModalCancel}
         modal={modal}
-        handleSubmitProject={handleSubmitProject}
+        onAdd={addProject}
+        hideModal={hideModal}
       />
-    </main>
+    </Layout>
   )
 }

@@ -12,7 +12,7 @@ const Title = () => (
   </section>
 )
 
-const HelpModal = ({ handleClickModalCancel, modal, handleAddProject }) => {
+const HelpModal = ({ modal, onAdd, hideModal }) => {
   return (
     <Modal
       maskStyle={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
@@ -20,7 +20,7 @@ const HelpModal = ({ handleClickModalCancel, modal, handleAddProject }) => {
       centered
       open={modal}
       okType={'danger'}
-      onCancel={handleClickModalCancel}
+      onCancel={hideModal}
       bodyStyle={{ fontFamily: 'Montserrat, sans-serif' }}
       footer={null}>
       <Form
@@ -28,7 +28,10 @@ const HelpModal = ({ handleClickModalCancel, modal, handleAddProject }) => {
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
-        onFinish={handleAddProject}
+        onFinish={(e) => {
+          hideModal()
+          onAdd(e)
+        }}
         autoComplete='off'>
         <Form.Item
           label='Project Name'

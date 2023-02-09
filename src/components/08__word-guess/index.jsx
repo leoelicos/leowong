@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { getWord } from './data/wordlist'
 
 import Body from './components/Body'
@@ -28,19 +28,6 @@ export default function WordGuess() {
   /* hooks */
   const [seconds, startTimer, stopTimer, resetTimer] = useTimer()
 
-  /* effect */
-  useEffect(() => {
-    if (tally !== null) localStorage.setItem('tally', JSON.stringify(tally))
-  }, [tally])
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-  }, [])
-
-  useEffect(() => {
-    if (seconds === 0) endGame(false)
-  }, [seconds])
-
   /* game logic */
   const startGame = () => {
     started.current = true
@@ -50,18 +37,21 @@ export default function WordGuess() {
     resetTimer()
     startTimer()
   }
-  const endGame = (win) => {
-    if (!unguessed.current) return
-    stopTimer()
-    started.current = false
-    if (win) {
-      setButtonMessage('You win! Start again?')
-      updateTally(true)
-    } else {
-      setButtonMessage(`Answer: '${unguessed.current.join('')}'. Start again?'`) // fix impure
-      updateTally(false)
-    }
-  }
+  const endGame = useCallback(
+    (win) => {
+      if (!unguessed.current) return
+      stopTimer()
+      started.current = false
+      if (win) {
+        setButtonMessage('You win! Start again?')
+        updateTally(true)
+      } else {
+        setButtonMessage(`Answer: '${unguessed.current.join('')}'. Start again?'`) // fix impure
+        updateTally(false)
+      }
+    },
+    [stopTimer]
+  )
   const updateTally = (win) => {
     setTally((prev) => {
       let wins = (prev?.wins || 0) + win ? 1 : 0
@@ -92,21 +82,37 @@ export default function WordGuess() {
     setIsModalOpen(false)
   }
 
-  const handleKeyDown = (e) => {
-    if (!started.current) return
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (!started.current) return
 
-    let match = e.key.match(/[a-z]/i)
-    if (!match) return
+      let match = e.key.match(/[a-z]/i)
+      if (!match) return
 
-    let key = match[0]
-    if (!unguessed.current.includes(key)) return
+      let key = match[0]
+      if (!unguessed.current.includes(key)) return
 
-    setTiles((prev) => {
-      const newTile = prev.map((letter, i) => (unguessed.current[i] === key ? key : letter))
-      if (newTile.every((v) => v !== '_')) endGame(true)
-      return newTile
-    })
-  }
+      setTiles((prev) => {
+        const newTile = prev.map((letter, i) => (unguessed.current[i] === key ? key : letter))
+        if (newTile.every((v) => v !== '_')) endGame(true)
+        return newTile
+      })
+    },
+    [endGame]
+  )
+
+  /* effect */
+  useEffect(() => {
+    if (tally !== null) localStorage.setItem('tally', JSON.stringify(tally))
+  }, [tally])
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+  }, [handleKeyDown])
+
+  useEffect(() => {
+    if (seconds === 0) endGame(false)
+  }, [seconds, endGame])
 
   return (
     <div className='app-08'>

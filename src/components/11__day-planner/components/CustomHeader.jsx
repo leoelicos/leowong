@@ -48,22 +48,27 @@ function CustomHeader({ now, weather }) {
         </div>
         <div className='time'>{`${hoursForClock === 0 ? 12 : hoursForClock}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`}</div>
       </div>
-      <figure id='weather-container'>
-        <img
-          src={weatherIcon}
-          alt={description}
-          id='weather-icon'
-        />
-        <figcaption>
-          <div
-            className='location'
-            id='location'>
-            {city}
-          </div>
-          <div id='weather-temperature'>{temperature}</div>
-          <div id='weather-description'>{description}</div>
-        </figcaption>
-      </figure>
+      {weatherIcon !== 'loading' ? (
+        <figure id='weather-container'>
+          <img
+            src={weatherIcon}
+            alt={description}
+            id='weather-icon'
+          />
+
+          <figcaption>
+            <div
+              className='location'
+              id='location'>
+              {city}
+            </div>
+            <div id='weather-temperature'>{temperature}</div>
+            <div id='weather-description'>{description}</div>
+          </figcaption>
+        </figure>
+      ) : (
+        <span>📶</span>
+      )}
     </header>
   )
 }

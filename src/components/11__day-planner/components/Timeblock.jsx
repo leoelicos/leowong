@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import AutoComplete from './AutoComplete'
+import TextArea from 'antd/es/input/TextArea'
 
 const TimeBlock = ({ time, initialText, addToSchedule, relative }) => {
   const [text, setText] = useState(initialText)
@@ -14,13 +15,12 @@ const TimeBlock = ({ time, initialText, addToSchedule, relative }) => {
     <article
       key={time}
       id={`hour${time}`}>
-      <section className='timeblock-hour'>{time < 12 ? `${time} AM` : `${time} PM`}</section>
-      <div className={`timeblock-textarea ${relative}`}>
-        <AutoComplete
-          text={text}
-          onTextChange={handleTextChange}
-        />
-      </div>
+      <section className='timeblock-hour'>{time < 12 ? `${time} AM` : `${time === 12 ? 12 : time - 12} PM`}</section>
+      <AutoComplete
+        text={text}
+        onTextChange={handleTextChange}>
+        <TextArea className={`timeblock-textarea ${relative}`} />
+      </AutoComplete>
       <button
         className='timeblock-save'
         data-descr={saved ? 'Saved' : ''}

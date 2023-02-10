@@ -1,5 +1,5 @@
 /* hooks */
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useTime from './hooks/useTime'
 import useWeather from './hooks/useWeather'
 import useData from './hooks/useData'

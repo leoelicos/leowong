@@ -2,7 +2,6 @@ import duties from '../data/duties'
 
 import { AutoComplete } from 'antd'
 import { useState } from 'react'
-import '../css/autocomplete.css'
 
 const App = ({ text, onTextChange }) => {
   const [options, setOptions] = useState([])

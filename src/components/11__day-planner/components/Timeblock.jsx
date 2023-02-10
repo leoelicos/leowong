@@ -16,11 +16,17 @@ const TimeBlock = ({ time, initialText, addToSchedule, relative }) => {
       key={time}
       id={`hour${time}`}>
       <section className='timeblock-hour'>{time < 12 ? `${time} AM` : `${time === 12 ? 12 : time - 12} PM`}</section>
-      <AutoComplete
-        text={text}
-        onTextChange={handleTextChange}>
-        <TextArea className={`timeblock-textarea ${relative}`} />
-      </AutoComplete>
+      <div className={`timeblock-textarea ${relative}`}>
+        <AutoComplete
+          text={text}
+          onTextChange={handleTextChange}
+          style={{ width: '100%' }}>
+          <TextArea
+            style={{ background: 'none' }}
+            className='.app-11-text-area'
+          />
+        </AutoComplete>
+      </div>
       <button
         className='timeblock-save'
         data-descr={saved ? 'Saved' : ''}

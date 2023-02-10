@@ -1,6 +1,5 @@
-import '../css/weather.css'
-
-function CustomHeader({ now, city, weatherIcon, temperature, description }) {
+function CustomHeader({ now, weather }) {
+  const { weatherIcon, temperature, description, city } = weather
   const hours = now.getHours()
   const hoursForClock = hours % 12 || 12
   const minutes = now.getMinutes()

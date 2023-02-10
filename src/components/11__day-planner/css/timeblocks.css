@@ -15,7 +15,7 @@
   justify-content: flex-end;
   padding: 1vmin;
   font-size: calc(8px + 1vmin);
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
 }
 
 .app-11 .timeblock-textarea {

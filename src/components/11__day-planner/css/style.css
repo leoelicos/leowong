@@ -1,0 +1,120 @@
+/* universal selector */
+.app-11 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* semantic */
+.app-11 .body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.app-11 header {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  height: 15vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  position: relative;
+}
+.app-11 header > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vmin;
+  font-size: calc(14px + 1vmin);
+}
+.app-11 main {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate3d(0, 0, 0);
+  z-index: 2; /*prevents clock from overlapping on screens with small height */
+  transition: background-color 0.5s ease-in; /* so when the background color changes, it will fade in */
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+}
+
+.app-11 footer {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.app-11 button,
+.app-11 button:active,
+.app-11 button:focus,
+.app-11 button:focus-within,
+.app-11 button:target,
+.app-11 button:hover,
+.app-11 button:visited,
+.app-11 button:focus-visible {
+  outline: none;
+}
+
+.app-11 i,
+.app-11 i:active,
+.app-11 i:focus,
+.app-11 i:focus-within,
+.app-11 i:target,
+.app-11 i:hover,
+.app-11 i:visited,
+.app-11 i:focus-visible {
+  outline: none;
+}
+
+/* classes */
+
+/* header */
+
+.app-11 .current-date {
+  font-size: calc(16px + 5vmin);
+  margin-right: 1vmin;
+}
+.app-11 .date-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-end;
+}
+.app-11 .currentDay {
+  font-size: calc(11px + 3vmin);
+}
+.app-11 .currentMonthAndYear {
+  font-size: calc(5px + 1vmin);
+  /* font-family: 'Poppins', sans-serif; */
+  letter-spacing: 0.5vmin;
+  font-weight: bold;
+}
+
+/*  right */
+
+/* main */
+
+.app-11 .description {
+  white-space: pre-wrap;
+}
+
+.app-11 article {
+  white-space: pre-wrap;
+  margin-top: 1px;
+  height: 8vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}

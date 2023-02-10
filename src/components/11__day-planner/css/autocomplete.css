@@ -1,0 +1,21 @@
+.app-11 .autocomplete {
+  width: 100% !important;
+  display: flex !important;
+  height: 100% !important;
+  padding: 0 !important;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.app-11 .ant-select-selector {
+  height: 100% !important;
+  background: none !important;
+  width: 100% !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.app-11 .ant-select-selector .ant-select-selection-search {
+  inset-inline: 0;
+}
+.app-11 .ant-select-selector .ant-select-selection-search-input {
+  height: unset !important;
+}

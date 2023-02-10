@@ -1,18 +1,18 @@
 @media screen and (max-width: 576px) {
   .app-11 article {
-    width: 95vw;
+    width: 95vw !important;
   }
 }
 
 @media screen and (min-width: 576px) {
   .app-11 article {
-    width: 90vw;
+    width: 90vw !important;
   }
 }
 
 @media screen and (min-width: 768px) {
   .app-11 article {
-    width: 85vw;
+    width: 85vw !important;
   }
 }
 
@@ -23,7 +23,7 @@
   }
   .app-11 header {
     flex-direction: column;
-    width: 20vw;
+    width: 20vw !important;
     height: 100vh !important;
   }
   .app-11 .header-date {
@@ -37,19 +37,19 @@
   }
   .app-11 main {
     height: 100vh !important;
-    width: 75vw;
+    width: 75vw !important;
     justify-content: flex-start;
-    padding: 0 1vw;
+    padding: 0 1vw !important;
     flex-wrap: wrap;
   }
   .app-11 article {
-    width: 35vw;
-    height: 18vh;
-    margin: 1vh 1vw;
+    width: 35vw !important;
+    height: 18vh !important;
+    margin: 1vh 1vw !important;
   }
   .app-11 footer {
     height: 100vh !important;
-    width: 5vw;
+    width: 5vw !important;
   }
 
   .app-11 #weather-container {
@@ -57,10 +57,10 @@
   }
 
   .app-11 .timeblock-hour {
-    width: calc(5px + 3vw);
+    width: calc(5px + 3vw) !important;
   }
   .app-11 .timeblock-save {
-    width: calc(5px + 3vw);
+    width: calc(5px + 3vw) !important;
   }
 
   .app-11 .container {
@@ -70,8 +70,8 @@
 
 @media screen and (min-width: 1200px) {
   .app-11 article {
-    width: 21vw;
-    height: 30vh;
+    width: 21vw !important;
+    height: 30vh !important;
   }
   .app-11 .container {
     justify-content: center;
@@ -80,7 +80,7 @@
 
 @media screen and (max-width: 768px) {
   .app-11 header {
-    width: 100vw;
+    width: 100vw !important;
   }
   .app-11 header-date {
     flex: 1;

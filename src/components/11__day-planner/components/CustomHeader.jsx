@@ -1,6 +1,6 @@
 import '../css/weather.css'
 
-function CustomHeader({ now }) {
+function CustomHeader({ now, city, weatherIcon, temperature, description }) {
   const hours = now.getHours()
   const hoursForClock = hours % 12 || 12
   const minutes = now.getMinutes()
@@ -18,14 +18,20 @@ function CustomHeader({ now }) {
       <div className='header-date'>
         <div
           className='current-date'
-          id='currentDate'></div>
+          id='currentDate'>
+          {now.getDate()}
+        </div>
         <div className='date-container'>
           <div
             className='currentDay'
-            id='currentDay'></div>
+            id='currentDay'>
+            {new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now)}
+          </div>
           <div
             className='currentMonthAndYear'
-            id='currentMonthAndYear'></div>
+            id='currentMonthAndYear'>
+            {new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(now).toUpperCase()}
+          </div>
         </div>
       </div>
       <div className='clock-container'>
@@ -45,16 +51,18 @@ function CustomHeader({ now }) {
       </div>
       <figure id='weather-container'>
         <img
-          src=''
-          alt=''
+          src={weatherIcon}
+          alt={description}
           id='weather-icon'
         />
         <figcaption>
           <div
             className='location'
-            id='location'></div>
-          <div id='weather-temperature'></div>
-          <div id='weather-description'></div>
+            id='location'>
+            {city}
+          </div>
+          <div id='weather-temperature'>{temperature}</div>
+          <div id='weather-description'>{description}</div>
         </figcaption>
       </figure>
     </header>

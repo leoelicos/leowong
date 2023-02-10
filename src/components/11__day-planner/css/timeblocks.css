@@ -1,78 +1,78 @@
-.time-block {
-	text-align: center;
-	border-radius: 15px;
+.app-11 .time-block {
+  text-align: center;
+  border-radius: 15px;
 }
 
-.timeblock-hour {
-	background-color: var(--primary-color);
-	color: var(--secondary-color);
+.app-11 .timeblock-hour {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 
-	border-top: 1px dashed var(---color);
-	width: calc(40px + 4vw);
-	text-align: right;
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-end;
-	padding: 1vmin;
-	font-size: calc(8px + 1vmin);
-	font-family: 'Montserrat', sans-serif;
-}
-
-.timeblock-textarea {
-	flex: 1;
-	background-color: var(--secondary-color);
-	color: var(--primary-color);
-	border: none;
-	resize: none;
-
-	padding: 1vmin;
-	font-size: calc(8px + 1vmin);
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-}
-.timeblock-textarea:focus-visible {
-	outline: none;
-}
-.timeblock-save {
-	border: none;
-	border-top-right-radius: 30%;
-	border-bottom-right-radius: 30%;
-	background-color: var(--primary-color);
-	color: var(--tertiary-color);
-
-	font-size: calc(16px + 2vmin);
-	width: calc(40px + 4vw);
-	position: relative;
-	cursor: pointer;
-}
-.timeblock-save:hover {
-	background-color: var(--present);
-	transition: all 0.3s linear;
-}
-.timeblock-save:hover i {
-	color: var(--secondary-color);
-	transition: all 0.3s linear;
-}
-.timeblock-save:active i {
-	transform: translateY(-1vmin);
-	transition: all 0.3s linear;
+  border-top: 1px dashed var(---color);
+  width: calc(40px + 4vw);
+  text-align: right;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1vmin;
+  font-size: calc(8px + 1vmin);
+  font-family: 'Montserrat', sans-serif;
 }
 
-.past {
-	background-color: var(--past) !important;
-	color: var(--past-text);
-	border: 1px solid var(--past);
+.app-11 .timeblock-textarea {
+  flex: 1;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  resize: none;
+
+  padding: 1vmin;
+  font-size: calc(8px + 1vmin);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.app-11 .timeblock-textarea:focus-visible {
+  outline: none;
+}
+.app-11 .timeblock-save {
+  border: none;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius: 30%;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+
+  font-size: calc(16px + 2vmin);
+  width: calc(40px + 4vw);
+  position: relative;
+  cursor: pointer;
+}
+.app-11 .timeblock-save:hover {
+  background-color: var(--present);
+  transition: all 0.3s linear;
+}
+.app-11 .timeblock-save:hover i {
+  color: var(--secondary-color);
+  transition: all 0.3s linear;
+}
+.app-11 .timeblock-save:active i {
+  transform: translateY(-1vmin);
+  transition: all 0.3s linear;
 }
 
-.present {
-	background-color: var(--present) !important;
-	color: var(--present-text);
-	border: 1px solid var(--present);
+.app-11 .past {
+  background-color: var(--past) !important;
+  color: var(--past-text);
+  border: 1px solid var(--past);
 }
 
-.future {
-	background-color: var(--future) !important;
-	color: var(--future-text);
-	border: 1px solid var(--future);
+.app-11 .present {
+  background-color: var(--present) !important;
+  color: var(--present-text);
+  border: 1px solid var(--present);
+}
+
+.app-11 .future {
+  background-color: var(--future) !important;
+  color: var(--future-text);
+  border: 1px solid var(--future);
 }

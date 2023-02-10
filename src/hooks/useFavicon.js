@@ -6,6 +6,6 @@ const useFavicon = (src) => {
     return () => {
       document.querySelector('#favicon').setAttribute('href', src)
     }
-  }, [])
+  }, [src])
 }
 export default useFavicon

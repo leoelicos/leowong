@@ -35,13 +35,8 @@ export default function WeatherDashboard() {
                   </div>
                   <select
                     id='cityMatch'
-                    className='form-select gray'>
-                    <option
-                      selected
-                      id='matchStatus'
-                      className=''>
-                      Select
-                    </option>
+                    className='form-select gray'
+                    defaultValue='1'>
                     <option
                       value='1'
                       id='match1'>
@@ -70,12 +65,8 @@ export default function WeatherDashboard() {
                   </select>
                   <select
                     id='history'
-                    className='form-select'>
-                    <option
-                      selected
-                      id='historyStatus'>
-                      History
-                    </option>
+                    className='form-select'
+                    defaultValue='history1'>
                     <option
                       value='1'
                       id='history1'>
@@ -233,17 +224,17 @@ export default function WeatherDashboard() {
                       y2='1'>
                       <stop
                         offset='0%'
-                        stop-color='white'
+                        stopColor='white'
                       />
                       <stop
                         offset='50%'
-                        stop-color='white'
-                        stop-opacity='1'
+                        stopColor='white'
+                        stopOpacity='1'
                       />
                       <stop
                         offset='100%'
-                        stop-color='white'
-                        stop-opacity='0'
+                        stopColor='white'
+                        stopOpacity='0'
                       />
                     </linearGradient>
                   </defs>

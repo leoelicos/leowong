@@ -1,4 +1,4 @@
-import { Button, Form, Layout, Select, Space } from 'antd'
+import { Button, Empty, Form, Layout, Select, Space } from 'antd'
 import { useForm } from 'antd/es/form/Form'
 import Input from 'antd/es/input/Input'
 import { Content, Footer, Header } from 'antd/es/layout/layout'
@@ -77,25 +77,49 @@ function LibrarySearchTool() {
           justifyContent: resultPage ? 'start' : 'center',
           alignItems: resultPage ? 'stretch' : 'center'
         }}>
-        <Content
-          style={{
-            display: 'flex',
-            flexDirection: resultPage && width > 600 ? 'row' : 'column',
-            justifyContent: resultPage ? 'start' : 'center',
-            alignItems: resultPage ? 'stretch' : 'center',
-            width: width < 600 ? '100%' : '50%',
-            height: resultPage && width < 600 ? 'fit-content' : '100%'
-          }}>
+        <Content /* form container */
+          style={
+            !resultPage
+              ? {
+                  background: 'hotpink',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '100%',
+                  height: '100%'
+                }
+              : width < 600
+              ? {
+                  background: 'red',
+                  border: '1px solid green !important',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'start',
+                  alignItems: 'stretch',
+                  width: '100%',
+                  height: 'fit-content'
+                }
+              : {
+                  background: 'yellow',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'start',
+                  alignItems: 'stretch',
+                  width: '100%',
+                  height: 'fit-content'
+                }
+          }>
           <Title
             level={2}
-            style={{ margin: '0' }}>
+            style={{ margin: '0', maxWidth: '400px' }}>
             Library of&nbsp;Congress Search&nbsp;Engine
           </Title>
           <Form
             form={form}
             name='search'
             onFinish={handleSubmit}
-            style={{ padding: '1rem', width: '100%', maxWidth: '400px' }}>
+            style={{ width: '100%', maxWidth: '400px' }}>
             <Form.Item
               name='search-text'
               rules={[
@@ -154,20 +178,21 @@ function LibrarySearchTool() {
             ) : (
               <>
                 <h1>
-                  Showing{!!results.searchFormat.length ? ` ${results.searchFormat}` : ''} results for {results.searchText}
+                  Showing{results?.searchFormat?.length > 0 ? ` ${results.searchFormat}` : ''} results for {results.searchText}
                 </h1>
                 <ul>
-                  {results.results.map((result) => (
-                    <li>
-                      <h2>{result.title}</h2>
-                      <ul>
-                        <li>{result.url}</li>
-                        <li>{result.date}</li>
-                        <li>{result.subject}</li>
-                        <li>{result.description}</li>
-                      </ul>
-                    </li>
-                  ))}
+                  {(results?.results?.length &&
+                    results.results.map((result) => (
+                      <li>
+                        <h2>{result.title}</h2>
+                        <ul>
+                          <li>{result.url}</li>
+                          <li>{result.date}</li>
+                          <li>{result.subject}</li>
+                          <li>{result.description}</li>
+                        </ul>
+                      </li>
+                    ))) || <Empty />}
                 </ul>
               </>
             )}

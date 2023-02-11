@@ -1,0 +1,9 @@
+@import './normalize.css';
+@import './style.css';
+@import './color.css';
+@import './header.css';
+@import './today.css';
+@import './future.css';
+@import './card.css';
+@import './graph.css';
+@import './autocomplete.css';

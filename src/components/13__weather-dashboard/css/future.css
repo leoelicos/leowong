@@ -1,0 +1,122 @@
+.app-13 .future .card {
+  /* each card card */
+  /* layout */
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 0.5vw;
+}
+
+.app-13 .future .cards {
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.app-13 .future .card-title .separator {
+  margin: 0 1vw;
+}
+
+.app-13 .future .card-title .day,
+.app-13 .future .card-title .separator,
+.app-13 .future .card-title .date {
+  display: inline-block;
+}
+.app-13 .future .card-info-icon {
+  grid-column: 1/5;
+}
+
+@media screen and (max-width: 1020px) {
+  .app-13 .future .card-info {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(9, auto);
+    column-gap: 0.5vw;
+    row-gap: 0;
+  }
+  .app-13 .future .card-info-icon {
+    grid-column: 1/4;
+  }
+  .app-13 .future .card-info-panel-icon {
+    text-align: right;
+  }
+  .app-13 .future .card-info-panel-label {
+    text-align: right;
+  }
+  .app-13 .future .card-info-panel-graphical {
+    align-self: flex-start;
+    justify-self: center;
+    margin-top: 1vh;
+    text-align: center;
+    grid-column: 1/4;
+  }
+  .app-13 .future .card-info-panel-numerical,
+  .app-13 .future .card-info-panel-label,
+  .app-13 .future .card-info-panel-icon {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .app-13 .future .card-title {
+    flex-direction: column;
+  }
+
+  .app-13 .future .card-title .separator {
+    display: none;
+  }
+  .app-13 .future .card {
+    margin: 0 2px;
+  }
+  .app-13 .future .card-info {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(9, auto);
+    column-gap: 0.5vw;
+    row-gap: 0;
+  }
+  .app-13 .future .card-info-icon {
+    grid-column: 1/3;
+  }
+  .app-13 .future .card-info-panel-icon {
+    display: none;
+  }
+  .app-13 .future .card-info-panel-label {
+    text-align: left;
+  }
+  .app-13 .future .card-info-panel-graphical {
+    align-self: flex-start;
+    justify-self: center;
+    margin-top: 1vh;
+    text-align: center;
+    grid-column: 1/3;
+  }
+  .app-13 .future .card-info-panel-numerical,
+  .app-13 .future .card-info-panel-label,
+  .app-13 .future .card-info-panel-icon {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .app-13 .future .card-info-panel-graphical {
+    display: none;
+  }
+  .app-13 .future .card-info {
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(9, auto);
+    column-gap: 0.5vw;
+    row-gap: 0;
+    text-align: center;
+  }
+  .app-13 .future .card-info-icon {
+    grid-column: 1/2;
+  }
+  .app-13 .future .card-info-panel-numerical {
+    align-self: flex-start;
+  }
+  .app-13 .future .card-info-panel-label {
+    text-align: center;
+  }
+}

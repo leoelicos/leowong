@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.app-13 .body {
+  background-color: var(--secondary);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app-13 header {
+  background-color: var(--tertiary);
+  color: var(--tertiary-complement);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Calibri', sans-serif;
+
+  width: 100vw;
+  position: relative;
+}
+
+.app-13 main {
+  flex: 1;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-13 img[src$='.png'] {
+  height: 2vh;
+}
+
+.app-13 .today,
+.app-13 .future {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-13 h1 {
+  justify-content: center;
+}

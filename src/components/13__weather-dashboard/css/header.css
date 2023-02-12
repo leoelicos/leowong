@@ -1,0 +1,150 @@
+.app-13 .header {
+  justify-content: space-evenly;
+}
+.app-13 .header .title {
+  margin: 1vh 1vw;
+  flex: 0;
+
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: calc(max(1px, 0.1vw));
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.app-13 .header-contents {
+  display: flex;
+}
+
+.app-13 .buttons {
+  width: 100%;
+}
+
+.app-13 .header-contents {
+  width: 100%;
+}
+.app-13 form {
+  width: 70%;
+}
+@media screen and (max-width: 1200px) {
+  .app-13 .header-contents {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 992px) {
+  .app-13 .header {
+    display: flex;
+  }
+  .app-13 .header .title {
+    font-size: 24px;
+  }
+
+  .app-13 .header-contents {
+    width: 100%;
+  }
+  .app-13 form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .app-13 .header {
+    flex-direction: column;
+  }
+  .app-13 .header .title {
+    font-size: 20px;
+  }
+
+  .app-13 .header .title {
+    margin: 1vh 0;
+  }
+  .app-13 .header-contents {
+    width: 100%;
+  }
+  .app-13 form {
+    width: 90%;
+  }
+  .app-13 input {
+    flex: 1;
+  }
+}
+
+.app-13 .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.app-13 .buttons input {
+  width: 100%;
+  border-radius: 4vh;
+
+  padding: 0.375rem 0;
+
+  /* height: 100%; */
+  border: 0;
+  line-height: 1.15;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in;
+}
+
+.app-13 .buttons input:focus-visible {
+  outline: none;
+}
+.app-13 .buttons input::placeholder {
+  margin: 0;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+.app-13 input:focus::placeholder {
+  color: transparent;
+}
+
+.app-13 .buttons #searchBtn {
+  background-color: var(primary);
+  color: var(--primary-complement);
+  transition: background-color 0.1s ease-in;
+  transition: color 0.1s ease-in;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 6px;
+  white-space: nowrap;
+
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.app-13 #searchBtn:hover {
+  background-color: var(--secondary);
+  color: var(--secondary-complement);
+  transition: background-color 0.1s ease-in;
+  transition: color 0.1s ease-in;
+}
+
+.app-13 select {
+  cursor: pointer;
+}
+
+.app-13 .cityNameLabel {
+  text-align: center;
+  font-size: 5vh;
+  color: var(--tertiary-complement);
+  background-color: var(--tertiary);
+  padding: 1vh 1vw;
+  font-weight: bold;
+}

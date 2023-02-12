@@ -4,6 +4,9 @@ import { Content, Footer, Header } from 'antd/es/layout/layout'
 import Typography from 'antd/es/typography/Typography'
 import { useEffect, useRef, useState } from 'react'
 import useResize from './hooks/useResize'
+
+import useTitle from '../../hooks/useTitle'
+
 const { Text, Title } = Typography
 const thinBar = {
   height: 'min-content',
@@ -78,6 +81,8 @@ function LibrarySearchTool() {
     form.resetFields()
     queryResults(e['search-text'], e['search-format'])
   }
+
+  useTitle('Library of Congress')
 
   return (
     <Layout

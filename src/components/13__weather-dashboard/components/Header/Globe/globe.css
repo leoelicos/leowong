@@ -1,0 +1,41 @@
+.app-13 .globe {
+  height: 10vh;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 4px var(--secondary);
+  transform: rotate(-7200deg);
+  transition: transform 360s linear;
+  display: inline-block;
+
+  animation-name: rotate-globe;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
+
+  transition: transform 360s linear;
+  -webkit-transition: transform 360s linear;
+  -moz-transition: transform 360s linear;
+  -o-transition: transform 360s linear;
+}
+
+@keyframes rotate-globe {
+  0% {
+    transform: rotate(0deg);
+    webkittransform: rotate(0deg);
+    moztransform: rotate(0deg);
+    mstransform: rotate(0deg);
+    otransform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    webkittransform: rotate(360deg);
+    moztransform: rotate(360deg);
+    mstransform: rotate(360deg);
+    otransform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .app-13 .globe {
+    height: 20vh;
+    margin-top: -10vh;
+  }
+}

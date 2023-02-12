@@ -14,11 +14,6 @@
   --quaternary-complement: #ffffff;
 }
 
-.app-13 .gray {
-  background-color: var(--primary) !important;
-  transition: background-color 0.3s ease-in;
-}
-
 .app-13 .warning {
   background-color: rgba(255, 0, 0, 0.432) !important;
   transition: background-color 0.3s ease-in;

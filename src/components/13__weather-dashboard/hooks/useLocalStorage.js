@@ -10,11 +10,7 @@ const useLocalStorage = () => {
 
   const saveCity = ({ country, state, city, lat, lon }) => {
     setSavedCities((prev) => {
-      if (prev.some((city) => city.lat === lat && city.lon === lon)) {
-        console.log('already in history')
-        return
-      }
-
+      if (prev.some((city) => city.lat === lat && city.lon === lon)) return prev
       return [{ country, state, city, lat, lon }, ...prev].slice(0, 5)
     })
   }

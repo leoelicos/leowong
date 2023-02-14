@@ -46,8 +46,12 @@ export default function WeatherDashboard() {
   }, [])
 
   const handleClickHistory = (historyCity) => {
-    setCity(historyCity)
+    updateCity(historyCity)
     searchCoords(historyCity.lat, historyCity.lon)
+  }
+  const handleClickSelect = (selectedCity) => {
+    updateCity(selectedCity)
+    searchCoords(selectedCity.lat, selectedCity.lon)
   }
 
   // console.log('render', { city })
@@ -60,8 +64,8 @@ export default function WeatherDashboard() {
           searchCities={searchCities}
           saveCity={saveCity}
           savedCities={savedCities}
-          searchCoords={searchCoords}
           handleClickHistory={handleClickHistory}
+          handleClickSelect={handleClickSelect}
         />
         {city.hourlyData ? (
           <main>

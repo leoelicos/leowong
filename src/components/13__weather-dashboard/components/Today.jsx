@@ -6,6 +6,8 @@ import iconWind from '../images/wind.png'
 import Balls from './Balls'
 import Graph from './Graph'
 
+import useResize from '../hooks/useResize'
+
 function Today({ city }) {
   // console.log('Today', city)
 
@@ -18,19 +20,19 @@ function Today({ city }) {
   const d = current
 
   var svgContainerRef = useRef(null)
+  const width = useResize(svgContainerRef)
 
-  const [width, setWidth] = useState(svgContainerRef.current?.getBoundingClientRect().width || 0)
+  /*   const [width, setWidth] = useState(svgContainerRef.current?.getBoundingClientRect().width || 0)
 
   const updateWidth = () => {
     console.log('changed width')
     const w = svgContainerRef.current?.getBoundingClientRect().width || 0
-    // console.log('updateWidth', w)
     setWidth(w)
   }
 
   useEffect(() => {
     updateWidth()
-  }, [svgContainerRef.current])
+  }, [svgContainerRef.current]) 
 
   useEffect(() => {
     console.log('found container')
@@ -38,7 +40,7 @@ function Today({ city }) {
     return () => {
       window.removeEventListener('resize', updateWidth)
     }
-  }, [])
+  }, [])*/
 
   return (
     <div className='today'>

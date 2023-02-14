@@ -31,7 +31,7 @@
   flex-direction: column;
 }
 
-.app-13 img[src$='.png'] {
+.app-13 .metadata-icons {
   height: 2vh;
 }
 

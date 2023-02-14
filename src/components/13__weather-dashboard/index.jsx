@@ -2,47 +2,79 @@
 import Header from './components/Header'
 import Today from './components/Today'
 import Future from './components/Future'
-import Globe from './components/Header/Globe'
 
 /* hooks */
-import useGraph from './hooks/useGraph'
-import useSearch from './hooks/useSearch'
+
+import useLocalStorage from './hooks/useLocalStorage'
+import useGeo from './hooks/useGeo'
 import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
 
 /* style */
 import './css/index.css'
-import useLocalStorage from './hooks/useLocalStorage'
-import { useEffect } from 'react'
+
+import useOpenWeatherOneCall from './hooks/useOpenWeatherOneCall'
+import { useEffect, useState } from 'react'
 
 export default function WeatherDashboard() {
   useFavicon('/favicons/13-favicon.png')
   useTitle('WWAG')
   const { savedCities, saveCity } = useLocalStorage()
-  /* test */
+  const [cityOptions, setCityOptions] = useState([])
+  const updateCityOptions = (array) => {
+    setCityOptions(array)
+  }
+  const [city, setCity] = useState(
+    savedCities.length
+      ? savedCities[0]
+      : {
+          country: 'US',
+          state: 'New York',
+          city: 'New York County',
+          lat: 40.7127281,
+          lon: -74.0060152
+        }
+  )
+  const updateCity = (props) => {
+    setCity((prev) => ({ ...prev, ...props }))
+  }
+  const searchCities = useGeo(updateCityOptions)
+  const searchCoords = useOpenWeatherOneCall(updateCity)
+
   useEffect(() => {
-    saveCity({ city: 'London', lat: 123, lon: 456 })
-    saveCity({ city: 'Bristol', lat: 123, lon: 456 })
-    saveCity({ city: 'Cambridge', lat: 123, lon: 456 })
-    saveCity({ city: 'Essex', lat: 123, lon: 456 })
-    saveCity({ city: 'Spire', lat: 123, lon: 456 })
-    saveCity({ city: 'Casterly Rock', lat: 123, lon: 456 })
+    searchCoords(city.lat, city.lon)
   }, [])
+
+  const handleClickHistory = (city) => {
+    const [historyLat, historyLon] = city.split('_')
+    searchCoords(historyLat, historyLon)
+  }
+
+  // console.log('render', { city })
+
   return (
     <div className='app-13'>
       <div className='body'>
         <Header
-          addCity={saveCity}
+          cityOptions={cityOptions}
+          searchCities={searchCities}
+          saveCity={saveCity}
           savedCities={savedCities}
+          searchCoords={searchCoords}
+          handleClickHistory={handleClickHistory}
         />
-        {/*<main>
-          <div
-            id='cityNameLabel'
-            className='cityNameLabel'></div>
-          <Today />
+        {city.hourlyData ? (
+          <main>
+            <div
+              id='cityNameLabel'
+              className='cityNameLabel'>
+              {city.city}
+            </div>
+            <Today city={city} />
 
-          <Future /> 
-        </main>*/}
+            <Future city={city} />
+          </main>
+        ) : null}
       </div>
     </div>
   )

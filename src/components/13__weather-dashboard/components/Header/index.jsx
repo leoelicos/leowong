@@ -11,7 +11,7 @@ import './style/header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-function Header({ savedCities, saveCity, handleClickHistory, searchCoords, cityOptions, searchCities }) {
+function Header({ savedCities, saveCity, handleClickHistory, searchCoords, cityOptions, searchCities, handleClickSelect }) {
   /* state */
   const [active, setActive] = useState(0)
   const [selectCityOpen, setSelectCityOpen] = useState(false)
@@ -45,12 +45,13 @@ function Header({ savedCities, saveCity, handleClickHistory, searchCoords, cityO
     /* update local storage */
     saveCity(selectedCity)
 
-    /* search for the city */
-    searchCoords(selectedCity.lat, selectedCity.lon)
+    /* search for the city and update the city */
+    handleClickSelect(selectedCity)
   }
 
   /* button3 */
   const handleSelectCityHistory = (historyIdx) => {
+    /* search for the city and update the city */
     handleClickHistory(savedCities[historyIdx])
   }
 

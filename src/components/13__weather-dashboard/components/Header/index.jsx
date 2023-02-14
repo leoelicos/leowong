@@ -50,8 +50,8 @@ function Header({ savedCities, saveCity, handleClickHistory, searchCoords, cityO
   }
 
   /* button3 */
-  const handleSelectCityHistory = (e) => {
-    handleClickHistory(e)
+  const handleSelectCityHistory = (historyIdx) => {
+    handleClickHistory(savedCities[historyIdx])
   }
 
   /* focus logic */
@@ -115,7 +115,7 @@ function Header({ savedCities, saveCity, handleClickHistory, searchCoords, cityO
             {savedCities?.map(({ country, state, city, lat, lon }, i) => (
               <Select.Option
                 key={i}
-                value={`${lat}_${lon}`}>
+                value={i}>
                 {`${city} (${state}, ${country})`}
               </Select.Option>
             )) || null}

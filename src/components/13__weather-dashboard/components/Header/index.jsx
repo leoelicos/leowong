@@ -47,12 +47,15 @@ function Header({ savedCities, saveCity, handleClickHistory, cityOptions, search
 
     /* search for the city and update the city */
     handleClickSelect(selectedCity)
+
+    setActive(0)
   }
 
   /* button3 */
   const handleSelectCityHistory = (historyIdx) => {
     /* search for the city and update the city */
     handleClickHistory(savedCities[historyIdx])
+    setActive(0)
   }
 
   /* focus logic */
@@ -99,25 +102,37 @@ function Header({ savedCities, saveCity, handleClickHistory, cityOptions, search
             </button>
           </div>
           <Select
-            className={`form-select ${active === 1 ? '' : 'gray'}`}
+            className={`form-select no-background ${active === 1 ? '' : 'gray'}`}
             ref={selectCityRef}
             onChange={handleSelectCity}
             onDropdownVisibleChange={(visible) => {
               setSelectCityOpen(visible)
+              if (visible)
+                setTimeout(() => {
+                  setActive(1)
+                }, 0)
+              else setActive(0)
             }}
             open={selectCityOpen}
-            options={cityOptions.map(({ country, state, city }, i) => ({ key: `${country}_${state}_${city}`, value: i, label: `${city} (${state}, ${country})` }))}
+            options={cityOptions.map(({ country, state, city }, i) => ({ key: `${country}_${state}_${city}`, value: i, label: `${city} (${!!state ? `${state}, ` : ''}${country})` }))}
           />
 
           <Select
-            className={`form-select ${active === 2 ? '' : 'gray'}`}
+            className={`form-select no-background ${active === 2 ? '' : 'gray'}`}
             onChange={handleSelectCityHistory}
-            ref={selectHistoryRef}>
-            {savedCities?.map(({ country, state, city, lat, lon }, i) => (
+            ref={selectHistoryRef}
+            onDropdownVisibleChange={(open) => {
+              if (open)
+                setTimeout(() => {
+                  setActive(2)
+                }, 0)
+              else setActive(0)
+            }}>
+            {savedCities?.map(({ country, state, city }, i) => (
               <Select.Option
                 key={i}
                 value={i}>
-                {`${city} (${state}, ${country})`}
+                {`${city} (${!!state ? `${state}, ` : ''}${country})`}
               </Select.Option>
             )) || null}
           </Select>

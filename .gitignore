@@ -4,5 +4,3 @@
 # misc
 .DS_Store
 .env 
-src/components/13__weather-dashboard/hooks/useSearch.js
-src/components/13__weather-dashboard/hooks/useGraph.js

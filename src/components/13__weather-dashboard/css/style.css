@@ -9,7 +9,8 @@
   width: 100%;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .app-13 header {
@@ -26,12 +27,12 @@
 
 .app-13 main {
   flex: 1;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.app-13 img[src$='.png'] {
+.app-13 .metadata-icons {
   height: 2vh;
 }
 

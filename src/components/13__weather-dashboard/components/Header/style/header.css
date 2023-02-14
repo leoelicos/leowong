@@ -1,4 +1,4 @@
-.app-13 .form-select {
+/* .app-13 .form-select {
   display: block;
   width: 100%;
   padding: 0.375rem 2.25rem 0.375rem 0.75rem;
@@ -19,7 +19,7 @@
   -moz-appearance: none;
   appearance: none;
   transition: background-color 0.3s ease-in;
-}
+} */
 .app-13 .form-select:focus-visible {
   outline: none;
 }
@@ -48,7 +48,6 @@
   display: flex;
   position: relative;
   padding: 0.375rem 0;
-  background: rgb(250, 114, 114);
 }
 
 .app-13 .search-container .button {
@@ -57,5 +56,3 @@
   transform: translateY(-50%);
   right: 0;
 }
-
-/* button 2 */

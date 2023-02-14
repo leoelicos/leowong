@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
 
 const useLocalStorage = () => {
-  const [savedCities, setSavedCities] = useState([])
+  const currentStorage = JSON.parse(localStorage.getItem('cities'))
+  const [savedCities, setSavedCities] = useState(currentStorage ?? [])
 
   useEffect(() => {
-    setSavedCities(() => JSON.parse(localStorage.getItem('cities') ?? '[]'))
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem('cityLogs', JSON.stringify(savedCities))
+    localStorage.setItem('cities', JSON.stringify(savedCities))
   }, [savedCities])
 
-  const saveCity = ({ city, lat, lon }) => {
-    setSavedCities((prev) => [...prev, { city, lat, lon }].slice(-5))
+  const saveCity = ({ country, state, city, lat, lon }) => {
+    setSavedCities((prev) => {
+      if (prev.some((city) => city.lat === lat && city.lon === lon)) return prev
+      return [{ country, state, city, lat, lon }, ...prev].slice(0, 5)
+    })
   }
 
   return { savedCities, saveCity }

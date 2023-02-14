@@ -1,142 +1,153 @@
-function Today() {
+import { useEffect, useRef, useState } from 'react'
+import iconTemp from '../images/temp.png'
+import iconUV from '../images/uv.png'
+import iconWater from '../images/water.png'
+import iconWind from '../images/wind.png'
+import Balls from './Balls'
+import Graph from './Graph'
+
+import useResize from '../hooks/useResize'
+
+function Today({ city }) {
+  // console.log('Today', city)
+
+  const [activeGraph, setActiveGraph] = useState(0)
+
+  const { hourlyData, current } = city
+  // console.log('Today', { hourlyData, current })
+  const hourlyData24 = hourlyData.slice(0, 24)
+
+  const d = current
+
+  var svgContainerRef = useRef(null)
+  const width = useResize(svgContainerRef)
+
   return (
     <div className='today'>
       <div className='cards-title'>Today</div>
 
       <section className='card-today'>
         <div className='card-title'>
-          <span className='day'>—</span>
+          <span className='day'>{d.day}</span>
           <span className='separator'>|</span>
-          <span className='date'>—</span>
+          <span className='date'>{`${d.date} ${d.month}`}</span>
         </div>
 
         <div className='card-split'>
           <div className='card-info-icon'>
             <img
-              src='./assets/images/globe.ico'
-              alt=''
+              src={d.icon}
+              alt={d.description}
             />
           </div>
           <article className='card'>
             <div className='card-info'>
-              <div className='card-info-panel-label temp0'>TEMP</div>
-              <div className='card-info-panel-numerical temp0'>15°C</div>
+              <div className='card-info-panel-label'>TEMP</div>
+              <div className='card-info-panel-numerical'>{d.temp}°C</div>
               <div className='card-info-panel-icon'>
                 <img
-                  src='./assets/images/temp.png'
-                  alt=''
+                  className='metadata-icons'
+                  src={iconTemp}
+                  alt='temperature'
                 />
-              </div>
-              <div className='card-info-panel-graphical temp0'>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
               </div>
 
-              <div className='card-info-panel-label wind0'>WIND</div>
-              <div className='card-info-panel-numerical wind0'>1kph</div>
-              <div className='card-info-panel-icon'>
-                <img
-                  src='./assets/images/wind.png'
-                  alt=''
-                />
-              </div>
-              <div className='card-info-panel-graphical wind0'>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-              </div>
+              <Balls
+                type='temp'
+                value={d.temp}
+              />
 
-              <div className='card-info-panel-label uv0'>UV</div>
-              <div className='card-info-panel-numerical uv0'>0.47</div>
+              <div className='card-info-panel-label'>WIND</div>
+              <div className='card-info-panel-numerical'>{d.wind_speed}kph</div>
               <div className='card-info-panel-icon'>
                 <img
-                  src='./assets/images/uv.png'
-                  alt=''
+                  className='metadata-icons'
+                  src={iconWind}
+                  alt='wind'
                 />
               </div>
-              <div className='card-info-panel-graphical uv0'>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-              </div>
+              <Balls
+                type='wind'
+                value={d.wind_speed}
+              />
 
-              <div className='card-info-panel-label hum0'>HUM</div>
-              <div className='card-info-panel-numerical hum0'>15°C</div>
+              <div className='card-info-panel-label'>UV</div>
+              <div className='card-info-panel-numerical'>{d.uv}</div>
               <div className='card-info-panel-icon'>
                 <img
-                  src='./assets/images/water.png'
-                  alt=''
+                  className='metadata-icons'
+                  src={iconUV}
+                  alt='uv'
                 />
               </div>
-              <div className='card-info-panel-graphical hum0'>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
-                <div className='ball'></div>
+              <Balls
+                type='uv'
+                value={d.uv}
+              />
+
+              <div className='card-info-panel-label'>HUM</div>
+              <div className='card-info-panel-numerical'>{d.humidity}°C</div>
+              <div className='card-info-panel-icon'>
+                <img
+                  className='metadata-icons'
+                  src={iconWater}
+                  alt='humidity'
+                />
               </div>
+              <Balls
+                type='humidity'
+                value={d.humidity}
+              />
             </div>
           </article>
         </div>
-        <div className='graph-container'>
+        <div
+          className='graph-container'
+          ref={svgContainerRef}>
           <div className='graph-options'>
             <span
-              className='graph-option'
-              id='option-temperature'>
+              className={`graph-option ${activeGraph === 0 ? 'active' : ''}`}
+              onClick={() => {
+                setActiveGraph(0)
+              }}>
               TEMP
             </span>
             <span
-              className='graph-option'
-              id='option-wind'>
+              className={`graph-option ${activeGraph === 1 ? 'active' : ''}`}
+              onClick={() => {
+                setActiveGraph(1)
+              }}>
               WIND
             </span>
             <span
-              className='graph-option active'
-              id='option-uv'>
+              className={`graph-option ${activeGraph === 2 ? 'active' : ''}`}
+              onClick={() => {
+                setActiveGraph(2)
+              }}>
               UV
             </span>
             <span
-              className='graph-option'
-              id='option-humidity'>
+              className={`graph-option ${activeGraph === 3 ? 'active' : ''}`}
+              onClick={() => {
+                setActiveGraph(3)
+              }}>
               HUM
             </span>
           </div>
-          <svg
-            id='svg1'
-            xmlns='http://www.w3.org/2000/svg'
-            width='500'
-            height='80'>
-            <defs>
-              <linearGradient
-                id='temperatureGradient'
-                x1='0'
-                x2='0'
-                y1='0'
-                y2='1'>
-                <stop
-                  offset='0%'
-                  stopColor='white'
-                />
-                <stop
-                  offset='50%'
-                  stopColor='white'
-                  stopOpacity='1'
-                />
-                <stop
-                  offset='100%'
-                  stopColor='white'
-                  stopOpacity='0'
-                />
-              </linearGradient>
-            </defs>
-          </svg>
+          <Graph
+            array={
+              activeGraph === 0
+                ? hourlyData24.map(({ temp }) => temp) //
+                : activeGraph === 1
+                ? hourlyData24.map(({ wind_speed }) => wind_speed)
+                : activeGraph === 2
+                ? hourlyData24.map(({ uvi }) => uvi)
+                : activeGraph === 3
+                ? hourlyData24.map(({ humidity }) => humidity)
+                : []
+            }
+            w={width}
+          />
         </div>
       </section>
     </div>

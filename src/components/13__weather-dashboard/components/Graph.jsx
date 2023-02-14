@@ -1,5 +1,3 @@
-import dummyData from '../hooks/dummyData'
-
 const Graph = ({ array, w }) => {
   console.log('Graph', { array, w })
   if (w === 0) return null

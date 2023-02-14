@@ -45,9 +45,9 @@ export default function WeatherDashboard() {
     searchCoords(city.lat, city.lon)
   }, [])
 
-  const handleClickHistory = (city) => {
-    const [historyLat, historyLon] = city.split('_')
-    searchCoords(historyLat, historyLon)
+  const handleClickHistory = (historyCity) => {
+    setCity(historyCity)
+    searchCoords(historyCity.lat, historyCity.lon)
   }
 
   // console.log('render', { city })

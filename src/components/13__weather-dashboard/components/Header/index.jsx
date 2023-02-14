@@ -11,7 +11,7 @@ import './style/header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-function Header({ savedCities, saveCity, handleClickHistory, searchCoords, cityOptions, searchCities, handleClickSelect }) {
+function Header({ savedCities, saveCity, handleClickHistory, cityOptions, searchCities, handleClickSelect }) {
   /* state */
   const [active, setActive] = useState(0)
   const [selectCityOpen, setSelectCityOpen] = useState(false)

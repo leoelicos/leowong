@@ -22,26 +22,6 @@ function Today({ city }) {
   var svgContainerRef = useRef(null)
   const width = useResize(svgContainerRef)
 
-  /*   const [width, setWidth] = useState(svgContainerRef.current?.getBoundingClientRect().width || 0)
-
-  const updateWidth = () => {
-    console.log('changed width')
-    const w = svgContainerRef.current?.getBoundingClientRect().width || 0
-    setWidth(w)
-  }
-
-  useEffect(() => {
-    updateWidth()
-  }, [svgContainerRef.current]) 
-
-  useEffect(() => {
-    console.log('found container')
-    window.addEventListener('resize', updateWidth)
-    return () => {
-      window.removeEventListener('resize', updateWidth)
-    }
-  }, [])*/
-
   return (
     <div className='today'>
       <div className='cards-title'>Today</div>

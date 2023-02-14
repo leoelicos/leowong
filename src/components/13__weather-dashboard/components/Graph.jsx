@@ -1,5 +1,4 @@
 const Graph = ({ array, w }) => {
-  console.log('Graph', { array, w })
   if (w === 0) return null
 
   var xIncrement = +w / 25
@@ -7,12 +6,9 @@ const Graph = ({ array, w }) => {
   var heightOfGraph = baseline + 5
   var heightOfText = heightOfGraph + 5
 
-  console.log('1', array)
   var ymax = Math.max(...array)
-  console.log('2', Math.max(...array))
 
   var ymin = Math.min(...array)
-  console.log({ ymax, ymin })
   const heightOfMaxLabel = 48
   const heightOfMinLabel = 0
   var h = 80

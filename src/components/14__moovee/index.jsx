@@ -14,12 +14,18 @@ export default function MooVee() {
   const [form] = Form.useForm()
   const handleSubmit = async (e) => {
     if (e === undefined) {
-      console.log('is blank')
+      // console.log('is blank')
       return
     }
     await searchOMDB(e)
   }
-
+  const { Trailer, showTrailer } = useTrailer()
+  const handleClickTrailer = async (title, year) => {
+    // console.log({ title, year })
+    const uri = await searchYouTube(`${title}+${year}+trailer`)
+    // console.log('handleClickTrailer', { uri })
+    showTrailer(uri)
+  }
   return (
     <div className='app-14'>
       <div className='body'>
@@ -42,11 +48,12 @@ export default function MooVee() {
           </Form.Item>
         </Form>
 
+        <Trailer />
         {OMDBmovies.map((movie) => (
           <Card
             key={movie.poster}
             {...movie}
-            searchYouTube={searchYouTube}
+            handleClickTrailer={handleClickTrailer}
           />
         ))}
       </div>
@@ -54,14 +61,7 @@ export default function MooVee() {
   )
 }
 
-const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, searchYouTube }) => {
-  const { Trailer, showTrailer } = useTrailer()
-
-  const handleClickTrailer = async () => {
-    const uri = await searchYouTube(`${title}+${year}+trailer`)
-    console.log('handleClickTrailer', { uri })
-    showTrailer(uri)
-  }
+const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleClickTrailer }) => {
   return (
     <div
       className='result-container'
@@ -70,6 +70,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, searchYo
         <img
           className='movie-poster'
           src={poster === 'N/A' ? './images/noposter.png' : poster}
+          alt='movie poster'
         />
       </div>
       <div className='movie-details'>
@@ -112,10 +113,12 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, searchYo
           <b>Plot: </b>
           {plot === 'N/A' ? '—' : plot}
         </p>
-        <Trailer />
+
         <Button
           type='primary'
-          onClick={handleClickTrailer}>
+          onClick={() => {
+            handleClickTrailer(title, year)
+          }}>
           Trailer
         </Button>
       </div>

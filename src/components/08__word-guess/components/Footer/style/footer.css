@@ -53,11 +53,20 @@
   justify-content: space-evenly;
 }
 /* modal */
-.ant-modal-content {
+div#root:has(.app-08) + div .ant-modal-header {
   background-color: hsl(25, 84%, 61%) !important;
+  margin: 0 !important;
 }
-.ant-modal-header {
-  background: none !important;
+div#root:has(.app-08) + div .ant-modal-body {
+  background-color: #ffff98;
+  margin: 0;
+  padding: 1rem;
+}
+
+div#root:has(.app-08) + div .ant-modal-footer {
+  background-color: #ffff98;
+  margin: 0;
+  padding: 1rem;
 }
 
 .app-08 .modal-start-button {

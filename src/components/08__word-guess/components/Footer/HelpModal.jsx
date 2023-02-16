@@ -25,7 +25,7 @@ const HelpModal = ({ handleClickModalOk, handleClickModalCancel, isModalOpen }) 
       </Button>
     }
     bodyStyle={{ fontFamily: 'Montserrat, sans-serif' }}>
-    <p>
+    <p style={{ margin: '0' }}>
       Click <button className='modal-start-button'>Start</button> to play.
       <br />
       Type the letters to guess the word before the timer hits 0!

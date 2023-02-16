@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import mockMovies from '../test/dummydata'
+// const mockMovies = []
 const { REACT_APP_14_OMDB_KEY } = process.env
 
 function useOMDB() {

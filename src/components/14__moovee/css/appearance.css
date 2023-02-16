@@ -1,0 +1,33 @@
+.app-14 {
+  --primary: black;
+  --grey: #212121;
+  --Blue: #0d278a;
+  --Purple: #7d2aac;
+  --call-to-action: #ed7d31;
+  --moovee-font: 'Montserrat';
+  --text1: azure;
+}
+
+.app-14 .body {
+  background-color: var(--primary);
+  color: var(--text1);
+}
+
+.app-14 .title {
+  color: var(--Red);
+}
+.app-14 .li.rated {
+  background-color: var(--Purple);
+}
+
+.app-14 .genre {
+  background-color: var(--grey);
+}
+
+.app-14 .footer-icon {
+  color: var(--primary);
+  background-color: var(--call-to-action);
+}
+.app-14 .footer-icon:hover {
+  opacity: 0.7;
+}

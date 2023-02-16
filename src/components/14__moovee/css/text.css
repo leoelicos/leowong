@@ -3,6 +3,16 @@
 .app-14 * {
   font-family: 'Montserrat', sans-serif;
 }
-.app-14 .results .title {
-  font-size: 35px;
+.app-14 .movie-details .title {
+  font-size: 1rem;
+}
+
+.app-14 .result-container {
+  text-align: center;
+}
+
+.app-14 a.footer-icon {
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
 }

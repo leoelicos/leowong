@@ -19,7 +19,7 @@ import Logo from './images/moovee.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareDown, faSquare } from '@fortawesome/free-regular-svg-icons'
 import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
-
+import NoPoster from './images/noposter.png'
 /* style */
 import './css/index.css'
 import { useRef } from 'react'
@@ -133,7 +133,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
         key={poster}>
         <div className='movie-poster'>
           <img
-            src={poster === 'N/A' ? './images/noposter.png' : poster}
+            src={poster === 'N/A' ? NoPoster : poster}
             alt='movie poster'
           />
         </div>
@@ -167,7 +167,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
             {plot === 'N/A' ? '—' : plot}
           </p>
           {genre === 'N/A' ? null : (
-            <p className='genre'>
+            <div className='genre'>
               <Space
                 style={{ justifyContent: 'center' }}
                 size={[0, 8]}
@@ -180,7 +180,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
                   </Tag>
                 ))}
               </Space>
-            </p>
+            </div>
           )}
         </div>
       </div>

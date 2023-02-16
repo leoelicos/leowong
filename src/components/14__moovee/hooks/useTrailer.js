@@ -1,6 +1,6 @@
 import { Button, Modal } from 'antd'
 import { useState } from 'react'
-import useResize from '../hooks/useResize'
+// import useResize from '../hooks/useResize'
 
 function useTrailer() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
@@ -14,7 +14,7 @@ function useTrailer() {
     setIsTrailerOpen(false)
   }
 
-  const [w, h] = useResize()
+  // const [w, h] = useResize()
 
   const Trailer = () => {
     return (
@@ -24,8 +24,7 @@ function useTrailer() {
         onOk={handleOk}
         closable={false}
         maskClosable={true}
-        centered
-        width={w - 48}
+        onCancel={handleOk}
         footer={[
           <Button
             key='close'
@@ -33,19 +32,17 @@ function useTrailer() {
             Close
           </Button>
         ]}>
-        {
-          <iframe
-            onLoad={null}
-            width={w - 96}
-            height={h - 150}
-            src={uri}
-            title='YouTube video player'
-            border='none'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen=''
-            style={{ border: 'none' }}
-          />
-        }
+        <iframe
+          onLoad={null}
+          width='100%'
+          height='100%'
+          src={uri}
+          title='YouTube video player'
+          border='none'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen=''
+          style={{ border: 'none' }}
+        />
       </Modal>
     )
   }

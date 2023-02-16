@@ -1,0 +1,35 @@
+div#root:has(.app-14) + div .ant-modal-wrap {
+  position: fixed;
+}
+
+div#root:has(.app-14) + div .ant-modal-content {
+  display: flex;
+  /* height: 75%; */
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  position: fixed;
+  top: 5%;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+}
+div#root:has(.app-14) + div .ant-modal-body {
+  width: 100%;
+}
+div#root:has(.app-14) + div .ant-modal-footer {
+  margin: 0;
+  height: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+div#root:has(.app-14) + div .ant-modal-footer button {
+  position: absolute;
+  bottom: -2.5rem;
+  right: 0;
+}
+
+div#root:has(.app-14) + div .ant-modal-mask {
+  background-color: rgba(0, 0, 0, 0.9);
+}

@@ -66,3 +66,21 @@
   text-decoration: none;
   border-radius: 50%;
 }
+
+/* media queries */
+@media (min-width: 800px) {
+  .app-14 .result-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
+  }
+  .app-14 .movie-details {
+    text-align: center;
+  }
+}
+@media (max-width: 800px) {
+  .app-14 .result-container {
+    text-align: center;
+  }
+}

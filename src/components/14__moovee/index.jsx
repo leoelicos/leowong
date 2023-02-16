@@ -1,61 +1,104 @@
+/* hooks */
 import useTrailer from './hooks/useTrailer'
-import { Button, Form, Input } from 'antd'
+import useLocalStorage from './hooks/useLocalStorage'
+import useTitle from '../../hooks/useTitle'
 import useOMDB from './hooks/useOMDB'
+import useFavicon from '../../hooks/useFavicon'
+
+/* api */
 import searchYouTube from './api/youtubeSearchAPI'
 
-import useFavicon from '../../hooks/useFavicon'
-import useTitle from '../../hooks/useTitle'
+/* components */
+import { Button, Select } from 'antd'
+import Search from 'antd/es/input/Search'
+
+/* images */
+import Logo from './images/moovee.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretSquareDown, faSquare } from '@fortawesome/free-regular-svg-icons'
+import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
+
+/* style */
+import './css/index.css'
 
 export default function MooVee() {
+  const { savedMovies, saveMovie } = useLocalStorage()
   useFavicon('/favicons/14-favicon.png')
   useTitle('MooVee')
 
   const { searchOMDB, OMDBmovies } = useOMDB()
-  const [form] = Form.useForm()
+
   const handleSubmit = async (e) => {
-    if (e === undefined) {
-      // console.log('is blank')
-      return
-    }
+    if (e === undefined) return
+    saveMovie(e)
     await searchOMDB(e)
   }
   const { Trailer, showTrailer } = useTrailer()
   const handleClickTrailer = async (title, year) => {
-    // console.log({ title, year })
     const uri = await searchYouTube(`${title}+${year}+trailer`)
-    // console.log('handleClickTrailer', { uri })
+
     showTrailer(uri)
+  }
+  const handleSelectMovieHistory = (historyIdx) => {
+    handleClickHistory(savedMovies[historyIdx])
+  }
+  const handleClickHistory = (historyMovie) => {
+    handleSubmit(historyMovie)
   }
   return (
     <div className='app-14'>
       <div className='body'>
-        <Form
-          name='basic'
-          form={form}
-          onFinish={handleSubmit}
-          initialValues={{ query: '' }}>
-          <Form.Item
-            label='Project Name'
-            name='query'>
-            <Input />
-          </Form.Item>
-          <Form.Item>
-            <Button
-              type='primary'
-              htmlType='submit'>
-              Mock search movies
-            </Button>
-          </Form.Item>
-        </Form>
-
-        <Trailer />
-        {OMDBmovies.map((movie) => (
-          <Card
-            key={movie.poster}
-            {...movie}
-            handleClickTrailer={handleClickTrailer}
+        <header className='header'>
+          <img
+            className='logo'
+            src={Logo}
+            alt='moovee logo'
           />
-        ))}
+
+          <Search
+            placeholder='Any movie name...'
+            enterButton
+            loading={false}
+            onSearch={handleSubmit}
+          />
+          {savedMovies.length === 0 ? null : (
+            <Select
+              className='history-button'
+              onChange={handleSelectMovieHistory}
+              suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
+              placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}>
+              {savedMovies?.map((title, i) => (
+                <Select.Option
+                  key={i}
+                  value={i}>
+                  {title}
+                </Select.Option>
+              ))}
+            </Select>
+          )}
+        </header>
+        <main className='results'>
+          {OMDBmovies.length === 0 ? (
+            <div className='result-container'>No movies found 🤔</div>
+          ) : (
+            OMDBmovies.map((movie) => (
+              <Card
+                key={movie.poster}
+                {...movie}
+                handleClickTrailer={handleClickTrailer}
+              />
+            ))
+          )}
+        </main>
+        <footer className='footer'>
+          <a href='https://www.facebook.com/MooVee-The-Movies-104712718873649/'>
+            <FontAwesomeIcon
+              icon={faSquare}
+              className='footer-icon'
+            />
+          </a>
+        </footer>
+        <Trailer />
       </div>
     </div>
   )
@@ -75,25 +118,25 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
       </div>
       <div className='movie-details'>
         <h3 className='title'>{title === 'N/A' ? 'Untitled' : title}</h3>
-        <ul className='movieUL'>
-          <li className='esrb'>
+        <ul className='ul movieUL'>
+          <li className='li esrb'>
             <b>Rated: </b>
             {esrb === 'N/A' ? 'Unrated' : esrb}
           </li>
-          <li className='year'>
+          <li className='li year'>
             <b>Year: </b>
             {esrb === 'N/A' ? 'Unrated' : year}
           </li>
-          <li className='rated'>
+          <li className='li rated'>
             <b>Ratings: </b>
             <br />
             {rating.length === 0 ? (
               'No ratings found'
             ) : (
-              <ul>
+              <ul className='ul'>
                 {rating.map((r) => (
                   <li
-                    className='rating'
+                    className='li rating'
                     key={r.Source}>
                     <b>{r.Source}: </b>
                     {r.Value}

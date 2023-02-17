@@ -1,7 +1,3 @@
-import iconTemp from '../images/temp.png'
-import iconUV from '../images/uv.png'
-import iconWater from '../images/water.png'
-import iconWind from '../images/wind.png'
 import Balls from './Balls'
 
 function Future({ city }) {

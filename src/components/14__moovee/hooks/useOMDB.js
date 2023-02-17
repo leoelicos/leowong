@@ -7,8 +7,11 @@ function useOMDB() {
   const [OMDBmovies, setOMDBMovies] = useState([])
 
   const searchOMDB = async (str) => {
-    // setOMDBMovies(mockMovies)
-    // return
+    /* setTimeout(() => {
+      setOMDBMovies(mockMovies)
+      return
+    }, 1000) */
+
     let newMovies = undefined
     try {
       const imdbIDs = await searchByString(str)
@@ -62,6 +65,7 @@ function useOMDB() {
       return results
     }
   }
+
   return { searchOMDB, OMDBmovies }
 }
 export default useOMDB

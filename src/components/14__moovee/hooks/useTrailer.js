@@ -1,55 +1,73 @@
-import { Button, Modal } from 'antd'
 import { useState } from 'react'
-import useResize from '../hooks/useResize'
+import { Button, Modal, Spin } from 'antd'
 
 function useTrailer() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
+  const [loadingGapi, setLoadingGapi] = useState(false)
   const [uri, setUri] = useState('')
 
-  const showTrailer = (youtubeURI) => {
-    setUri(youtubeURI)
-    setIsTrailerOpen(true)
-  }
-  const handleOk = () => {
-    setIsTrailerOpen(false)
+  const updateLoadingGapi = (bool) => {
+    setLoadingGapi(bool)
   }
 
-  const [w, h] = useResize()
+  const updateUri = (s) => {
+    setUri(s)
+  }
+
+  const showTrailer = () => {
+    setIsTrailerOpen(true)
+  }
+
+  const hideTrailer = () => {
+    setIsTrailerOpen(false)
+  }
 
   const Trailer = () => {
     return (
       <Modal
-        uri={uri}
+        transitionName=''
+        maskTransitionName=''
         open={isTrailerOpen}
-        onOk={handleOk}
+        onOk={hideTrailer}
         closable={false}
         maskClosable={true}
-        centered
-        width={w - 48}
+        onCancel={hideTrailer}
         footer={[
           <Button
+            type='primary'
+            block
             key='close'
-            onClick={handleOk}>
+            onClick={hideTrailer}>
             Close
           </Button>
         ]}>
-        {
-          <iframe
-            onLoad={null}
-            width={w - 96}
-            height={h - 150}
-            src={uri}
-            title='YouTube video player'
-            border='none'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen=''
-            style={{ border: 'none' }}
+        {loadingGapi ? (
+          <Spin
+            size='large'
+            className='loading-spin'
           />
-        }
+        ) : (
+          <VideoElement uri={uri} />
+        )}
       </Modal>
     )
   }
 
-  return { Trailer, showTrailer }
+  return { Trailer, showTrailer, updateUri, updateLoadingGapi }
 }
+
+const VideoElement = ({ uri }) => {
+  return (
+    <iframe
+      src={uri}
+      style={{ border: 'none' }}
+      width='100%'
+      height='100%'
+      title='Trailer'
+      allowFullScreen='allowfullscreen'
+      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full'
+    />
+  )
+}
+
 export default useTrailer

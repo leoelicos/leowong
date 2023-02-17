@@ -50,25 +50,16 @@ const getCurrentData = (data) => {
 
 const useOpenWeatherOneCall = (updateCity) => {
   const searchCoords = async (lat, lon) => {
-    // console.log('searchCoords', lat, lon)
     try {
-      /* get the current timestring */
-      const d = new Date()
-      const timestamp = d.getTime()
-      // console.log({ timestamp })
-
       const uri = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${REACT_APP_13_OPENWEATHER_APPID}&units=metric&lang=en`
 
       const response = await fetch(uri)
       const data = await response.json()
 
-      // console.log(data)
-
       const hourlyData = getHourlyData(data)
       const dailyData = getDailyData(data)
       const current = getCurrentData(data)
 
-      // console.log({ hourlyData, dailyData, current })
       updateCity({ hourlyData, dailyData, current })
     } catch (error) {
       console.error(error)

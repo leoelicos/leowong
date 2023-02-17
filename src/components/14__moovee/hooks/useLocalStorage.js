@@ -8,10 +8,13 @@ const useLocalStorage = () => {
     localStorage.setItem('movies', JSON.stringify(savedMovies))
   }, [savedMovies])
 
-  const saveMovie = ({ title }) => {
+  const saveMovie = (title) => {
     setSavedMovies((prev) => {
-      if (prev.includes(title)) return [title, ...prev.filter((v) => v !== title)]
-      else return [title, ...prev].slice(0, 5)
+      if (prev.includes(title)) {
+        return [title, ...prev.filter((v) => v !== title)]
+      }
+      const res = [title, ...prev].slice(0, 5)
+      return res
     })
   }
 

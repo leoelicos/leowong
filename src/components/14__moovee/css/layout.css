@@ -3,6 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .app-14 .header {
@@ -12,46 +13,66 @@
   justify-content: center;
   padding: 40px;
 }
+
+.app-14 .header.unsearched {
+  flex-direction: column;
+}
 .app-14 .header .logo {
   width: 50%;
   max-width: 20vh;
 }
 
-.app-14 .form {
-  display: flex;
-  justify-content: center;
-}
-
-.app-14 .movie-details {
-  padding: 1rem;
-  width: calc(100% - 2rem);
-}
-
-.app-14 .ul {
+.app-14 ul {
   margin: 0;
   padding: 0;
 }
 
-.app-14 main.results {
+.app-14 main {
   flex: 1;
+
+  padding: 1rem;
+
   display: flex;
-  flex-flow: row wrap;
-  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+
+  max-width: calc(900px + 2rem);
+}
+.app-14 .card {
+  margin-bottom: 1rem;
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .app-14 .result-container {
-  margin-bottom: 100px;
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s linear;
 }
-.app-14 .li.year {
+.app-14 .movie-poster img {
+  width: 100%;
+
+  object-fit: cover;
+  object-position: cover;
+}
+.app-14 .movie-details {
+  padding: 1rem;
+}
+.app-14 .movie-details .title {
+  margin-top: 0;
+}
+.app-14 .movie-details .movie-poster {
   margin: 10px;
 }
-.app-14 .li.rated {
-  padding: 5px;
+.app-14 .movie-details .trailer-btn {
+  margin-bottom: 1rem;
 }
 
-/* movie genres */
-.app-14 .genre {
+.app-14 .movie-details .genre {
   padding: 5px;
+}
+.app-14 .movie-details ul {
+  list-style-type: none;
 }
 
 .app-14 .footer {
@@ -59,28 +80,17 @@
   background-color: none;
 }
 .app-14 .footer-icon {
-  font-size: 20px;
   height: 40px;
   width: 40px;
-  text-align: center;
-  text-decoration: none;
   border-radius: 50%;
 }
-
-/* media queries */
-@media (min-width: 800px) {
-  .app-14 .result-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    display: flex;
-    justify-content: center;
-  }
-  .app-14 .movie-details {
-    text-align: center;
+@media screen and (min-width: calc(900px + 2rem)) {
+  .app-14 .movie-grid {
+    margin: auto;
+    /* color: white; */
   }
 }
-@media (max-width: 800px) {
-  .app-14 .result-container {
-    text-align: center;
-  }
+
+.app-14 .hide {
+  display: none;
 }

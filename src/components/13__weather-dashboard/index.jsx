@@ -43,7 +43,7 @@ export default function WeatherDashboard() {
 
   useEffect(() => {
     searchCoords(city.lat, city.lon)
-  }, [])
+  }, [city.lat, city.lon, searchCoords])
 
   const handleClickHistory = (historyCity) => {
     updateCity(historyCity)

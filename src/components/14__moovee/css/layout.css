@@ -3,6 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .app-14 .header {
@@ -30,6 +31,12 @@
   flex: 1;
 
   padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  max-width: calc(900px + 2rem);
 }
 .app-14 .card {
   margin-bottom: 1rem;
@@ -82,4 +89,8 @@
     margin: auto;
     /* color: white; */
   }
+}
+
+.app-14 .hide {
+  display: none;
 }

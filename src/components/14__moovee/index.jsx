@@ -9,7 +9,7 @@ import useFavicon from '../../hooks/useFavicon'
 import searchYouTube from './api/youtubeSearchAPI'
 
 /* components */
-import { Button, Select, Space, Tag, Tooltip } from 'antd'
+import { Button, Select, Space, Spin, Tag, Tooltip } from 'antd'
 import Search from 'antd/es/input/Search'
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
@@ -17,36 +17,57 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 /* images */
 import Logo from './images/moovee.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretSquareDown, faSquare } from '@fortawesome/free-regular-svg-icons'
-import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCaretSquareDown, faMehBlank, faSquare } from '@fortawesome/free-regular-svg-icons'
+import { faClockRotateLeft, faFaceMehBlank, faSadCry } from '@fortawesome/free-solid-svg-icons'
 import NoPoster from './images/noposter.png'
 /* style */
 import './css/index.css'
 import { useRef } from 'react'
+import { useState } from 'react'
+import Title from 'antd/es/typography/Title'
 
 export default function MooVee() {
+  const loadingOMDB = useRef(false)
+  let hasSearched = useRef(false)
+
+  /* custom hooks */
   const { savedMovies, saveMovie } = useLocalStorage()
   useFavicon('/favicons/14-favicon.png')
   useTitle('MooVee')
-  let hasSearched = useRef(false)
-
   const { searchOMDB, OMDBmovies } = useOMDB()
 
-  const capitalize = (w) => w.slice(0, 1).toLocaleUpperCase() + w.slice(1).toLocaleLowerCase()
+  /* event handlers */
   const handleSubmit = async (e) => {
+    const capitalize = (w) => w.slice(0, 1).toLocaleUpperCase() + w.slice(1).toLocaleLowerCase()
     if (e.length === 0) return
+
     let m = e.replace(/[^a-zA-Z0-9 ]/g, '')
     if (!m.length) return
+
     let c = m.split(' ').map(capitalize).join(' ').trim()
     hasSearched.current = true
     saveMovie(c)
-    await searchOMDB(c)
-  }
-  const { Trailer, showTrailer } = useTrailer()
-  const handleClickTrailer = async (title, year) => {
-    const uri = await searchYouTube(`${title}+${year}+trailer`)
 
-    showTrailer(uri)
+    loadingOMDB.current = true
+    console.log('set loading to true')
+    await searchOMDB(c)
+    loadingOMDB.current = false
+  }
+  const { Trailer, showTrailer, updateUri, setLoadingGapi } = useTrailer()
+  const handleClickTrailer = async (title, year) => {
+    showTrailer()
+    let gapiRes = ''
+    try {
+      setLoadingGapi(true)
+      gapiRes = await searchYouTube(`${title}+${year}+trailer`)
+      setLoadingGapi(false)
+      console.log({ gapiRes })
+    } catch (error) {
+      console.error(error)
+    } finally {
+      console.log('setting uri to', gapiRes)
+      updateUri(gapiRes)
+    }
   }
   const handleSelectMovieHistory = (historyIdx) => {
     handleClickHistory(savedMovies[historyIdx])
@@ -72,27 +93,55 @@ export default function MooVee() {
               onSearch={handleSubmit}
               allowClear={true}
             />
-            {savedMovies.length === 0 ? null : (
-              <Select
-                dropdownMatchSelectWidth={true}
-                style={{ width: '100%' }}
-                onChange={handleSelectMovieHistory}
-                suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
-                placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}>
-                {savedMovies?.map((title, i) => (
-                  <Select.Option
-                    key={i}
-                    value={i}>
-                    {title}
-                  </Select.Option>
-                ))}
-              </Select>
-            )}
+            <Select
+              disabled={savedMovies.length === 0}
+              dropdownMatchSelectWidth={true}
+              style={{ width: '100%' }}
+              onChange={handleSelectMovieHistory}
+              suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
+              placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}>
+              {savedMovies?.map((title, i) => (
+                <Select.Option
+                  key={i}
+                  value={i}>
+                  {title}
+                </Select.Option>
+              ))}
+            </Select>
           </Space>
         </header>
         <main>
-          {hasSearched?.current === false ? null : OMDBmovies.length === 0 ? (
-            <div className='result-container'>No movies found 🤔</div>
+          {hasSearched?.current === false ? null : loadingOMDB.current ? (
+            <Spin
+              size='large'
+              className='loading-spin'
+            />
+          ) : !OMDBmovies || !OMDBmovies.length ? (
+            <div className='result-container empty'>
+              <Title
+                level={5}
+                style={{
+                  color: 'white',
+                  fontSize: '1.2rem'
+                }}>
+                N
+                <FontAwesomeIcon
+                  icon={faFaceMehBlank}
+                  style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
+                />
+                &ensp;m
+                <FontAwesomeIcon
+                  icon={faFaceMehBlank}
+                  style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
+                />
+                vies&ensp;f
+                <FontAwesomeIcon
+                  icon={faFaceMehBlank}
+                  style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
+                />
+                und
+              </Title>
+            </div>
           ) : (
             <ResponsiveMasonry
               columnsCountBreakPoints={{ 0: 1, 400: 2, 700: 3 }}
@@ -151,7 +200,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
           <Tooltip
             title={rating[0].Source}
             placement='bottom'>
-            <Tag color='#ed7d31'>
+            <Tag color='volcano'>
               <b>{rating[0].Value.replace('/10', '')}</b>
             </Tag>
           </Tooltip>
@@ -174,7 +223,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
                 wrap>
                 {genre.split(', ').map((g) => (
                   <Tag
-                    color='#ed7d31'
+                    color='volcano'
                     key={g}>
                     {g}
                   </Tag>

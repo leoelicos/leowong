@@ -11,11 +11,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 40px;
+  /* justify-content: center; */
+  max-width: 600px;
 }
 
 .app-14 .header.unsearched {
+  margin-top: 20%;
   flex-direction: column;
 }
 .app-14 .header .logo {

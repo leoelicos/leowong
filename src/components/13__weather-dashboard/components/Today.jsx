@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import iconTemp from '../images/temp.png'
 import iconUV from '../images/uv.png'
 import iconWater from '../images/water.png'

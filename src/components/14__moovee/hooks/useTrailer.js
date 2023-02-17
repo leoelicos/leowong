@@ -1,52 +1,69 @@
-import { Button, Modal } from 'antd'
+import { Button, Modal, Spin } from 'antd'
+
 import { useState } from 'react'
-// import useResize from '../hooks/useResize'
+
+const VideoElement = ({ uri }) => {
+  return (
+    <iframe
+      src={uri}
+      style={{ border: 'none' }}
+      width='100%'
+      height='100%'
+      title='Trailer'
+      allowFullScreen='allowfullscreen'
+      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full'
+    />
+  )
+}
 
 function useTrailer() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
+  const [loadingGapi, setLoadingGapi] = useState(false)
   const [uri, setUri] = useState('')
 
-  const showTrailer = (youtubeURI) => {
-    setUri(youtubeURI)
+  const showTrailer = () => {
     setIsTrailerOpen(true)
   }
-  const handleOk = () => {
+
+  const hideTrailer = () => {
     setIsTrailerOpen(false)
   }
-
-  // const [w, h] = useResize()
+  const updateUri = (s) => {
+    setUri(s)
+  }
 
   const Trailer = () => {
     return (
       <Modal
-        uri={uri}
+        transitionName=''
+        maskTransitionName=''
         open={isTrailerOpen}
-        onOk={handleOk}
+        onOk={hideTrailer}
         closable={false}
         maskClosable={true}
-        onCancel={handleOk}
+        onCancel={hideTrailer}
         footer={[
           <Button
+            type='primary'
+            block
             key='close'
-            onClick={handleOk}>
+            onClick={hideTrailer}>
             Close
           </Button>
         ]}>
-        <iframe
-          onLoad={null}
-          width='100%'
-          height='100%'
-          src={uri}
-          title='YouTube video player'
-          border='none'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowFullScreen=''
-          style={{ border: 'none' }}
-        />
+        {loadingGapi ? (
+          <Spin
+            size='large'
+            className='loading-spin'
+          />
+        ) : (
+          <VideoElement uri={uri} />
+        )}
       </Modal>
     )
   }
 
-  return { Trailer, showTrailer }
+  return { Trailer, showTrailer, updateUri, setLoadingGapi }
 }
+
 export default useTrailer

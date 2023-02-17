@@ -57,10 +57,10 @@ export default function MooVee() {
     saveMovie(c)
 
     loadingOMDB.current = true
-    console.log('set loading to true')
+    // console.log('set loading to true')
     await searchOMDB(c)
     loadingOMDB.current = false
-    console.log('set loading to false')
+    // console.log('set loading to false')
   }
   const { Trailer, showTrailer, updateUri, updateLoadingGapi } = useTrailer()
   const handleClickTrailer = async (title, year) => {
@@ -70,11 +70,11 @@ export default function MooVee() {
       updateLoadingGapi(true)
       gapiRes = await searchYouTube(`${title}+${year}+trailer`)
       updateLoadingGapi(false)
-      console.log({ gapiRes })
+      // console.log({ gapiRes })
     } catch (error) {
       console.error(error)
     } finally {
-      console.log('setting uri to', gapiRes)
+      // console.log('setting uri to', gapiRes)
       updateUri(gapiRes)
     }
   }
@@ -96,14 +96,15 @@ export default function MooVee() {
           }}>
           <header
             className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}
-            style={{ flex: 1 }}>
+            style={hasSearched?.current === false ? { flex: 1 } : null}>
             <img
               className='logo'
               src={Logo}
               alt='moovee logo'
             />
-            <Space direction='vertical'>
+            <div style={{ display: 'flex', width: '100%' }}>
               <Search
+                style={{ flex: '3' }}
                 placeholder='Any movie name...'
                 enterButton={
                   <FontAwesomeIcon
@@ -118,20 +119,18 @@ export default function MooVee() {
 
               <Select
                 disabled={savedMovies.length === 0}
-                dropdownMatchSelectWidth={true}
-                style={{ width: '100%' }}
+                dropdownMatchSelectWidth={false}
+                bordered={false}
+                style={{ flex: '1', backgroundColor: 'rgba(255,255,255,0.8)', borderRadius: '1rem' }}
                 onChange={handleSelectMovieHistory}
                 suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
-                placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}>
-                {savedMovies?.map((title, i) => (
-                  <Select.Option
-                    key={i}
-                    value={i}>
-                    {title}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Space>
+                placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}
+                options={savedMovies?.map((title, i) => ({
+                  value: i,
+                  label: title
+                }))}
+              />
+            </div>
           </header>
 
           {hasSearched?.current === false ? null : loadingOMDB.current ? (
@@ -177,9 +176,9 @@ export default function MooVee() {
                 <Masonry
                   style={{ gap: '1rem', maxWidth: 'calc(900px + 2rem)' }}
                   className='movie-grid'>
-                  {OMDBmovies.map((movie) => (
+                  {OMDBmovies.map((movie, i) => (
                     <Card
-                      key={movie.poster}
+                      key={i}
                       {...movie}
                       handleClickTrailer={handleClickTrailer}
                     />
@@ -244,7 +243,17 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
           </Button>
           <div>{year === 'N/A' ? '—' : year}</div>
           <div>{esrb === 'N/A' ? 'Unrated' : esrb}</div>
-          <p className='actors'>{actors === 'N/A' ? '—' : actors.split(', ').map((actor) => <Tag color='#f50'>{actor}</Tag>)}</p>
+          <p className='actors'>
+            {actors === 'N/A'
+              ? '—'
+              : actors.split(', ').map((actor, i) => (
+                  <Tag
+                    key={i}
+                    color='#f50'>
+                    {actor}
+                  </Tag>
+                ))}
+          </p>
           <p className='plot'>
             <b>Plot: </b>
             {plot === 'N/A' ? '—' : plot}
@@ -255,10 +264,10 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
                 style={{ justifyContent: 'center' }}
                 size={[0, 8]}
                 wrap>
-                {genre.split(', ').map((g) => (
+                {genre.split(', ').map((g, i) => (
                   <Tag
                     color='black'
-                    key={g}>
+                    key={i}>
                     {g}
                   </Tag>
                 ))}

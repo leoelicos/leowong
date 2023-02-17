@@ -15,7 +15,7 @@ function useOMDB() {
       console.error('searchByString failed', error)
       newMovies = []
     } finally {
-      console.log({ newMovies })
+      // console.log({ newMovies })
       setOMDBMovies(newMovies)
     }
   }

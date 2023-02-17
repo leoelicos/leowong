@@ -1,17 +1,11 @@
 import { useState } from 'react'
-// import mockMovies from '../test/dummydata'
-// const mockMovies = []
+
 const { REACT_APP_14_OMDB_KEY } = process.env
 
 function useOMDB() {
   const [OMDBmovies, setOMDBMovies] = useState([])
 
   const searchOMDB = async (str) => {
-    /* setTimeout(() => {
-      setOMDBMovies(mockMovies)
-      return
-    }, 1000) */
-
     let newMovies = undefined
     try {
       const imdbIDs = await searchByString(str)

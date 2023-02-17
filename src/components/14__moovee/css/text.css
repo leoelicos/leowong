@@ -11,8 +11,6 @@
   text-align: center;
 }
 
-.app-14 a.footer-icon {
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
+.app-14 footer a {
+  font-size: 1rem;
 }

@@ -28,6 +28,7 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import './css/index.css'
 
 export default function MooVee() {
+  /* useRef to track without re-render */
   const loadingOMDB = useRef(false)
   let hasSearched = useRef(false)
 
@@ -40,10 +41,16 @@ export default function MooVee() {
   /* event handlers */
   const handleSubmit = async (e) => {
     const capitalize = (w) => w.slice(0, 1).toLocaleUpperCase() + w.slice(1).toLocaleLowerCase()
-    if (e.length === 0) return
+    if (e.length === 0) {
+      console.log('e.length = 0, return')
+      return
+    }
 
     let m = e.replace(/[^a-zA-Z0-9 ]/g, '')
-    if (!m.length) return
+    if (!m.length) {
+      console.log('no title, return')
+      return
+    }
 
     let c = m.split(' ').map(capitalize).join(' ').trim()
     hasSearched.current = true
@@ -53,15 +60,16 @@ export default function MooVee() {
     console.log('set loading to true')
     await searchOMDB(c)
     loadingOMDB.current = false
+    console.log('set loading to false')
   }
-  const { Trailer, showTrailer, updateUri, setLoadingGapi } = useTrailer()
+  const { Trailer, showTrailer, updateUri, updateLoadingGapi } = useTrailer()
   const handleClickTrailer = async (title, year) => {
     showTrailer()
     let gapiRes = ''
     try {
-      setLoadingGapi(true)
+      updateLoadingGapi(true)
       gapiRes = await searchYouTube(`${title}+${year}+trailer`)
-      setLoadingGapi(false)
+      updateLoadingGapi(false)
       console.log({ gapiRes })
     } catch (error) {
       console.error(error)

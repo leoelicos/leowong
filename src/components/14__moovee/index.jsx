@@ -1,4 +1,7 @@
 /* hooks */
+import { useRef } from 'react'
+
+/* customhooks */
 import useTrailer from './hooks/useTrailer'
 import useLocalStorage from './hooks/useLocalStorage'
 import useTitle from '../../hooks/useTitle'
@@ -11,20 +14,18 @@ import searchYouTube from './api/youtubeSearchAPI'
 /* components */
 import { Button, Select, Space, Spin, Tag, Tooltip } from 'antd'
 import Search from 'antd/es/input/Search'
-
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+import Title from 'antd/es/typography/Title'
 
 /* images */
 import Logo from './images/moovee.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretSquareDown, faMehBlank, faSquare } from '@fortawesome/free-regular-svg-icons'
-import { faClockRotateLeft, faFaceMehBlank, faSadCry } from '@fortawesome/free-solid-svg-icons'
+import { faCaretSquareDown, faSquare } from '@fortawesome/free-regular-svg-icons'
+import { faClockRotateLeft, faFaceMehBlank } from '@fortawesome/free-solid-svg-icons'
 import NoPoster from './images/noposter.png'
+
 /* style */
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import './css/index.css'
-import { useRef } from 'react'
-import { useState } from 'react'
-import Title from 'antd/es/typography/Title'
 
 export default function MooVee() {
   const loadingOMDB = useRef(false)

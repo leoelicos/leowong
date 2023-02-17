@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Modal, Spin } from 'antd'
+import { Button, ConfigProvider, Modal, Spin } from 'antd'
 
 function useTrailer() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
@@ -24,32 +24,39 @@ function useTrailer() {
 
   const Trailer = () => {
     return (
-      <Modal
-        transitionName=''
-        maskTransitionName=''
-        open={isTrailerOpen}
-        onOk={hideTrailer}
-        closable={false}
-        maskClosable={true}
-        onCancel={hideTrailer}
-        footer={[
-          <Button
-            type='primary'
-            block
-            key='close'
-            onClick={hideTrailer}>
-            Close
-          </Button>
-        ]}>
-        {loadingGapi ? (
-          <Spin
-            size='large'
-            className='loading-spin'
-          />
-        ) : (
-          <VideoElement uri={uri} />
-        )}
-      </Modal>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#ed7d31'
+          }
+        }}>
+        <Modal
+          transitionName=''
+          maskTransitionName=''
+          open={isTrailerOpen}
+          onOk={hideTrailer}
+          closable={false}
+          maskClosable={true}
+          onCancel={hideTrailer}
+          footer={[
+            <Button
+              type='primary'
+              block
+              key='close'
+              onClick={hideTrailer}>
+              Close
+            </Button>
+          ]}>
+          {loadingGapi ? (
+            <Spin
+              size='large'
+              className='loading-spin'
+            />
+          ) : (
+            <VideoElement uri={uri} />
+          )}
+        </Modal>
+      </ConfigProvider>
     )
   }
 

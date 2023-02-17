@@ -1,25 +1,18 @@
-import { Button, Modal, Spin } from 'antd'
-
 import { useState } from 'react'
-
-const VideoElement = ({ uri }) => {
-  return (
-    <iframe
-      src={uri}
-      style={{ border: 'none' }}
-      width='100%'
-      height='100%'
-      title='Trailer'
-      allowFullScreen='allowfullscreen'
-      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full'
-    />
-  )
-}
+import { Button, Modal, Spin } from 'antd'
 
 function useTrailer() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false)
   const [loadingGapi, setLoadingGapi] = useState(false)
   const [uri, setUri] = useState('')
+
+  const updateLoadingGapi = (bool) => {
+    setLoadingGapi(bool)
+  }
+
+  const updateUri = (s) => {
+    setUri(s)
+  }
 
   const showTrailer = () => {
     setIsTrailerOpen(true)
@@ -27,9 +20,6 @@ function useTrailer() {
 
   const hideTrailer = () => {
     setIsTrailerOpen(false)
-  }
-  const updateUri = (s) => {
-    setUri(s)
   }
 
   const Trailer = () => {
@@ -63,7 +53,21 @@ function useTrailer() {
     )
   }
 
-  return { Trailer, showTrailer, updateUri, setLoadingGapi }
+  return { Trailer, showTrailer, updateUri, updateLoadingGapi }
+}
+
+const VideoElement = ({ uri }) => {
+  return (
+    <iframe
+      src={uri}
+      style={{ border: 'none' }}
+      width='100%'
+      height='100%'
+      title='Trailer'
+      allowFullScreen='allowfullscreen'
+      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full'
+    />
+  )
 }
 
 export default useTrailer

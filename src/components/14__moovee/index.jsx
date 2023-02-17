@@ -12,15 +12,15 @@ import useFavicon from '../../hooks/useFavicon'
 import searchYouTube from './api/youtubeSearchAPI'
 
 /* components */
-import { Button, Select, Space, Spin, Tag, Tooltip } from 'antd'
+import { Button, ConfigProvider, Select, Space, Spin, Tag, Tooltip } from 'antd'
 import Search from 'antd/es/input/Search'
 import Title from 'antd/es/typography/Title'
 
 /* images */
 import Logo from './images/moovee.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretSquareDown, faSquare } from '@fortawesome/free-regular-svg-icons'
-import { faClockRotateLeft, faFaceMehBlank } from '@fortawesome/free-solid-svg-icons'
+import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons'
+import { faClockRotateLeft, faFaceMehBlank, faMessage } from '@fortawesome/free-solid-svg-icons'
 import NoPoster from './images/noposter.png'
 
 /* style */
@@ -88,96 +88,120 @@ export default function MooVee() {
   return (
     <div className='app-14'>
       <div className='body'>
-        <header className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}>
-          <img
-            className='logo'
-            src={Logo}
-            alt='moovee logo'
-          />
-          <Space direction='vertical'>
-            <Search
-              placeholder='Any movie name...'
-              enterButton
-              loading={false}
-              onSearch={handleSubmit}
-              allowClear={true}
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: '#ed7d31'
+            }
+          }}>
+          <header
+            className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}
+            style={{ flex: 1 }}>
+            <img
+              className='logo'
+              src={Logo}
+              alt='moovee logo'
             />
-            <Select
-              disabled={savedMovies.length === 0}
-              dropdownMatchSelectWidth={true}
-              style={{ width: '100%' }}
-              onChange={handleSelectMovieHistory}
-              suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
-              placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}>
-              {savedMovies?.map((title, i) => (
-                <Select.Option
-                  key={i}
-                  value={i}>
-                  {title}
-                </Select.Option>
-              ))}
-            </Select>
-          </Space>
-        </header>
-        <main>
-          {hasSearched?.current === false ? null : loadingOMDB.current ? (
-            <Spin
-              size='large'
-              className='loading-spin'
-            />
-          ) : !OMDBmovies || !OMDBmovies.length ? (
-            <div className='result-container empty'>
-              <Title
-                level={5}
-                style={{
-                  color: 'white',
-                  fontSize: '1.2rem'
-                }}>
-                N
-                <FontAwesomeIcon
-                  icon={faFaceMehBlank}
-                  style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
-                />
-                &ensp;m
-                <FontAwesomeIcon
-                  icon={faFaceMehBlank}
-                  style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
-                />
-                vies&ensp;f
-                <FontAwesomeIcon
-                  icon={faFaceMehBlank}
-                  style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
-                />
-                und
-              </Title>
-            </div>
-          ) : (
-            <ResponsiveMasonry
-              columnsCountBreakPoints={{ 0: 1, 400: 2, 700: 3 }}
-              style={{}}>
-              <Masonry
-                style={{ gap: '1rem', maxWidth: 'calc(900px + 2rem)' }}
-                className='movie-grid'>
-                {OMDBmovies.map((movie) => (
-                  <Card
-                    key={movie.poster}
-                    {...movie}
-                    handleClickTrailer={handleClickTrailer}
+            <Space direction='vertical'>
+              <Search
+                placeholder='Any movie name...'
+                enterButton={
+                  <FontAwesomeIcon
+                    icon={faFaceMehBlank}
+                    style={{ color: 'white', display: 'inline-block', fontSize: '1rem' }}
                   />
+                }
+                loading={false}
+                onSearch={handleSubmit}
+                allowClear={true}
+              />
+
+              <Select
+                disabled={savedMovies.length === 0}
+                dropdownMatchSelectWidth={true}
+                style={{ width: '100%' }}
+                onChange={handleSelectMovieHistory}
+                suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
+                placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}>
+                {savedMovies?.map((title, i) => (
+                  <Select.Option
+                    key={i}
+                    value={i}>
+                    {title}
+                  </Select.Option>
                 ))}
-              </Masonry>
-            </ResponsiveMasonry>
+              </Select>
+            </Space>
+          </header>
+
+          {hasSearched?.current === false ? null : loadingOMDB.current ? (
+            <main>
+              <Spin
+                size='large'
+                className='loading-spin'
+              />
+            </main>
+          ) : !OMDBmovies || !OMDBmovies.length ? (
+            <main>
+              <div className='result-container empty'>
+                <Title
+                  level={5}
+                  style={{
+                    color: 'white',
+                    fontSize: '1.2rem'
+                  }}>
+                  N
+                  <FontAwesomeIcon
+                    icon={faFaceMehBlank}
+                    style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
+                  />
+                  &ensp;m
+                  <FontAwesomeIcon
+                    icon={faFaceMehBlank}
+                    style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
+                  />
+                  vies&ensp;f
+                  <FontAwesomeIcon
+                    icon={faFaceMehBlank}
+                    style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
+                  />
+                  und
+                </Title>
+              </div>
+            </main>
+          ) : (
+            <main>
+              <ResponsiveMasonry
+                columnsCountBreakPoints={{ 0: 1, 400: 2, 700: 3 }}
+                style={{}}>
+                <Masonry
+                  style={{ gap: '1rem', maxWidth: 'calc(900px + 2rem)' }}
+                  className='movie-grid'>
+                  {OMDBmovies.map((movie) => (
+                    <Card
+                      key={movie.poster}
+                      {...movie}
+                      handleClickTrailer={handleClickTrailer}
+                    />
+                  ))}
+                </Masonry>
+              </ResponsiveMasonry>
+            </main>
           )}
-        </main>
-        <footer className='footer'>
-          <a href='https://www.facebook.com/MooVee-The-Movies-104712718873649/'>
-            <FontAwesomeIcon
-              icon={faSquare}
-              className='footer-icon'
-            />
-          </a>
-        </footer>
-        <Trailer />
+          <footer>
+            <Button
+              type='text'
+              href='https://www.facebook.com/MooVee-The-Movies-104712718873649/'
+              target='_blank'
+              rel='noferrer'>
+              <FontAwesomeIcon
+                icon={faMessage}
+                style={{ color: 'white' }}
+              />
+            </Button>
+          </footer>
+          <Trailer />
+        </ConfigProvider>
       </div>
     </div>
   )
@@ -197,6 +221,19 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
         </div>
 
         <div className='movie-details'>
+          <h3 className='title'>
+            {title === 'N/A' ? 'Untitled' : title}{' '}
+            {rating.length > 0 && (
+              <Tooltip
+                title={rating[0].Source}
+                placement='bottom'>
+                <Tag color={parseInt(rating[0].Value) < 4 ? 'red' : parseInt(rating[0].Value) < 7 ? 'orange' : 'green'}>
+                  <b>{rating[0].Value.replace('/10', '')}</b>
+                </Tag>
+              </Tooltip>
+            )}
+          </h3>
+
           <Button
             className='trailer-btn'
             type='primary'
@@ -205,21 +242,9 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
             }}>
             Watch Trailer
           </Button>
-          <h3 className='title'>{title === 'N/A' ? 'Untitled' : title}</h3>
-          <Tooltip
-            title={rating[0].Source}
-            placement='bottom'>
-            <Tag color='volcano'>
-              <b>{rating[0].Value.replace('/10', '')}</b>
-            </Tag>
-          </Tooltip>
-          <p>
-            {year === 'N/A' ? '—' : year} <b>{esrb === 'N/A' ? 'Unrated' : esrb}</b>
-          </p>
-
-          <p className='actors'>
-            <b>Actors: {actors === 'N/A' ? '—' : actors}</b>
-          </p>
+          <div>{year === 'N/A' ? '—' : year}</div>
+          <div>{esrb === 'N/A' ? 'Unrated' : esrb}</div>
+          <p className='actors'>{actors === 'N/A' ? '—' : actors.split(', ').map((actor) => <Tag color='#f50'>{actor}</Tag>)}</p>
           <p className='plot'>
             <b>Plot: </b>
             {plot === 'N/A' ? '—' : plot}
@@ -232,7 +257,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
                 wrap>
                 {genre.split(', ').map((g) => (
                   <Tag
-                    color='volcano'
+                    color='black'
                     key={g}>
                     {g}
                   </Tag>

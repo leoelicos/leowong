@@ -26,6 +26,42 @@ import { faClockRotateLeft, faFaceMehBlank, faMessage } from '@fortawesome/free-
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import './css/index.css'
 
+const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectMovieHistory }) => (
+  <Affix
+    offsetTop={0}
+    className='affix'>
+    <header className={searched ? 'header' : 'header unsearched'}>
+      <img
+        src={searched ? SmallLogo : Logo}
+        alt='moovee logo'
+      />
+      <div className='header-elements'>
+        <Search
+          loading={loading}
+          allowClear={true}
+          className='movie-search'
+          placeholder={searched ? '…' : 'Any movie name…'}
+          enterButton={searched ? 'Find' : 'Find Trailer'}
+          onSearch={handleSubmit}
+        />
+        <Select
+          className='history-select'
+          disabled={savedMovies.length === 0}
+          dropdownMatchSelectWidth={false}
+          bordered={false}
+          onChange={handleSelectMovieHistory}
+          suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
+          placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}
+          options={savedMovies?.map((title, i) => ({
+            value: i,
+            label: title
+          }))}
+        />
+      </div>
+    </header>
+  </Affix>
+)
+
 export default function MooVee() {
   /* track OMDB promise */
   const loadingOMDB = useRef(false)
@@ -85,41 +121,15 @@ export default function MooVee() {
               colorPrimary: '#ed7d31'
             }
           }}>
-          <Affix
-            offsetTop={0}
-            className='affix'>
-            <header className={!hasSearched?.current ? 'header unsearched' : 'header'}>
-              <img
-                src={hasSearched?.current === false ? Logo : SmallLogo}
-                alt='moovee logo'
-              />
-              <div className='header-elements'>
-                <Search
-                  className='movie-search'
-                  placeholder='Any movie name...'
-                  enterButton='Find Trailer'
-                  loading={false}
-                  onSearch={handleSubmit}
-                  allowClear={true}
-                />
-                <Select
-                  className='history-select'
-                  disabled={savedMovies.length === 0}
-                  dropdownMatchSelectWidth={false}
-                  bordered={false}
-                  onChange={handleSelectMovieHistory}
-                  suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
-                  placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}
-                  options={savedMovies?.map((title, i) => ({
-                    value: i,
-                    label: title
-                  }))}
-                />
-              </div>
-            </header>
-          </Affix>
+          <MooHeader
+            searched={hasSearched.current}
+            loading={loadingOMDB.current}
+            handleSubmit={handleSubmit}
+            savedMovies={savedMovies}
+            handleSelectMovieHistory={handleSelectMovieHistory}
+          />
 
-          {hasSearched?.current === false ? null : loadingOMDB.current ? (
+          {!hasSearched?.current ? null : loadingOMDB.current ? (
             <main>
               <Spin
                 size='large'
@@ -130,26 +140,14 @@ export default function MooVee() {
             <main>
               <div className='result-container empty'>
                 <Title
-                  level={5}
-                  style={{
-                    color: 'white',
-                    fontSize: '1.2rem'
-                  }}>
+                  className='no-movies'
+                  level={5}>
                   N
-                  <FontAwesomeIcon
-                    icon={faFaceMehBlank}
-                    style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
-                  />
+                  <FontAwesomeIcon icon={faFaceMehBlank} />
                   &ensp;m
-                  <FontAwesomeIcon
-                    icon={faFaceMehBlank}
-                    style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
-                  />
+                  <FontAwesomeIcon icon={faFaceMehBlank} />
                   vies&ensp;f
-                  <FontAwesomeIcon
-                    icon={faFaceMehBlank}
-                    style={{ color: 'pink', display: 'inline-block', fontSize: '0.8rem', marginBottom: '1px' }}
-                  />
+                  <FontAwesomeIcon icon={faFaceMehBlank} />
                   und
                 </Title>
               </div>

@@ -41,20 +41,15 @@
 
 .app-14__modal .ant-modal-content {
   display: flex;
-
   padding: 0;
   border-radius: 0;
-  background-color: transparent;
   position: fixed;
-  top: 12px;
+  top: 8px;
   bottom: 48px;
-  left: 12px;
-  right: 12px;
-
+  left: 8px;
+  right: 8px;
   background: white;
-  border-radius: none;
   box-shadow: none;
-  padding: none;
 }
 .app-14__modal .ant-modal-body {
   width: 100%;

@@ -3,7 +3,7 @@ import { useState } from 'react'
 const { REACT_APP_14_OMDB_KEY } = process.env
 
 function useOMDB() {
-  const [OMDBmovies, setOMDBMovies] = useState([])
+  const [OMDBMovies, setOMDBMovies] = useState([])
 
   const searchOMDB = async (str) => {
     let newMovies = undefined
@@ -60,6 +60,6 @@ function useOMDB() {
     }
   }
 
-  return { searchOMDB, OMDBmovies }
+  return { searchOMDB, OMDBMovies }
 }
 export default useOMDB

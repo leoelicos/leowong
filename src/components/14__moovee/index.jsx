@@ -95,7 +95,7 @@ export default function MooVee() {
               />
               <div className='header-elements'>
                 <Search
-                  style={{ flex: '3' }}
+                  className='movie-search'
                   placeholder='Any movie name...'
                   enterButton='Find Trailer'
                   loading={false}
@@ -103,10 +103,10 @@ export default function MooVee() {
                   allowClear={true}
                 />
                 <Select
+                  className='history-select'
                   disabled={savedMovies.length === 0}
                   dropdownMatchSelectWidth={false}
                   bordered={false}
-                  style={{ flex: '1', backgroundColor: 'rgba(255,255,255,0.8)', borderRadius: '1rem' }}
                   onChange={handleSelectMovieHistory}
                   suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
                   placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}

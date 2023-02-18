@@ -12,16 +12,22 @@
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  max-width: 600px;
+  max-width: calc(900px + 16px);
+  padding: 4px;
 }
 
 .app-14 .header.unsearched {
-  margin-top: 20%;
+  margin-top: 20vh;
   flex-direction: column;
 }
 .app-14 .header .logo {
   width: 50%;
   max-width: 20vh;
+}
+.app-14 .header:not(.unsearched) .logo {
+  height: 32px;
+  width: unset;
+  margin-right: 4px;
 }
 
 .app-14 ul {
@@ -32,45 +38,59 @@
 .app-14 main {
   flex: 1;
 
-  padding: 1rem;
+  padding: 0 4px 4px 4px;
 
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  max-width: calc(900px + 2rem);
+  max-width: calc(900px + 16px);
 }
 .app-14 .card {
   margin-bottom: 1rem;
-  max-width: 375px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 449px;
+  margin: 4px auto 0 auto;
 }
 .app-14 .result-container {
+  max-width: 449px;
   display: flex;
   flex-direction: column;
   transition: all 0.5s linear;
 }
 .app-14 .movie-poster img {
   width: 100%;
-
+  border-radius: 1rem 1rem 0 0;
   object-fit: cover;
   object-position: cover;
 }
 .app-14 .movie-details {
-  padding: 1rem;
+  padding: 12px 4px 4px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 .app-14 .movie-details .title {
-  margin-top: 0;
+  margin: 0;
+  line-height: 1.15;
 }
 .app-14 .movie-details .movie-poster {
   margin: 10px;
 }
-.app-14 .movie-details .trailer-btn {
-  margin-bottom: 1rem;
+
+.app-14 .movie-details .plot {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.app-14 .movie-details .rating {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.app-14 .movie-details .actors {
+  line-height: 2;
 }
 
 .app-14 .movie-details .genre {
@@ -91,7 +111,6 @@
 @media screen and (min-width: calc(900px + 2rem)) {
   .app-14 .movie-grid {
     margin: auto;
-    /* color: white; */
   }
 }
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
-const useLocalStorage = () => {
-  const currentStorage = JSON.parse(localStorage.getItem('movies'))
+const useLocalStorage = (key) => {
+  const currentStorage = JSON.parse(localStorage.getItem(key))
   const [savedMovies, setSavedMovies] = useState(currentStorage ?? [])
 
   useEffect(() => {
-    localStorage.setItem('movies', JSON.stringify(savedMovies))
+    localStorage.setItem(key, JSON.stringify(savedMovies))
   }, [savedMovies])
 
   const saveMovie = (title) => {

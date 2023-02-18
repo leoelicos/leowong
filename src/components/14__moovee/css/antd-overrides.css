@@ -9,8 +9,7 @@
   visibility: collapse;
 }
 
-div#root:has(.app-14) + * + div .ant-modal,
-div#root:has(.app-14) + div .ant-modal {
+.app-14__modal {
   height: 100%;
   width: 100% !important;
   transform-origin: 0 !important;
@@ -18,34 +17,29 @@ div#root:has(.app-14) + div .ant-modal {
   overflow: hidden;
   padding: 0;
 }
-div#root:has(.app-14) + * + div .loading-spin,
-div#root:has(.app-14) + div .loading-spin {
+.app-14__modal .loading-spin,
+.app-14__modal .loading-spin {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-div#root:has(.app-14) + * + div .ant-spin,
-div#root:has(.app-14) + div .ant-spin {
+.app-14__modal .ant-spin {
   width: 100%;
 }
-div#root:has(.app-14) + * + div .ant-spin-dot,
-div#root:has(.app-14) + div .ant-spin-dot {
+.app-14__modal .ant-spin-dot {
   font-size: 100px;
 }
-div#root:has(.app-14) + * + div .ant-spin-dot-item,
-div#root:has(.app-14) + div .ant-spin-dot-item {
+.app-14__modal .ant-spin-dot-item {
   background-color: black;
 }
 
-div#root:has(.app-14) + * + div .ant-modal-wrap,
-div#root:has(.app-14) + div .ant-modal-wrap {
+.app-14__modal .ant-modal-wrap {
   position: fixed;
 }
 
-div#root:has(.app-14) + * + div .ant-modal-content,
-div#root:has(.app-14) + div .ant-modal-content {
+.app-14__modal .ant-modal-content {
   display: flex;
 
   padding: 0;
@@ -55,19 +49,17 @@ div#root:has(.app-14) + div .ant-modal-content {
   top: 12px;
   bottom: 48px;
   left: 12px;
-  right: 24px;
+  right: 12px;
 
   background: white;
   border-radius: none;
   box-shadow: none;
   padding: none;
 }
-div#root:has(.app-14) + * + div .ant-modal-body,
-div#root:has(.app-14) + div .ant-modal-body {
+.app-14__modal .ant-modal-body {
   width: 100%;
 }
-div#root:has(.app-14) + * + div .ant-modal-footer,
-div#root:has(.app-14) + div .ant-modal-footer {
+.app-14__modal .ant-modal-footer {
   margin: 0;
   height: 0;
   position: absolute;
@@ -75,8 +67,7 @@ div#root:has(.app-14) + div .ant-modal-footer {
   bottom: 0;
   left: 0;
 }
-div#root:has(.app-14) + * + div .ant-modal-footer button,
-div#root:has(.app-14) + div .ant-modal-footer button {
+.app-14__modal .ant-modal-footer button {
   position: absolute;
   bottom: -2.5rem;
   right: 0;
@@ -84,5 +75,5 @@ div#root:has(.app-14) + div .ant-modal-footer button {
 
 div#root:has(.app-14) + * + div .ant-modal-mask,
 div#root:has(.app-14) + div .ant-modal-mask {
-  background: radial-gradient(circle, gray 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%);
 }

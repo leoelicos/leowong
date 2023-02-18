@@ -93,6 +93,7 @@
   max-width: 449px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   transition: all 0.5s linear;
 }
 

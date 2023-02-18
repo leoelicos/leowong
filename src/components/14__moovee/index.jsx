@@ -1,7 +1,5 @@
 /* hooks */
 import { useRef } from 'react'
-
-/* customhooks */
 import useTrailer from './hooks/useTrailer'
 import useLocalStorage from './hooks/useLocalStorage'
 import useTitle from '../../hooks/useTitle'
@@ -12,24 +10,26 @@ import useFavicon from '../../hooks/useFavicon'
 import searchYouTube from './api/youtubeSearchAPI'
 
 /* components */
-import { Button, ConfigProvider, Progress, Select, Space, Spin, Tag, Tooltip } from 'antd'
+import { Affix, Button, ConfigProvider, Progress, Select, Space, Spin, Tag, Tooltip } from 'antd'
 import Search from 'antd/es/input/Search'
 import Title from 'antd/es/typography/Title'
 
 /* images */
 import Logo from './images/moovee.png'
+import NoPoster from './images/noposter.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons'
 import { faClockRotateLeft, faFaceMehBlank, faMessage } from '@fortawesome/free-solid-svg-icons'
-import NoPoster from './images/noposter.png'
 
 /* style */
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import './css/index.css'
 
 export default function MooVee() {
-  /* useRef to track without re-render */
+  /* track OMDB promise */
   const loadingOMDB = useRef(false)
+
+  /* track user */
   let hasSearched = useRef(false)
 
   /* custom hooks */
@@ -40,27 +40,17 @@ export default function MooVee() {
 
   /* event handlers */
   const handleSubmit = async (e) => {
-    const capitalize = (w) => w.slice(0, 1).toLocaleUpperCase() + w.slice(1).toLocaleLowerCase()
-    if (e.length === 0) {
-      console.log('e.length = 0, return')
-      return
-    }
+    let m = e.replace(/[^a-zA-Z0-9 ]/g, '').trim()
+    if (!m.length) return
 
-    let m = e.replace(/[^a-zA-Z0-9 ]/g, '')
-    if (!m.length) {
-      console.log('no title, return')
-      return
-    }
+    hasSearched.current = true // flag to render results page
 
-    let c = m.split(' ').map(capitalize).join(' ').trim()
-    hasSearched.current = true
-    saveMovie(c)
+    const c = m[0].toLocaleUpperCase() + m.slice(1).toLocaleLowerCase()
+    saveMovie(c) /* save to local storage */
 
     loadingOMDB.current = true
-    // console.log('set loading to true')
     await searchOMDB(c)
     loadingOMDB.current = false
-    // console.log('set loading to false')
   }
   const { Trailer, showTrailer, updateUri, updateLoadingGapi } = useTrailer()
   const handleClickTrailer = async (title, year) => {
@@ -94,44 +84,43 @@ export default function MooVee() {
               colorPrimary: '#ed7d31'
             }
           }}>
-          <header
-            className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}
-            style={hasSearched?.current === false ? { flex: 1 } : null}>
-            <img
-              className='logo'
-              src={Logo}
-              alt='moovee logo'
-            />
-            <div style={{ display: 'flex', width: '100%' }}>
-              <Search
-                style={{ flex: '3' }}
-                placeholder='Any movie name...'
-                enterButton={
-                  <FontAwesomeIcon
-                    icon={faFaceMehBlank}
-                    style={{ color: 'white', display: 'inline-block', fontSize: '1rem' }}
-                  />
-                }
-                loading={false}
-                onSearch={handleSubmit}
-                allowClear={true}
+          <Affix
+            offsetTop={0}
+            className='app-14__header__navbar-wrapper'>
+            <header
+              className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}
+              style={hasSearched?.current === false ? { flex: 1 } : null}>
+              <img
+                className='logo'
+                src={Logo}
+                alt='moovee logo'
               />
+              <div style={{ display: 'flex', width: '100%' }}>
+                <Search
+                  style={{ flex: '3' }}
+                  placeholder='Any movie name...'
+                  enterButton='Find Trailer'
+                  loading={false}
+                  onSearch={handleSubmit}
+                  allowClear={true}
+                />
 
-              <Select
-                disabled={savedMovies.length === 0}
-                dropdownMatchSelectWidth={false}
-                bordered={false}
-                style={{ flex: '1', backgroundColor: 'rgba(255,255,255,0.8)', borderRadius: '1rem' }}
-                onChange={handleSelectMovieHistory}
-                suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
-                placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}
-                options={savedMovies?.map((title, i) => ({
-                  value: i,
-                  label: title
-                }))}
-              />
-            </div>
-          </header>
+                <Select
+                  disabled={savedMovies.length === 0}
+                  dropdownMatchSelectWidth={false}
+                  bordered={false}
+                  style={{ flex: '1', backgroundColor: 'rgba(255,255,255,0.8)', borderRadius: '1rem' }}
+                  onChange={handleSelectMovieHistory}
+                  suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
+                  placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}
+                  options={savedMovies?.map((title, i) => ({
+                    value: i,
+                    label: title
+                  }))}
+                />
+              </div>
+            </header>
+          </Affix>
 
           {hasSearched?.current === false ? null : loadingOMDB.current ? (
             <main>

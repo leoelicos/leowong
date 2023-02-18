@@ -6,7 +6,7 @@
 
 /* override antd Select */
 .app-14 .ant-select-disabled {
-  visibility: collapse;
+  display: none;
 }
 
 .app-14__modal {
@@ -66,9 +66,4 @@
   position: absolute;
   bottom: -2.5rem;
   right: 0;
-}
-
-div#root:has(.app-14) + * + div .ant-modal-mask,
-div#root:has(.app-14) + div .ant-modal-mask {
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%);
 }

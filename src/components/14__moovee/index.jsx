@@ -88,7 +88,7 @@ export default function MooVee() {
           <Affix
             offsetTop={0}
             className='affix'>
-            <header className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}>
+            <header className={!hasSearched?.current ? 'header unsearched' : 'header'}>
               <img
                 src={hasSearched?.current === false ? Logo : SmallLogo}
                 alt='moovee logo'

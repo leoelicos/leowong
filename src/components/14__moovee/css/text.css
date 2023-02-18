@@ -11,6 +11,23 @@
   text-align: center;
 }
 
+.app-14 .result-container.empty h5 {
+  font-size: 1.2rem;
+}
+.app-14 .result-container.empty h5 svg {
+  font-size: 0.8rem;
+}
+
 .app-14 footer a {
   font-size: 1rem;
+}
+
+.app-14 .movie-details .plot {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.app-14 .movie-details .rating {
+  font-size: 0.8rem;
+  text-align: center;
 }

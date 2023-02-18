@@ -32,3 +32,10 @@
   background: none;
   border-radius: 0;
 }
+
+.app-14 .result-container.empty h5 {
+  color: white;
+}
+.app-14 .result-container.empty h5 svg {
+  color: pink;
+}

@@ -16,6 +16,7 @@ import Title from 'antd/es/typography/Title'
 
 /* images */
 import Logo from './images/moovee.png'
+import SmallLogo from './images/mooveefavi.png'
 import NoPoster from './images/noposter.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons'
@@ -32,8 +33,8 @@ export default function MooVee() {
   /* track user */
   let hasSearched = useRef(false)
 
-  /* custom hooks */
-  const { savedMovies, saveMovie } = useLocalStorage()
+  /* local storage */
+  const { savedMovies, saveMovie } = useLocalStorage('titles')
   useFavicon('/favicons/14-favicon.png')
   useTitle('MooVee')
   const { searchOMDB, OMDBmovies } = useOMDB()
@@ -86,16 +87,13 @@ export default function MooVee() {
           }}>
           <Affix
             offsetTop={0}
-            className='app-14__header__navbar-wrapper'>
-            <header
-              className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}
-              style={hasSearched?.current === false ? { flex: 1 } : null}>
+            className='affix'>
+            <header className={`header ${hasSearched?.current === false ? 'unsearched' : ''}`}>
               <img
-                className='logo'
-                src={Logo}
+                src={hasSearched?.current === false ? Logo : SmallLogo}
                 alt='moovee logo'
               />
-              <div style={{ display: 'flex', width: '100%' }}>
+              <div className='header-elements'>
                 <Search
                   style={{ flex: '3' }}
                   placeholder='Any movie name...'
@@ -104,7 +102,6 @@ export default function MooVee() {
                   onSearch={handleSubmit}
                   allowClear={true}
                 />
-
                 <Select
                   disabled={savedMovies.length === 0}
                   dropdownMatchSelectWidth={false}

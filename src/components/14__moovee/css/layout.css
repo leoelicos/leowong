@@ -6,7 +6,12 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.app-14__header__navbar-wrapper {
+  width: 100%;
+}
+.app-14__header__navbar-wrapper .ant-affix {
+  background-color: black;
+}
 .app-14 .header {
   width: 100%;
   display: flex;

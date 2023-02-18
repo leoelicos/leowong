@@ -31,14 +31,13 @@ function useTrailer() {
           }
         }}>
         <Modal
-          transitionName=''
-          maskTransitionName=''
           open={isTrailerOpen}
           onOk={hideTrailer}
+          onCancel={hideTrailer}
           closable={false}
           maskClosable={true}
-          onCancel={hideTrailer}
-          footer={[
+          className='app-14__modal'
+          footer={
             <Button
               type='primary'
               block
@@ -46,15 +45,14 @@ function useTrailer() {
               onClick={hideTrailer}>
               Close
             </Button>
-          ]}>
-          {loadingGapi ? (
-            <Spin
-              size='large'
-              className='loading-spin'
-            />
-          ) : (
-            <VideoElement uri={uri} />
-          )}
+          }
+          maskStyle={{ background: 'radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%)' }}
+          transitionName='' // cancel popup animation
+        >
+          <VideoElement
+            loadingGapi={loadingGapi}
+            uri={uri}
+          />
         </Modal>
       </ConfigProvider>
     )
@@ -63,8 +61,13 @@ function useTrailer() {
   return { Trailer, showTrailer, updateUri, updateLoadingGapi }
 }
 
-const VideoElement = ({ uri }) => {
-  return (
+const VideoElement = ({ loadingGapi, uri }) => {
+  return loadingGapi ? (
+    <Spin
+      size='large'
+      className='loading-spin'
+    />
+  ) : (
     <iframe
       src={uri}
       style={{ border: 'none' }}

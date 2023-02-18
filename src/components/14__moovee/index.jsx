@@ -12,7 +12,7 @@ import useFavicon from '../../hooks/useFavicon'
 import searchYouTube from './api/youtubeSearchAPI'
 
 /* components */
-import { Button, ConfigProvider, Select, Space, Spin, Tag, Tooltip } from 'antd'
+import { Button, ConfigProvider, Progress, Select, Space, Spin, Tag, Tooltip } from 'antd'
 import Search from 'antd/es/input/Search'
 import Title from 'antd/es/typography/Title'
 
@@ -171,10 +171,10 @@ export default function MooVee() {
           ) : (
             <main>
               <ResponsiveMasonry
-                columnsCountBreakPoints={{ 0: 1, 400: 2, 700: 3 }}
+                columnsCountBreakPoints={{ 0: 1, 450: 2, 679: 3 }}
                 style={{}}>
                 <Masonry
-                  style={{ gap: '1rem', maxWidth: 'calc(900px + 2rem)' }}
+                  style={{ gap: '4px', maxWidth: 'calc(900px + 8px)' }}
                   className='movie-grid'>
                   {OMDBmovies.map((movie, i) => (
                     <Card
@@ -220,18 +220,7 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
         </div>
 
         <div className='movie-details'>
-          <h3 className='title'>
-            {title === 'N/A' ? 'Untitled' : title}{' '}
-            {rating.length > 0 && (
-              <Tooltip
-                title={rating[0].Source}
-                placement='bottom'>
-                <Tag color={parseInt(rating[0].Value) < 4 ? 'red' : parseInt(rating[0].Value) < 7 ? 'orange' : 'green'}>
-                  <b>{rating[0].Value.replace('/10', '')}</b>
-                </Tag>
-              </Tooltip>
-            )}
-          </h3>
+          <h3 className='title'>{title === 'N/A' ? 'Untitled' : title} </h3>
 
           <Button
             className='trailer-btn'
@@ -241,23 +230,47 @@ const Card = ({ poster, title, esrb, year, genre, actors, plot, rating, handleCl
             }}>
             Watch Trailer
           </Button>
-          <div>{year === 'N/A' ? '—' : year}</div>
-          <div>{esrb === 'N/A' ? 'Unrated' : esrb}</div>
-          <p className='actors'>
+          <div className='plot'>{plot === 'N/A' ? '—' : plot}</div>
+          <div className='rating'>
+            {rating.length > 0 && (
+              <Tooltip
+                title={rating[0].Source}
+                placement='bottom'>
+                <div
+                  style={{
+                    backgroundColor: 'rgba(0,0,0,0.5)',
+                    borderRadius: '1rem',
+                    padding: '0 0 1px 8px '
+                  }}>
+                  <Progress
+                    percent={parseFloat(rating[0].Value) * 10}
+                    format={(percent) => parseFloat(percent / 10).toFixed(1)}
+                    style={{ color: 'white' }}
+                    steps={10}
+                    status={parseInt(rating[0].Value) < 7 ? 'exception' : 'success'}
+                    strokeColor={parseInt(rating[0].Value) < 4 ? 'red' : parseInt(rating[0].Value) < 7 ? 'orange' : 'green'}
+                  />
+                </div>
+              </Tooltip>
+            )}
+          </div>
+          <div>
+            {year === 'N/A' ? '—' : year}
+            <br />
+            {esrb === 'N/A' ? 'Unrated' : esrb}
+          </div>
+          <div className='actors'>
             {actors === 'N/A'
               ? '—'
               : actors.split(', ').map((actor, i) => (
                   <Tag
                     key={i}
-                    color='#f50'>
+                    color='#222'
+                    style={{ color: 'white' }}>
                     {actor}
                   </Tag>
                 ))}
-          </p>
-          <p className='plot'>
-            <b>Plot: </b>
-            {plot === 'N/A' ? '—' : plot}
-          </p>
+          </div>
           {genre === 'N/A' ? null : (
             <div className='genre'>
               <Space

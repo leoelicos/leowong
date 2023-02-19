@@ -1,8 +1,5 @@
 /* components */
-import { Button, Progress, Space, Tag, Tooltip } from 'antd'
-
-/* images */
-import NoPoster from '../images/noposter.png'
+import { Tag, Button, Progress, Space, Tooltip } from 'antd'
 
 const MooCard = ({ poster, title, esrb, year, genre, actors, plot, rating, handleClickTrailer }) => {
   return (
@@ -10,12 +7,14 @@ const MooCard = ({ poster, title, esrb, year, genre, actors, plot, rating, handl
       <div
         className='result-container'
         key={poster}>
-        <div className='movie-poster'>
-          <img
-            src={poster === 'N/A' ? NoPoster : poster}
-            alt='movie poster'
-          />
-        </div>
+        {poster !== 'N/A' && (
+          <div className='movie-poster'>
+            <img
+              src={poster}
+              alt='movie poster'
+            />
+          </div>
+        )}
 
         <div className='movie-details'>
           <h3 className='title'>{title === 'N/A' ? 'Untitled' : title} </h3>

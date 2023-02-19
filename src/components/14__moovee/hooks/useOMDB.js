@@ -2,17 +2,17 @@ import { useState } from 'react'
 import OMDbAPIById from '../api/omdbapi__by-id-or-title'
 import OMDbAPIBySearch from '../api/omdbapi__by-search'
 
-const parse = ({
-  //
-  Poster: poster,
-  Title: title,
-  Rated: esrb,
-  Year: year,
-  Genre: genre,
-  Actors: actors,
-  Plot: plot,
-  Ratings: rating
-}) => ({ poster, title, esrb, year, genre, actors, plot, rating })
+const parse = (imdbID, data) => ({
+  imdbID,
+  poster: data.Poster === 'N/A' ? null : data.Poster,
+  title: data.Title === 'N/A' ? null : data.Title,
+  esrb: data.Rated === 'N/A' ? null : data.Rated,
+  year: data.Year === 'N/A' ? null : data.Year,
+  genre: data.Genre === 'N/A' ? null : data.Genre.split(', '),
+  actors: data.Actors === 'N/A' ? null : data.Actors,
+  plot: data.Plot === 'N/A' ? null : data.Plot,
+  imdbRating: data.Ratings?.length === 0 ? null : parseFloat(data.Ratings.find((r) => r.Source === 'Internet Movie Database').Value)
+})
 
 const useOMDB = (saveSearch) => {
   const [omdbLoading, setOmdbLoading] = useState(null)
@@ -20,9 +20,15 @@ const useOMDB = (saveSearch) => {
   const searchOMDB = async (str) => {
     setOmdbLoading(true)
     try {
-      const idArray = await OMDbAPIBySearch(str)
-      const mPromise = async (v) => parse(await OMDbAPIById(v.imdbID))
-      const movies = await Promise.all(idArray.map(mPromise))
+      const searchData = await OMDbAPIBySearch(str)
+      const promises = searchData
+        .filter((v) => v.hasOwnProperty('imdbID'))
+        .map(async ({ imdbID }) => {
+          const x = await OMDbAPIById(imdbID)
+          return parse(imdbID, x)
+        })
+      const movies = await Promise.all(promises)
+
       if (movies.length > 0) saveSearch(str)
       setOmdbMovies(movies)
     } catch (error) {

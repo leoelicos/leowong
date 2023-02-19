@@ -1,65 +1,37 @@
 import { useState } from 'react'
+import OMDbAPIById from '../api/omdbapi__by-id-or-title'
+import OMDbAPIBySearch from '../api/omdbapi__by-search'
 
-const { REACT_APP_14_OMDB_KEY } = process.env
+const parse = ({
+  //
+  Poster: poster,
+  Title: title,
+  Rated: esrb,
+  Year: year,
+  Genre: genre,
+  Actors: actors,
+  Plot: plot,
+  Ratings: rating
+}) => ({ poster, title, esrb, year, genre, actors, plot, rating })
 
-function useOMDB() {
-  const [OMDBMovies, setOMDBMovies] = useState([])
-
+const useOMDB = (saveSearch) => {
+  const [omdbLoading, setOmdbLoading] = useState(null)
+  const [omdbMovies, setOmdbMovies] = useState([])
   const searchOMDB = async (str) => {
-    let newMovies = undefined
+    setOmdbLoading(true)
     try {
-      const imdbIDs = await searchByString(str)
-      const movies = imdbIDs.map((v) => searchByID(v.imdbID))
-      newMovies = await Promise.all(movies)
+      const idArray = await OMDbAPIBySearch(str)
+      const mPromise = async (v) => parse(await OMDbAPIById(v.imdbID))
+      const movies = await Promise.all(idArray.map(mPromise))
+      if (movies.length > 0) saveSearch(str)
+      setOmdbMovies(movies)
     } catch (error) {
-      console.error('searchByString failed', error)
-      newMovies = []
+      console.error(error)
     } finally {
-      // console.log({ newMovies })
-      setOMDBMovies(newMovies)
+      setOmdbLoading(false)
     }
   }
-
-  const searchByString = async (str) => {
-    let results = undefined
-    try {
-      const responseOMDB = await fetch(`https://www.omdbapi.com/?apikey=${REACT_APP_14_OMDB_KEY}&type=movie&s=${str}&page=1`)
-      const dataOMDB = await responseOMDB.json()
-      results = dataOMDB.Search || []
-      return results
-    } catch (error) {
-      console.error('searchByString failed', error)
-      results = []
-    } finally {
-      return results
-    }
-  }
-
-  const searchByID = async (id) => {
-    let results = undefined
-    try {
-      const res = await fetch(`https://www.omdbapi.com/?apikey=${REACT_APP_14_OMDB_KEY}&type=movie&i=${id}`)
-      const data = await res.json()
-      const {
-        Poster: poster, //
-        Title: title,
-        Year: year,
-        Rated: esrb,
-        Genre: genre,
-        Actors: actors,
-        Plot: plot,
-        Ratings: rating
-      } = data
-
-      results = { poster, title, esrb, year, genre, actors, plot, rating }
-    } catch (error) {
-      console.error('searchByID failed', error)
-      results = null
-    } finally {
-      return results
-    }
-  }
-
-  return { searchOMDB, OMDBMovies }
+  return { omdbLoading, omdbMovies, searchOMDB }
 }
+
 export default useOMDB

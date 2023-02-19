@@ -6,13 +6,13 @@ import SmallLogo from '../images/mooveefavi.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons'
-import { faClockRotateLeft, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectMovieHistory }) => (
   <Affix
     offsetTop={0}
     className='affix'>
-    <header className={searched ? 'header' : 'header unsearched'}>
+    <header className={!searched ? 'unsearched' : 'none'}>
       <img
         src={searched ? SmallLogo : Logo}
         alt='moovee logo'
@@ -22,7 +22,7 @@ const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectM
           <em>Tonight, I'll be watching…</em>
         </p>
       )}
-      <div className='header-elements'>
+      <div className='header__elements'>
         <Search
           loading={loading}
           allowClear={true}

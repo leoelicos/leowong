@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectMovieHistory }) => (
+const MooHeader = ({ searched, loading, handleSubmit, history, handleSelectMovieHistory }) => (
   <Affix
     offsetTop={0}
     className='affix'>
@@ -39,7 +39,7 @@ const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectM
           onChange={handleSelectMovieHistory}
           suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
           placeholder='Search history'
-          options={savedMovies?.map((title, i) => ({
+          options={history?.map((title, i) => ({
             value: i,
             label: title
           }))}

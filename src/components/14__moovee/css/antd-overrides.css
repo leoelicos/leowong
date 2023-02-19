@@ -23,6 +23,9 @@
 .app-14__modal .ant-spin {
   width: 100%;
 }
+.app-14__modal .finished {
+  display: none;
+}
 .app-14__modal .ant-spin-dot {
   font-size: 100px;
 }

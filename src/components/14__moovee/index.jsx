@@ -100,7 +100,7 @@ export default function MooVee() {
             handleSubmit={handleSubmit}
             savedMovies={savedMovies}
             handleSelectMovieHistory={handleSelectMovieHistory}
-            style={{ maxWidth: '400px' }}
+   
           />
           <MooResults
             searched={hasSearched?.current}

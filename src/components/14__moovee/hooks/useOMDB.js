@@ -9,7 +9,7 @@ const parse = (imdbID, data) => ({
   esrb: data.Rated === 'N/A' ? null : data.Rated,
   year: data.Year === 'N/A' ? null : data.Year,
   genre: data.Genre === 'N/A' ? null : data.Genre.split(', '),
-  actors: data.Actors === 'N/A' ? null : data.Actors,
+  actors: data.Actors || [],
   plot: data.Plot === 'N/A' ? null : data.Plot,
   imdbRating: data.Ratings?.length === 0 ? null : parseFloat(data.Ratings.find((r) => r.Source === 'Internet Movie Database').Value)
 })

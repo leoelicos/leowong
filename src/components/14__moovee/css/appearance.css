@@ -39,3 +39,7 @@
 .app-14 .result-container.empty h5 svg {
   color: pink;
 }
+
+.app-14 footer a {
+  cursor: pointer;
+}

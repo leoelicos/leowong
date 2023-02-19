@@ -7,7 +7,7 @@ import useOMDB from './hooks/useOMDB'
 import useFavicon from '../../hooks/useFavicon'
 
 /* api */
-import searchYouTube from './api/youtubeSearchAPI'
+import searchYouTube from './api/gapi'
 
 /* components */
 import { Button, ConfigProvider, Tooltip } from 'antd'

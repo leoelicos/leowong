@@ -27,7 +27,7 @@
 .app-14 .header.unsearched {
   margin: 20vh auto;
 
-  max-width: 600px;
+  max-width: 450px;
   flex-direction: column;
   box-shadow: none;
 }
@@ -38,7 +38,12 @@
 }
 
 .app-14 .header.unsearched img {
-  margin-bottom: 1vh;
+  margin-bottom: 0;
+}
+
+.app-14 .header.unsearched p {
+  margin: 0 0 20px 0;
+  font-size: 14px;
 }
 
 .app-14 .header-elements {
@@ -143,9 +148,6 @@
   padding-bottom: 4px;
 }
 
-.app-14 footer a {
-  cursor: pointer;
-}
 @media screen and (min-width: calc(900px + 2rem)) {
   .app-14 .movie-grid {
     margin: auto;

@@ -14,7 +14,7 @@ const parse = (imdbID, data) => ({
   imdbRating: data.Ratings?.length === 0 ? null : parseFloat(data.Ratings.find((r) => r.Source === 'Internet Movie Database').Value)
 })
 
-const useOMDB = (saveSearch) => {
+const useOMDB = (saveHistory) => {
   const [omdbLoading, setOmdbLoading] = useState(null)
   const [omdbMovies, setOmdbMovies] = useState([])
   const searchOMDB = async (str) => {
@@ -28,8 +28,7 @@ const useOMDB = (saveSearch) => {
           return parse(imdbID, x)
         })
       const movies = await Promise.all(promises)
-
-      if (movies.length > 0) saveSearch(str)
+      if (movies.length > 0) saveHistory(str)
       setOmdbMovies(movies)
     } catch (error) {
       console.error(error)

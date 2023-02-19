@@ -6,7 +6,7 @@ import useFavicon from '../../hooks/useFavicon'
 import useOMDB from './hooks/useOMDB'
 
 /* components */
-import { Button, ConfigProvider, Modal, Spin } from 'antd'
+import { Button, ConfigProvider, Spin } from 'antd'
 import Title from 'antd/es/typography/Title'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 

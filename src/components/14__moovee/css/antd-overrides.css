@@ -48,6 +48,8 @@
 }
 .app-14__modal .ant-modal-body {
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 .app-14__modal .ant-modal-footer {
   margin: 0;

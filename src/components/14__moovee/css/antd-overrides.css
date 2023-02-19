@@ -4,11 +4,6 @@
 ? Sibling 3: antd Modal (trailer)
 */
 
-/* override antd Select */
-.app-14 .ant-select-disabled {
-  visibility: collapse;
-}
-
 .app-14__modal {
   height: 100%;
   width: 100% !important;
@@ -27,6 +22,9 @@
 }
 .app-14__modal .ant-spin {
   width: 100%;
+}
+.app-14__modal .finished {
+  display: none;
 }
 .app-14__modal .ant-spin-dot {
   font-size: 100px;
@@ -53,6 +51,8 @@
 }
 .app-14__modal .ant-modal-body {
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 .app-14__modal .ant-modal-footer {
   margin: 0;
@@ -66,9 +66,4 @@
   position: absolute;
   bottom: -2.5rem;
   right: 0;
-}
-
-div#root:has(.app-14) + * + div .ant-modal-mask,
-div#root:has(.app-14) + div .ant-modal-mask {
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%);
 }

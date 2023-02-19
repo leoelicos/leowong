@@ -1,24 +1,28 @@
 import { useEffect, useState } from 'react'
 
-const useLocalStorage = () => {
-  const currentStorage = JSON.parse(localStorage.getItem('movies'))
-  const [savedMovies, setSavedMovies] = useState(currentStorage ?? [])
+const useLocalStorage = (key) => {
+  const [history, setHistory] = useState(JSON.parse(localStorage.getItem(key) || '[]'))
 
   useEffect(() => {
-    localStorage.setItem('movies', JSON.stringify(savedMovies))
-  }, [savedMovies])
+    if (history?.length > 0) localStorage.setItem(key, JSON.stringify(history))
+  }, [history, key])
 
-  const saveMovie = (title) => {
-    setSavedMovies((prev) => {
-      if (prev.includes(title)) {
-        return [title, ...prev.filter((v) => v !== title)]
-      }
-      const res = [title, ...prev].slice(0, 5)
-      return res
+  const saveHistory = (value) => {
+    console.log('saveHistory', value)
+    setHistory((prev) => {
+      let oldHistory = prev.includes(value) //
+        ? prev.filter((v) => v !== value)
+        : prev.length > 4
+        ? prev.slice(0, 4)
+        : prev
+
+      let newHistory = [value].concat(...oldHistory)
+      console.log({ oldHistory, newHistory })
+      return newHistory
     })
   }
 
-  return { savedMovies, saveMovie }
+  return { history, saveHistory }
 }
 
 export default useLocalStorage

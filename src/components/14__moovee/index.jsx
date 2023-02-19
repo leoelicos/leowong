@@ -27,7 +27,7 @@ export default function MooVee() {
   useFavicon('/favicons/14-favicon.png')
 
   /* title */
-  useTitle('MooVee')
+  useTitle('Moovee')
 
   /* results will mount */
   let hasSearched = useRef(false)
@@ -100,6 +100,7 @@ export default function MooVee() {
             handleSubmit={handleSubmit}
             savedMovies={savedMovies}
             handleSelectMovieHistory={handleSelectMovieHistory}
+            style={{ maxWidth: '400px' }}
           />
           <MooResults
             searched={hasSearched?.current}

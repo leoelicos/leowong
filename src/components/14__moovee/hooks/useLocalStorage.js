@@ -1,18 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useLocalStorage = (key) => {
-  const [history, setHistory] = useState(JSON.parse(localStorage.getItem(key)))
+  const [history, setHistory] = useState(JSON.parse(localStorage.getItem(key) || '[]'))
+
+  useEffect(() => {
+    if (history?.length > 0) localStorage.setItem(key, JSON.stringify(history))
+  }, [history, key])
 
   const saveHistory = (value) => {
+    console.log('saveHistory', value)
     setHistory((prev) => {
       let oldHistory = prev.includes(value) //
         ? prev.filter((v) => v !== value)
         : prev.length > 4
         ? prev.slice(0, 4)
         : prev
+
       let newHistory = [value].concat(...oldHistory)
-      localStorage.setItem(key, JSON.stringify(newHistory))
-      setHistory(newHistory)
+      console.log({ oldHistory, newHistory })
+      return newHistory
     })
   }
 

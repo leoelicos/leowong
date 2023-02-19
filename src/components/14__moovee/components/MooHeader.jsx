@@ -1,4 +1,4 @@
-import { Affix, Select } from 'antd'
+import { Affix, Empty, Select } from 'antd'
 import Search from 'antd/es/input/Search'
 
 import Logo from '../images/moovee.png'
@@ -6,7 +6,7 @@ import SmallLogo from '../images/mooveefavi.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons'
-import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import { faClockRotateLeft, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectMovieHistory }) => (
   <Affix
@@ -17,23 +17,28 @@ const MooHeader = ({ searched, loading, handleSubmit, savedMovies, handleSelectM
         src={searched ? SmallLogo : Logo}
         alt='moovee logo'
       />
+      {!searched && (
+        <p>
+          <em>Tonight, I'll be watching…</em>
+        </p>
+      )}
       <div className='header-elements'>
         <Search
           loading={loading}
           allowClear={true}
           className='movie-search'
           placeholder={searched ? '…' : 'Any movie name…'}
-          enterButton={searched ? 'Find' : 'Find Trailer'}
+          enterButton={<FontAwesomeIcon icon={faSearch} />}
           onSearch={handleSubmit}
         />
         <Select
+          notFoundContent={<Empty />}
           className='history-select'
-          disabled={savedMovies.length === 0}
           dropdownMatchSelectWidth={false}
           bordered={false}
           onChange={handleSelectMovieHistory}
           suffixIcon={<FontAwesomeIcon icon={faCaretSquareDown} />}
-          placeholder={<FontAwesomeIcon icon={faClockRotateLeft} />}
+          placeholder='Search history'
           options={savedMovies?.map((title, i) => ({
             value: i,
             label: title

@@ -1,91 +1,52 @@
 /* hooks */
-import { useRef } from 'react'
-import useTrailer from './hooks/useTrailer'
+import { useRef, useState } from 'react'
 import useLocalStorage from './hooks/useLocalStorage'
 import useTitle from '../../hooks/useTitle'
-import useOMDB from './hooks/useOMDB'
 import useFavicon from '../../hooks/useFavicon'
-
-/* api */
-import searchYouTube from './api/gapi'
+import useOMDB from './hooks/useOMDB'
 
 /* components */
-import { Button, ConfigProvider, Tooltip } from 'antd'
+import { Button, ConfigProvider, Modal, Spin } from 'antd'
+import Title from 'antd/es/typography/Title'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
+/* custom components */
 import MooHeader from './components/MooHeader'
-import MooResults from './components/MooResults'
+import Result from './components/Result'
 
-/* icons */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMessage } from '@fortawesome/free-solid-svg-icons'
-
-/* style */
+/* appearance */
 import './css/index.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
+import { faFaceMehBlank } from '@fortawesome/free-solid-svg-icons'
 
 export default function MooVee() {
-  /* favicon */
   useFavicon('/favicons/14-favicon.png')
-
-  /* title */
   useTitle('Moovee')
-
-  /* results will mount */
   let hasSearched = useRef(false)
 
-  /* local storage */
-  const { savedMovies, saveMovie } = useLocalStorage('titles')
+  const [idxOfClickedTrailer, setIdxOfClickedTrailer] = useState(-1)
+  const [trailerWasClicked, setTrailerWasClicked] = useState(false)
 
-  /* OMDB */
-  const { searchOMDB, OMDBMovies } = useOMDB()
-
-  /* OMDB loading */
-  const loadingOMDB = useRef(false)
-
-  /* modal with trailer */
-  const { Trailer, showTrailer, updateUri, updateLoadingGapi } = useTrailer()
+  /* hooks */
+  const { history, saveHistory } = useLocalStorage('titles')
+  const { omdbLoading, omdbMovies, searchOMDB } = useOMDB(saveHistory)
 
   /* handle search */
   const handleSubmit = async (e) => {
-    console.log('clicked submit', e)
     let m = e.replace(/[^a-zA-Z0-9 ]/g, '').trim()
     if (!m.length) return
+    else hasSearched.current = true
 
-    hasSearched.current = true // flag to render results page
-
-    const c = m[0].toLocaleUpperCase() + m.slice(1).toLocaleLowerCase()
-    saveMovie(c) /* save to local storage */
-    console.log('saved to local storage')
-    loadingOMDB.current = true
-    await searchOMDB(c)
-    console.log('finished saving to local storage')
-    console.log({ OMDBMovies })
-    loadingOMDB.current = false
-  }
-
-  /* handle trailer */
-  const handleClickTrailer = async (title, year) => {
-    showTrailer()
-    let gapiRes = ''
-    try {
-      updateLoadingGapi(true)
-      console.log('searching youtube')
-      gapiRes = await searchYouTube(`${title}+${year}+trailer`)
-      console.log({ gapiRes })
-      updateLoadingGapi(false)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      // console.log('setting uri to', gapiRes)
-      updateUri(gapiRes)
-    }
+    const searchString = m[0].toLocaleUpperCase() + m.slice(1).toLocaleLowerCase()
+    await searchOMDB(searchString)
   }
 
   /* handle click history option */
   const handleSelectMovieHistory = (historyIdx) => {
-    handleSubmit(savedMovies[historyIdx])
+    handleSubmit(history[historyIdx])
   }
-
+  const o = <FontAwesomeIcon icon={faFaceMehBlank} />
   return (
     <div className='app-14'>
       <div className='body'>
@@ -97,18 +58,47 @@ export default function MooVee() {
           }}>
           <MooHeader
             searched={hasSearched?.current}
-            loading={loadingOMDB?.current}
             handleSubmit={handleSubmit}
-            savedMovies={savedMovies}
+            history={history}
             handleSelectMovieHistory={handleSelectMovieHistory}
           />
-          <MooResults
-            searched={hasSearched?.current}
-            loading={loadingOMDB?.current}
-            OMDBMovies={OMDBMovies}
-            handleClickTrailer={handleClickTrailer}
-          />
-
+          {hasSearched?.current && (
+            <main>
+              {omdbLoading ? (
+                <Spin
+                  size='large'
+                  className='loading-spin'
+                />
+              ) : !omdbMovies.length ? (
+                <div className='result-container empty'>
+                  <Title
+                    className='no-movies'
+                    level={5}>
+                    N{o}&ensp;m{o}vies&ensp;f{o}und
+                  </Title>
+                </div>
+              ) : (
+                <ResponsiveMasonry columnsCountBreakPoints={{ 0: 1, 450: 2, 679: 3 }}>
+                  <Masonry className='movie-grid'>
+                    {omdbMovies.map((movie, i) => (
+                      <Result
+                        key={i}
+                        idx={i}
+                        idxOfClickedTrailer={idxOfClickedTrailer}
+                        setIdxOfClickedTrailer={setIdxOfClickedTrailer}
+                        trailerWasClicked={trailerWasClicked}
+                        setTrailerWasClicked={setTrailerWasClicked}
+                        resetIdxOfClickedTrailer={() => {
+                          setIdxOfClickedTrailer(-1)
+                        }}
+                        {...movie}
+                      />
+                    ))}
+                  </Masonry>
+                </ResponsiveMasonry>
+              )}
+            </main>
+          )}
           <footer>
             <Button
               type='text'
@@ -121,7 +111,6 @@ export default function MooVee() {
               />
             </Button>
           </footer>
-          <Trailer />
         </ConfigProvider>
       </div>
     </div>

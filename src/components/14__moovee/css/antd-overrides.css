@@ -4,11 +4,6 @@
 ? Sibling 3: antd Modal (trailer)
 */
 
-/* override antd Select */
-.app-14 .ant-select-disabled {
-  display: none;
-}
-
 .app-14__modal {
   height: 100%;
   width: 100% !important;

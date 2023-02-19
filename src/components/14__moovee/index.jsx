@@ -10,7 +10,7 @@ import useFavicon from '../../hooks/useFavicon'
 import searchYouTube from './api/youtubeSearchAPI'
 
 /* components */
-import { Button, ConfigProvider, Progress, Space, Tag, Tooltip } from 'antd'
+import { Button, ConfigProvider, Tooltip } from 'antd'
 
 import MooHeader from './components/MooHeader'
 import MooResults from './components/MooResults'
@@ -21,6 +21,7 @@ import { faMessage } from '@fortawesome/free-solid-svg-icons'
 
 /* style */
 import './css/index.css'
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 
 export default function MooVee() {
   /* favicon */
@@ -100,7 +101,6 @@ export default function MooVee() {
             handleSubmit={handleSubmit}
             savedMovies={savedMovies}
             handleSelectMovieHistory={handleSelectMovieHistory}
-   
           />
           <MooResults
             searched={hasSearched?.current}
@@ -116,8 +116,8 @@ export default function MooVee() {
               target='_blank'
               rel='noferrer'>
               <FontAwesomeIcon
-                icon={faMessage}
-                style={{ color: 'white' }}
+                className='facebook-icon'
+                icon={faFacebookF}
               />
             </Button>
           </footer>

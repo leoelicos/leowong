@@ -3,6 +3,10 @@
 .app-14 * {
   font-family: 'Montserrat', sans-serif;
 }
+.app-14 header.unsearched p {
+  font-size: 1rem;
+  font-family: cursive;
+}
 .app-14 .result .title {
   font-size: 1rem;
 }

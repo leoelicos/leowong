@@ -18,11 +18,7 @@ const MooHeader = ({ searched, loading, handleSubmit, history, handleSelectMovie
           src={searched ? SmallLogo : Logo}
           alt='moovee logo'
         />
-        {!searched && (
-          <p>
-            <em>Tonight, I'll be watching…</em>
-          </p>
-        )}
+        {!searched && <p>Tonight, I'll be watching…</p>}
         <div className='header__elements'>
           <Search
             loading={loading}

@@ -1,23 +1,5 @@
 import { Button, Form, Input, Select } from 'antd'
 
-const x = [
-  { name: 'usage', type: 'input', title: 'Usage' },
-  { name: 'contributing', type: 'input', title: 'Contributions' },
-  { name: 'tests', type: 'input', title: 'Tests' },
-  { name: 'license', type: 'list', title: 'license', choices: ['MIT License', 'GNU GPLv3', 'ISC License'] },
-  { name: 'username', type: 'input', title: 'GitHub Username' },
-  {
-    name: 'email',
-    type: 'input',
-    title: 'Email',
-    validate(value) {
-      const pass = value.match(/.+@+.+\.+.+/)
-      if (pass) return true
-      return 'Please enter a valid email (must contain @ and .)'
-    }
-  }
-]
-
 const ReadmeMaker = () => {
   const validateMessages = {
     required: '${label} is required!',

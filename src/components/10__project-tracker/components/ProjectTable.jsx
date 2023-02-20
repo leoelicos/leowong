@@ -49,25 +49,31 @@ const ProjectTable = ({ data, onDelete }) => {
   const w = useResize(tableRef)
 
   const now = new Date().getTime()
-  const deserialized = data.map(({ timestamp, projectName, projectType, hours, hourlyRate, dueDate }) => ({
-    key: timestamp,
-    projectName,
-    projectType,
-    hours,
-    hourlyRate: hourlyRate.toFixed(2),
-    dueDate: new Date(dueDate).toLocaleDateString(),
-    daysUntilDueDate: Math.max(0, (new Date(dueDate).getTime() - now) / (1000 * 60 * 60 * 24)).toFixed(0),
-    potentialEarnings: (hours * Number(hourlyRate)).toFixed(2),
-    deleteButton: (
-      <Button
-        type='primary'
-        onClick={() => {
-          onDelete(timestamp)
-        }}>
-        <FontAwesomeIcon icon={faTrash} />
-      </Button>
-    )
-  }))
+  const deserialized = data.map(({ timestamp, projectName, projectType, hours, hourlyRate, dueDate }) => {
+    let [day, month, year] = dueDate.split('/')
+    month--
+    let serialDate = new Date(Date.UTC(year, month, day, 0, 59, 59))
+    serialDate = serialDate.toLocaleTimeString()
+    return {
+      key: timestamp,
+      projectName,
+      projectType,
+      hours,
+      hourlyRate: hourlyRate.toFixed(2),
+      dueDate: new Date(dueDate).toLocaleDateString(),
+      daysUntilDueDate: Math.max(0, Math.floor((new Date(dueDate).getTime() - now) / (1000 * 60 * 60 * 24))),
+      potentialEarnings: (hours * Number(hourlyRate)).toFixed(2),
+      deleteButton: (
+        <Button
+          type='primary'
+          onClick={() => {
+            onDelete(timestamp)
+          }}>
+          <FontAwesomeIcon icon={faTrash} />
+        </Button>
+      )
+    }
+  })
   return (
     <Table
       dataSource={deserialized}

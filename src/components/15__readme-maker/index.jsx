@@ -1,3 +1,5 @@
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './css/index.css'
 
 const Header = ({ children }) => {
@@ -16,9 +18,17 @@ const ReadmeMaker = () => {
   return (
     <div className='app-15'>
       <div className='body'>
-        <Header>Heading</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
+        <Header>Readme Maker</Header>
+        <Content>
+          {new Array(4).fill(Math.random(100)).map((v, i) => (
+            <article key={i}>{v}</article>
+          ))}
+        </Content>
+        <Footer>
+          Made with&ensp;
+          <FontAwesomeIcon icon={faHeart} />
+          &ensp;and React
+        </Footer>
       </div>
     </div>
   )

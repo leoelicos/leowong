@@ -1,0 +1,18 @@
+.app-15 .body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.app-15 header {
+  display: flex;
+  flex-flow: column;
+}
+.app-15 main {
+  flex: 1 1 100%;
+  overflow-y: scroll;
+}
+.app-15 footer {
+}

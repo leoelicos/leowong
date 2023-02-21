@@ -38,7 +38,7 @@ const Cards = ({ r, title, finished }) => {
       {r.map(({ name, link, finished }) => (
         <Col
           xs={24}
-          sm={12} // >= 576
+          sm={12} // >= 575
           md={12} // >= 768
           lg={8} // >= 992
           xl={6} // >= 1200

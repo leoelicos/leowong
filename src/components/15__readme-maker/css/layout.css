@@ -1,6 +1,7 @@
 .app-15 .body {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -8,11 +9,26 @@
 
 .app-15 header {
   display: flex;
-  flex-flow: column;
+  justify-content: center;
 }
 .app-15 main {
-  flex: 1 1 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
+
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  flex-grow: 1;
+  gap: 1rem;
 }
 .app-15 footer {
+  display: flex;
+  justify-content: center;
+}
+.app-15 article {
+  height: 150px;
+  width: 250px;
 }

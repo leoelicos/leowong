@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
 .app-15 {
-  --text: #ffffff;
+  --text: hsl(293, 97%, 93%);
 }
 
 .app-15 * {

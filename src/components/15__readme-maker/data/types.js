@@ -127,12 +127,12 @@ Purpose 1. Purpose 2.`,
   {
     name: 'Risks of OSS',
     description: 'Risks of open-source software',
-    content: `## Risks of OSS
-- Trucking Factor (TF)
-- active users
-- contributors
-- presence of user documentation
+    content: `## OSS data
+- active users [![Users](https://img.shields.io/visual-studio-marketplace/d/esbenp.prettier-vscode)](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - code coverage [![Code coverage](https://codecov.io/gh/facebook/metro/branch/main/graph/badge.svg?token=oMHdoKhFZB)](https://codecov.io/gh/facebook/metro)
+- contributors 
+- presence of user documentation
+- fragility/sustainability
 `,
     section: 'overview'
   },

@@ -30,7 +30,7 @@ Purpose 1. Purpose 2.`,
   },
   {
     name: 'Table of contents',
-    description: '',
+    description: 'Table of contents',
     content: `## Table of contents
 1.  [Introduction](#introduction)
 2.  [Topic 1](#topic-1)`,
@@ -38,16 +38,16 @@ Purpose 1. Purpose 2.`,
   },
 
   {
-    name: 'Roadmap/Current Status',
-    description: '',
+    name: 'Roadmap',
+    description: 'Roadmap/Current Status',
     content: `## Roadmap
 - Additional browser support
 - Add more integrations`,
     section: 'header'
   },
   {
-    name: 'Adoption Statistics/Used By',
-    description: '',
+    name: 'Used By',
+    description: 'Adoption Statistics/Used By',
     content: `## Used by
 - [Facebook](https://www.facebook.com)
 - [Google](https://www.google.com)`,
@@ -55,22 +55,22 @@ Purpose 1. Purpose 2.`,
   },
   {
     name: 'Related/See Also',
-    description: '',
+    description: 'Related/See Also',
     content: `## Related
 - [Facebook](https://www.facebook.com)
 - [Google](https://www.google.com)`,
     section: 'header'
   },
   {
-    name: 'Demo/Screenshots',
-    description: '',
+    name: 'Demo',
+    description: 'Demo/Screenshots',
     content: `## Demo
 ![pane-menu](https://explorer-exclude.s3.amazonaws.com/pane-menu.gif?v=1.3.0)`,
     section: 'header'
   },
   {
-    name: 'Usage/Examples',
-    description: '',
+    name: 'Usage',
+    description: 'Usage/Examples',
     content: `## Usage
 - Click the home button
 - Search for a pet`,
@@ -86,7 +86,7 @@ Purpose 1. Purpose 2.`,
   {
     name: 'Tech',
     description: 'Tech Stack/Tech Concepts/Software names only with suitable links',
-    content: `## Features
+    content: `## Tech
 - Tech stack: **Client** React, Redux, TailwindCSS **Server** Node, Express
 `,
     section: 'overview'
@@ -157,14 +157,10 @@ Purpose 1. Purpose 2.`,
   },
   {
     name: 'Competitors',
-    description: 'Competitors',
+    description: 'Open-source and proprietary competitors',
     content: `## Competitors
-- open-source: 
-  - [Alternative](www.google.com)
-  - [Alternative](www.google.com)
-- proprietary:
-  - [Alternative](www.google.com)
-  - [Alternative](www.google.com)
+- [Alternative 1](www.google.com)
+- [Alternative 2](www.google.com)
 `,
     section: 'overview'
   },
@@ -189,57 +185,52 @@ Purpose 1. Purpose 2.`,
 
   {
     name: 'Pre-requisites',
-    description: 'Step by step instructions',
-    content: `## Setup instructions
-- [Pre-requisites/Deps](https://www.google.com)
+    description: 'Pre-requisites/Deps',
+    content: `## Pre-requisites
+- [Pre-requisites](https://www.google.com)
 `,
     section: 'setup'
   },
   {
-    name: 'Setup',
-    description: 'Step by step instructions',
-    content: `## Setup instructions
-- [Pre-requisites/Deps](https://www.google.com)
+    name: 'Configuration',
+    description: 'Configuration instructions',
+    content: `## Configuration
 - [Configuration](https://www.google.com)
-
-
 `,
     section: 'setup'
   },
   {
-    name: 'Setup',
-    description: 'Step by step instructions',
-    content: `## Setup instructions
-
+    name: 'Installation',
+    description: 'Installation instructions',
+    content: `## Installation
 - [Installation/Uninstallation](https://www.google.com)
-
 `,
     section: 'setup'
   },
   {
     name: 'Troubleshooting FAQ',
-    description: 'Step by step instructions',
-    content: `## Setup instructions
-- [Troubleshooting FAQ / Guide during setup / installation](https://www.google.com)
+    description: 'Troubleshooting FAQ / Guide during setup / installation',
+    content: `## Troubleshooting FAQ
+- [Troubleshooting](https://www.google.com)
 
 `,
     section: 'setup'
   },
   {
-    name: 'Building/Deploying/Testing',
-    description: 'Building the software and other details related to creating an installable, testing, validating the installable (Note: If Building/testing is a must for contribution - it must be mentioned here for users / contributors or pointers to this information elsewhere must be provided',
-    content: `## Building/Deploying/Testing
-- [Building/Deploying/Testing](https://www.google.com)
-
+    name: 'Testing',
+    description: 'Steps to creating an installable, testing, validating the installable',
+    content: `## Testing
+- [Building](https://www.google.com)
+- [Deploying](https://www.google.com)
+- [Testing](https://www.google.com)
 `,
     section: 'setup'
   },
   {
-    name: 'Executing/Running after building',
+    name: 'Executing after building',
     description: 'Executing/Running after building',
-    content: `## Executing/Running after building
-- [Executing/Running after building](https://www.google.com)
-
+    content: `## Executing after building
+- [Executing after building](https://www.google.com)
 `,
     section: 'setup'
   },
@@ -248,7 +239,6 @@ Purpose 1. Purpose 2.`,
     description: 'FAQ/Reference Guide on user actions and commands associated with the software',
     content: `## UX Guide
 - [FAQ/Reference Guide on UX](https://www.google.com)
-
 `,
     section: 'setup'
   },
@@ -345,7 +335,7 @@ Purpose 1. Purpose 2.`,
   },
   {
     name: 'Contact',
-    description: '',
+    description: 'Contact instructions',
     content: `## Contact
 If you have any feedback, please reach out to us at google@gmail.com`,
     section: 'footer'
@@ -360,7 +350,7 @@ See \`contributing.md\` for ways to get started.
   },
   {
     name: 'Code of conduct',
-    description: '',
+    description: 'Link to Code of conduct.md',
     content: `## Code of conduct
 Please adhere to this project's [code of conduct](https://www.google.com).
 `,
@@ -368,7 +358,7 @@ Please adhere to this project's [code of conduct](https://www.google.com).
   },
   {
     name: 'License',
-    description: '',
+    description: 'Link to License.md',
     content: `## License
 Content submitted to repo is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS](./LICENSE-DOCS.md) file.`,
     section: 'footer'

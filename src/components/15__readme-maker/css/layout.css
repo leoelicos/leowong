@@ -36,6 +36,7 @@
 .app-15 footer {
   display: flex;
   justify-content: center;
+  padding: 4px 0;
 }
 .app-15 article {
   height: auto;

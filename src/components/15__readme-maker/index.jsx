@@ -6,6 +6,8 @@ import Markdown from 'marked-react'
 import data from './data/types'
 import { useState } from 'react'
 
+import { Tooltip } from 'antd'
+
 const Header = ({ children }) => {
   return <header>{children}</header>
 }
@@ -19,9 +21,11 @@ const Footer = ({ children }) => {
 }
 
 const ReadmeMaker = () => {
-  const initialValues = data.map(({ name, content }) => ({ name, content, selected: false }))
-  const [types, setTypes] = useState(initialValues)
+  const initialTypes = data.map((t) => ({ ...t, key: t.name, selected: false }))
+
+  const [types, setTypes] = useState(initialTypes)
   const handleClick = ({ name }) => {
+    console.log({ name })
     setTypes((prev) => prev.map((type) => (type.name === name ? { ...type, selected: !type.selected } : type)))
   }
   return (
@@ -31,18 +35,81 @@ const ReadmeMaker = () => {
           <h1>Readme Maker</h1>
         </Header>
         <Content>
-          {types.map(({ name, content, selected }) => (
-            <article
-              key={name}
-              onClick={() => {
-                handleClick({ name })
-              }}
-              className={selected ? 'selected' : ''}>
-              <div>
-                <Markdown>{name}</Markdown>
-              </div>
-            </article>
-          ))}
+          <h1>Header</h1>
+          <section className='readme-header'>
+            {types
+              .filter((t) => t.section === 'header')
+              .map(({ name, selected, content, key, description }) => (
+                <article
+                  key={key}
+                  onClick={() => {
+                    handleClick({ name })
+                  }}
+                  className={selected ? 'selected' : ''}>
+                  <Tooltip title={description}>{<Markdown>{content}</Markdown>}</Tooltip>
+                </article>
+              ))}
+          </section>
+          <h1>Overview</h1>
+          <section className='readme-header'>
+            {types
+              .filter((t) => t.section === 'overview')
+              .map(({ name, selected, content, key, description }) => (
+                <article
+                  key={key}
+                  onClick={() => {
+                    handleClick({ name })
+                  }}
+                  className={selected ? 'selected' : ''}>
+                  <Tooltip title={description}>{<Markdown>{content}</Markdown>}</Tooltip>
+                </article>
+              ))}
+          </section>
+          <h1>Setup</h1>
+          <section className='readme-header'>
+            {types
+              .filter((t) => t.section === 'low-level detail')
+              .map(({ name, selected, content, key, description }) => (
+                <article
+                  key={key}
+                  onClick={() => {
+                    handleClick({ name })
+                  }}
+                  className={selected ? 'selected' : ''}>
+                  <Tooltip title={description}>{<Markdown>{content}</Markdown>}</Tooltip>
+                </article>
+              ))}
+          </section>
+          <h1>References</h1>
+          <section className='readme-header'>
+            {types
+              .filter((t) => t.section === 'references')
+              .map(({ name, selected, content, key, description }) => (
+                <article
+                  key={key}
+                  onClick={() => {
+                    handleClick({ name })
+                  }}
+                  className={selected ? 'selected' : ''}>
+                  <Tooltip title={description}>{<Markdown>{content}</Markdown>}</Tooltip>
+                </article>
+              ))}
+          </section>
+          <h1>Footer</h1>
+          <section className='readme-header'>
+            {types
+              .filter((t) => t.section === 'footer')
+              .map(({ name, selected, content, key, description }) => (
+                <article
+                  key={key}
+                  onClick={() => {
+                    handleClick({ name })
+                  }}
+                  className={selected ? 'selected' : ''}>
+                  <Tooltip title={description}>{<Markdown>{content}</Markdown>}</Tooltip>
+                </article>
+              ))}
+          </section>
         </Content>
         <Footer>
           <h2>

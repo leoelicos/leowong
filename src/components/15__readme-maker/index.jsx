@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './css/index.css'
 import Markdown from 'marked-react'
 
-import types from './data/types'
+import data from './data/types'
+import { useState } from 'react'
 
 const Header = ({ children }) => {
   return <header>{children}</header>
@@ -18,6 +19,11 @@ const Footer = ({ children }) => {
 }
 
 const ReadmeMaker = () => {
+  const initialValues = data.map(({ name, content }) => ({ name, content, selected: false }))
+  const [types, setTypes] = useState(initialValues)
+  const handleClick = ({ name }) => {
+    setTypes((prev) => prev.map((type) => (type.name === name ? { ...type, selected: !type.selected } : type)))
+  }
   return (
     <div className='app-15'>
       <div className='body'>
@@ -25,10 +31,15 @@ const ReadmeMaker = () => {
           <h1>Readme Maker</h1>
         </Header>
         <Content>
-          {types.map(({ name, content }) => (
-            <article key={name}>
+          {types.map(({ name, content, selected }) => (
+            <article
+              key={name}
+              onClick={() => {
+                handleClick({ name })
+              }}
+              className={selected ? 'selected' : ''}>
               <div>
-                <Markdown>{content}</Markdown>
+                <Markdown>{name}</Markdown>
               </div>
             </article>
           ))}

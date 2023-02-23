@@ -24,14 +24,31 @@
   gap: 1rem;
   width: 100%;
 }
+.app-15 section {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  flex-grow: 1;
+  gap: 1rem;
+  width: 100%;
+}
 .app-15 footer {
   display: flex;
   justify-content: center;
 }
 .app-15 article {
-  height: 200px;
+  height: auto;
   min-width: 200px;
   flex-basis: calc((100% - 0rem) / 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.app-15 article img {
+  max-width: 100%;
 }
 
 /* sm */

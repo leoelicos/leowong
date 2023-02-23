@@ -1,9 +1,10 @@
 .app-15 {
-  --primary: #400135;
-  --secondary: #660273;
-  --tertiary: #8c0368;
-  --call-to-action: #f2055c;
-  --highlight: #7d52d9;
+  --primary: hsl(310, 97%, 13%);
+  --secondary: hsl(293, 97%, 23%);
+  --tertiary: hsl(316, 96%, 28%);
+  --call-to-action: hsl(338, 96%, 48%);
+  --highlight: hsl(259, 64%, 59%);
+  --selected: hsl(293, 97%, 93%);
 }
 
 .app-15 header {
@@ -19,6 +20,7 @@
   right: 0;
   box-shadow: 0 1px 2px 0 var(--secondary);
 }
+
 .app-15 main {
   background-color: var(--primary);
 }
@@ -34,10 +36,12 @@
   bottom: 0;
   right: 0;
   box-shadow: 0 -1px 2px 0 var(--secondary);
+  transition: box-shadow 0.06s linear;
 }
 .app-15 article {
-  border-radius: 1rem;
   position: relative;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
 }
 .app-15 article:before {
   content: '';
@@ -46,10 +50,38 @@
   left: 0;
   bottom: 0;
   right: 0;
-  border-radius: 1rem;
-  box-shadow: 0 0 3px 0 var(--highlight);
+  border-radius: 0.7rem;
+  box-shadow: 0 0 4px 0 hsl(293, 97%, 23%);
+  transition: box-shadow 0.06s linear;
+}
+.app-15 article:hover {
+  cursor: pointer;
+}
+.app-15 article:hover:before {
+  box-shadow: 0 0 4px 0 var(--call-to-action);
+  transition: box-shadow 0.06s linear;
+}
+.app-15 article:active:before {
+  box-shadow: 0 0 4px 0 var(--tertiary);
+  transition: box-shadow 0.06s linear;
 }
 
+.app-15 article.selected {
+  background-color: var(--tertiary);
+}
+
+.app-15 article.selected:hover:before {
+  box-shadow: 0 0 8px 0 var(--call-to-action);
+  transition: box-shadow 0.06s linear;
+}
+.app-15 article.selected:active:before {
+  box-shadow: 0 0 4px 0 var(--tertiary);
+  transition: box-shadow 0.06s linear;
+}
+
+.app-15 article p {
+  margin: 0;
+}
 /* scrollbar */
 .app-15 ::-webkit-scrollbar {
   width: 1rem;

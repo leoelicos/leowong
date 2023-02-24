@@ -2,11 +2,11 @@
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 /* style */
 import './style/index.css'
-
+import injectHTML from './iframeLoad'
 export default function HTMLGenerator() {
   /* state */
   const [formValues, setFormValues] = useState({ formName: '', formLocation: '', formBio: '', formLinkedIn: '', formGithub: '' })
@@ -16,11 +16,22 @@ export default function HTMLGenerator() {
     e.preventDefault()
     console.log(formValues)
   }
+
+  useEffect(() => {
+    injectHTML(formValues)
+  }, [formValues])
+
   return (
     <div className='app-16'>
       <div className='body'>
         <header>
           <h1>Portfolio Maker</h1>
+          <button
+            className='disable-caret'
+            type='button'
+            onClick={handleSubmit}>
+            <FontAwesomeIcon icon={faCopy} /> Copy HTML
+          </button>
         </header>
         <main>
           <form>
@@ -31,7 +42,9 @@ export default function HTMLGenerator() {
                 id='form-name'
                 value={formValues.formName}
                 onChange={(e) => {
-                  setFormValues((prev) => ({ ...prev, formName: e.target.value }))
+                  setFormValues((prev) => {
+                    return { ...prev, formName: e.target.value }
+                  })
                 }}
                 placeholder='…'
               />
@@ -85,21 +98,28 @@ export default function HTMLGenerator() {
               />
             </fieldset>
           </form>
+          <section className='portfolio-container'>
+            <article className='portfolio'>
+              <iframe
+                className='iframe'
+                id='test_iframe'
+                src='about:blank'
+                width='100%'
+              />
+            </article>
+          </section>
+          <footer>
+            <div className='message'>
+              <p>
+                Made with&ensp;
+                <FontAwesomeIcon
+                  icon={faReact}
+                  className='react-icon'
+                />
+              </p>
+            </div>
+          </footer>
         </main>
-        <footer>
-          <button
-            className='disable-caret'
-            type='button'
-            onClick={handleSubmit}>
-            <FontAwesomeIcon icon={faCopy} /> Copy HTML
-          </button>
-          <div className='message'>
-            <p>
-              Made with&ensp;
-              <FontAwesomeIcon icon={faReact} />
-            </p>
-          </div>
-        </footer>
       </div>
     </div>
   )

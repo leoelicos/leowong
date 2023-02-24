@@ -13,6 +13,19 @@
 }
 
 /* header */
+.app-16 .body > header button {
+  border: none;
+  background-color: hsl(290, 98%, 50%);
+}
+.app-16 .body > header button:hover {
+  background-color: hsl(290, 98%, 70%);
+  border: none;
+}
+.app-16 .body > header button:active {
+  outline: none;
+  background-color: hsl(290, 98%, 90%);
+  border: none;
+}
 
 /* main */
 .app-16 main {
@@ -65,20 +78,6 @@
   border: none;
   background-color: transparent;
   color: inherit;
-}
-
-.app-16 button {
-  border: none;
-  background-color: hsl(290, 98%, 50%);
-}
-.app-16 button:hover {
-  background-color: hsl(290, 98%, 70%);
-  border: none;
-}
-.app-16 button:active {
-  outline: none;
-  background-color: hsl(290, 98%, 90%);
-  border: none;
 }
 
 /* footer */

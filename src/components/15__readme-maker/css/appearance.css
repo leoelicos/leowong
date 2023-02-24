@@ -86,9 +86,9 @@
 .app-15 ::-webkit-scrollbar {
   width: 1rem;
 }
-::-webkit-scrollbar-track {
+.app-15 ::-webkit-scrollbar-track {
   box-shadow: inset 1px -1px 5px var(--tertiary);
 }
-::-webkit-scrollbar-thumb {
+.app-15 ::-webkit-scrollbar-thumb {
   background: var(--tertiary);
 }

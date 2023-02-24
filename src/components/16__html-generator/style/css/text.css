@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Tilt+Neon&display=swap');
+
+.app-16 {
+  --font-family-fancy: 'Tilt Neon', cursive;
+
+  --font-family-serious: 'Roboto', sans-serif;
+}
+
+.app-16 .body {
+  font-family: var(--font-family-serious);
+}
+
+/* header */
+.app-16 .body > header h1 {
+  color: white;
+  font-family: var(--font-family-fancy);
+}
+
+/* main */
+
+.app-16 fieldset {
+  font: inherit;
+  color: inherit;
+}
+
+.app-16 input {
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+.app-16 button {
+  font-size: 1.1rem;
+  font-family: inherit;
+}
+
+/* footer */

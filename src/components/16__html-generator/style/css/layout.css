@@ -1,0 +1,86 @@
+.app-16 .body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* header */
+.app-16 .body > header {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.app-16 .body > header h1 {
+  text-align: center;
+  margin: 0;
+}
+/* main */
+.app-16 main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.app-16 form {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+}
+
+.app-16 fieldset {
+  padding: 0;
+  width: 100%;
+}
+
+.app-16 fieldset:not(:last-of-type) {
+  margin: 0 0 1rem;
+}
+
+.app-16 label {
+  color: white;
+
+  font-size: 10px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.app-16 input {
+  padding: 0 4px;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+.app-16 input:focus-visible {
+  outline: none;
+}
+.app-16 button {
+  border: none;
+
+  width: 100%;
+  margin: 0;
+  padding: 4px 0;
+}
+/* footer */
+.app-16 footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.app-16 footer .message {
+  display: flex;
+  justify-content: center;
+}
+.app-16 footer p {
+  margin: 4px 0;
+}

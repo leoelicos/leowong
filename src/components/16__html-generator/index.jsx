@@ -2,36 +2,82 @@
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 /* style */
 import './style/index.css'
 import injectHTML from './iframeLoad'
+import { notification } from 'antd'
+
+const Context = React.createContext({
+  name: 'Default'
+})
+
 export default function HTMLGenerator() {
+  const [api, contextHolder] = notification.useNotification()
+  const openNotification = () => {
+    api.info({
+      //
+      message: 'Success!',
+      description: <Context.Consumer>{({ name }) => `${name}`}</Context.Consumer>,
+      placement: 'bottomRight',
+      duration: 1
+    })
+  }
+
   /* state */
   const [formValues, setFormValues] = useState({ formName: '', formLocation: '', formBio: '', formLinkedIn: '', formGithub: '' })
+  const getString = () =>
+    `<html>
+		<head>
+		</head>
+		<body>
+		<h1>About me</h1>
+		<ul>
+		<li>👋🏻 Hi, I'm ${formValues.formName.length > 0 ? formValues.formName : '…'}</li>
+		<li>🏝️ I am based in ${formValues.formLocation.length > 0 ? formValues.formLocation : '…'}</li>
+		<li>💬 ${formValues.formBio.length > 0 ? formValues.formBio : '…'}</li>
+		<li>🔗 Connect with me at <a href='https://linkedin.in/${formValues.formLinkedIn.length > 0 ? formValues.formLinkedIn : '…'}' target='_blank'>LinkedIn</a></li>
+		<li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${formValues.formGithub.length > 0 ? formValues.formGithub : '…'}' target='_blank'>GitHub</a></li>
+		</ul>
+		</body>
+		</html>`
 
   /* event handlers */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(formValues)
+    const output = getString()
+
+    try {
+      await navigator.clipboard.writeText(output)
+
+      openNotification()
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   useEffect(() => {
-    injectHTML(formValues)
+    injectHTML(getString())
   }, [formValues])
+
+  const contextValue = useMemo(() => ({ name: 'HTML copied to clipboard' }), [])
 
   return (
     <div className='app-16'>
       <div className='body'>
         <header>
           <h1>Portfolio Maker</h1>
-          <button
-            className='disable-caret'
-            type='button'
-            onClick={handleSubmit}>
-            <FontAwesomeIcon icon={faCopy} /> Copy HTML
-          </button>
+          <Context.Provider value={contextValue}>
+            {contextHolder}
+            <button
+              className='disable-caret'
+              type='button'
+              onClick={handleSubmit}>
+              <FontAwesomeIcon icon={faCopy} /> Copy HTML
+            </button>
+          </Context.Provider>
         </header>
         <main>
           <form>

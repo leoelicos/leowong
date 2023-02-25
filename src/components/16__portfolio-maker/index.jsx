@@ -16,13 +16,13 @@ const Context = createContext({
 export default function HTMLGenerator() {
   const [api, contextHolder] = notification.useNotification()
   const openNotification = () => {
-    api.info({
-      //
+    const options = {
       message: 'Success!',
       description: <Context.Consumer>{({ name }) => `${name}`}</Context.Consumer>,
       placement: 'bottomRight',
       duration: 1
-    })
+    }
+    api.info(options)
   }
 
   /* state */

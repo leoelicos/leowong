@@ -13,15 +13,15 @@
 }
 
 /* header */
-.app-16 .body > header button {
+.app-16 .body button {
   border: none;
   background-color: hsl(290, 98%, 50%);
 }
-.app-16 .body > header button:hover {
+.app-16 .body button:hover {
   background-color: hsl(290, 98%, 70%);
   border: none;
 }
-.app-16 .body > header button:active {
+.app-16 .body button:active {
   outline: none;
   background-color: hsl(290, 98%, 90%);
   border: none;
@@ -81,3 +81,13 @@
 }
 
 /* footer */
+
+/* scrollbar */
+.app-16 ::-webkit-scrollbar {
+  width: 4px;
+}
+
+.app-16 ::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: white;
+}

@@ -2,7 +2,7 @@
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { createContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 
 /* style */
 import './style/index.css'
@@ -27,21 +27,24 @@ export default function HTMLGenerator() {
 
   /* state */
   const [formValues, setFormValues] = useState({ formName: '', formLocation: '', formBio: '', formLinkedIn: '', formGithub: '' })
-  const getString = () =>
-    `<html>
-  <head>
-  </head>
-  <body>
-  <h1>About me</h1>
-  <ul>
-  <li>👋🏻 Hi, I'm ${formValues.formName.length > 0 ? formValues.formName : '…'}</li>
-  <li>🏝️ I am based in ${formValues.formLocation.length > 0 ? formValues.formLocation : '…'}</li>
-  <li>💬 ${formValues.formBio.length > 0 ? formValues.formBio : '…'}</li>
-  <li>🔗 Connect with me at <a href='https://linkedin.in/${formValues.formLinkedIn.length > 0 ? formValues.formLinkedIn : '…'}' target='_blank'>LinkedIn</a></li>
-  <li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${formValues.formGithub.length > 0 ? formValues.formGithub : '…'}' target='_blank'>GitHub</a></li>
-  </ul>
-  </body>
-  </html>`
+  const getString = useCallback(
+    (formValues) =>
+      `<html>
+<head>
+</head>
+<body>
+<h1>About me</h1>
+<ul>
+<li>👋🏻 Hi, I'm ${formValues.formName.length > 0 ? formValues.formName : '…'}</li>
+<li>🏝️ I am based in ${formValues.formLocation.length > 0 ? formValues.formLocation : '…'}</li>
+<li>💬 ${formValues.formBio.length > 0 ? formValues.formBio : '…'}</li>
+<li>🔗 Connect with me at <a href='https://linkedin.in/${formValues.formLinkedIn.length > 0 ? formValues.formLinkedIn : '…'}' target='_blank'>LinkedIn</a></li>
+<li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${formValues.formGithub.length > 0 ? formValues.formGithub : '…'}' target='_blank'>GitHub</a></li>
+</ul>
+</body>
+</html>`,
+    []
+  )
 
   /* event handlers */
   const handleSubmit = async (e) => {
@@ -59,8 +62,8 @@ export default function HTMLGenerator() {
   }
 
   useEffect(() => {
-    injectHTML(getString())
-  }, [formValues])
+    injectHTML(getString(formValues))
+  }, [formValues, getString])
 
   const contextValue = useMemo(() => ({ name: 'HTML copied to clipboard' }), [])
 
@@ -155,18 +158,18 @@ export default function HTMLGenerator() {
               />
             </article>
           </section>
-          <footer>
-            <div className='message'>
-              <p>
-                Made with&ensp;
-                <FontAwesomeIcon
-                  icon={faReact}
-                  className='react-icon'
-                />
-              </p>
-            </div>
-          </footer>
         </main>
+        <footer>
+          <div className='message'>
+            <p>
+              Made with&ensp;
+              <FontAwesomeIcon
+                icon={faReact}
+                className='react-icon'
+              />
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   )

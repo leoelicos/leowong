@@ -44,6 +44,12 @@
   overflow-y: auto;
 }
 
+@media screen and (min-width: 576px) {
+  .app-16 main {
+    flex-direction: row;
+  }
+}
+
 .app-16 form {
   border-radius: 20px;
   display: flex;

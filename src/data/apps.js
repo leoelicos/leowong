@@ -86,13 +86,13 @@ const apps = [
     element: <components.Moovee />
   },
   {
-    finished: false,
+    finished: true,
     name: 'Readme Maker',
     link: '15-readme-maker',
     element: <components.ReadmeMaker />
   },
   {
-    finished: false,
+    finished: true,
     name: 'HTML Generator',
     link: '16-html-generator',
     element: <components.HTMLGenerator />

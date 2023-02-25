@@ -72,15 +72,6 @@ export default function HTMLGenerator() {
       <div className='body'>
         <header>
           <h1>Portfolio Maker</h1>
-          <Context.Provider value={contextValue}>
-            {contextHolder}
-            <button
-              className='disable-caret'
-              type='button'
-              onClick={handleSubmit}>
-              <FontAwesomeIcon icon={faCopy} /> Copy HTML
-            </button>
-          </Context.Provider>
         </header>
         <main>
           <form>
@@ -146,15 +137,29 @@ export default function HTMLGenerator() {
                 placeholder='…'
               />
             </fieldset>
+            <Context.Provider value={contextValue}>
+              {contextHolder}
+              <button
+                className='disable-caret'
+                type='button'
+                onClick={handleSubmit}>
+                <FontAwesomeIcon icon={faCopy} /> Copy HTML
+              </button>
+            </Context.Provider>
           </form>
-          <section className='portfolio-container'>
-            <article className='portfolio'>
+          <section
+            className='portfolio-container'
+            style={{ height: '100%' }}>
+            <article
+              className='portfolio'
+              style={{ height: '100%' }}>
               <iframe
                 title='generated page'
                 className='iframe'
                 id='test_iframe'
                 src='about:blank'
                 width='100%'
+                height='100%'
               />
             </article>
           </section>

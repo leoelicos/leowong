@@ -2,14 +2,14 @@
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useMemo, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
 
 /* style */
 import './style/index.css'
 import injectHTML from './iframeLoad'
 import { notification } from 'antd'
 
-const Context = React.createContext({
+const Context = createContext({
   name: 'Default'
 })
 
@@ -29,19 +29,19 @@ export default function HTMLGenerator() {
   const [formValues, setFormValues] = useState({ formName: '', formLocation: '', formBio: '', formLinkedIn: '', formGithub: '' })
   const getString = () =>
     `<html>
-		<head>
-		</head>
-		<body>
-		<h1>About me</h1>
-		<ul>
-		<li>👋🏻 Hi, I'm ${formValues.formName.length > 0 ? formValues.formName : '…'}</li>
-		<li>🏝️ I am based in ${formValues.formLocation.length > 0 ? formValues.formLocation : '…'}</li>
-		<li>💬 ${formValues.formBio.length > 0 ? formValues.formBio : '…'}</li>
-		<li>🔗 Connect with me at <a href='https://linkedin.in/${formValues.formLinkedIn.length > 0 ? formValues.formLinkedIn : '…'}' target='_blank'>LinkedIn</a></li>
-		<li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${formValues.formGithub.length > 0 ? formValues.formGithub : '…'}' target='_blank'>GitHub</a></li>
-		</ul>
-		</body>
-		</html>`
+  <head>
+  </head>
+  <body>
+  <h1>About me</h1>
+  <ul>
+  <li>👋🏻 Hi, I'm ${formValues.formName.length > 0 ? formValues.formName : '…'}</li>
+  <li>🏝️ I am based in ${formValues.formLocation.length > 0 ? formValues.formLocation : '…'}</li>
+  <li>💬 ${formValues.formBio.length > 0 ? formValues.formBio : '…'}</li>
+  <li>🔗 Connect with me at <a href='https://linkedin.in/${formValues.formLinkedIn.length > 0 ? formValues.formLinkedIn : '…'}' target='_blank'>LinkedIn</a></li>
+  <li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${formValues.formGithub.length > 0 ? formValues.formGithub : '…'}' target='_blank'>GitHub</a></li>
+  </ul>
+  </body>
+  </html>`
 
   /* event handlers */
   const handleSubmit = async (e) => {
@@ -147,6 +147,7 @@ export default function HTMLGenerator() {
           <section className='portfolio-container'>
             <article className='portfolio'>
               <iframe
+                title='generated page'
                 className='iframe'
                 id='test_iframe'
                 src='about:blank'

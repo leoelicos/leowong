@@ -93,9 +93,9 @@ const apps = [
   },
   {
     finished: true,
-    name: 'HTML Generator',
-    link: '16-html-generator',
-    element: <components.HTMLGenerator />
+    name: 'Portfolio Maker',
+    link: '16-portfolio-maker',
+    element: <components.PortfolioMaker />
   },
   {
     finished: false,

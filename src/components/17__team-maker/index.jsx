@@ -1,83 +1,92 @@
-import { faSave, faAdd, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button, Card, ConfigProvider, Input, Select } from 'antd'
 import { useState } from 'react'
 
+/* context */
 import EmployeeProvider from './context/EmployeeContext'
+
+/* components */
+import { Button, ConfigProvider } from 'antd'
+import Employees from './components/Employees'
+import NewEmployee from './components/NewEmployee'
+
+/* images and style */
+import { faAdd } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './style/index.css'
 
-const initialEmployees = [
-  { name: 'Bob', role: 0, id: '1677409204360', email: 'bob@github.com' },
-  { name: 'Grace', role: 1, id: '1677409204361', email: 'grace@github.com' },
-  { name: 'Keyley', role: 2, id: '1677409204362', email: 'kayley@github.com' }
-]
-
 const TeamMaker = () => {
-  const [employees, setEmployees] = useState(initialEmployees)
-  const handleNewEmployee = () => {
-    console.log('Clicked handleNewEmployee')
+  const [newEmployees, setNewEmployees] = useState([])
+
+  const onDeleteNewEmployee = ({ id }) => {
+    console.log('Clicked delete new employee')
+    setNewEmployees((prev) => prev.filter((e) => e.id !== id))
   }
 
-  const handleDeleteEmployee = () => {
-    console.log('Clicked Delete Employee')
-  }
-  const handleSaveEmployee = () => {
-    console.log('Clicked Save Employee')
+  const onChangeNewEmployeeName = ({ id, name }) => {
+    setNewEmployees((prev) => prev.map((e) => (e.id === id ? { ...e, name } : e)))
   }
 
-  const handleChangeName = (e) => {
-    console.log({ e })
-    setEmployees((prev) => prev.map((employee) => (employee.id === 'EMP001' ? { ...employee, name: e.target.value } : employee)))
+  const onChangeNewEmployeeEmail = ({ id, email }) => {
+    setNewEmployees((prev) => prev.map((e) => (e.id === id ? { ...e, email } : e)))
   }
 
-  const handleChangeRole = (e) => {
-    setEmployees((prev) => prev.map((employee) => (employee.id === 'EMP001' ? { ...employee, role: e } : employee)))
+  const onChangeNewEmployeeRole = ({ id, role }) => {
+    setNewEmployees((prev) => prev.map((e) => (e.id === id ? { ...e, role } : e)))
   }
-  const handleChangeEmail = (e) => {
-    setEmployees((prev) => prev.map((employee) => (employee.id === 'EMP001' ? { ...employee, email: e.target.value } : employee)))
+
+  const onAddNewEmployee = () => {
+    console.log('Clicked add new employee')
+    const id = new Date().getTime()
+    setNewEmployees((prev) => prev.concat({ id, name: '', role: undefined, email: '' }))
   }
+
   return (
     <div className='app-17'>
       <div className='body'>
-        <header>
-          <h1>Team Maker</h1>
-        </header>
-        <main>
-          <section className='edit'>
-            <ConfigProvider
-              theme={{
-                token: {
-                  colorPrimary: 'green'
-                }
-              }}>
-              <Button
-                className='add-employee-button'
-                type='primary'
-                onClick={handleNewEmployee}>
-                <FontAwesomeIcon icon={faAdd} />
-                &ensp;Employee
-              </Button>
-            </ConfigProvider>
-            <section>
-              {employees
-                .sort((a, b) => b.role - a.role)
-                .map((employeeProps) => (
-                  <Article
-                    key={employeeProps.id}
-                    {...employeeProps}
-                    handleChangeName={handleChangeName}
-                    handleSaveEmployee={handleSaveEmployee}
-                    handleDeleteEmployee={handleDeleteEmployee}
-                    handleChangeRole={handleChangeRole}
-                    handleChangeEmail={handleChangeEmail}
-                  />
-                ))}
+        <EmployeeProvider>
+          <header>
+            <h1>Team Maker</h1>
+          </header>
+          <main>
+            <section className='edit'>
+              <ConfigProvider
+                theme={{
+                  token: {
+                    colorPrimary: 'green'
+                  }
+                }}>
+                <section className='new-employee'>
+                  <Button
+                    className='add-employee-button'
+                    type='primary'
+                    onClick={onAddNewEmployee}>
+                    <FontAwesomeIcon icon={faAdd} />
+                    &ensp;Employee
+                  </Button>
+                  {!newEmployees?.length
+                    ? null
+                    : newEmployees
+                        .sort((a, b) => b.id - a.id)
+                        .map((employeeProps) => (
+                          <NewEmployee
+                            key={employeeProps.id}
+                            {...employeeProps}
+                            onDelete={onDeleteNewEmployee}
+                            onChangeName={onChangeNewEmployeeName}
+                            onChangeEmail={onChangeNewEmployeeEmail}
+                            onChangeRole={onChangeNewEmployeeRole}
+                          />
+                        ))}
+                </section>
+              </ConfigProvider>
+              <section>
+                <Employees />
+              </section>
             </section>
-          </section>
-        </main>
-        <footer>
-          <p>End</p>
-        </footer>
+          </main>
+          <footer>
+            <p>End</p>
+          </footer>
+        </EmployeeProvider>
       </div>
     </div>
   )

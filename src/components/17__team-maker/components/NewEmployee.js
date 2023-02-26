@@ -4,30 +4,13 @@ import { Button, Card, Input, Select } from 'antd'
 import { useContext } from 'react'
 import { EmployeeDispatchContext } from '../context/EmployeeContext'
 
-const Employee = (employeeProps) => {
-  const { name, email, id, role } = employeeProps
-
+const NewEmployee = ({ name, email, id, role, onDelete, onChangeName, onChangeEmail, onChangeRole }) => {
   const dispatchEmployee = useContext(EmployeeDispatchContext)
-
-  const handleChangeName = () => {
-    dispatchEmployee({ type: 'changedName', action: { name, id } })
+  const onSave = () => {
+    console.log('onSave', { name, id, email, role })
+    dispatchEmployee({ type: 'savedEmployee', action: { name, id, email, role } })
+    onDelete({ id })
   }
-
-  const handleChangeRole = () => {
-    dispatchEmployee({ type: 'changedRole', action: { role, id } })
-  }
-
-  const handleChangeEmail = () => {
-    dispatchEmployee({ type: 'changedEmail', action: { email, id } })
-  }
-  const handleSaveEmployee = () => {
-    dispatchEmployee({ type: 'savedEmployee', action: { name, role, email, id } })
-  }
-
-  const handleDeleteEmployee = () => {
-    dispatchEmployee({ type: 'removedEmployee', action: { id } })
-  }
-
   return (
     <article className={`employee ${role === 0 ? 'manager' : role === 1 ? 'engineer' : role === 2 ? 'intern' : ''}`}>
       <Card
@@ -37,7 +20,8 @@ const Employee = (employeeProps) => {
           <Input
             value={name}
             onChange={(e) => {
-              handleChangeName(id, e.target.value)
+              const name = e.target.value
+              onChangeName({ id, name })
             }}
           />
         }
@@ -46,7 +30,7 @@ const Employee = (employeeProps) => {
             type='primary'
             shape='default'
             block
-            onClick={handleSaveEmployee}>
+            onClick={onSave}>
             <FontAwesomeIcon icon={faSave} />
           </Button>
         }
@@ -55,7 +39,9 @@ const Employee = (employeeProps) => {
             type='primary'
             shape='default'
             danger
-            onClick={handleDeleteEmployee}>
+            onClick={() => {
+              onDelete({ id })
+            }}>
             <FontAwesomeIcon icon={faTrash} />
           </Button>
         ]}>
@@ -67,7 +53,10 @@ const Employee = (employeeProps) => {
                 <Select
                   bordered={false}
                   value={role}
-                  onChange={handleChangeRole}
+                  onChange={(e) => {
+                    const role = e
+                    onChangeRole({ id, role })
+                  }}
                   options={[
                     { label: 'Manager', value: 0 },
                     { label: 'Engineer', value: 1 },
@@ -80,7 +69,10 @@ const Employee = (employeeProps) => {
               <td>
                 <Input
                   value={email}
-                  onChange={handleChangeEmail}
+                  onChange={(e) => {
+                    const email = e.target.value
+                    onChangeEmail({ id, email })
+                  }}
                 />
               </td>
             </tr>
@@ -94,4 +86,4 @@ const Employee = (employeeProps) => {
     </article>
   )
 }
-export default Employee
+export default NewEmployee

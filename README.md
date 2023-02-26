@@ -20,9 +20,9 @@ This is a React implementation of [The Coding Boot Camp at the University of Syd
 | 12  | Library Search Tool         |       |
 | 13  | Weather Dashboard           |       |
 | 14  | Moovee                      |       |
-| 15  | Good Readme Generator       |       |
-| 16  | HTML Generator              |       |
-| 17  | Team Profile Generator      |       |
+| 15  | Readme Maker                |       |
+| 16  | Portfolio Maker             |       |
+| 17  | Team Maker                  |       |
 | 18  | Command Line Word Guess     |       |
 | 19  | Note Taker                  |       |
 | 20  | Diagnostic Routes           |       |

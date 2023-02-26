@@ -99,9 +99,9 @@ const apps = [
   },
   {
     finished: false,
-    name: 'Team Profile Generator',
-    link: '17-team-profile-generator',
-    element: <components.TeamProfileGenerator />
+    name: 'Team Maker',
+    link: '17-team-maker',
+    element: <components.TeamMaker />
   },
   {
     finished: false,

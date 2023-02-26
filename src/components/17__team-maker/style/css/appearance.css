@@ -1,0 +1,16 @@
+.app-17 header {
+  background-color: antiquewhite;
+}
+
+.app-17 main {
+  background-color: darkgrey;
+}
+.app-17 table,
+td,
+th {
+  border-spacing: 0;
+}
+
+.app-17 .edit .add-employee-button {
+  box-shadow: none;
+}

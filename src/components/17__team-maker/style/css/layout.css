@@ -1,0 +1,63 @@
+.app-17 .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.app-17 header,
+.app-17 main,
+.app-17 footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-17 main {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.app-17 section {
+  width: 100%;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.app-17 section h2 {
+  margin: 1rem 0;
+}
+.app-17 article {
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 400px;
+
+  height: fit-content;
+
+  padding: 1rem;
+}
+.app-17 section > button {
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 900px) {
+  .app-17 main {
+    flex-direction: row;
+  }
+}
+
+.app-17 footer p {
+  margin: 0;
+}

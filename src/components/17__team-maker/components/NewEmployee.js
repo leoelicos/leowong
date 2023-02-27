@@ -27,6 +27,7 @@ const NewEmployee = ({ name, email, id, role, onDelete, onChangeName, onChangeEm
         }
         extra={
           <Button
+            className='add-employee-button'
             type='primary'
             shape='default'
             block

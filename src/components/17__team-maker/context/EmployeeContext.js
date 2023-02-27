@@ -26,44 +26,9 @@ function employeeReducer(employees, { type, action }) {
 
     case 'savedEmployee': {
       const { id, name, email, role } = action
-
       let employee = employees.find((employee) => employee.id === action.id)
-      if (employee === undefined) {
-        const newEmployees = employees.concat({ id, name, email, role })
-        console.log({ newEmployees })
-        return newEmployees
-      } else {
-        const newEmployees = employees.map((e) => (e.id === id ? { id, name, email, role } : e))
-        console.log(newEmployees)
-        return newEmployees
-      }
-    }
-
-    case 'changedName': {
-      const { id, name } = action
-      let employee = employees.find((employee) => employee.id === id)
-      if (employee === undefined) {
-        console.log('Not found')
-        return employees
-      } else return employees.map((e) => (e.id === id ? { ...e, name } : e))
-    }
-
-    case 'changedRole': {
-      const { id, role } = action
-      let employee = employees.find((employee) => employee.id === id)
-      if (employee === undefined) {
-        console.log('Not found')
-        return employees
-      } else return employees.map((e) => (e.id === id ? { ...e, role } : e))
-    }
-
-    case 'changedEmail': {
-      const { id, email } = action
-      let employee = employees.find((employee) => employee.id === id)
-      if (employee === undefined) {
-        console.log('Not found')
-        return employees
-      } else return employees.map((e) => (e.id === id ? { ...e, email } : e))
+      if (employee === undefined) return employees.concat({ id, name, email, role })
+      return employees.map((e) => (e.id === id ? { id, name, email, role } : e))
     }
 
     default: {

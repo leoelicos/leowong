@@ -1,12 +1,35 @@
-.app-17 header {
-  background-color: antiquewhite;
+.app-17 {
+  --secondary: #faead6;
+  --primary: #7a6345;
+  --text-primary: #0014ab;
+  --text-secondary: white;
+}
+
+.app-17 header,
+footer {
+  color: var(--text-primary);
+}
+.app-17 header,
+.app-17 footer {
+  background-color: var(--secondary);
 }
 
 .app-17 main {
-  background-color: darkgrey;
+  background-color: var(--primary);
 }
 .app-17 table,
 td,
 th {
   border-spacing: 0;
+}
+
+.app-17 .buttons * {
+  color: var(--text-secondary);
+}
+.app-17 footer .react-icon {
+  color: var(--text-primary);
+  font-size: 2rem;
+}
+.app-17 .select {
+  min-width: 50px;
 }

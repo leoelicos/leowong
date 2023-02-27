@@ -1,7 +1,5 @@
-import { faAdd } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button, ConfigProvider } from 'antd'
 import { useState } from 'react'
+import GreenButton from './GreenButton'
 
 import NewEmployee from './NewEmployee'
 const NewEmployees = () => {
@@ -31,37 +29,24 @@ const NewEmployees = () => {
   }
 
   return (
-    <section className='edit'>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: 'green'
-          }
-        }}>
-        <Button
-          className='add-employee-button'
-          type='primary'
-          onClick={onAddNewEmployee}>
-          <FontAwesomeIcon icon={faAdd} />
-          &ensp;Employee
-        </Button>
-        <section className='new-employees'>
-          {!newEmployees?.length
-            ? null
-            : newEmployees
-                .sort((a, b) => b.id - a.id)
-                .map((employeeProps) => (
-                  <NewEmployee
-                    key={employeeProps.id}
-                    {...employeeProps}
-                    onDelete={onDeleteNewEmployee}
-                    onChangeName={onChangeNewEmployeeName}
-                    onChangeEmail={onChangeNewEmployeeEmail}
-                    onChangeRole={onChangeNewEmployeeRole}
-                  />
-                ))}
-        </section>
-      </ConfigProvider>{' '}
+    <section className='new-employees'>
+      <GreenButton cb={onAddNewEmployee} />
+      <section className='new-employees-list'>
+        {!newEmployees?.length
+          ? null
+          : newEmployees
+              .sort((a, b) => b.id - a.id)
+              .map((employeeProps) => (
+                <NewEmployee
+                  key={employeeProps.id}
+                  {...employeeProps}
+                  onDelete={onDeleteNewEmployee}
+                  onChangeName={onChangeNewEmployeeName}
+                  onChangeEmail={onChangeNewEmployeeEmail}
+                  onChangeRole={onChangeNewEmployeeRole}
+                />
+              ))}
+      </section>
     </section>
   )
 }

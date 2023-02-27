@@ -19,10 +19,15 @@ const Main = () => {
         <ConfigProvider
           theme={{
             token: {
-              colorPrimary: 'black',
+              colorPrimary: '#0014ab',
               colorBgBase: '#faebd7',
-              colorBorderSecondary: '#0014ab',
-              colorError: '#b22'
+              colorBorder: '#0014ab',
+              colorBorderSecondary: 'transparent',
+              colorTextDescription: '#7a6345',
+              colorError: '#b22',
+              colorBgElevated: '#faead6',
+
+              colorPrimaryBg: 'transparent'
             }
           }}>
           <section className='view'>
@@ -48,7 +53,17 @@ const Main = () => {
       <section className='new-employees'>
         <ConfigProvider
           theme={{
-            token: { colorPrimary: 'black', colorBgBase: 'white', colorError: '#b22' }
+            token: {
+              colorPrimary: 'black',
+              colorBgBase: 'white',
+              colorError: '#b22',
+              colorBorderSecondary: 'transparent',
+
+              colorBorder: '#0014ab',
+              colorBgElevated: 'white',
+
+              colorPrimaryBg: 'transparent'
+            }
           }}>
           <Button
             style={{ boxShadow: 'none' }}

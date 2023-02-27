@@ -38,9 +38,10 @@
 
 .app-17 section.new-employees {
   flex: 1;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   display: flex;
+  flex-flow: column nowrap;
 }
 
 .app-17 article {

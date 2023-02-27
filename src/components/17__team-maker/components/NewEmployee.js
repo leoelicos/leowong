@@ -3,16 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Card, Input, Select } from 'antd'
 import { useContext } from 'react'
 import { EmployeeDispatchContext } from '../context/EmployeeContext'
-
+import DeleteButton from './DeleteButton'
 const NewEmployee = ({ name, email, id, role, onDelete, onChangeName, onChangeEmail, onChangeRole }) => {
   const dispatchEmployee = useContext(EmployeeDispatchContext)
   const onSave = () => {
-    console.log('onSave', { name, id, email, role })
     dispatchEmployee({ type: 'savedEmployee', action: { name, id, email, role } })
     onDelete({ id })
   }
+  const roleClass = role === 0 ? 'manager' : role === 1 ? 'engineer' : role === 2 ? 'intern' : ''
   return (
-    <article className={`employee ${role === 0 ? 'manager' : role === 1 ? 'engineer' : role === 2 ? 'intern' : ''}`}>
+    <article className={`employee ${roleClass}`}>
       <Card
         className='employee-card'
         bordered={false}
@@ -35,15 +35,11 @@ const NewEmployee = ({ name, email, id, role, onDelete, onChangeName, onChangeEm
           </Button>
         }
         actions={[
-          <Button
-            type='primary'
-            shape='default'
-            danger
-            onClick={() => {
+          <DeleteButton
+            cb={() => {
               onDelete({ id })
-            }}>
-            <FontAwesomeIcon icon={faTrash} />
-          </Button>
+            }}
+          />
         ]}>
         <table>
           <tbody>

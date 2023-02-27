@@ -1,11 +1,12 @@
-/* context */
+/* custom components */
 import EmployeeProvider from './context/EmployeeContext'
 
-/* components */
-import NewEmployees from './components/NewEmployees'
-import Employees from './components/Employees'
-
+/* style and icon */
 import './style/index.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faReact } from '@fortawesome/free-brands-svg-icons'
+
+import Main from './components/Main'
 
 const TeamMaker = () => {
   return (
@@ -14,14 +15,16 @@ const TeamMaker = () => {
         <header>
           <h1>Team Maker</h1>
         </header>
-        <main>
-          <EmployeeProvider>
-            <Employees />
-            <NewEmployees />
-          </EmployeeProvider>
-        </main>
+        <EmployeeProvider>
+          <Main />
+        </EmployeeProvider>
         <footer>
-          <p>End</p>
+          <p>
+            <FontAwesomeIcon
+              icon={faReact}
+              className='react-icon'
+            />
+          </p>
         </footer>
       </div>
     </div>

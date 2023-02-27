@@ -8,16 +8,17 @@ import Employee from './Employee'
 const Employees = () => {
   const employees = useContext(EmployeeContext)
 
-  console.log({ employees })
-  return !employees?.length
-    ? null
-    : employees
+  return !employees?.length ? null : (
+    <section className='view'>
+      {employees
         .sort((a, b) => a.role - b.role)
         .map((employeeProps) => (
           <Employee
             key={employeeProps.id}
             {...employeeProps}
           />
-        ))
+        ))}
+    </section>
+  )
 }
 export default Employees

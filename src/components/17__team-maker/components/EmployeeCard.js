@@ -5,7 +5,7 @@ import { useContext, useRef, useState } from 'react'
 import { EmployeeDispatchContext } from '../context/EmployeeContext'
 
 /* antd */
-import { Alert, Button, Card, ConfigProvider, Divider, Form, Input, Select, theme } from 'antd'
+import { Alert, Button, Card, Divider, Form, Input, Select, theme } from 'antd'
 
 /* images */
 import { faClose, faPen, faSave, faTrash } from '@fortawesome/free-solid-svg-icons'
@@ -35,7 +35,7 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues }
           bordered={false}
           extra={
             <Button
-              type='default'
+              type='link'
               danger
               htmlType='button'
               shape='circle'
@@ -46,48 +46,51 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues }
               <FontAwesomeIcon icon={faClose} />
             </Button>
           }
-          title={
-            <Form.Item
-              noStyle
-              name='name'
-              rules={[
-                {
-                  required: true,
-                  message: (
-                    <Alert
-                      type='error'
-                      message='Required'
-                      showIcon
-                    />
-                  )
-                },
-                {
-                  pattern: new RegExp(/^[^\d]+$/g),
-                  message: (
-                    <Alert
-                      type='error'
-                      message='No numbers'
-                      showIcon
-                    />
-                  )
-                },
-                {
-                  pattern: new RegExp(/^[^!";#$%&'()*+,./:;<=>?@[\]^_{|}~]+$/),
-                  message: (
-                    <Alert
-                      type='error'
-                      message='No symbols'
-                      showIcon
-                    />
-                  )
-                }
-              ]}>
-              <Input placeholder='Enter a name' />
-            </Form.Item>
-          }
+          title={actualValues ? 'Edit employee' : 'New employee'}
           style={{ paddingTop: '1.5rem' }}>
           <table>
             <tbody>
+              <tr>
+                <th>Name</th>
+                <td>
+                  <Form.Item
+                    name='name'
+                    rules={[
+                      {
+                        required: true,
+                        message: (
+                          <Alert
+                            type='error'
+                            message='Required'
+                            showIcon
+                          />
+                        )
+                      },
+                      {
+                        pattern: new RegExp(/^[^\d]+$/g),
+                        message: (
+                          <Alert
+                            type='error'
+                            message='No numbers'
+                            showIcon
+                          />
+                        )
+                      },
+                      {
+                        pattern: new RegExp(/^[^!";#$%&'()*+,./:;<=>?@[\]^_{|}~]+$/),
+                        message: (
+                          <Alert
+                            type='error'
+                            message='No symbols'
+                            showIcon
+                          />
+                        )
+                      }
+                    ]}>
+                    <Input placeholder='Enter a name' />
+                  </Form.Item>
+                </td>
+              </tr>
               <tr>
                 <th>Role</th>
                 <td>
@@ -159,7 +162,7 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues }
               </tr>
             </tbody>
           </table>
-          <Divider />
+          <Divider style={{ width: 'unset', margin: '8px -12px' }} />
           <div className='buttons'>
             <Button
               type='primary'
@@ -185,7 +188,16 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues }
       <Card
         size='small'
         style={{ width: '100%', maxWidth: '300px' }}
-        title={actualValues.name}>
+        title={actualValues.name}
+        extra={
+          <Button
+            type='primary'
+            onClick={() => {
+              setMode('edit')
+            }}>
+            <FontAwesomeIcon icon={faPen} />
+          </Button>
+        }>
         <Meta
           title={['Manager', 'Engineer', 'Intern'][actualValues.role]}
           description={
@@ -196,16 +208,6 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues }
             </p>
           }
         />
-        <div className='buttons'>
-          <Button
-            type='primary'
-            onClick={() => {
-              setMode('edit')
-            }}>
-            <FontAwesomeIcon icon={faPen} />
-            &ensp;Edit
-          </Button>
-        </div>
       </Card>
     </article>
   ) : null

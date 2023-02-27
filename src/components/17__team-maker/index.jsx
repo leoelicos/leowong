@@ -1,10 +1,6 @@
-/* context */
 import EmployeeProvider from './context/EmployeeContext'
-
-/* components */
 import NewEmployees from './components/NewEmployees'
 import Employees from './components/Employees'
-
 import './style/index.css'
 
 const TeamMaker = () => {

@@ -47,16 +47,34 @@
 .app-17 article {
   border-radius: 1rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
 
   height: fit-content;
 
   padding: 1rem;
 }
-.app-17 section > button {
-  margin: 1rem 0;
+.app-17 td {
+  width: 100%;
+}
+.app-17 th {
+  padding-right: 8px;
+  text-align: right;
+}
+.app-17 tr:not(:last-of-type) th {
+  padding-top: 5px;
+  vertical-align: top;
 }
 
+.app-17 footer {
+  padding: 4px 0;
+}
 .app-17 footer p {
   margin: 0;
+}
+
+.app-17 .buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }

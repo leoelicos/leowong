@@ -45,9 +45,9 @@ const Main = () => {
 
   useEffect(() => {
     const fallback = [
-      { name: 'Bob', role: 0, id: '1677409204360', email: 'bob@github.com' },
-      { name: 'Grace', role: 1, id: '1677409204361', email: 'grace@github.com' },
-      { name: 'Keyley', role: 2, id: '1677409204362', email: 'kayley@github.com' }
+      { name: 'Bob', role: 0, id: 1677409204360, email: 'bob@github.com' },
+      { name: 'Grace', role: 1, id: 1677409204361, email: 'grace@github.com' },
+      { name: 'Keyley', role: 2, id: 1677409204362, email: 'kayley@github.com' }
     ]
     const ls = employeesLS
     const initialiseEmployeeContext = async () => {

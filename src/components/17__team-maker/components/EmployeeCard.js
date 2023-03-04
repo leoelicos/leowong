@@ -1,8 +1,5 @@
 /* react */
-import { useContext, useRef, useState } from 'react'
-
-/* context */
-import { EmployeeDispatchContext } from '../context/EmployeeContext'
+import { useRef, useState } from 'react'
 
 /* antd */
 import { Alert, Button, Card, Divider, Form, Input, Select, theme } from 'antd'
@@ -12,13 +9,13 @@ import { faClose, faPen, faSave, faTrash } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Meta from 'antd/es/card/Meta'
 
-const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues }) => {
+const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, onSave }) => {
   const [mode, setMode] = useState(initialMode) // view or edit
   const hasSubmitted = useRef(false)
-  const dispatchEmployee = useContext(EmployeeDispatchContext)
 
   const handleFinish = ({ name, role, email }) => {
-    dispatchEmployee({ type: 'savedEmployee', action: { name, id, email, role } })
+    onSave({ name, role, email, id })
+
     setMode('view')
     hasSubmitted.current = false
   }

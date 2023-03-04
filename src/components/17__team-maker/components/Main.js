@@ -1,5 +1,5 @@
 /* react */
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { EmployeeContext, EmployeeDispatchContext } from '../context/EmployeeContext'
 
 import EmployeeCard from './EmployeeCard'
@@ -7,11 +7,60 @@ import EmployeeCard from './EmployeeCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAdd } from '@fortawesome/free-solid-svg-icons'
 import { Button, ConfigProvider } from 'antd'
+import useIDB from '../hooks/useIdb'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const Main = () => {
   const [newEmployees, setNewEmployees] = useState([])
+  const { employeesLS, updateEmployeesLS } = useLocalStorage('team-maker-employees')
   const dispatchEmployee = useContext(EmployeeDispatchContext)
   const employees = useContext(EmployeeContext)
+  const { putDb, getDb, deleteDb } = useIDB()
+
+  const handleSave = ({ id, name, email, role }) => {
+    dispatchEmployee({ type: 'savedEmployee', action: { id, name, email, role } })
+    putDb({ id, name, email, role })
+
+    updateEmployeesLS(
+      !employees.find((e) => e.id === id) //
+        ? employees.concat({ id, name, email, role })
+        : employees.map((e) =>
+            e.id === id //
+              ? { id, name, email, role }
+              : e
+          )
+    )
+  }
+
+  const handleDelete = (id) => {
+    dispatchEmployee({ type: 'removedEmployee', action: { id: id } })
+    deleteDb(id)
+    let employee = employees.find((e) => e.id === id)
+    if (!!employee) updateEmployeesLS(employees.filter((e) => e.id !== id))
+  }
+
+  useEffect(() => {
+    const fillProvider = async () => {
+      try {
+        const idb = await getDb()
+        const ls = employeesLS
+        const fallback = [
+          { name: 'Bob', role: 0, id: '1677409204360', email: 'bob@github.com' },
+          { name: 'Grace', role: 1, id: '1677409204361', email: 'grace@github.com' },
+          { name: 'Keyley', role: 2, id: '1677409204362', email: 'kayley@github.com' }
+        ]
+        const initialEmployees = idb?.length > 0 ? idb : ls.length > 0 ? ls : fallback
+        initialEmployees.forEach((e) => {
+          dispatchEmployee({ type: 'savedEmployee', action: e })
+          putDb(e)
+        })
+        updateEmployeesLS(initialEmployees)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    fillProvider()
+  }, [])
 
   return (
     <main>
@@ -43,8 +92,9 @@ const Main = () => {
                   initialValues={{ id, name, email, role }}
                   actualValues={{ id, name, email, role }}
                   onDelete={() => {
-                    dispatchEmployee({ type: 'removedEmployee', action: { id: id } })
+                    handleDelete(id)
                   }}
+                  onSave={handleSave}
                 />
               ))}
           </section>
@@ -73,19 +123,22 @@ const Main = () => {
             }}>
             <FontAwesomeIcon icon={faAdd} />
           </Button>
-          <section className='new-employees-list'>
-            {newEmployees.map(({ id }) => (
-              <EmployeeCard
-                key={id}
-                id={id}
-                onDelete={() => {
-                  setNewEmployees((prev) => prev.filter((employee) => employee.id !== id))
-                }}
-                initialValues={{ name: '', email: '', role: undefined }}
-                initialMode='edit'
-              />
-            ))}
-          </section>
+          {newEmployees?.length > 0 && (
+            <section className='new-employees-list'>
+              {newEmployees.map(({ id }) => (
+                <EmployeeCard
+                  key={id}
+                  id={id}
+                  onDelete={() => {
+                    setNewEmployees((prev) => prev.filter((employee) => employee.id !== id))
+                  }}
+                  initialValues={{ name: '', email: '', role: undefined }}
+                  initialMode='edit'
+                  onSave={handleSave}
+                />
+              ))}
+            </section>
+          )}
         </ConfigProvider>
       </section>
     </main>

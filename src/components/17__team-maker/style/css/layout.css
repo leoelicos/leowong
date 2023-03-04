@@ -34,6 +34,8 @@
   flex-flow: row wrap;
   justify-content: center;
   align-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .app-17 section.new-employees {
@@ -50,8 +52,6 @@
   max-width: 300px;
 
   height: fit-content;
-
-  padding: 1rem;
 }
 .app-17 td {
   width: 100%;

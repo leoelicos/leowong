@@ -49,7 +49,7 @@ const Main = () => {
           { name: 'Grace', role: 1, id: '1677409204361', email: 'grace@github.com' },
           { name: 'Keyley', role: 2, id: '1677409204362', email: 'kayley@github.com' }
         ]
-        const initialEmployees = idb?.length > 0 ? idb : ls.length > 0 ? ls : fallback
+        const initialEmployees = idb?.length > 0 ? idb : ls?.length > 0 ? ls : fallback
         initialEmployees.forEach((e) => {
           dispatchEmployee({ type: 'savedEmployee', action: e })
           putDb(e)

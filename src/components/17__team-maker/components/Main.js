@@ -40,26 +40,36 @@ const Main = () => {
   }
 
   useEffect(() => {
-    const fillProvider = async () => {
+    const fallback = [
+      { name: 'Bob', role: 0, id: '1677409204360', email: 'bob@github.com' },
+      { name: 'Grace', role: 1, id: '1677409204361', email: 'grace@github.com' },
+      { name: 'Keyley', role: 2, id: '1677409204362', email: 'kayley@github.com' }
+    ]
+    const ls = employeesLS
+    const initialiseEmployeeContext = async () => {
       try {
         const idb = await getDb()
-        const ls = employeesLS
-        const fallback = [
-          { name: 'Bob', role: 0, id: '1677409204360', email: 'bob@github.com' },
-          { name: 'Grace', role: 1, id: '1677409204361', email: 'grace@github.com' },
-          { name: 'Keyley', role: 2, id: '1677409204362', email: 'kayley@github.com' }
-        ]
-        const initialEmployees = idb?.length > 0 ? idb : ls?.length > 0 ? ls : fallback
-        initialEmployees.forEach((e) => {
-          dispatchEmployee({ type: 'savedEmployee', action: e })
-          putDb(e)
-        })
-        updateEmployeesLS(initialEmployees)
+
+        if (idb?.length > 0) {
+          updateEmployeesLS(idb)
+          idb.forEach((e) => dispatchEmployee({ type: 'savedEmployee', action: e }))
+        } else if (ls?.length > 0) {
+          ls.forEach((e) => {
+            putDb(e)
+          })
+          ls.forEach((e) => dispatchEmployee({ type: 'savedEmployee', action: e }))
+        } else {
+          updateEmployeesLS(fallback)
+          fallback.forEach((e) => {
+            putDb(e)
+          })
+          fallback.forEach((e) => dispatchEmployee({ type: 'savedEmployee', action: e }))
+        }
       } catch (e) {
         console.error(e)
       }
     }
-    fillProvider()
+    initialiseEmployeeContext()
   }, [])
 
   return (

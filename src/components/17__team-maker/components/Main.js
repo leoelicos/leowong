@@ -10,44 +10,6 @@ import { Button, ConfigProvider } from 'antd'
 import useIDB from '../hooks/useIdb'
 import useLocalStorage from '../hooks/useLocalStorage'
 
-const View = ({ children }) => (
-  <ConfigProvider
-    theme={{
-      token: {
-        colorPrimary: '#0014ab',
-        colorBgBase: '#faebd7',
-        colorBorder: '#0014ab',
-        colorBorderSecondary: 'transparent',
-        colorTextDescription: '#7a6345',
-        colorError: '#b22',
-        colorBgElevated: '#faead6',
-
-        colorPrimaryBg: 'transparent'
-      }
-    }}>
-    <section className='view'>{children}</section>
-  </ConfigProvider>
-)
-
-const NewEmployees = ({ children }) => (
-  <ConfigProvider
-    theme={{
-      token: {
-        colorPrimary: 'black',
-        colorBgBase: 'white',
-        colorError: '#b22',
-        colorBorderSecondary: 'transparent',
-
-        colorBorder: '#0014ab',
-        colorBgElevated: 'white',
-
-        colorPrimaryBg: 'transparent'
-      }
-    }}>
-    <section className='new-employees'>{children}</section>
-  </ConfigProvider>
-)
-
 const Main = () => {
   const [newEmployees, setNewEmployees] = useState([])
   const { employeesLS, updateEmployeesLS } = useLocalStorage('team-maker-employees')
@@ -164,3 +126,41 @@ const Main = () => {
   )
 }
 export default Main
+
+const View = ({ children }) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#0014ab',
+        colorBgBase: '#faebd7',
+        colorBorder: '#0014ab',
+        colorBorderSecondary: 'transparent',
+        colorTextDescription: '#7a6345',
+        colorError: '#b22',
+        colorBgElevated: '#faead6',
+
+        colorPrimaryBg: 'transparent'
+      }
+    }}>
+    <section className='view'>{children}</section>
+  </ConfigProvider>
+)
+
+const NewEmployees = ({ children }) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'black',
+        colorBgBase: 'white',
+        colorError: '#b22',
+        colorBorderSecondary: 'transparent',
+
+        colorBorder: '#0014ab',
+        colorBgElevated: 'white',
+
+        colorPrimaryBg: 'transparent'
+      }
+    }}>
+    <section className='new-employees'>{children}</section>
+  </ConfigProvider>
+)

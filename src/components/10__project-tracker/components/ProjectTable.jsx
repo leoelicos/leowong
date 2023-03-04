@@ -50,10 +50,6 @@ const ProjectTable = ({ data, onDelete }) => {
 
   const now = new Date().getTime()
   const deserialized = data.map(({ timestamp, projectName, projectType, hours, hourlyRate, dueDate }) => {
-    let [day, month, year] = dueDate.split('/')
-    month--
-    let serialDate = new Date(Date.UTC(year, month, day, 0, 59, 59))
-    serialDate = serialDate.toLocaleTimeString()
     return {
       key: timestamp,
       projectName,

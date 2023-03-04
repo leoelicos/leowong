@@ -42,8 +42,10 @@ export default function WeatherDashboard() {
   const searchCoords = useOpenWeatherOneCall(updateCity)
 
   useEffect(() => {
-    searchCoords(city.lat, city.lon)
-  }, [city.lat, city.lon, searchCoords])
+    let lat = city.lat
+    let lon = city.lon
+    searchCoords(lat, lon)
+  }, [city, searchCoords])
 
   const handleClickHistory = (historyCity) => {
     updateCity(historyCity)

@@ -14,8 +14,8 @@ import WeatherDashboard from './13__weather-dashboard'
 import Moovee from './14__moovee'
 import ReadmeMaker from './15__readme-maker'
 import PortfolioMaker from './16__portfolio-maker'
-import TeamMaker from './17__team-maker'
-import CommandLineWordGuess from './18__command-line-word-guess'
+import Spriddle from './17__spriddle'
+import TeamMaker from './18__team-maker'
 import NoteTaker from './19__note-taker'
 import DiagnosticRoutes from './20__diagnostic-routes'
 import EmployeeCMS from './21__employee-cms'
@@ -58,7 +58,7 @@ const components = {
   ReadmeMaker,
   PortfolioMaker,
   TeamMaker,
-  CommandLineWordGuess,
+  Spriddle,
   NoteTaker,
   DiagnosticRoutes,
   EmployeeCMS,

@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react'
 
 const useLocalStorage = (name) => {
-  const getter = () => JSON.parse(localStorage.getItem(name)) || []
-  const setter = (r) => localStorage.setItem(name, JSON.stringify(r))
-
   const [employeesLS, setEmployeesLS] = useState()
 
   useEffect(() => {
-    setEmployeesLS(getter())
-  }, [])
+    setEmployeesLS(JSON.parse(localStorage.getItem(name)) || [])
+  }, [name])
 
   useEffect(() => {
-    setter(employeesLS)
-  }, [employeesLS])
+    localStorage.setItem(name, JSON.stringify(employeesLS))
+  }, [employeesLS, name])
 
   const updateEmployeesLS = (r) => {
     setEmployeesLS(r)

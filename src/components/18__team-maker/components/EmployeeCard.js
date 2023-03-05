@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react'
 
 /* antd */
-import { Alert, Button, Card, Divider, Form, Input, Select, theme } from 'antd'
+import { Alert, Button, Card, Divider, Form, Input, Select } from 'antd'
 
 /* images */
 import { faClose, faPen, faSave, faTrash } from '@fortawesome/free-solid-svg-icons'

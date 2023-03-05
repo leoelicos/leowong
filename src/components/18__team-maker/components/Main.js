@@ -73,7 +73,7 @@ const Main = () => {
       }
     }
     initialiseEmployeeContext()
-  }, [])
+  }, [dispatchEmployee, employeesLS, getDb, putDb, updateEmployeesLS])
 
   return (
     <main>

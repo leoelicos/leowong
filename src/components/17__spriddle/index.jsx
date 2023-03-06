@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Main from './components/Main'
+import Main from './components/Main/index.jsx'
 
 export default function Spriddle() {
   const [stage, setStage] = useState(0)
@@ -9,9 +9,19 @@ export default function Spriddle() {
     setStage((prev) => (prev + 1 > 3 ? 0 : prev + 1))
   }
 
+  const bodyStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100vw',
+    height: '100vh',
+    overflowY: 'auto'
+  }
+
   return (
     <div className='app-17'>
-      <div className='body'>
+      <div
+        className='body'
+        style={bodyStyle}>
         <header>SPRIDDLE</header>
         <Main
           stage={stage}

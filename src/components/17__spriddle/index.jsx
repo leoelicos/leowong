@@ -1,68 +1,24 @@
-import { Button, Empty, Spin } from 'antd'
-import { useEffect, useState } from 'react'
-import useRiddle from './api/useRiddle'
+import { useState } from 'react'
 import Main from './components/Main'
 
-const isAlphaNumeric = (c) => (c >= 65 && c <= 90) || (c >= 48 && c <= 57)
 export default function Spriddle() {
-  const { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError } = useRiddle()
-  const [pressed, setPressed] = useState([])
-  const [gameStarted, setGameStarted] = useState(false)
-
-  useEffect(() => {
-    riddleUpdate()
-  }, [])
-
-  const handleClickNewGame = async () => {
-    await riddleUpdate()
-    setGameStarted(true)
+  const [stage, setStage] = useState(0)
+  const goToNextStage = (e) => {
+    e.preventDefault()
+    console.log('clicked')
+    setStage((prev) => (prev + 1 > 3 ? 0 : prev + 1))
   }
 
-  const handleKeyDown = ({ keyCode }) => {
-    if (isAlphaNumeric(keyCode) && gameStarted) {
-      setPressed((prev) => prev.concat(String.fromCharCode(keyCode).toLowerCase()))
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-  }, [])
-
-  const bodyStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100vh',
-    overflowY: 'auto'
-  }
   return (
-    <div style={bodyStyle}>
-      <Main>
-        {riddleLoading ? (
-          <section>
-            <Spin />
-          </section>
-        ) : riddleError ? (
-          <section>
-            <Empty>Couldn't find a riddle. Try again?</Empty>
-          </section>
-        ) : (
-          <section>
-            <article>
-              {riddleQuestion}
-              {pressed}
-            </article>
-            <article>{riddleAnswer.replace(/./g, '_')}</article>
-          </section>
-        )}
-
-        <section>
-          <Button
-            type='primary'
-            onClick={handleClickNewGame}>
-            New Game
-          </Button>
-        </section>
-      </Main>
+    <div className='app-17'>
+      <div className='body'>
+        <header>SPRIDDLE</header>
+        <Main
+          stage={stage}
+          goToNextStage={goToNextStage}
+        />
+        <footer>Made with Heart</footer>
+      </div>
     </div>
   )
 }

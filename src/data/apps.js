@@ -98,17 +98,18 @@ const apps = [
     element: <components.PortfolioMaker />
   },
   {
-    finished: true,
-    name: 'Team Maker',
-    link: '17-team-maker',
-    element: <components.TeamMaker />
-  },
-  {
     finished: false,
     name: 'Spriddle',
-    link: '18-command-line-word-guess',
+    link: '17-spriddle',
     element: <components.Spriddle />
   },
+  {
+    finished: true,
+    name: 'Team Maker',
+    link: '18-team-maker',
+    element: <components.TeamMaker />
+  },
+
   {
     finished: false,
     name: 'Note Taker',

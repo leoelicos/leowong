@@ -1,4 +1,4 @@
-.app-17 .body {
+.app-18 .body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,16 +9,16 @@
   overflow-y: auto;
 }
 
-.app-17 header,
-.app-17 main,
-.app-17 footer {
+.app-18 header,
+.app-18 main,
+.app-18 footer {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.app-17 main {
+.app-18 main {
   flex: 1;
 
   display: flex;
@@ -27,7 +27,7 @@
   justify-content: center;
 }
 
-.app-17 section {
+.app-18 section {
   width: 100%;
 
   display: flex;
@@ -38,7 +38,7 @@
   padding: 1rem;
 }
 
-.app-17 section.new-employees {
+.app-18 section.new-employees {
   flex: 1;
   align-items: center;
   justify-content: flex-start;
@@ -46,33 +46,33 @@
   flex-flow: column nowrap;
 }
 
-.app-17 article {
+.app-18 article {
   border-radius: 1rem;
   width: 100%;
   max-width: 300px;
 
   height: fit-content;
 }
-.app-17 td {
+.app-18 td {
   width: 100%;
 }
-.app-17 th {
+.app-18 th {
   padding-right: 8px;
   text-align: right;
 }
-.app-17 tr:not(:last-of-type) th {
+.app-18 tr:not(:last-of-type) th {
   padding-top: 5px;
   vertical-align: top;
 }
 
-.app-17 footer {
+.app-18 footer {
   padding: 4px 0;
 }
-.app-17 footer p {
+.app-18 footer p {
   margin: 0;
 }
 
-.app-17 .buttons {
+.app-18 .buttons {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;

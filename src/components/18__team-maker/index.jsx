@@ -10,7 +10,7 @@ import Main from './components/Main'
 
 const TeamMaker = () => {
   return (
-    <div className='app-17'>
+    <div className='app-18'>
       <div className='body'>
         <header>
           <h1>Team Maker</h1>

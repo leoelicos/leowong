@@ -1,9 +1,17 @@
 import { Button } from 'antd'
+import Panel from '../Panel.jsx'
 
 const PreGame = ({ goToNextStage }) => {
+  const time = 0
+  const health = 0
   return (
     <div>
-      <header>PreGame Header</header>
+      <header>
+        <Panel
+          time={time}
+          health={health}
+        />
+      </header>
       <main>PreGame Main</main>
       <footer>
         <Button

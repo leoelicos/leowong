@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import Header from './components/Header/index.jsx'
+import Footer from './components/Footer/index.jsx'
 import Main from './components/Main/index.jsx'
 
 export default function Spriddle() {
   const [stage, setStage] = useState(0)
-  const goToNextStage = (e) => {
-    e.preventDefault()
-    console.log('clicked')
+
+  const goToNextStage = () => {
     setStage((prev) => (prev + 1 > 3 ? 0 : prev + 1))
   }
 
@@ -22,12 +23,12 @@ export default function Spriddle() {
       <div
         className='body'
         style={bodyStyle}>
-        <header>SPRIDDLE</header>
+        <Header />
         <Main
           stage={stage}
           goToNextStage={goToNextStage}
         />
-        <footer>Made with Heart</footer>
+        <Footer />
       </div>
     </div>
   )

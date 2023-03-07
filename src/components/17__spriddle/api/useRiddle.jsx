@@ -7,45 +7,38 @@ const useRiddle = () => {
   const [riddleLoading, setRiddleLoading] = useState(false)
   const [riddleError, setRiddleError] = useState(false)
 
+  const fetchRiddle = () => fetch('https://riddles-api.vercel.app/random', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+
+  const parseRiddle = (data) => data.json()
+
   const riddleUpdate = useCallback(async () => {
-    /*  mock */
-    let mockData = { question: 'I am a tree, but I am very small... Who am I?', answer: 'grass' }
-    setRiddleLoading(true)
-    setRiddleError(false)
+    let riddle = undefined
+    let data = undefined
 
-    /* mock loading time */
-    setTimeout(() => {
-      setRiddleQuestion(mockData.question)
-      setRiddleAnswer(mockData.answer)
-      setRiddleError(false)
-      setRiddleLoading(false)
-    }, 1000)
-
-    /* mock error */
-    /*     setTimeout(() => {
-      setRiddleError(true)
-      setRiddleLoading(false)
-    }, 1000) */
-
-    /* try {
+    try {
       setRiddleLoading(true)
-      setRiddleError(false)
-      let result = await fetch('https://riddles-api.vercel.app/random', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      let data = await result.json()
-      if (!data) throw new Error('no riddle found')
-      setRiddleQuestion(data.riddle)
-      setRiddleAnswer(data.answer)
+
+      while (riddle === undefined || riddle.answer.length > 12) {
+        data = await fetchRiddle()
+        if (!data) throw new Error('fetch error')
+
+        riddle = await parseRiddle(data)
+        if (!riddle) throw new Error()
+
+        console.log('Search', { riddle })
+      }
+      console.log('Final', { riddle })
+      setRiddleQuestion(riddle.riddle)
+      setRiddleAnswer(riddle.answer)
     } catch (error) {
-      setRiddleError(true)
       console.error(error)
+      setRiddleError(true)
+      setTimeout(() => {
+        setRiddleError(false)
+      }, 2000)
     } finally {
       setRiddleLoading(false)
-    } */
+    }
   }, [])
 
   return { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError }

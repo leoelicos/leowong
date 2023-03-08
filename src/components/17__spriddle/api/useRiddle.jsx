@@ -11,6 +11,21 @@ const useRiddle = () => {
 
   const parseRiddle = (data) => data.json()
 
+  const mockRiddleUpdate = useCallback(
+    () =>
+      new Promise((res, rej) => {
+        setRiddleLoading(true)
+        setTimeout(() => {
+          setRiddleQuestion('I come in darkness, but fill the mind with light. I bring enlightenment to some, while gripping others in the hand of fear. With me it can be a journey of inexplicable joy and sorrow. What I will show you will often be unreachable. Journey with me and what you see may haunt you. Journey with me and you may never want to return home. Journey with me and you will never know when it will end. What am I?')
+          setRiddleAnswer('your dreams')
+          setRiddleLoading(false)
+          console.log('fetchRiddle')
+          res(true)
+        }, 2000)
+      }),
+    []
+  )
+
   const riddleUpdate = useCallback(async () => {
     let riddle = undefined
     let data = undefined
@@ -18,12 +33,7 @@ const useRiddle = () => {
     try {
       setRiddleLoading(true)
 
-      // testing only
-      setRiddleQuestion('I come in darkness, but fill the mind with light. I bring enlightenment to some, while gripping others in the hand of fear. With me it can be a journey of inexplicable joy and sorrow. What I will show you will often be unreachable. Journey with me and what you see may haunt you. Journey with me and you may never want to return home. Journey with me and you will never know when it will end. What am I?')
-      setRiddleAnswer('Your dreams')
-
-      // real
-      /* while (riddle === undefined || riddle.answer.length > 12) {
+      while (riddle === undefined || riddle.answer.length > 12) {
         data = await fetchRiddle()
         if (!data) throw new Error('fetch error')
 
@@ -32,9 +42,9 @@ const useRiddle = () => {
 
         console.log('Search', { riddle })
       }
-      console.log('Final', { riddle }) 
+      console.log('Final', { riddle })
       setRiddleQuestion(riddle.riddle)
-      setRiddleAnswer(riddle.answer)*/
+      setRiddleAnswer(riddle.answer.toLowerCase())
     } catch (error) {
       console.error(error)
       setRiddleError(true)
@@ -46,6 +56,6 @@ const useRiddle = () => {
     }
   }, [])
 
-  return { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError }
+  return { riddleQuestion, riddleAnswer, riddleUpdate: mockRiddleUpdate, riddleLoading, riddleError }
 }
 export default useRiddle

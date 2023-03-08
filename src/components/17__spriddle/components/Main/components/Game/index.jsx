@@ -1,4 +1,8 @@
-const Game = ({ riddleQuestion, attempt, attemptMemo }) => {
+import Keyboard from './components/Keyboard'
+import RiddleQuestion from './components/RiddleQuestion'
+import RiddleAnswer from './components/RiddleAnswer'
+const Game = ({ riddleQuestion, attempt, attemptMemo, handleClickKey, time, health, finished }) => {
+  console.log({ attempt })
   return (
     <div>
       <header>
@@ -7,10 +11,13 @@ const Game = ({ riddleQuestion, attempt, attemptMemo }) => {
         </h1>
       </header>
       <main>
-        <h2>{riddleQuestion}</h2>
+        <RiddleQuestion>{riddleQuestion}</RiddleQuestion>
 
-        <h2>{attempt}</h2>
-        <Keyboard keyboardMemo={attemptMemo} />
+        <RiddleAnswer>{attempt}</RiddleAnswer>
+        <Keyboard
+          keys={attemptMemo}
+          handleClickKey={handleClickKey}
+        />
         {finished && 'Game finished'}
       </main>
     </div>

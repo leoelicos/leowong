@@ -3,17 +3,8 @@ import Hero from '../Hero'
 import MainHeader from '../MainHeader'
 import MainFooter from '../MainFooter'
 
-const Splash = ({ goToNextStage, riddleUpdate, riddleLoading, riddleError }) => {
-  const handleClickNewGame = async () => {
-    console.log('onClickNewGame')
-    await riddleUpdate()
-    // console.log('riddleUpdate', { riddleQuestion, riddleAnswer, riddleLoading, riddleError })
-    if (!riddleLoading && !riddleError) {
-      // startPreGameTimer()
-      goToNextStage()
-    }
-  }
-
+const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
+  const buttonText = riddleLoading ? 'Finding riddle' : riddleError ? 'No riddle found, try again' : 'New Game'
   return (
     <div>
       <MainHeader
@@ -40,7 +31,7 @@ const Splash = ({ goToNextStage, riddleUpdate, riddleLoading, riddleError }) => 
           block
           type='default'
           onClick={handleClickNewGame}>
-          {riddleLoading ? 'Finding riddle' : riddleError ? 'No riddle found, try again' : 'New Game'}
+          {buttonText}
         </Button>
       </MainFooter>
     </div>

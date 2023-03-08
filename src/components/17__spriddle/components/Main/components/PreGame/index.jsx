@@ -1,13 +1,22 @@
+import { useEffect } from 'react'
 import useTimer from '../../../../hooks/useTimer.jsx'
 import Hero from '../Hero.jsx'
 import MainHeader from '../MainHeader.jsx'
 
-const PreGame = ({ time }) => {
+const PreGame = ({ goToNextStage }) => {
   const {
-    time: preGameTime,
-    startTimer: startPreGameTimer
+    time,
+    startTimer
     //
   } = useTimer({ initialTime: 1 })
+
+  useEffect(() => {
+    startTimer()
+  }, [])
+
+  useEffect(() => {
+    if (time === 0) goToNextStage()
+  }, [time])
 
   return (
     <div>

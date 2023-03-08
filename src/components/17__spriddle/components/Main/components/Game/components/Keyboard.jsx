@@ -1,101 +1,64 @@
 import Key from './Key.jsx'
-const Keyboard = ({ keys }) => {
+const Row = ({ children }) => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      width: '100%',
+      maxWidth: '600px',
+      margin: '0 auto 8px',
+      touchAction: 'manipulation'
+    }}>
+    {children}
+  </div>
+)
+const Keyboard = ({ keys, handleClickKey }) => {
+  // console.log('Keyboard', { keys })
   return (
-    <div>
-      <div>
-        <Key
-          char='q'
-          correct={true}
-        />
-        <Key
-          char='w'
-          correct={true}
-        />
-        <Key
-          char='e'
-          correct={true}
-        />
-        <Key
-          char='r'
-          correct={true}
-        />
-        <Key
-          char='t'
-          correct={true}
-        />
-        <Key
-          char='y'
-          correct={true}
-        />
-      </div>
-      <div>
-        <Key
-          char='a'
-          correct={true}
-        />
-        <Key
-          char='s'
-          correct={true}
-        />
-        <Key
-          char='d'
-          correct={true}
-        />
-        <Key
-          char='f'
-          correct={true}
-        />
-        <Key
-          char='g'
-          correct={true}
-        />
-        <Key
-          char='h'
-          correct={true}
-        />
-        <Key
-          char='j'
-          correct={true}
-        />
-        <Key
-          char='k'
-          correct={true}
-        />
-        <Key
-          char='l'
-          correct={true}
-        />
-      </div>
-      <div>
-        <Key
-          char='z'
-          correct={true}
-        />
-        <Key
-          char='x'
-          correct={true}
-        />
-        <Key
-          char='c'
-          correct={true}
-        />
-        <Key
-          char='v'
-          correct={true}
-        />
-        <Key
-          char='b'
-          correct={true}
-        />
-        <Key
-          char='n'
-          correct={true}
-        />
-        <Key
-          char='m'
-          correct={true}
-        />
-      </div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        height: '200px',
+        maxWidth: '500px',
+        margin: '0 auto'
+      }}>
+      <Row>
+        {'qwertyuiop'.split('').map((letter) => (
+          <Key
+            key={letter}
+            char={letter}
+            stage={keys[letter]}
+            handleClickKey={handleClickKey}
+          />
+        ))}
+      </Row>
+      <Row>
+        <div style={{ flex: '0.5' }} />
+        {'asdfghjkl'.split('').map((letter) => (
+          <Key
+            key={letter}
+            char={letter}
+            stage={keys[letter]}
+            handleClickKey={handleClickKey}
+          />
+        ))}
+        <div style={{ flex: '0.5' }} />
+      </Row>
+      <Row>
+        <div style={{ flex: '1' }} />
+        {'zxcvbnm'.split('').map((letter) => (
+          <Key
+            key={letter}
+            char={letter}
+            stage={keys[letter]}
+            handleClickKey={handleClickKey}
+          />
+        ))}
+        <div style={{ flex: '2' }} />
+      </Row>
     </div>
   )
 }

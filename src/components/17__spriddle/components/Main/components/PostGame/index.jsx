@@ -1,15 +1,15 @@
 import { Button } from 'antd'
 
-const PostGame = ({ goToNextStage }) => {
+const PostGame = ({ handlePostGameClickNewGame, outcome }) => {
   return (
     <div>
-      <header>PostGame Header</header>
-      <main>PostGame Main</main>
+      <header>{outcome === 0 ? 'You won!' : outcome === 1 ? 'You lose - out of time!' : 'You lose - out of guesses'}</header>
+      <main>Outcome {outcome}</main>
       <footer>
         <Button
           type='primary'
-          onClick={goToNextStage}>
-          Next Stage
+          onClick={handlePostGameClickNewGame}>
+          New Game
         </Button>
       </footer>
     </div>

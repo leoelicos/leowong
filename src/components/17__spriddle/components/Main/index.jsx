@@ -1,33 +1,72 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Splash from './components/Splash/index.jsx'
 import PreGame from './components/PreGame/index.jsx'
 import Game from './components/Game/index.jsx'
 import PostGame from './components/PostGame/index.jsx'
 
 import useRiddle from '../../api/useRiddle.jsx'
+import useTimer from '../../hooks/useTimer.jsx'
 
-const Main = ({ stage, goToNextStage }) => {
+const PAGE_SPLASH = 0
+const PAGE_PREGAME = 1
+const PAGE_GAME = 2
+const PAGE_POSTGAME = 3
+
+const usePage = () => {
+  const [page, setStage] = useState(PAGE_SPLASH)
+
+  const goToSplash = () => {
+    setStage(PAGE_SPLASH)
+  }
+  const goToPreGame = () => {
+    setStage(PAGE_PREGAME)
+  }
+  const goToGame = () => {
+    setStage(PAGE_GAME)
+  }
+  const goToPostGame = () => {
+    setStage(PAGE_POSTGAME)
+  }
+
+  return { page, goToSplash, goToPreGame, goToGame, goToPostGame }
+}
+
+const Main = () => {
+  const { page, goToSplash, goToPreGame, goToGame, goToPostGame } = usePage()
+
+  const { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError } = useRiddle()
+
+  /* splash / pregame */
+  var handlePreGameTimerFinished = () => {
+    startGame({ riddleAnswer })
+    goToGame()
+  }
+
+  const { time: preGameTime, startTimer: preGameStartTimer } = useTimer({ initialTime: 1, callback: handlePreGameTimerFinished })
+
+  const handleClickNewGame = async () => {
+    await riddleUpdate()
+    goToPreGame()
+    preGameStartTimer()
+  }
+
+  /* game */
+
   const [health, setHealth] = useState()
-  const [finished, setFinished] = useState()
   const [attempt, setAttempt] = useState()
   const [attemptMemo, setAttemptMemo] = useState()
+
   const [outcome, setOutcome] = useState(undefined)
   const answer = useRef(null)
 
-  const { time, startTimer, endTimer } = useTimer({ initialTime: 10000 })
-
-  const {
-    riddleQuestion,
-    riddleAnswer,
-    riddleUpdate,
-    riddleLoading,
-    riddleError //
-  } = useRiddle()
-
   const startGame = useCallback(({ riddleAnswer }) => {
-    const memo = { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0, k: 0, l: 0, m: 0, n: 0, o: 0, p: 0, q: 0, r: 0, s: 0, t: 0, u: 0, v: 0, w: 0, x: 0, y: 0, z: 0 }
+    const memo = {}
+    for (let i = 0; i < 26; i++) {
+      memo[String.fromCharCode('a'.charCodeAt(0) + i)] = 0
+    }
+
     setHealth(10)
-    setFinished(false)
+
     answer.current = riddleAnswer
     setAttempt(riddleAnswer.replace(/[a-zA-Z]/g, '_'))
     setAttemptMemo(memo)
@@ -35,55 +74,76 @@ const Main = ({ stage, goToNextStage }) => {
     console.log('useGame startGame')
   }, [])
 
-  const endGame = useCallback(
-    (outcome) => {
-      endTimer()
-      setFinished(true)
-      if (outcome === 'success') {
-        console.log('end success')
-        setOutcome(0)
-      } else if (outcome === 'fail_timeout') {
-        console.log('end fail timeout')
-        setOutcome(1)
-      } else if (outcome === 'fail_noMoreGuesses') {
-        console.log('end fail no more guesses')
-        setOutcome(2)
-      }
-    },
-    [endTimer, setOutcome]
-  )
+  const handleGameTimerRunsOut = () => {
+    setOutcome(1)
+    goToPostGame()
+  }
 
-  const handleKeyDown = useCallback(
-    (e) => {
-      let k = e.key
-      if (k.length === 1 && ((k >= 'a' && k <= 'z') || (k >= 'A' && k <= 'Z'))) {
-        console.log(e.key)
-        if (answer.current.includes(e.key) && !attempt.includes(e.key)) {
-          console.log(answer.current, 'includes', e.key)
-          setAttempt((prev) =>
-            prev //
-              .split('')
-              .map((v, i) => (answer.current[i] === e.key ? e.key : v))
-              .join('')
-          )
-        }
-      }
-    },
-    [attempt]
-  )
-  useEffect(() => {
-    if (time === 0) {
-      endGame()
+  const {
+    time: gameTime, //
+    startTimer: gameStartTimer,
+    endTimer: gameEndTimer
+  } = useTimer({ initialTime: 10000, callback: handleGameTimerRunsOut })
+
+  const handleGameGuessesRunOut = () => {
+    setOutcome(2)
+    gameEndTimer()
+    goToPostGame()
+  }
+
+  const handleGameSuccess = () => {
+    setOutcome(0)
+    gameEndTimer()
+    goToPostGame()
+  }
+
+  const handleKey = (k) => {
+    /* the key is not a letter */
+    if (k.length !== 1) return
+
+    /* the key is not a letter */
+    if (!(k >= 'a' && k <= 'z')) return
+
+    /* the letter has already been guessed */
+    if (attempt.includes(k)) return
+
+    /* the letter is correct */
+    if (answer.current.includes(k)) {
+      setAttempt((prev) => {
+        let response = prev
+          .split('')
+          .map((v, i) => (answer.current[i] === k ? k : v))
+          .join('')
+        if (response === answer.current) handleGameSuccess()
+        return response
+      })
+      setAttemptMemo((prev) => ({ ...prev, [k]: 2 }))
+      return
     }
-  }, [time, endGame])
+
+    /* the letter is incorrect */
+    setHealth((prev) => {
+      if (prev === 0) {
+        console.log('handleKeyDown no more guesses')
+        handleGameGuessesRunOut()
+      }
+      return prev - 1
+    })
+
+    setAttemptMemo((prev) => ({ ...prev, [k]: 1 }))
+  }
+  const handleKeyDown = (e) => {
+    handleKey(e.key.toLowerCase())
+  }
+
+  const handleClickKey = (key) => {
+    handleKey(key.toLowerCase())
+  }
+
   const start = useCallback(() => {
     startGame({ riddleAnswer })
-    startTimer()
-  }, [startGame, riddleAnswer, startTimer])
-
-  useEffect(() => {
-    if (answer.current === attempt) endGame('success')
-  }, [attempt, answer, endGame])
+    gameStartTimer()
+  }, [startGame, riddleAnswer, gameStartTimer])
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
@@ -92,11 +152,11 @@ const Main = ({ stage, goToNextStage }) => {
     }
   }, [handleKeyDown])
 
-  useEffect(() => {
-    if (finished === true) goToNextStage()
-  }, [finished, goToNextStage])
+  /* post game */
+  const handlePostGameClickNewGame = () => {
+    goToSplash()
+  }
 
-  // console.log({ stage })
   const style = {
     backgroundColor: '#eee',
     flex: '1',
@@ -107,35 +167,32 @@ const Main = ({ stage, goToNextStage }) => {
 
   return (
     <main style={style}>
-      {stage === 0 ? ( //
+      {page === PAGE_SPLASH ? ( //
         <Splash //
-          goToNextStage={goToNextStage}
-          riddleUpdate={riddleUpdate}
           riddleLoading={riddleLoading}
           riddleError={riddleError}
+          handleClickNewGame={handleClickNewGame}
         />
-      ) : stage === 1 ? (
-        <PreGame
-          goToNextStage={() => {
-            goToNextStage()
-            start()
-          }}
-        />
-      ) : stage === 2 ? (
+      ) : page === PAGE_PREGAME ? (
+        <PreGame preGameTime={preGameTime} />
+      ) : page === PAGE_GAME ? (
         <Game //
-          goToNextStage={goToNextStage}
+          goToPostGame={goToPostGame}
           riddleQuestion={riddleQuestion}
           riddleAnswer={riddleAnswer}
           setOutcome={setOutcome}
           attempt={attempt}
           attemptMemo={attemptMemo}
+          handleClickKey={handleClickKey}
+          gameTime={gameTime}
+          health={health}
         />
-      ) : (
+      ) : page === PAGE_POSTGAME ? (
         <PostGame
-          goToNextStage={goToNextStage}
+          handlePostGameClickNewGame={handlePostGameClickNewGame}
           outcome={outcome}
         />
-      )}
+      ) : null}
     </main>
   )
 }

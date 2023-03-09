@@ -1,5 +1,5 @@
 import { faHourglass } from '@fortawesome/free-regular-svg-icons'
-import { faRunning } from '@fortawesome/free-solid-svg-icons'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => {
@@ -11,7 +11,8 @@ const Header = () => {
     alignItems: 'center',
     padding: '2px 0',
     fontWeight: 'bold',
-    letterSpacing: '2px'
+    letterSpacing: '2px',
+    backgroundColor: '#fff'
   }
   return (
     <header style={style}>

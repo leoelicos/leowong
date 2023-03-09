@@ -11,7 +11,7 @@ const useRiddle = () => {
 
   const deserialiseRiddle = (data) => data.json()
 
-  const spacingRiddle = (str) => str.replace(/([.!?])\s+/g, '$1###').split('###')
+  const spacingRiddle = (str) => str.replace(/([.!?:;])\s+/g, '$1###').split('###')
 
   const mockRiddleUpdate = () =>
     new Promise((res, rej) => {
@@ -42,7 +42,7 @@ const useRiddle = () => {
         console.log('Search', { riddle })
       }
       console.log('Final', { riddle })
-      setRiddleQuestion(riddle.riddle)
+      setRiddleQuestion(spacingRiddle(riddle.riddle))
       setRiddleAnswer(riddle.answer.toLowerCase())
     } catch (error) {
       console.error(error)
@@ -55,6 +55,6 @@ const useRiddle = () => {
     }
   }, [])
 
-  return { riddleQuestion, riddleAnswer, riddleUpdate: mockRiddleUpdate, riddleLoading, riddleError }
+  return { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError }
 }
 export default useRiddle

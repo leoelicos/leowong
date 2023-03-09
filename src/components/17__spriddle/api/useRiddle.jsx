@@ -9,22 +9,21 @@ const useRiddle = () => {
 
   const fetchRiddle = () => fetch('https://riddles-api.vercel.app/random', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
 
-  const parseRiddle = (data) => data.json()
+  const deserialiseRiddle = (data) => data.json()
 
-  const mockRiddleUpdate = useCallback(
-    () =>
-      new Promise((res, rej) => {
-        setRiddleLoading(true)
-        setTimeout(() => {
-          setRiddleQuestion('I come in darkness, but fill the mind with light. I bring enlightenment to some, while gripping others in the hand of fear. With me it can be a journey of inexplicable joy and sorrow. What I will show you will often be unreachable. Journey with me and what you see may haunt you. Journey with me and you may never want to return home. Journey with me and you will never know when it will end. What am I?')
-          setRiddleAnswer('your dreams')
-          setRiddleLoading(false)
-          console.log('fetchRiddle')
-          res(true)
-        }, 2000)
-      }),
-    []
-  )
+  const spacingRiddle = (str) => str.replace(/([.!?])\s+/g, '$1###').split('###')
+
+  const mockRiddleUpdate = () =>
+    new Promise((res, rej) => {
+      setRiddleLoading(true)
+      setTimeout(() => {
+        setRiddleQuestion(spacingRiddle('I come in darkness, but fill the mind with light. I bring enlightenment to some, while gripping others in the hand of fear. With me it can be a journey of inexplicable joy and sorrow. What I will show you will often be unreachable. Journey with me and what you see may haunt you. Journey with me and you may never want to return home. Journey with me and you will never know when it will end. What am I?'))
+        setRiddleAnswer('your dreams')
+        setRiddleLoading(false)
+        console.log('fetchRiddle')
+        res(true)
+      }, 2000)
+    })
 
   const riddleUpdate = useCallback(async () => {
     let riddle = undefined
@@ -37,7 +36,7 @@ const useRiddle = () => {
         data = await fetchRiddle()
         if (!data) throw new Error('fetch error')
 
-        riddle = await parseRiddle(data)
+        riddle = await deserialiseRiddle(data)
         if (!riddle) throw new Error()
 
         console.log('Search', { riddle })

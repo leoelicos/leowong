@@ -23,7 +23,7 @@ const Game = ({ riddleQuestion, attempt, attemptMemo, handleClickKey, gameTime, 
         ))}
       </RiddleQuestion>
 
-      <RiddleAnswer>x{attempt}x</RiddleAnswer>
+      <RiddleAnswer>{attempt}</RiddleAnswer>
 
       <MainFooter>
         <Keyboard>

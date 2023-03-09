@@ -24,6 +24,11 @@ const Spriddle = () => {
 
   const ATTEMPT_CORRECT = 2
   const ATTEMPT_INCORRECT = 1
+  const ATTEMPT_DEFAULT = 0
+
+  const OUTCOME_SUCCESS = 0
+  const OUTCOME_FAIL_TIME = 1
+  const OUTCOME_FAIL_GUESSES = 2
 
   const [page, setStage] = useState(PAGE_SPLASH)
 
@@ -67,7 +72,7 @@ const Spriddle = () => {
   const resetKeyboard = () => {
     const memo = {}
     for (let i = 0; i < 26; i++) {
-      memo[String.fromCharCode('a'.charCodeAt(0) + i)] = 0
+      memo[String.fromCharCode('a'.charCodeAt(0) + i)] = ATTEMPT_DEFAULT
     }
     setAttemptMemo(memo)
   }
@@ -77,27 +82,27 @@ const Spriddle = () => {
   }
 
   const handleGameTimerRunsOut = () => {
-    setOutcome(1)
+    setOutcome(OUTCOME_FAIL_TIME)
     setStage(PAGE_POSTGAME)
   }
 
-  const { time: gameTime, startTimer: gameStartTimer, endTimer: gameEndTimer } = useTimer({ initialTime: 1, callback: handleGameTimerRunsOut })
+  const { time: gameTime, startTimer: gameStartTimer, endTimer: gameEndTimer } = useTimer({ initialTime: 60, callback: handleGameTimerRunsOut })
 
   const handleGameGuessesRunOut = useCallback(() => {
-    setOutcome(2)
+    setOutcome(OUTCOME_FAIL_GUESSES)
     gameEndTimer()
     setStage(PAGE_POSTGAME)
   }, [gameEndTimer])
 
   const handleGameSuccess = useCallback(() => {
-    setOutcome(0)
+    setOutcome(OUTCOME_SUCCESS)
     gameEndTimer()
     setStage(PAGE_POSTGAME)
   }, [gameEndTimer])
 
   const handleKey = useCallback(
     (k) => {
-      console.log({ k })
+      // console.log({ k })
       if (k.length !== 1) return
 
       if (!(k >= 'a' && k <= 'z')) return
@@ -110,34 +115,31 @@ const Spriddle = () => {
             .split('')
             .map((v, i) => (riddleAnswer[i] === k ? k : v))
             .join('')
-          console.log({ response })
+          // console.log({ response })
           if (response === riddleAnswer) handleGameSuccess()
           return response
         })
         setAttemptMemo((prev) => {
           let newMemo = { ...prev, [k]: ATTEMPT_CORRECT }
-          console.log(`${k} is inside ${riddleAnswer}`, { newMemo })
+          // console.log(`${k} is inside ${riddleAnswer}`, { newMemo })
           return newMemo
         })
         return
       }
-
+      /* the answer is not correct */
       setHealth((prev) => {
-        if (prev === 1) {
-          console.log('handleKeyDown no more guesses')
-          handleGameGuessesRunOut()
-        }
+        if (prev === 1) handleGameGuessesRunOut()
+        return prev - 1
+      })
+
+      if (attemptMemo[k] === ATTEMPT_DEFAULT)
         setAttemptMemo((prev) => {
           let newMemo = { ...prev, [k]: ATTEMPT_INCORRECT }
           console.log(`${k} is not inside ${riddleAnswer}`, { newMemo })
           return newMemo
         })
-        return prev - 1
-      })
-
-      setAttemptMemo((prev) => ({ ...prev, [k]: 1 }))
     },
-    [attempt, handleGameGuessesRunOut, handleGameSuccess, riddleAnswer]
+    [attempt, handleGameGuessesRunOut, handleGameSuccess, riddleAnswer, attemptMemo]
   )
   const handleKeyDown = useCallback(
     (e) => {

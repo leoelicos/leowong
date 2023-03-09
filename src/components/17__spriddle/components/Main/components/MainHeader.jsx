@@ -8,7 +8,6 @@ const MainHeader = ({ time, health }) => {
     background: '#fff',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    margin: '1rem 0',
     borderRadius: '8px',
     color: 'red'
   }

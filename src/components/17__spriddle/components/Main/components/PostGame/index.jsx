@@ -5,8 +5,23 @@ import MainFooter from '../MainFooter'
 import MainHeader from '../MainHeader'
 
 const PostGame = ({ handlePostGameClickNewGame, outcome, riddleQuestion, riddleAnswer, gameTime, health }) => {
-  const outcomeTitle = outcome === 0 ? 'YOU WIN' : 'YOU LOSE'
-  const outcomeParagraph = outcome === 0 ? 'you guessed all the letters' : outcome === 1 ? 'out of time' : 'out of guesses'
+  const OUTCOME_SUCCESS = 0
+  const OUTCOME_FAIL_TIME = 1
+  const OUTCOME_FAIL_GUESSES = 2
+
+  const outcomeTitle =
+    outcome === OUTCOME_SUCCESS //
+      ? 'YOU WIN'
+      : 'YOU LOSE'
+
+  const outcomeParagraph =
+    outcome === OUTCOME_SUCCESS //
+      ? 'you guessed all the letters'
+      : outcome === OUTCOME_FAIL_TIME
+      ? 'out of time'
+      : outcome === OUTCOME_FAIL_GUESSES
+      ? 'out of guesses'
+      : ''
   return (
     <>
       <MainHeader

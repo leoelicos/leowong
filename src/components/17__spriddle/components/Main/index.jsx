@@ -7,7 +7,8 @@ const Main = ({ children }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    maxWidth: '500px'
+    maxWidth: '500px',
+    width: '100%'
   }
 
   return <main style={style}>{children}</main>

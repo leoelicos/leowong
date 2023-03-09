@@ -7,7 +7,12 @@ const Hero = ({ children }) => {
     fontSize: '1.15rem',
     fontWeight: 'normal',
     fontFamily: 'monospace',
-    color: '#000'
+    color: '#000',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
   return <div style={style}>{children}</div>
 }

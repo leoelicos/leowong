@@ -43,7 +43,7 @@ const Spriddle = () => {
   }
 
   const { time: preGameTime, startTimer: preGameStartTimer } = useTimer({
-    initialTime: 1,
+    initialTime: 3,
     callback: handlePreGameTimerFinished
   })
 
@@ -176,7 +176,10 @@ const Spriddle = () => {
               handleClickNewGame={handleClickNewGame}
             />
           ) : page === PAGE_PREGAME ? (
-            <PreGame preGameTime={preGameTime} />
+            <PreGame
+              preGameTime={preGameTime}
+              attempt={attempt}
+            />
           ) : page === PAGE_GAME ? (
             <Game //
               riddleQuestion={riddleQuestion}

@@ -34,10 +34,15 @@ const Spriddle = () => {
 
   const { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError } = useRiddle()
 
+  const resetAttempt = () => {
+    setAttempt('')
+  }
+
   /* splash / pregame */
   var handlePreGameTimerFinished = () => {
     resetKeyboard()
     resetHealth()
+    resetAttempt()
     gameStartTimer()
     setPage(PAGE_GAME)
   }
@@ -83,7 +88,6 @@ const Spriddle = () => {
 
   const handleGameTimerRunsOut = () => {
     setOutcome(OUTCOME_FAIL_TIME)
-    setAttempt('')
     setPage(PAGE_POSTGAME)
   }
 
@@ -95,14 +99,12 @@ const Spriddle = () => {
 
   const handleGameGuessesRunOut = useCallback(() => {
     setOutcome(OUTCOME_FAIL_GUESSES)
-    setAttempt('')
     gameEndTimer()
     setPage(PAGE_POSTGAME)
   }, [gameEndTimer])
 
   const handleGameSuccess = useCallback(() => {
     setOutcome(OUTCOME_SUCCESS)
-    setAttempt('')
     gameEndTimer()
     setPage(PAGE_POSTGAME)
   }, [gameEndTimer])

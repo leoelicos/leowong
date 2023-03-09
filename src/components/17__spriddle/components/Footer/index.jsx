@@ -7,7 +7,8 @@ const Footer = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '2px 0'
+    padding: '2px 0',
+    backgroundColor: '#fff'
   }
   return (
     <footer style={style}>

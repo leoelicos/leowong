@@ -8,7 +8,8 @@ const RiddleAnswer = ({ children }) => {
     alignItems: 'center',
     borderRadius: '8px',
     color: 'red',
-    fontFamily: 'Open Sans, sans-serif'
+    fontFamily: 'Open Sans, sans-serif',
+    padding: '12px'
   }
   return <h2 style={style}>{children}</h2>
 }

@@ -2,9 +2,16 @@ import { Button } from 'antd'
 import Hero from '../Hero'
 import MainHeader from '../MainHeader'
 import MainFooter from '../MainFooter'
+import { useEffect, useRef } from 'react'
 
 const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
   const buttonText = riddleLoading ? 'Finding riddle' : riddleError ? 'No riddle found, try again' : 'New Game'
+
+  const buttonEl = useRef(null)
+  useEffect(() => {
+    buttonEl.current.focus()
+  }, [])
+
   return (
     <>
       <MainHeader
@@ -26,6 +33,7 @@ const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
       </main>
       <MainFooter>
         <Button
+          ref={buttonEl}
           loading={riddleLoading}
           disabled={riddleError}
           block

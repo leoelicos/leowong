@@ -30,7 +30,7 @@ const Spriddle = () => {
   const OUTCOME_FAIL_TIME = 1
   const OUTCOME_FAIL_GUESSES = 2
 
-  const [page, setStage] = useState(PAGE_SPLASH)
+  const [page, setPage] = useState(PAGE_SPLASH)
 
   const { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError } = useRiddle()
 
@@ -39,7 +39,7 @@ const Spriddle = () => {
     resetKeyboard()
     resetHealth()
     gameStartTimer()
-    setStage(PAGE_GAME)
+    setPage(PAGE_GAME)
   }
 
   const { time: preGameTime, startTimer: preGameStartTimer } = useTimer({
@@ -49,8 +49,8 @@ const Spriddle = () => {
 
   const handleClickNewGame = async () => {
     await riddleUpdate()
-    console.log('update finished', { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError })
-    setStage(PAGE_PREGAME)
+    // console.log('update finished', { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError })
+    setPage(PAGE_PREGAME)
     preGameStartTimer()
   }
 
@@ -64,7 +64,7 @@ const Spriddle = () => {
 
   useEffect(() => {
     if (riddleAnswer?.length > 0) {
-      console.log({ riddleAnswer })
+      // console.log({ riddleAnswer })
       setAttempt(riddleAnswer.replace(/[a-zA-Z]/g, '_'))
     }
   }, [riddleAnswer])
@@ -83,21 +83,25 @@ const Spriddle = () => {
 
   const handleGameTimerRunsOut = () => {
     setOutcome(OUTCOME_FAIL_TIME)
-    setStage(PAGE_POSTGAME)
+    setPage(PAGE_POSTGAME)
   }
 
-  const { time: gameTime, startTimer: gameStartTimer, endTimer: gameEndTimer } = useTimer({ initialTime: 60, callback: handleGameTimerRunsOut })
+  const {
+    time: gameTime, //
+    startTimer: gameStartTimer,
+    endTimer: gameEndTimer
+  } = useTimer({ initialTime: 60, callback: handleGameTimerRunsOut })
 
   const handleGameGuessesRunOut = useCallback(() => {
     setOutcome(OUTCOME_FAIL_GUESSES)
     gameEndTimer()
-    setStage(PAGE_POSTGAME)
+    setPage(PAGE_POSTGAME)
   }, [gameEndTimer])
 
   const handleGameSuccess = useCallback(() => {
     setOutcome(OUTCOME_SUCCESS)
     gameEndTimer()
-    setStage(PAGE_POSTGAME)
+    setPage(PAGE_POSTGAME)
   }, [gameEndTimer])
 
   const handleKey = useCallback(
@@ -135,7 +139,7 @@ const Spriddle = () => {
       if (attemptMemo[k] === ATTEMPT_DEFAULT)
         setAttemptMemo((prev) => {
           let newMemo = { ...prev, [k]: ATTEMPT_INCORRECT }
-          console.log(`${k} is not inside ${riddleAnswer}`, { newMemo })
+          // console.log(`${k} is not inside ${riddleAnswer}`, { newMemo })
           return newMemo
         })
     },
@@ -161,7 +165,7 @@ const Spriddle = () => {
 
   /* post game */
   const handlePostGameClickNewGame = () => {
-    setStage(PAGE_SPLASH)
+    setPage(PAGE_SPLASH)
   }
 
   return (

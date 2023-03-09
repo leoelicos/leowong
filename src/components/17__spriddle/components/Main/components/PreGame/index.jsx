@@ -3,7 +3,7 @@ import MainHeader from '../MainHeader.jsx'
 
 const PreGame = ({ preGameTime }) => {
   return (
-    <div>
+    <>
       <MainHeader
         time={60}
         health={10}
@@ -14,7 +14,7 @@ const PreGame = ({ preGameTime }) => {
           <h1>{preGameTime}</h1>
         </Hero>
       </main>
-    </div>
+    </>
   )
 }
 export default PreGame

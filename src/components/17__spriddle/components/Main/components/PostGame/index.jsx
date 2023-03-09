@@ -1,6 +1,8 @@
 import { Button } from 'antd'
+import { useEffect, useRef } from 'react'
 import RiddleAnswer from '../Game/components/RiddleAnswer'
 import RiddleQuestion from '../Game/components/RiddleQuestion'
+import Hero from '../Hero'
 import MainFooter from '../MainFooter'
 import MainHeader from '../MainHeader'
 
@@ -8,6 +10,11 @@ const PostGame = ({ handlePostGameClickNewGame, outcome, riddleQuestion, riddleA
   const OUTCOME_SUCCESS = 0
   const OUTCOME_FAIL_TIME = 1
   const OUTCOME_FAIL_GUESSES = 2
+
+  const buttonEl = useRef(null)
+  useEffect(() => {
+    buttonEl.current.focus()
+  }, [])
 
   const outcomeTitle =
     outcome === OUTCOME_SUCCESS //
@@ -41,12 +48,14 @@ const PostGame = ({ handlePostGameClickNewGame, outcome, riddleQuestion, riddleA
           </p>
         ))}
       </RiddleQuestion>
-      <p style={{ margin: '0' }}>Answer:</p>
+
       <RiddleAnswer>{riddleAnswer}</RiddleAnswer>
 
       <MainFooter>
         <Button
-          type='primary'
+          block
+          ref={buttonEl}
+          type='default'
           onClick={handlePostGameClickNewGame}>
           New Game
         </Button>

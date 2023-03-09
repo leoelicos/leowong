@@ -6,7 +6,7 @@ import MainFooter from '../MainFooter'
 const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
   const buttonText = riddleLoading ? 'Finding riddle' : riddleError ? 'No riddle found, try again' : 'New Game'
   return (
-    <div>
+    <>
       <MainHeader
         time='—'
         health='—'
@@ -34,7 +34,7 @@ const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
           {buttonText}
         </Button>
       </MainFooter>
-    </div>
+    </>
   )
 }
 export default Splash

@@ -2,7 +2,7 @@ import { Button } from 'antd'
 import { useEffect, useRef } from 'react'
 import RiddleAnswer from '../Game/components/RiddleAnswer'
 import RiddleQuestion from '../Game/components/RiddleQuestion'
-import Hero from '../Hero'
+
 import MainFooter from '../MainFooter'
 import MainHeader from '../MainHeader'
 

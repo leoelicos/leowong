@@ -165,13 +165,13 @@ const apps = [
     element: <components.JustKidding />
   },
   {
-    finished: false,
+    finished: true,
     name: 'Technical Interview',
     link: '28-technical-interview',
     element: <components.TechnicalInterview />
   },
   {
-    finished: false,
+    finished: true,
     name: 'Regex Tutorial',
     link: '29-regex-tutorial',
     element: <components.RegexTutorial />

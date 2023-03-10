@@ -4,7 +4,7 @@ import Title from 'antd/es/typography/Title'
 
 import Prism from 'prismjs'
 import './style/index.css'
-
+ 
 import algos from './data/data.json'
 import { useState } from 'react'
 

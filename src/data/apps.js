@@ -98,7 +98,7 @@ const apps = [
     element: <components.PortfolioMaker />
   },
   {
-    finished: false,
+    finished: true,
     name: 'Spriddle',
     link: '17-spriddle',
     element: <components.Spriddle />

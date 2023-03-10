@@ -34,15 +34,11 @@ const Spriddle = () => {
 
   const { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError } = useRiddle()
 
-  const resetAttempt = () => {
-    setAttempt('')
-  }
-
   /* splash / pregame */
   var handlePreGameTimerFinished = () => {
     resetKeyboard()
     resetHealth()
-    resetAttempt()
+
     gameStartTimer()
     setPage(PAGE_GAME)
   }

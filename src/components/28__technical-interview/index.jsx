@@ -4,7 +4,7 @@ import Title from 'antd/es/typography/Title'
 
 import Prism from 'prismjs'
 import './style/index.css'
- 
+
 import algos from './data/data.json'
 import { useState } from 'react'
 
@@ -67,7 +67,7 @@ export default function RegexTutorial() {
                 lineHeight: '1.8rem',
                 padding: '0 1rem'
               }}>
-              52 Medium-level LeetCode algorithms for you to attempt. Click on <Button type='primary'>LeetCode</Button> link, and check out <Button type='default'>My Solution</Button> too.
+              52 Medium-level LeetCode algorithms for you to attempt. Read the <Button type='primary'>Problem</Button> on LeetCode, and check out my <Button type='default'>Solution</Button> too.
             </p>
             <Content style={contentStyle}>
               {algos.map((algo) => (
@@ -91,7 +91,6 @@ const ACard = ({ algo }) => {
 
   return (
     <>
-      {' '}
       <Card
         size='small'
         bordered={false}
@@ -112,13 +111,13 @@ const ACard = ({ algo }) => {
             onClick={() => {
               window.open(algo.link, '_blank', 'noreferrer')
             }}>
-            LeetCode
+            Problem
           </Button>
           <Button
             type='default'
             danger={toggle ? true : false}
             onClick={handleToggle}>
-            My solution
+            Solution
           </Button>
         </div>
       </Card>

@@ -27,24 +27,28 @@ export default function HTMLGenerator() {
 
   /* state */
   const [formValues, setFormValues] = useState({ formName: '', formLocation: '', formBio: '', formLinkedIn: '', formGithub: '' })
-  const getString = useCallback(
-    (formValues) =>
-      `<html>
+  const getString = useCallback((formValues) => {
+    const name = formValues?.formName || '…'
+    const location = formValues?.formLocation || '…'
+    const bio = formValues?.formBio || '…'
+    const linkedIn = formValues?.formLinkedIn || '…'
+    const github = formValues?.formGithub || '…'
+    console.log({ name, location, bio, linkedIn, github })
+    return `<html>
 <head>
 </head>
 <body>
 <h1>About me</h1>
 <ul>
-<li>👋🏻 Hi, I'm ${formValues.formName.length > 0 ? formValues.formName : '…'}</li>
-<li>🏝️ I am based in ${formValues.formLocation.length > 0 ? formValues.formLocation : '…'}</li>
-<li>💬 ${formValues.formBio.length > 0 ? formValues.formBio : '…'}</li>
-<li>🔗 Connect with me at <a href='https://linkedin.in/${formValues.formLinkedIn.length > 0 ? formValues.formLinkedIn : '…'}' target='_blank'>LinkedIn</a></li>
-<li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${formValues.formGithub.length > 0 ? formValues.formGithub : '…'}' target='_blank'>GitHub</a></li>
+<li>👋🏻 Hi, I'm ${name}</li>
+<li>🏝️ I am based in ${location}</li>
+<li>💬 ${bio}</li>
+<li>🔗 Connect with me at <a href='https://linkedin.in/${linkedIn}' target='_blank'>LinkedIn</a></li>
+<li>🧑🏻‍💻 Find my repos at <a href='https://github.com/${github}' target='_blank'>GitHub</a></li>
 </ul>
 </body>
-</html>`,
-    []
-  )
+</html>`
+  }, [])
 
   /* event handlers */
   const handleSubmit = async (e) => {

@@ -1,0 +1,13 @@
+.algo-card {
+  display: flex;
+  flex-direction: row;
+  background-color: 'yellow';
+  max-width: 500px;
+  width: '100%';
+  justify-content: space-between;
+}
+
+.algo-card-body {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,5 +1,5 @@
 import { useRouteError } from 'react-router-dom'
-
+import './style/index.css'
 export default function ErrorPage() {
   const error = useRouteError()
   console.error(error)
@@ -7,7 +7,7 @@ export default function ErrorPage() {
   return (
     <div
       id='error-page'
-      style={{ background: 'black', color: 'white', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+      className='error-page'>
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>

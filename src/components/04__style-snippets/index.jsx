@@ -1,7 +1,7 @@
 import './style/style.css'
 import snippets from './data/snippets'
 import { useState } from 'react'
-export default function CSSSnippetCheatsheet() {
+export default function StyleSnippets() {
   const [alert, setAlert] = useState(false)
   const handleClick = async (code) => {
     await navigator.clipboard.writeText(code)
@@ -16,7 +16,7 @@ export default function CSSSnippetCheatsheet() {
     <div className='app-04'>
       <div className='body'>
         <header>
-          <h1>CSS Snippet Cheatsheet</h1>
+          <h1>Style Snippets</h1>
           <p>Ever have trouble recalling the exact syntax for your favourite CSS code? Click the snippets to copy.</p>
         </header>
         <main>

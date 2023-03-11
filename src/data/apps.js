@@ -3,244 +3,484 @@ import components from '../components'
 const apps = [
   {
     finished: true,
-    name: 'About Me',
+    title: 'about',
+    description: 'about me',
+    keywords: ['react'],
     link: '01-about-me',
-    element: <components.AboutMe />
+    element: <components.AboutMe />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Landing Page',
+    title: 'design',
+    description: 'landing page',
+    keywords: ['react', 'html'],
     link: '02-landing-page',
-    element: <components.LandingPage />
+    element: <components.LandingPage />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Code Refactor',
+    title: 'agency',
+    description: 'code refactor',
+    keywords: ['react'],
     link: '03-code-refactor',
-    element: <components.CodeRefactor />
+    element: <components.CodeRefactor />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'CSS Snippet Cheatsheet',
+    title: 'css snippets',
+    description: 'CSS snippet cheatsheet',
+    keywords: ['react'],
     link: '04-css-snippet-cheatsheet',
-    element: <components.CSSSnippetCheatsheet />
+    element: <components.CSSSnippetCheatsheet />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Professional Portfolio',
+    title: 'portfolio',
+    description: 'about me',
+    keywords: ['react'],
     link: '05-professional-portfolio',
-    element: <components.ProfessionalPortfolio />
+    element: <components.ProfessionalPortfolio />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Rock Paper Scissors',
+    title: 'RPS',
+    description: 'about me',
+    keywords: ['react'],
     link: '06-rock-paper-scissors',
-    element: <components.RockPaperScissors />
+    element: <components.RockPaperScissors />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Password Generator',
+    title: 'passwordG',
+    description: 'about me',
+    keywords: ['react'],
     link: '07-password-generator',
-    element: <components.PasswordGenerator />
+    element: <components.PasswordGenerator />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Word Guess',
-    link: '08-word-guess',
-    element: <components.WordGuess />
+    title: 'Word Guess',
+    description: 'about me',
+    keywords: ['react'],
+    link: '08-kiddle',
+    element: <components.WordGuess />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Code Quiz',
+    title: 'Code Quiz',
+    description: 'about me',
+    keywords: ['react'],
     link: '09-code-quiz',
-    element: <components.CodeQuiz />
+    element: <components.CodeQuiz />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Project Tracker',
+    title: 'Project Tracker',
+    description: 'about me',
+    keywords: ['react'],
     link: '10-project-tracker',
-    element: <components.ProjectTracker />
+    element: <components.ProjectTracker />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Day Planner',
+    title: 'Day Planner',
+    description: 'about me',
+    keywords: ['react'],
     link: '11-day-planner',
-    element: <components.DayPlanner />
+    element: <components.DayPlanner />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Library Search Tool',
+    title: 'Library Search Tool',
+    description: 'about me',
+    keywords: ['react'],
     link: '12-library-search-tool',
-    element: <components.LibrarySearchTool />
+    element: <components.LibrarySearchTool />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Weather Dashboard',
+    title: 'Weather Dashboard',
+    description: 'about me',
+    keywords: ['react'],
     link: '13-weather-dashboard',
-    element: <components.WeatherDashboard />
+    element: <components.WeatherDashboard />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Moovee',
+    title: 'Moovee',
+    description: 'about me',
+    keywords: ['react'],
     link: '14-moovee',
-    element: <components.Moovee />
+    element: <components.Moovee />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Readme Maker',
-    link: '15-readme-maker',
-    element: <components.ReadmeMaker />
+    title: 'Portfolio Maker',
+    description: 'about me',
+    keywords: ['react'],
+    link: '15-portfolio-maker',
+    element: <components.PortfolioMaker />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Portfolio Maker',
-    link: '16-portfolio-maker',
-    element: <components.PortfolioMaker />
+    title: 'Readme Maker',
+    description: 'about me',
+    keywords: ['react'],
+    link: '16-readme-maker',
+    element: <components.ReadmeMaker />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Spriddle',
+    title: 'Spriddle',
+    description: 'about me',
+    keywords: ['react'],
     link: '17-spriddle',
-    element: <components.Spriddle />
+    element: <components.Spriddle />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Team Maker',
+    title: 'Team Maker',
+    description: 'about me',
+    keywords: ['react'],
     link: '18-team-maker',
-    element: <components.TeamMaker />
+    element: <components.TeamMaker />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
 
   {
     finished: false,
-    name: 'Note Taker',
+    title: 'Note Taker',
+    description: 'about me',
+    keywords: ['react'],
     link: '19-note-taker',
-    element: <components.NoteTaker />
+    element: <components.NoteTaker />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Diagnostic Routes',
+    title: 'Diagnostic Routes',
+    description: 'about me',
+    keywords: ['react'],
     link: '20-diagnostic-routes',
-    element: <components.DiagnosticRoutes />
+    element: <components.DiagnosticRoutes />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Employee CMS',
+    title: 'Employee CMS',
+    description: 'about me',
+    keywords: ['react'],
     link: '21-employee-management-system',
-    element: <components.EmployeeCMS />
+    element: <components.EmployeeCMS />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Movie Database',
+    title: 'Movie Database',
+    description: 'about me',
+    keywords: ['react'],
     link: '22-movie-database',
-    element: <components.MovieDatabase />
+    element: <components.MovieDatabase />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'ECommerce Back End',
+    title: 'ECommerce Back End',
+    description: 'about me',
+    keywords: ['react'],
     link: '23-ecommerce-back-end',
-    element: <components.ECommerceBackEnd />
+    element: <components.ECommerceBackEnd />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Trips Database',
+    title: 'Trips Database',
+    description: 'about me',
+    keywords: ['react'],
     link: '24-trips-database',
-    element: <components.TripsDatabase />
+    element: <components.TripsDatabase />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Tech Blog',
+    title: 'Tech Blog',
+    description: 'about me',
+    keywords: ['react'],
     link: '25-tech-blog',
-    element: <components.TechBlog />
+    element: <components.TechBlog />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Crowdfunding App',
+    title: 'Crowdfunding App',
+    description: 'about me',
+    keywords: ['react'],
     link: '26-crowdfunding-app',
-    element: <components.CrowdfundingApp />
+    element: <components.CrowdfundingApp />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Just Kidding',
+    title: 'Just Kidding',
+    description: 'about me',
+    keywords: ['react'],
     link: '27-just-kidding',
-    element: <components.JustKidding />
+    element: <components.JustKidding />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Technical Interview',
+    title: 'Technical Interview',
+    description: 'about me',
+    keywords: ['react'],
     link: '28-technical-interview',
-    element: <components.TechnicalInterview />
+    element: <components.TechnicalInterview />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: true,
-    name: 'Regex Tutorial',
+    title: 'Regex Tutorial',
+    description: 'about me',
+    keywords: ['react'],
     link: '29-regex-tutorial',
-    element: <components.RegexTutorial />
+    element: <components.RegexTutorial />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Student Statistics Back End',
+    title: 'Student Statistics Back End',
+    description: 'about me',
+    keywords: ['react'],
     link: '30-student-statistics-back-end',
-    element: <components.StudentStatisticsBackEnd />
+    element: <components.StudentStatisticsBackEnd />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Social Network API',
+    title: 'Social Network API',
+    description: 'about me',
+    keywords: ['react'],
     link: '31-social-network-api',
-    element: <components.SocialNetworkAPI />
+    element: <components.SocialNetworkAPI />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Contact Directory App',
+    title: 'Contact Directory App',
+    description: 'about me',
+    keywords: ['react'],
     link: '32-contact-directory-app',
-    element: <components.ContactDirectoryApp />
+    element: <components.ContactDirectoryApp />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Text Editor',
+    title: 'Text Editor',
+    description: 'about me',
+    keywords: ['react'],
     link: '33-text-editor',
-    element: <components.TextEditor />
+    element: <components.TextEditor />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Bucket List',
+    title: 'Bucket List',
+    description: 'about me',
+    keywords: ['react'],
     link: '34-bucket-list',
-    element: <components.BucketList />
+    element: <components.BucketList />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'React Portfolio',
+    title: 'React Portfolio',
+    description: 'about me',
+    keywords: ['react'],
     link: '35-react-portfolio',
-    element: <components.ReactPortfolio />
+    element: <components.ReactPortfolio />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Tech Matchup App',
+    title: 'Tech Matchup App',
+    description: 'about me',
+    keywords: ['react'],
     link: '36-tech-matchup-app',
-    element: <components.TechMatchupApp />
+    element: <components.TechMatchupApp />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Book Search Engine',
+    title: 'Book Search Engine',
+    description: 'about me',
+    keywords: ['react'],
     link: '37-book-search-engine',
-    element: <components.BookSearchEngine />
+    element: <components.BookSearchEngine />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Redux Refactor',
+    title: 'Redux Refactor',
+    description: 'about me',
+    keywords: ['react'],
     link: '38-redux-refactor',
-    element: <components.ReduxRefactor />
+    element: <components.ReduxRefactor />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Redux Store',
+    title: 'Redux Store',
+    description: 'about me',
+    keywords: ['react'],
     link: '39-redux-store',
-    element: <components.ReduxStore />
+    element: <components.ReduxStore />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   },
   {
     finished: false,
-    name: 'Ingre',
+    title: 'Ingre',
+    description: 'about me',
+    keywords: ['react'],
     link: '40-ingre',
-    element: <components.Ingre />
+    element: <components.Ingre />,
+    background1: [255, 214, 201],
+    background2: [255, 249, 247],
+    color1: [181, 95, 38],
+    color2: [255, 255, 255]
   }
 ]
 export default apps

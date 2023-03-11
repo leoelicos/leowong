@@ -476,14 +476,14 @@ export default function ProfessionalPortfolio() {
                     </p>
                     <div className='code-links'>
                       <a
-                        href='https://github.com/leoelicos/bcs-04-word-guess'
+                        href='https://github.com/leoelicos/bcs/tree/main/src/components/08__kiddle'
                         target='_blank'
                         rel='noreferrer'
                         className='repo'>
                         <FontAwesomeIcon icon={faCode} /> code
                       </a>
                       <a
-                        href='https://leoelicos.github.io/bcs-04-word-guess/'
+                        href='https://bcs40.vercel.app/kiddle'
                         target='_blank'
                         rel='noreferrer'
                         className='deployed'>
@@ -494,7 +494,7 @@ export default function ProfessionalPortfolio() {
                       className='anchor-past-project'
                       target='_blank'
                       rel='noreferrer'
-                      href='https://leoelicos.github.io/bcs-04-word-guess/'>
+                      href='https://bcs40.vercel.app/kiddle'>
                       <img
                         className='content-image'
                         src={Project08WordGame}

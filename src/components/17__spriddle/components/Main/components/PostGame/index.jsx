@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import { useEffect, useRef } from 'react'
-import RiddleAnswer from '../Game/components/RiddleAnswer'
-import RiddleQuestion from '../Game/components/RiddleQuestion'
+import RiddleAnswer from '../RiddleAnswer'
+import RiddleQuestion from '../RiddleQuestion'
 
 import MainFooter from '../MainFooter'
 import MainHeader from '../MainHeader'
@@ -36,13 +36,10 @@ const PostGame = ({ handlePostGameClickNewGame, outcome, riddleQuestion, riddleA
         health={health}
       />
 
-      <h2 style={{ margin: '0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Open Sans, sans-serif' }}>{outcomeTitle}</h2>
-      <p style={{ margin: '0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Open Sans, sans-serif' }}>{outcomeParagraph}</p>
-
       <RiddleQuestion>
         {riddleQuestion.map((sentence) => (
           <p
-            className='riddle-paragraph'
+            className='riddle-question-paragraph'
             key={sentence}>
             {sentence}
           </p>
@@ -50,6 +47,9 @@ const PostGame = ({ handlePostGameClickNewGame, outcome, riddleQuestion, riddleA
       </RiddleQuestion>
 
       <RiddleAnswer>{riddleAnswer}</RiddleAnswer>
+
+      <h2 className='postgame-outcome-heading'>{outcomeTitle}</h2>
+      <p className='postgame-outcome-paragraph'>{outcomeParagraph}</p>
 
       <MainFooter>
         <Button

@@ -6,12 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './components/Main/index.jsx'
 
-import Splash from './components/Main/components/Splash'
-import PreGame from './components/Main/components/PreGame'
-import Game from './components/Main/components/Game'
-import PostGame from './components/Main/components/PostGame'
-
-import useRiddle from './api/useRiddle.jsx'
+import useRiddle from './data/useRiddle.jsx'
 import useTimer from './hooks/useTimer.jsx'
 
 import './style/index.css'
@@ -173,40 +168,23 @@ const Spriddle = () => {
     <App>
       <AppBody>
         <Header />
-        <Main>
-          {page === PAGE_SPLASH ? (
-            <Splash //
-              riddleLoading={riddleLoading}
-              riddleError={riddleError}
-              handleClickNewGame={handleClickNewGame}
-            />
-          ) : page === PAGE_PREGAME ? (
-            <PreGame
-              preGameTime={preGameTime}
-              attempt={attempt}
-            />
-          ) : page === PAGE_GAME ? (
-            <Game //
-              riddleQuestion={riddleQuestion}
-              riddleAnswer={riddleAnswer}
-              setOutcome={setOutcome}
-              attempt={attempt}
-              attemptMemo={attemptMemo}
-              handleClickKey={handleClickKey}
-              gameTime={gameTime}
-              health={health}
-            />
-          ) : page === PAGE_POSTGAME ? (
-            <PostGame
-              gameTime={gameTime}
-              health={health}
-              handlePostGameClickNewGame={handlePostGameClickNewGame}
-              outcome={outcome}
-              riddleQuestion={riddleQuestion}
-              riddleAnswer={riddleAnswer}
-            />
-          ) : null}
-        </Main>
+        <Main
+          page={page}
+          riddleLoading={riddleLoading}
+          riddleError={riddleError}
+          handleClickNewGame={handleClickNewGame}
+          preGameTime={preGameTime}
+          attempt={attempt}
+          riddleQuestion={riddleQuestion}
+          riddleAnswer={riddleAnswer}
+          setOutcome={setOutcome}
+          attemptMemo={attemptMemo}
+          handleClickKey={handleClickKey}
+          gameTime={gameTime}
+          health={health}
+          handlePostGameClickNewGame={handlePostGameClickNewGame}
+          outcome={outcome}
+        />
         <Footer />
       </AppBody>
     </App>

@@ -13,15 +13,6 @@ function formatCode(code) {
 }
 
 export default function RegexTutorial() {
-  const headerStyle = {
-    textAlign: 'center',
-    color: '#fff',
-    height: '84px',
-    paddingInline: '50px',
-    lineHeight: '64px',
-    backgroundColor: '#7dbcea',
-    width: '100%'
-  }
   const contentStyle = {
     minHeight: '120px',
     color: '#000',
@@ -39,14 +30,14 @@ export default function RegexTutorial() {
     width: '100%'
   }
   return (
-    <div className='app-29'>
+    <div className='app-28'>
       <div
         className='body'
         style={{ width: '100%', height: '100%' }}>
         <ConfigProvider
           theme={{
             token: {
-              colorPrimary: '#b22'
+              colorPrimary: '#000'
             }
           }}>
           <Layout
@@ -58,24 +49,62 @@ export default function RegexTutorial() {
               justifyContent: 'center',
               alignItems: 'center'
             }}>
-            <Header style={headerStyle}>
-              <Title level={2}>Medium Algo's</Title>
-            </Header>
-            <Title level={3}>Collection</Title>
-            <p
+            <Header
               style={{
-                lineHeight: '1.8rem',
-                padding: '0 1rem'
+                textAlign: 'center',
+                color: '#fff',
+                paddingInline: '50px',
+                lineHeight: '64px',
+                backgroundColor: '#7dbcea',
+                width: '100%',
+                flex: '1',
+                display: 'flex',
+                flexFlow: 'column',
+                alignItems: 'center'
               }}>
-              52 Medium-level LeetCode algorithms for you to attempt. Read the <Button type='primary'>Problem</Button> on LeetCode, and check out my <Button type='default'>Solution</Button> too.
-            </p>
+              <Title
+                level={2}
+                style={{ margin: '1rem 0' }}>
+                Medium Algo's
+              </Title>
+
+              <Title
+                level={3}
+                style={{ margin: '1rem 0' }}>
+                Collection
+              </Title>
+              <p
+                style={{
+                  lineHeight: '1.8rem',
+                  padding: '0 1rem',
+                  maxWidth: '500px',
+                  textAlign: 'center',
+                  margin: '1rem 0'
+                }}>
+                {algos.length} Medium-level LeetCode algorithms for you to attempt. Read about the LeetCode{' '}
+                <Button
+                  type='default'
+                  size='small'>
+                  Problem
+                </Button>{' '}
+                and check out my{' '}
+                <Button
+                  type='primary'
+                  size='small'>
+                  Solution
+                </Button>{' '}
+                too.
+              </p>
+            </Header>
             <Content style={contentStyle}>
-              {algos.map((algo) => (
-                <ACard
-                  algo={algo}
-                  key={algo.name}
-                />
-              ))}
+              {algos
+                .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+                .map((algo) => (
+                  <ACard
+                    algo={algo}
+                    key={algo.name}
+                  />
+                ))}
             </Content>
           </Layout>
         </ConfigProvider>
@@ -107,14 +136,14 @@ const ACard = ({ algo }) => {
         <div className='algo-card-body'>
           <Button
             style={{ marginRight: '4px' }}
-            type='primary'
+            type='default'
             onClick={() => {
               window.open(algo.link, '_blank', 'noreferrer')
             }}>
             Problem
           </Button>
           <Button
-            type='default'
+            type='primary'
             danger={toggle ? true : false}
             onClick={handleToggle}>
             Solution
@@ -123,15 +152,20 @@ const ACard = ({ algo }) => {
       </Card>
       <div
         style={{
-          display: toggle ? 'flex' : 'none',
-          padding: '5px',
+          margin: '-2rem 0 0 0',
+
+          maxHeight: toggle ? '9999px' : '0',
+          transition: toggle ? 'max-height 1s linear' : 'max-height 0s linear',
+          overflow: toggle ? 'unset' : 'hidden',
+
+          padding: '5px 0',
           justifyContent: 'center'
         }}>
         <pre
           className='language-js'
           style={{
             padding: '8px 8px',
-            borderRadius: '8px',
+            borderRadius: '0 0 8px 8px',
             width: '100%',
             whiteSpace: 'break-spaces',
             wordBreak: 'break-word'

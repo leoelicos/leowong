@@ -12,7 +12,7 @@ function formatCode(code) {
   return Prism.highlight(code, Prism.languages.javascript, 'javascript')
 }
 
-export default function RegexTutorial() {
+export default function AlgoRhythm() {
   const contentStyle = {
     minHeight: '120px',
     color: '#000',
@@ -65,7 +65,7 @@ export default function RegexTutorial() {
               <Title
                 level={2}
                 style={{ margin: '1rem 0' }}>
-                Medium Algo's
+                AlgoRhythm
               </Title>
 
               <Title

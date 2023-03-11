@@ -1,4 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
-.app-17 .riddle-paragraph {
-  font-family: 'Tilt Warp', cursive;
+.app-17 .header,
+.app-17 .footer {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 4vmin;
+  letter-spacing: 2px;
+}
+.app-17 .main-header {
+  font-size: 6vmin;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.app-17 .riddle-question {
+  font-size: 5vmin;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.app-17 .riddle-answer {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 4px;
+}
+.app-17 .postgame-outcome-heading,
+.app-17 .postgame-outcome-paragraph {
+  font-family: 'Open Sans', sans-serif;
 }

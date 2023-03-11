@@ -1,15 +1,19 @@
-code[class*='language-'],
-pre[class*='language-'] {
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
+.app-28 .language-js {
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  background: #000;
   color: #eee;
-  background: #2f2f2f;
-  font-family: Roboto Mono, monospace;
-  font-size: 12px;
+}
+
+.app-28 .language-js > * {
   line-height: 16px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -25,14 +29,14 @@ code[class*='language-']::-moz-selection,
 pre[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection,
 pre[class*='language-'] ::-moz-selection {
-  background: #363636;
+  background: #000;
 }
 
 code[class*='language-']::selection,
 pre[class*='language-']::selection,
 code[class*='language-'] ::selection,
 pre[class*='language-'] ::selection {
-  background: #363636;
+  background: #000;
 }
 
 :not(pre) > code[class*='language-'] {

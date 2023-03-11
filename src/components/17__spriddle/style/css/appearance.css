@@ -1,0 +1,17 @@
+.app-17 .body {
+  background-color: #eee;
+}
+.app-17 .header,
+.app-17 .footer {
+  background-color: #fff;
+}
+
+.app-17 .main-header {
+  background: #fff;
+  color: red;
+}
+
+.app-17 .riddle-answer {
+  background: white;
+  color: red;
+}

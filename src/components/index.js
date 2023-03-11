@@ -1,7 +1,7 @@
 import AboutMe from './01__about-me'
 import LandingPage from './02__landing-page'
 import CodeRefactor from './03__code-refactor'
-import CSSSnippetCheatsheet from './04__css-snippet-cheatsheet'
+import StyleSnippets from './04__style-snippets'
 import ProfessionalPortfolio from './05__professional-portfolio'
 import RockPaperScissors from './06__rock-paper-scissors'
 import PasswordGenerator from './07__password-generator'
@@ -22,7 +22,7 @@ import EmployeeCMS from './21__employee-cms'
 import MovieDatabase from './22__movie-database'
 import ECommerceBackEnd from './23__ecommerce-back-end'
 import TripsDatabase from './24__trips-database'
-import TechBlog from './25__tech-blog'
+import Submitted from './25__submitted'
 import CrowdfundingApp from './26__crowdfunding-app'
 import JustKidding from './27__just-kidding'
 import TechnicalInterview from './28__technical-interview'
@@ -44,7 +44,7 @@ const components = {
   AboutMe,
   LandingPage,
   CodeRefactor,
-  CSSSnippetCheatsheet,
+  StyleSnippets,
   ProfessionalPortfolio,
   RockPaperScissors,
   PasswordGenerator,
@@ -65,7 +65,7 @@ const components = {
   MovieDatabase,
   ECommerceBackEnd,
   TripsDatabase,
-  TechBlog,
+  Submitted,
   CrowdfundingApp,
   JustKidding,
   TechnicalInterview,

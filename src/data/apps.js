@@ -39,11 +39,11 @@ const apps = [
   },
   {
     finished: true,
-    title: 'css snippets',
-    description: 'CSS snippet cheatsheet',
+    title: 'style snippets',
+    description: 'CSS cheatsheet',
     keywords: ['react'],
-    link: '04-css-snippet-cheatsheet',
-    element: <components.CSSSnippetCheatsheet />,
+    link: '04-style-snippets',
+    element: <components.StyleSnippets />,
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
@@ -292,11 +292,11 @@ const apps = [
   },
   {
     finished: false,
-    title: 'Tech Blog',
+    title: 'submitted!',
     description: 'about me',
     keywords: ['react'],
-    link: '25-tech-blog',
-    element: <components.TechBlog />,
+    link: '25-submitted',
+    element: <components.Submitted />,
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
@@ -477,10 +477,10 @@ const apps = [
     keywords: ['react'],
     link: '40-ingre',
     element: <components.Ingre />,
-    background1: [255, 214, 201],
-    background2: [255, 249, 247],
+    background1: [255, 249, 247],
+    background2: [255, 214, 201],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [0, 0, 0]
   }
 ]
 export default apps

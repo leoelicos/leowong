@@ -5,15 +5,15 @@ import CSSSnippetCheatsheet from './04__css-snippet-cheatsheet'
 import ProfessionalPortfolio from './05__professional-portfolio'
 import RockPaperScissors from './06__rock-paper-scissors'
 import PasswordGenerator from './07__password-generator'
-import WordGuess from './08__word-guess'
+import WordGuess from './08__kiddle'
 import CodeQuiz from './09__code-quiz'
 import ProjectTracker from './10__project-tracker'
 import DayPlanner from './11__day-planner'
 import LibrarySearchTool from './12__library-search-tool'
 import WeatherDashboard from './13__weather-dashboard'
 import Moovee from './14__moovee'
-import ReadmeMaker from './15__readme-maker'
-import PortfolioMaker from './16__portfolio-maker'
+import PortfolioMaker from './15__portfolio-maker'
+import ReadmeMaker from './16__readme-maker'
 import Spriddle from './17__spriddle'
 import TeamMaker from './18__team-maker'
 import NoteTaker from './19__note-taker'
@@ -55,8 +55,8 @@ const components = {
   LibrarySearchTool,
   WeatherDashboard,
   Moovee,
-  ReadmeMaker,
   PortfolioMaker,
+  ReadmeMaker,
   TeamMaker,
   Spriddle,
   NoteTaker,

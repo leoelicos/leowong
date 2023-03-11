@@ -1,6 +1,65 @@
-.app-17 .riddle-paragraph {
-  margin: 0 0 12px 0;
+.app-17 .body {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
-.app-17 .riddle-paragraph:last-of-type {
+.app-17 .header,
+.app-17 .footer {
+  width: 100%;
+  padding: 2px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-17 .main {
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.app-17 .main-header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.app-17 .postgame-outcome-heading,
+.app-17 .postgame-outcome-paragraph {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-17 .riddle-question {
+  margin: 0 0 12px 0;
+  border-radius: 12px;
+  white-space: break-spaces;
+  width: 100%;
+  padding: 0 1rem;
+  text-align: center;
+}
+.app-17 .riddle-answer {
+  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 8px;
+  padding: 12px;
+}
+.app-17 .riddle-question-paragraph:last-of-type {
   margin: 0;
 }

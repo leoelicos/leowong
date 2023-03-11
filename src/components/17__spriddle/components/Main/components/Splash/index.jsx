@@ -1,8 +1,9 @@
 import { Button } from 'antd'
-import Hero from '../Hero'
+
 import MainHeader from '../MainHeader'
 import MainFooter from '../MainFooter'
 import { useEffect, useRef } from 'react'
+import RiddleQuestion from '../RiddleQuestion'
 
 const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
   const buttonText = riddleLoading ? 'Finding riddle' : riddleError ? 'No riddle found, try again' : 'New Game'
@@ -18,19 +19,19 @@ const Splash = ({ handleClickNewGame, riddleLoading, riddleError }) => {
         time='—'
         health='—'
       />
-      <main>
-        <Hero>
-          <p style={{ margin: '0' }}>
-            Riddle Master, that's my name,
-            <br />
-            Guess the letters and win the game.
-            <br />
-            Sixty seconds and ten wrong guesses,
-            <br />
-            Time is certain but not your successes.
-          </p>
-        </Hero>
-      </main>
+
+      <RiddleQuestion>
+        <p className='riddle-question-paragraph'>
+          Riddle Master, that's my name,
+          <br />
+          Guess the letters and win the game.
+          <br />
+          Sixty seconds and ten wrong guesses,
+          <br />
+          Time is certain but not your successes.
+        </p>
+      </RiddleQuestion>
+
       <MainFooter>
         <Button
           ref={buttonEl}

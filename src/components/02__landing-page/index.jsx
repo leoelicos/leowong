@@ -3,7 +3,7 @@ import { ReactComponent as LWLogo } from './images/LW.svg'
 
 import ScreenshotLandingPage from './images/screenshot-landing-page.jpg'
 import ScreenshotCodeRefactor from './images/screenshot-code-refactor.png'
-import ScreenshotCSSSnippetCheatsheet from './images/screenshot-css-snippet-cheat-sheet.jpg'
+import ScreenshotStyleSnippets from './images/screenshot-css-snippet-cheat-sheet.jpg'
 
 import './style/style.css'
 export default function LandingPage() {
@@ -95,12 +95,12 @@ export default function LandingPage() {
               className='portfolio'
               target='_blank'
               rel='noreferrer'
-              href='https://bcs40.vercel.app/04-css-snippet-cheatsheet/'>
-              <h3 className='portfolio-header'>CSS Snippet Cheat Sheet</h3>
+              href='https://bcs40.vercel.app/04-style-snippets/'>
+              <h3 className='portfolio-header'>Style Snippets</h3>
               <p className='portfolio-text'>Responsive Design</p>
               <img
                 className='portfolio-image'
-                src={ScreenshotCSSSnippetCheatsheet}
+                src={ScreenshotStyleSnippets}
                 alt='HTML work'
               />
             </a>

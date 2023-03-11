@@ -1,51 +1,53 @@
 # BCS
 
-This is a React implementation of [The Coding Boot Camp at the University of Sydney](https://techbootcamp.sydney.edu.au/coding), a collection of 40 Javascript projects.
+A collection of my [bootcamp](https://techbootcamp.sydney.edu.au/coding) projects rewritten in React.
 
 ## Projects
 
-| W   | Name                        | React |
-| --- | --------------------------- | ----- |
-| 1   | About Me                    |       |
-| 2   | Landing Page                |       |
-| 3   | Code Refactor               |       |
-| 4   | CSS Snippet Cheatsheet      |       |
-| 5   | Professional Portfolio      |       |
-| 6   | Rock Paper Scissors         |       |
-| 7   | Password Generator          |       |
-| 8   | Word Guess                  |       |
-| 9   | Code Quiz                   |       |
-| 10  | Project Tracker             |       |
-| 11  | Day Planner                 |       |
-| 12  | Library Search Tool         |       |
-| 13  | Weather Dashboard           |       |
-| 14  | Moovee                      |       |
-| 15  | Readme Maker                |       |
-| 16  | Portfolio Maker             |       |
-| 17  | Team Maker                  |       |
-| 18  | Command Line Word Guess     |       |
-| 19  | Note Taker                  |       |
-| 20  | Diagnostic Routes           |       |
-| 21  | Employee Management System  |       |
-| 22  | Movie Database              |       |
-| 23  | ECommerce Back End          |       |
-| 24  | Trips Database              |       |
-| 25  | Tech Blog                   |       |
-| 26  | Crowdfunding App            |       |
-| 27  | Just Kidding                |       |
-| 28  | Technical Interview         |       |
-| 29  | Regex Tutorial              |       |
-| 30  | Student Statistics Back-End |       |
-| 31  | Social Network API          |       |
-| 32  | Contact Directory App       |       |
-| 33  | Text Editor                 |       |
-| 34  | Bucket List                 |       |
-| 35  | React Portfolio             |       |
-| 36  | Tech Matchup App            |       |
-| 37  | Book Search Engine          |       |
-| 38  | Redux Refactor              |       |
-| 39  | Redux Store                 |       |
-| 40  | ingre                       |       |
+\* Featured
+
+| W     | Name           | Description              | Keywords                       |
+| ----- | -------------- | ------------------------ | ------------------------------ |
+| 1     | About          | about me                 | react                          |
+| 2     | Design         | personal landing         | react                          |
+| 3     | Agency         | company landing          | react                          |
+| 4     | Style Snippets | css cheatsheet           | react                          |
+| 5     | Portfolio      | professional portfolio   | react                          |
+| 6     | RPS            | rock paper scissors      | react                          |
+| 7     | PasswordX      | password maker           | react                          |
+| 8     | KIDDLE         | word game for kids       | react                          |
+| 9     | SYTYCJ         | timed quiz               | react                          |
+| 10    | DevTrak        | project tracker          | react                          |
+| 11    | TaskTrak       | day planner              | react, openweather, ipregistry |
+| 12    | LibFind        | library search tool      | react, library of congress     |
+| 13 \* | WeatherX       | forecast panels          | react, openweather, svg        |
+| 14 \* | MOOVEE         | find movie trailers      | react, googleapi, omdb         |
+| 15    | PortfolioX     | html wysiwig editor      | react, iframe                  |
+| 16    | ReadmeX        | markdown wysiwig editor  | react, marked-react            |
+| 17    | SPRIDDLE       | word guess               | react                          |
+| 18    | TeamX          | team maker               | react, idb                     |
+| 19    | Dev Tips       | diagnostic routes        | react, express                 |
+| 20    | NoteX          | server-stored note taker | react, express                 |
+| 21    | Movies API     | movie database api       | react, mysql2                  |
+| 22    | Employees API  | employee cms api         | react, mysql2                  |
+| 24    | Trips API      | trip database api        | react, sequelize               |
+| 24    | Products API   | product database api     | react, sequelize               |
+| 25    | AddVenture     | crowdfunding api         | handlebars, express, sequelize |
+| 26 \* | Submitted      | wordpress style blog     | handlebars, express, sequelize |
+| 27 \* | Just Kidding   | baby image forum         | handlebars, express, sequelize |
+| 28 \* | AlgoRhythm     | algorithm blog           | react, prism                   |
+| 29    | RegExplained   | regex tutorial           | react, regex                   |
+| 30    | Students API   | student assignment api   | mongodb                        |
+| 31    | snapi          | social network api       | mongodb                        |
+| 32    | iContact Cards | contacts utility         | webpack, pwa                   |
+| 33    | JATE           | js supported editor      | webpack, pwa                   |
+| 34    | Bucket List    | task tracker             | react                          |
+| 35    | Pastel Profile | themed portfolio         | react                          |
+| 36    | Tech Battle    |                          |                                |
+| 37    | BookFind       |                          |                                |
+| 38    | Digital Garage |                          |                                |
+| 39    | Snapfire Shop  |                          |                                |
+| 40    | ingre          | home shopping utility    | react, express, mongodb        |
 
 ## Learn More
 

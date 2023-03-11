@@ -1,2 +1,6 @@
 @import './markup/card.css';
 @import './markup/javascript.css';
+
+.app-28 * {
+  font-family: 'Open Sans', sans-serif;
+}

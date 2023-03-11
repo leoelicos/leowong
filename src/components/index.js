@@ -25,7 +25,7 @@ import TripsDatabase from './24__trips-database'
 import Submitted from './25__submitted'
 import CrowdfundingApp from './26__crowdfunding-app'
 import JustKidding from './27__just-kidding'
-import TechnicalInterview from './28__technical-interview'
+import AlgoRhythm from './28__algorhythm'
 import RegexTutorial from './29__regex-tutorial'
 import StudentStatisticsBackEnd from './30__student-statistics-back-end'
 import SocialNetworkAPI from './31__social-network-api'
@@ -68,7 +68,7 @@ const components = {
   Submitted,
   CrowdfundingApp,
   JustKidding,
-  TechnicalInterview,
+  AlgoRhythm,
   RegexTutorial,
   StudentStatisticsBackEnd,
   SocialNetworkAPI,

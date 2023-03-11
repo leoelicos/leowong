@@ -3,19 +3,8 @@ import { faHourglass } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => {
-  const style = {
-    fontFamily: 'Open Sans,sans-serif',
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '2px 0',
-    fontWeight: 'bold',
-    letterSpacing: '2px',
-    backgroundColor: '#fff'
-  }
   return (
-    <header style={style}>
+    <header className='header'>
       <FontAwesomeIcon icon={faHourglass} />
       &nbsp; SPRIDDLE
     </header>

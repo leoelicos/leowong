@@ -262,14 +262,14 @@ export default function ProfessionalPortfolio() {
                     </p>
                     <div className='code-links'>
                       <a
-                        href='https://github.com/leoelicos/bcs-14-tech-blog'
+                        href='https://github.com/leoelicos/submitted'
                         target='_blank'
                         rel='noreferrer'
                         className='repo'>
                         <FontAwesomeIcon icon={faCode} /> code
                       </a>
                       <a
-                        href='https://leoelicos-tech-blog.herokuapp.com/'
+                        href='https://submitted-blog.herokuapp.com/'
                         target='_blank'
                         rel='noreferrer'
                         className='deployed'>
@@ -306,14 +306,14 @@ export default function ProfessionalPortfolio() {
                     </p>
                     <div className='code-links'>
                       <a
-                        href='https://github.com/leoelicos/bcs-14-tech-blog'
+                        href='https://github.com/leoelicos/submitted'
                         target='_blank'
                         rel='noreferrer'
                         className='repo'>
                         <FontAwesomeIcon icon={faCode} /> code
                       </a>
                       <a
-                        href='https://leoelicos-tech-blog.herokuapp.com/'
+                        href='https://submitted-blog.herokuapp.com/'
                         target='_blank'
                         rel='noreferrer'
                         className='deployed'>
@@ -324,7 +324,7 @@ export default function ProfessionalPortfolio() {
                       className='anchor-past-project'
                       target='_blank'
                       rel='noreferrer'
-                      href='https://leoelicos-tech-blog.herokuapp.com/'>
+                      href='https://submitted-blog.herokuapp.com/'>
                       <img
                         className='content-image'
                         src={Project25Submitted}

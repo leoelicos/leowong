@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import data from './data.json'
+import data from './riddles.json'
 
 const useRiddle = () => {
   const [riddleQuestion, setRiddleQuestion] = useState('')

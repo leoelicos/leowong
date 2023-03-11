@@ -1,10 +1,11 @@
-import RiddleQuestion from './components/RiddleQuestion'
-import RiddleAnswer from './components/RiddleAnswer'
+import RiddleQuestion from '../RiddleQuestion'
+import RiddleAnswer from '../RiddleAnswer'
 import MainHeader from '../MainHeader'
 import MainFooter from '../MainFooter'
 import Keyboard from './components/Keyboard'
 import Row from './components/Row'
 import Key from './components/Key'
+
 const Game = ({ riddleQuestion, attempt, attemptMemo, handleClickKey, gameTime, health }) => {
   return (
     <>
@@ -16,7 +17,7 @@ const Game = ({ riddleQuestion, attempt, attemptMemo, handleClickKey, gameTime, 
       <RiddleQuestion>
         {riddleQuestion.map((sentence) => (
           <p
-            className='riddle-paragraph'
+            className='riddle-question-paragraph'
             key={sentence}>
             {sentence}
           </p>

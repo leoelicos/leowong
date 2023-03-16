@@ -32,7 +32,7 @@ import SocialNetworkAPI from './31__social-network-api'
 import ContactDirectoryApp from './32__contact-directory-app'
 import TextEditor from './33__text-editor'
 import BucketList from './34__bucket-list'
-import ReactPortfolio from './35__react-portfolio'
+import PastelProfile from './35__pastel-profile'
 import TechMatchupApp from './36__tech-matchup-app'
 import BookSearchEngine from './37__book-search-engine'
 import ReduxRefactor from './38__redux-refactor'
@@ -75,7 +75,7 @@ const components = {
   ContactDirectoryApp,
   TextEditor,
   BucketList,
-  ReactPortfolio,
+  PastelProfile,
   TechMatchupApp,
   BookSearchEngine,
   ReduxRefactor,

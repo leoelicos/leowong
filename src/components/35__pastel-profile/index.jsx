@@ -1,13 +1,12 @@
-import Content from './components/Content'
+import PastelProfile from './PastelProfile.jsx'
 
-const PastelProfile = () => {
+const App = () => {
   return (
     <div className='app-35'>
       <div className='body'>
-        <Content />
+        <PastelProfile />
       </div>
     </div>
   )
 }
-
-export default PastelProfile
+export default App

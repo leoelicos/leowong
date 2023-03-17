@@ -1,0 +1,12 @@
+.error-page {
+  background: black;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+}

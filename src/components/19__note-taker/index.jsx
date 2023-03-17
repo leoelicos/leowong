@@ -5,7 +5,7 @@ export default function NoteTaker() {
       <a
         href='https://leoelicos-note-taker.herokuapp.com/'
         target='_blank'
-        rel='noopener'>
+        rel='noreferrer'>
         Deployed
       </a>
     </div>

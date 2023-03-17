@@ -2,7 +2,6 @@ import components from '../components'
 
 const apps = [
   {
-    finished: true,
     title: 'about',
     description: 'about me',
     keywords: ['react'],
@@ -14,7 +13,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'design',
     description: 'landing page',
     keywords: ['react', 'html'],
@@ -26,7 +24,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'agency',
     description: 'code refactor',
     keywords: ['react'],
@@ -38,7 +35,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'style snippets',
     description: 'CSS cheatsheet',
     keywords: ['react'],
@@ -50,7 +46,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'portfolio',
     description: 'about me',
     keywords: ['react'],
@@ -62,7 +57,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'RPS',
     description: 'about me',
     keywords: ['react'],
@@ -74,7 +68,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'passwordG',
     description: 'about me',
     keywords: ['react'],
@@ -86,7 +79,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Word Guess',
     description: 'about me',
     keywords: ['react'],
@@ -98,7 +90,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Code Quiz',
     description: 'about me',
     keywords: ['react'],
@@ -110,7 +101,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Project Tracker',
     description: 'about me',
     keywords: ['react'],
@@ -122,7 +112,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Day Planner',
     description: 'about me',
     keywords: ['react'],
@@ -134,7 +123,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Library Search Tool',
     description: 'about me',
     keywords: ['react'],
@@ -146,7 +134,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Weather Dashboard',
     description: 'about me',
     keywords: ['react'],
@@ -158,7 +145,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Moovee',
     description: 'find movie trailers',
     keywords: ['react'],
@@ -170,7 +156,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Portfolio Maker',
     description: 'about me',
     keywords: ['react'],
@@ -182,7 +167,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Readme Maker',
     description: 'about me',
     keywords: ['react'],
@@ -194,7 +178,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Spriddle',
     description: 'about me',
     keywords: ['react'],
@@ -206,7 +189,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Team Maker',
     description: 'about me',
     keywords: ['react'],
@@ -219,7 +201,6 @@ const apps = [
   },
 
   {
-    finished: false,
     title: 'Note Taker',
     description: 'about me',
     keywords: ['react'],
@@ -231,7 +212,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Diagnostic Routes',
     description: 'about me',
     keywords: ['react'],
@@ -243,7 +223,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Employee CMS',
     description: 'about me',
     keywords: ['react'],
@@ -255,7 +234,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Movie Database',
     description: 'about me',
     keywords: ['react'],
@@ -267,7 +245,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'ECommerce Back End',
     description: 'about me',
     keywords: ['react'],
@@ -279,7 +256,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Trips Database',
     description: 'about me',
     keywords: ['react'],
@@ -291,7 +267,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'submitted!',
     description: 'about me',
     keywords: ['react'],
@@ -303,7 +278,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Crowdfunding App',
     description: 'about me',
     keywords: ['react'],
@@ -315,7 +289,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Just Kidding',
     description: 'about me',
     keywords: ['react'],
@@ -327,7 +300,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'AlgoRhythm',
     description: 'algorithm blog',
     keywords: ['react', 'prism'],
@@ -339,7 +311,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: true,
     title: 'Regex Tutorial',
     description: 'about me',
     keywords: ['react'],
@@ -351,7 +322,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Student Statistics Back End',
     description: 'about me',
     keywords: ['react'],
@@ -363,7 +333,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Social Network API',
     description: 'about me',
     keywords: ['react'],
@@ -375,7 +344,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Contact Directory App',
     description: 'about me',
     keywords: ['react'],
@@ -387,7 +355,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Text Editor',
     description: 'about me',
     keywords: ['react'],
@@ -399,7 +366,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Bucket List',
     description: 'about me',
     keywords: ['react'],
@@ -411,19 +377,23 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'React Portfolio',
     description: 'about me',
     keywords: ['react'],
     link: '35-pastel-profile',
     element: <components.PastelProfile />,
+    children: [
+      { path: '/35-pastel-profile/about', element: <components.PastelProfileAbout /> },
+      { path: '/35-pastel-profile/projects', element: <components.PastelProfileProjects /> },
+      { path: '/35-pastel-profile/contact', element: <components.PastelProfileContact /> },
+      { path: '/35-pastel-profile/resume', element: <components.PastelProfileResume /> }
+    ],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Tech Matchup App',
     description: 'about me',
     keywords: ['react'],
@@ -435,7 +405,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Book Search Engine',
     description: 'about me',
     keywords: ['react'],
@@ -447,7 +416,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Redux Refactor',
     description: 'about me',
     keywords: ['react'],
@@ -459,7 +427,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Redux Store',
     description: 'about me',
     keywords: ['react'],
@@ -471,7 +438,6 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    finished: false,
     title: 'Ingre',
     description: 'about me',
     keywords: ['react'],

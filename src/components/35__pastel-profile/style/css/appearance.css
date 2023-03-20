@@ -36,15 +36,14 @@
 }
 
 .app-35 nav a:hover {
-  background-color: var(--dark-contrast) !important;
+  color: 2px solid var(--dark) !important;
 }
 .app-35 nav ul li a.active {
-  color: var(--dark-contrast);
   border-bottom: 1px solid var(--dark);
 }
 
 .app-35 .content h3 {
-  color: var(--call);
+  color: var(--dark);
 }
 
 .app-35 a {
@@ -52,16 +51,41 @@
   color: var(--dark);
 }
 
+.app-35 .image {
+  position: relative;
+  display: inline-block;
+}
+
+.app-35 .image:hover::before {
+  content: attr(data-label);
+
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
 .app-35 header {
   background-color: var(--pastel-3);
 }
 
 .app-35 .content {
-  background-color: var(--pastel-1);
   color: var(--dark);
 }
 
 .app-35 .tag {
+  background-color: var(--pastel-1);
   color: var(--dark);
 }
 

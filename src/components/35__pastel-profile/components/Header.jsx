@@ -28,22 +28,6 @@ export default function Header() {
               Portfolio
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              exact
-              to='/35-pastel-profile/contact'
-              className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
-              Contact
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              exact
-              to='/35-pastel-profile/resume'
-              className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
-              Resume
-            </NavLink>
-          </li>
         </ul>
       </nav>
     </header>

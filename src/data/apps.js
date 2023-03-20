@@ -384,9 +384,7 @@ const apps = [
     element: <components.PastelProfile />,
     children: [
       { path: '/35-pastel-profile/about', element: <components.PastelProfileAbout /> },
-      { path: '/35-pastel-profile/projects', element: <components.PastelProfileProjects /> },
-      { path: '/35-pastel-profile/contact', element: <components.PastelProfileContact /> },
-      { path: '/35-pastel-profile/resume', element: <components.PastelProfileResume /> }
+      { path: '/35-pastel-profile/projects', element: <components.PastelProfileProjects /> }
     ],
     background1: [255, 214, 201],
     background2: [255, 249, 247],

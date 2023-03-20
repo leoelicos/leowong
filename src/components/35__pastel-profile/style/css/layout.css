@@ -9,10 +9,10 @@
 .app-35 header {
   display: flex;
   justify-content: flex-start;
-  height: 10vh;
+  height: min-content;
 }
 .app-35 header img {
-  height: 100%;
+  height: 50px;
   border-radius: 50%;
 }
 .app-35 header nav {
@@ -37,44 +37,11 @@
   align-items: center;
 }
 
-.app-35 main {
-  max-width: calc(100vh * 2.33);
-}
-
-.app-35 figure {
-  width: 100%;
-  height: 100vh;
-  position: sticky;
-  top: 0px;
+.app-35 article.about {
+  border: 1px solid red;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.app-35 figure img {
-  align-self: center;
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center bottom;
-}
-
-.app-35 section,
-.app-35 article {
-  width: 100%;
-}
-
-.app-35 .scrolling {
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  z-index: 6;
-
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-evenly;
-  position: relative;
 }
 
 .app-35 .icon .image {
@@ -84,57 +51,6 @@
   box-shadow: inset 0 0 2px var(--fill), 0 0 10px var(--fill);
   transform: scale(1.02);
   transition: transform 0.3s linear;
-}
-
-.app-35 .articles {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2vmin;
-}
-
-.app-35 .articles .box {
-  margin-bottom: 1vmin;
-}
-
-.app-35 .articles .box {
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  z-index: 8;
-  max-width: 800px;
-
-  border-radius: 8px;
-  vertical-align: middle;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-}
-@media screen and (max-width: 768px) {
-  .app-35 .scrolling {
-    width: 90%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .app-35 .scrolling {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .app-35 .articles {
-    width: 50%;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .app-35 .articles {
-    width: 66%;
-  }
-  .app-35 .articles .box {
-    width: 45%;
-  }
 }
 
 .app-35 .project-wrapper {
@@ -175,13 +91,14 @@
 }
 
 .app-35 .tag {
-  border: 1px solid red;
-  border-radius: 1rem;
-  padding: 4px 1rem;
-  margin: 0.3rem 0 0 0.6rem;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0;
 
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
+  justify-content: center;
 }
 
 .app-35 .code-links {
@@ -201,6 +118,7 @@
   padding: 0.6rem;
   margin: 0.3rem 0;
   width: 100%;
+
   transition: transform 0.5s ease-in-out;
 }
 .app-35 .btn-wrapper:hover {

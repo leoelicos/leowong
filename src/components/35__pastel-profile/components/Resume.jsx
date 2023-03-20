@@ -10,29 +10,7 @@ export default function Resume() {
         Resume
       </a>
 
-      <ul className='nav'>
-        <li className='nav-item deployed'>
-          <a
-            href='https://www.linkedin.com/in/leoelicos/'
-            className='footer-content'>
-            Linkedin
-          </a>
-        </li>
-        <li className='nav-item deployed'>
-          <a
-            href='https://github.com/leoelicos?tab=repositories'
-            className='footer-content'>
-            GitHub
-          </a>
-        </li>
-        <li className='nav-item deployed'>
-          <a
-            href='https://www.codewars.com/users/leoelicos'
-            className='footer-content'>
-            CodeWars
-          </a>
-        </li>
-      </ul>
+      <ul className='nav'></ul>
     </div>
   )
 }

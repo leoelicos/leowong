@@ -34,9 +34,7 @@ import TextEditor from './33__text-editor'
 import BucketList from './34__bucket-list'
 import PastelProfile from './35__pastel-profile'
 import PastelProfileAbout from './35__pastel-profile/components/About'
-import PastelProfileContact from './35__pastel-profile/components/Contact'
 import PastelProfileProjects from './35__pastel-profile/components/Projects'
-import PastelProfileResume from './35__pastel-profile/components/Resume'
 import TechMatchupApp from './36__tech-matchup-app'
 import BookSearchEngine from './37__book-search-engine'
 import ReduxRefactor from './38__redux-refactor'
@@ -81,9 +79,7 @@ const components = {
   BucketList,
   PastelProfile,
   PastelProfileAbout,
-  PastelProfileContact,
   PastelProfileProjects,
-  PastelProfileResume,
   TechMatchupApp,
   BookSearchEngine,
   ReduxRefactor,

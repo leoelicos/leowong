@@ -40,9 +40,13 @@ import BookSearchEngine from './37__book-search-engine'
 import ReduxRefactor from './38__redux-refactor'
 import ReduxStore from './39__redux-store'
 import Ingre from './40__ingre'
+import TOC from './TOC/index.jsx'
+import ErrorPage from './ErrorPage/index.jsx'
 
 const components = {
   //
+  TOC,
+  ErrorPage,
   AboutMe,
   LandingPage,
   CodeRefactor,

@@ -1,4 +1,4 @@
-import list from '../../data/apps'
+import list from '../../data/apps.js'
 
 import './style/index.css'
 
@@ -6,7 +6,7 @@ import App from './components/App'
 import AppBody from './components/AppBody'
 import AppButton from './components/AppButton'
 
-function Toc() {
+export default function TOC() {
   return (
     <App>
       <AppBody>
@@ -31,5 +31,3 @@ function Toc() {
     </App>
   )
 }
-
-export default Toc

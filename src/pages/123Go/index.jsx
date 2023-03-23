@@ -15,7 +15,7 @@ const judge = (playerChoice, computerChoice) =>
       (computerChoice === 'scissors' && playerChoice === 'paper')
     ? 'computer'
     : 'player'
-export default function RockPaperScissors() {
+export default function App() {
   const [playerChoice, setPlayerChoice] = useState(undefined)
   const [computerChoice, setComputerChoice] = useState(undefined)
   const [win, setWin] = useState(undefined)

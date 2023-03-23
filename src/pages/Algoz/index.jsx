@@ -12,7 +12,7 @@ function formatCode(code) {
   return Prism.highlight(code, Prism.languages.javascript, 'javascript')
 }
 
-export default function AlgoRhythm() {
+export default function Algoz() {
   const contentStyle = {
     minHeight: '120px',
     color: '#000',

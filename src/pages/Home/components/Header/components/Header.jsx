@@ -1,38 +1,31 @@
- 
 import { NavLink } from 'react-router-dom'
 
-import './style/index.css'
+import avatar from '../images/rando.png'
 
 export default function Header() {
   return (
     <header>
-      <div>
-        <div>LEOWONG</div>
-      </div>
+      <img
+        className='avatar'
+        src={avatar}
+        alt='avatar'
+      />
       <nav>
         <ul>
           <li>
             <NavLink
-              exact='true'
-              to='/home/about'
+              exact
+              to='/35-pastel-profile/about'
               className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
               About
             </NavLink>
           </li>
           <li>
             <NavLink
-              exact='true'
-              to='/home/projects'
+              exact
+              to='/35-pastel-profile/projects'
               className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
-              Projects
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              exact='true'
-              to='/home/resume'
-              className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
-              Resume
+              Portfolio
             </NavLink>
           </li>
         </ul>
@@ -40,4 +33,3 @@ export default function Header() {
     </header>
   )
 }
- 

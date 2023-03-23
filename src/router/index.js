@@ -1,30 +1,23 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import apps from '../data/apps.js'
-
-import TOC from '../components/TOC/index.jsx'
+import Home from '../pages/Home/index.jsx'
 import ErrorPage from '../components/ErrorPage/index.jsx'
 
-const appRoutes = apps.map(
-  ({
-    link,
-    element,
-    children = [] //
-  }) => ({
-    path: link,
-    element,
-    children: children,
-    errorElement: <ErrorPage />
-  })
-)
+import About from '../pages/Home/components/About/index.jsx'
 
 const routes = [
   {
     path: '/',
-    element: <TOC />,
-    errorElement: <ErrorPage />
-  },
-  ...appRoutes
+    element: <Home />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/about',
+        element: <About />,
+        errorElement: <ErrorPage />
+      }
+    ]
+  }
 ]
 
 const router = createBrowserRouter(routes)

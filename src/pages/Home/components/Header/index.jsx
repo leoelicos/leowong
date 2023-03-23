@@ -1,12 +1,43 @@
-import PastelProfile from './PastelProfile.jsx'
+ 
+import { NavLink } from 'react-router-dom'
 
-const App = () => {
+import './style/index.css'
+
+export default function Header() {
   return (
-    <div className='app-35'>
-      <div className='body'>
-        <PastelProfile />
+    <header>
+      <div>
+        <div>LEOWONG</div>
       </div>
-    </div>
+      <nav>
+        <ul>
+          <li>
+            <NavLink
+              exact='true'
+              to='/home/about'
+              className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact='true'
+              to='/home/projects'
+              className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
+              Projects
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact='true'
+              to='/home/resume'
+              className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')}>
+              Resume
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }
-export default App
+ 

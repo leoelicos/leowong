@@ -1,21 +1,23 @@
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Avatar from './images/lwfull.webp'
-import CodeWarsLogo from './images/cw.png'
-import LeetCodeLogo from './images/lc.png'
-import NodeLogo from './images/node.png'
-import AusLogo from './images/aus.png'
-import ReactLogo from './images/react.png'
-import JSXLogo from './images/jsx.png'
-import AntdLogo from './images/antd.png'
+ 
+import avatar from '../../images/avatar.png'
+import CodeWarsLogo from '../../images/cw.png'
+import LeetCodeLogo from '../../images/lc.png'
+import NodeLogo from '../../images/node.png'
+import AusLogo from '../../images/aus.png'
+import ReactLogo from '../../images/react.png'
+import JSXLogo from '../../images/jsx.png'
+import AntdLogo from '../../images/antd.png'
 
-import ExpressLogo from './images/express.png'
-import MysqlLogo from './images/mysql.png'
-import MongoLogo from './images/mongodb.webp'
-import GraphQLLogo from './images/GraphQL_Logo.svg.png'
-import JestLogo from './images/jest.png'
-import MochaLogo from './images/mocha.png'
+import ExpressLogo from '../../images/express.png'
+import MysqlLogo from '../../images/mysql.png'
+import MongoLogo from '../../images/mongodb.webp'
+import GraphQLLogo from '../../images/GraphQL_Logo.svg.png'
+import JestLogo from '../../images/jest.png'
+import MochaLogo from '../../images/mocha.png'
+ 
 
 export default function About() {
   return (
@@ -24,9 +26,12 @@ export default function About() {
       id='about'>
       <p>
         Hi I'm Leo
-        <TechButton
-          logo={Avatar}
-          label='Leo Wong'
+ 
+        <img
+          className='avatar'
+          src={avatar}
+          alt='avatar'
+ 
         />
       </p>
       <p>

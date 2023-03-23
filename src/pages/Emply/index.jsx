@@ -8,7 +8,7 @@ import { faReact } from '@fortawesome/free-brands-svg-icons'
 
 import Main from './components/Main'
 
-const TeamMaker = () => {
+export default function Employ() {
   return (
     <div className='app-18'>
       <div className='body'>
@@ -30,4 +30,3 @@ const TeamMaker = () => {
     </div>
   )
 }
-export default TeamMaker

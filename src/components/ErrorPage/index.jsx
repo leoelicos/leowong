@@ -8,7 +8,7 @@ export default function ErrorPage() {
     <div
       id='error-page'
       className='error-page'>
-      <h1>ERROR 😁😁</h1>
+      <h1>Sorry, there's been an error.</h1>
       <code>{error.statusText || error.message}</code>
     </div>
   )

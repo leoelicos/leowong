@@ -1,55 +1,55 @@
-.app-35 {
+.home header {
   --font: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
-.app-35 {
+.home header {
   font-family: var(--font);
 }
 
-.app-35 nav a {
+.home header nav a {
   font-size: 10px + 1vh;
 }
 
-.app-35 .label {
+.home header .label {
   font-size: calc(8px + 1vh);
 }
 
-.app-35 .fa-arrow-alt-circle-down {
+.home header .fa-arrow-alt-circle-down {
   font-size: 6vh;
 }
 
-.app-35 a,
-.app-35 a:visited,
-.app-35 a:active,
-.app-35 a:hover {
+.home header a,
+.home header a:visited,
+.home header a:active,
+.home header a:hover {
   text-decoration: none !important;
 }
 
-.app-35 .articles .box {
+.home header .articles .box {
   text-align: center;
 }
 
-.app-35 .box p {
+.home header .box p {
   font-size: 16px;
 }
 
-.app-35 header h1 {
+.home header h1 {
   font-size: 3rem;
   margin: 2rem 0;
 }
 
-.app-35 header h3 {
+.home header h3 {
   font-size: 1.25rem;
 }
 
-.app-35 .tag {
+.home header .tag {
   font-size: 16px;
 }
 
-.app-35 input {
+.home header input {
   font-family: var(--font);
 }
 
-.app-35 nav-item.deployed {
+.home header nav-item.deployed {
   font-size: 1.5vmin;
 }

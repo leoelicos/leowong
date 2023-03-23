@@ -4,7 +4,7 @@ import Bucket from './components/Bucket'
 
 import './style/index.css'
 
-function BucketList() {
+export default function Buckets() {
   const [bucket, setBucket] = useState([])
 
   const addBucketItem = (item) => {
@@ -45,5 +45,3 @@ function BucketList() {
     </div>
   )
 }
-
-export default BucketList

@@ -20,7 +20,7 @@ const Footer = ({ children }) => {
 const Context = React.createContext({
   name: 'Default'
 })
-const ReadmeMaker = () => {
+export default function Docu() {
   const initialTypes = data.map((t) => ({ ...t, key: t.name, selected: false }))
 
   const [types, setTypes] = useState(initialTypes)
@@ -169,5 +169,3 @@ const ReadmeMaker = () => {
     </div>
   )
 }
-
-export default ReadmeMaker

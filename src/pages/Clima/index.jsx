@@ -16,7 +16,7 @@ import './css/index.css'
 import useOpenWeatherOneCall from './hooks/useOpenWeatherOneCall'
 import { useEffect, useState } from 'react'
 
-export default function WeatherDashboard() {
+export default function Clima() {
   useFavicon('/favicons/13-favicon.png')
   useTitle('WWAG')
   const { savedCities, saveCity } = useLocalStorage()

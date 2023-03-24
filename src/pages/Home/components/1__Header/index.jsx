@@ -1,11 +1,13 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
-import './index.css'
+import './style.css'
 export default function Header() {
   const [showMenu, setShowMenu] = useState(true)
 
-  const toggle = () => setShowMenu((m) => !m)
+  const toggle = () => {
+    setShowMenu((m) => !m)
+  }
 
   return (
     <header>
@@ -28,9 +30,21 @@ export default function Header() {
           <FontAwesomeIcon icon={faBars} />
         </button>
         <ul className={`menu big ${showMenu ? 'hide' : ''}`}>
-          <a href='/#about'>ABOUT</a>
-          <a href='/#projects'>PROJECTS</a>
-          <a href='/#resume'>RESUME</a>
+          <a
+            href='/#about'
+            onClick={toggle}>
+            ABOUT
+          </a>
+          <a
+            href='/#projects'
+            onClick={toggle}>
+            PROJECTS
+          </a>
+          <a
+            href='/#resume'
+            onClick={toggle}>
+            RESUME
+          </a>
         </ul>
       </nav>
     </header>

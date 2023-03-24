@@ -1,16 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 
 const useTimer = ({ initialTime, callback = () => {} }) => {
-  // console.log({ initialTime })
   const [time, setTime] = useState(initialTime)
   let timer = useRef(null)
 
   const startTimer = () => {
-    // console.log('useTimer startTimer')
     setTime(initialTime)
     timer.current = setInterval(() => {
       setTime((prev) => {
-        // console.log('time', prev)
         if (prev === 0) {
           endTimer()
           callback()

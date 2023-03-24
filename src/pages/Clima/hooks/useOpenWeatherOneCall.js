@@ -44,7 +44,6 @@ const getCurrentData = (data) => {
     date: dt.getDate(),
     month: Intl.DateTimeFormat('en-US', { month: 'short' }).format(dt)
   }
-  // console.log(o)
   return o
 }
 

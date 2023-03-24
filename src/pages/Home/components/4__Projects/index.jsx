@@ -1,15 +1,13 @@
-import list from '../../data/apps.js'
+import list from '../../../../data/apps.js'
 
-import './style/index.css'
+import './index.css'
 
-import App from './components/App'
-import AppBody from './components/AppBody'
-import AppButton from './components/AppButton'
+import AppButton from './AppButton'
 
-export default function TOC() {
+export default function Projects() {
   return (
-    <App>
-      <AppBody>
+    <div className='toc'>
+      <div className='body'>
         <h1 className='header'>FEATURED WORK</h1>
         <div className='app-buttons'>
           {list.map(({ title, description, keywords, link, finished, background1, background2, color1, color2 }) => (
@@ -27,7 +25,7 @@ export default function TOC() {
             />
           ))}
         </div>
-      </AppBody>
-    </App>
+      </div>
+    </div>
   )
 }

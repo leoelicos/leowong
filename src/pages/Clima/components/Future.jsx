@@ -2,7 +2,6 @@ import Balls from './Balls'
 
 function Future({ city }) {
   const { dailyData } = city
-  // console.log('Future', { dailyData })
   return (
     <div className='future'>
       <div className='cards-title'>5-day forecast</div>

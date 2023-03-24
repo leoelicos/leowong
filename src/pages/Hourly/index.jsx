@@ -28,7 +28,6 @@ export default function DayPlanner() {
   /* event handlers */
   const handleToggle = () => {
     setToggle((prev) => {
-      console.log(`Setting toggle to ${!prev}`)
       return !prev
     })
   }

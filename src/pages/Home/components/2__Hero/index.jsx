@@ -11,36 +11,34 @@ export default function Hero({ children }) {
     <div className='app-05'>
       <div className='body'>
         <main id='top'>
-          <figure id='bg-motorway'>
-            <a href='#about'>
+          <a href='#about'>
+            <figure id='bg-motorway'>
               <img
                 src={BgMotorway}
                 alt='motorway sign pointing down'
               />
-            </a>
-          </figure>
-          <figure id='bg-life'>
-            <img
-              src={BgRoad}
-              alt='trees and roads'
-            />
-          </figure>
-          <figure id='bg-car'>
-            <img
-              src={BgCar}
-              alt='car interior'
-            />
-          </figure>
-
+            </figure>
+            <figure id='bg-life'>
+              <img
+                src={BgRoad}
+                alt='trees and roads'
+              />
+            </figure>
+            <figure id='bg-car'>
+              <img
+                src={BgCar}
+                alt='car interior'
+              />
+            </figure>
+          </a>
           {children}
         </main>
-        <footer
-          onClick={() => {
-            window.location.href = '#top'
-          }}>
+        <a
+          className='footer-link'
+          href='#top'>
           Back to Top&nbsp;
           <FontAwesomeIcon icon={faArrowUp} />
-        </footer>
+        </a>
       </div>
     </div>
   )

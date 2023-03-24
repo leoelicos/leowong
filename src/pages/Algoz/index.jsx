@@ -7,28 +7,33 @@ import './style/index.css'
 
 import algos from './data/data.json'
 import { useState } from 'react'
+import useTitle from '../../hooks/useTitle'
+import useFavicon from '../../hooks/useFavicon'
+
+const contentStyle = {
+  minHeight: '120px',
+  color: '#000',
+  flex: '1',
+  maxWidth: '500px',
+  fontSize: '1.15rem',
+  fontWeight: 'bold',
+  fontFamily: 'Open Sans, sans-serif',
+  textAlign: 'left',
+
+  whiteSpace: 'break-spaces',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  width: '100%'
+}
 
 function formatCode(code) {
   return Prism.highlight(code, Prism.languages.javascript, 'javascript')
 }
 
 export default function Algoz() {
-  const contentStyle = {
-    minHeight: '120px',
-    color: '#000',
-    flex: '1',
-    maxWidth: '500px',
-    fontSize: '1.15rem',
-    fontWeight: 'bold',
-    fontFamily: 'Open Sans, sans-serif',
-    textAlign: 'left',
-
-    whiteSpace: 'break-spaces',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    width: '100%'
-  }
+  useTitle('Algoz')
+  useFavicon('/favicons/algoz.png')
   return (
     <div className='app-28'>
       <div
@@ -65,13 +70,13 @@ export default function Algoz() {
               <Title
                 level={2}
                 style={{ margin: '1rem 0' }}>
-                AlgoRhythm
+                Algoz
               </Title>
 
               <Title
                 level={3}
                 style={{ margin: '1rem 0' }}>
-                Collection
+                My LeetCode Collection
               </Title>
               <p
                 style={{
@@ -81,7 +86,7 @@ export default function Algoz() {
                   textAlign: 'center',
                   margin: '1rem 0'
                 }}>
-                {algos.length} Medium-level LeetCode algorithms for you to attempt. Read about the LeetCode{' '}
+                {algos.length} Medium-level algorithms for you to attempt. Read about the LeetCode{' '}
                 <Button
                   type='default'
                   size='small'>

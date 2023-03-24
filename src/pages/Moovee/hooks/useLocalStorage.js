@@ -8,7 +8,6 @@ const useLocalStorage = (key) => {
   }, [history, key])
 
   const saveHistory = (value) => {
-    console.log('saveHistory', value)
     setHistory((prev) => {
       let oldHistory = prev.includes(value) //
         ? prev.filter((v) => v !== value)
@@ -17,7 +16,6 @@ const useLocalStorage = (key) => {
         : prev
 
       let newHistory = [value].concat(...oldHistory)
-      console.log({ oldHistory, newHistory })
       return newHistory
     })
   }

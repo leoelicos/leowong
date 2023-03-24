@@ -45,7 +45,6 @@ const Spriddle = () => {
 
   const handleClickNewGame = async () => {
     await riddleUpdate()
-    // console.log('update finished', { riddleQuestion, riddleAnswer, riddleUpdate, riddleLoading, riddleError })
     setPage(PAGE_PREGAME)
     preGameStartTimer()
   }
@@ -60,7 +59,6 @@ const Spriddle = () => {
 
   useEffect(() => {
     if (riddleAnswer?.length > 0) {
-      // console.log({ riddleAnswer })
       setAttempt(riddleAnswer.replace(/[a-zA-Z]/g, '_'))
     }
   }, [riddleAnswer])
@@ -102,7 +100,6 @@ const Spriddle = () => {
 
   const handleKey = useCallback(
     (k) => {
-      // console.log({ k })
       if (k.length !== 1) return
 
       if (!(k >= 'a' && k <= 'z')) return
@@ -115,13 +112,11 @@ const Spriddle = () => {
             .split('')
             .map((v, i) => (riddleAnswer[i] === k ? k : v))
             .join('')
-          // console.log({ response })
           if (response === riddleAnswer) handleGameSuccess()
           return response
         })
         setAttemptMemo((prev) => {
           let newMemo = { ...prev, [k]: ATTEMPT_CORRECT }
-          // console.log(`${k} is inside ${riddleAnswer}`, { newMemo })
           return newMemo
         })
         return
@@ -135,7 +130,6 @@ const Spriddle = () => {
       if (attemptMemo[k] === ATTEMPT_DEFAULT)
         setAttemptMemo((prev) => {
           let newMemo = { ...prev, [k]: ATTEMPT_INCORRECT }
-          // console.log(`${k} is not inside ${riddleAnswer}`, { newMemo })
           return newMemo
         })
     },

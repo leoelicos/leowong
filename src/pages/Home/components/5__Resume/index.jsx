@@ -1,61 +1,63 @@
-import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import IconLinkedIn from '../../images/icon/li.png'
-import IconGitHub from '../../images/icon/gh.png'
+import { faDownload, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import './style.css'
 export default function Resume() {
   return (
-    <div>
-      <h2 style={{ marginTop: '1rem' }}>Resume</h2>
+    <div
+      className='resume'
+      id='resume'>
+      <h3>Resume</h3>
 
       <a
-        className='btn icon'
         target='_blank'
         rel='noreferrer'
         href='https://drive.google.com/file/d/1h8cJZCP00_rwluAvS5hHzIPyXsKbvkZm/view?usp=sharing'>
         <p className='image download'>
           <FontAwesomeIcon
             style={{ fontSize: '6vh' }}
-            icon={faArrowAltCircleDown}
+            icon={faDownload}
           />
         </p>
         <p className='label'>Resume</p>
       </a>
+
       <a
-        className='btn icon'
         target='_blank'
         rel='noreferrer'
-        href='https://www.linkedin.com/in/leo-wong-b9b570129/'>
+        href='https://www.linkedin.com/in/leoelicos'>
         <p className='image'>
-          <img
-            src={IconLinkedIn}
-            alt='an icon of LinkedIn'
+          <FontAwesomeIcon
+            style={{ fontSize: '6vh' }}
+            icon={faLinkedinIn}
           />
         </p>
         <p className='label'>LinkedIn</p>
       </a>
       <a
-        className='btn icon'
         target='_blank'
         rel='noreferrer'
-        href='https://github.com/leoelicos?tab=repositories'>
+        href='https://github.com/leoelicos'>
         <p className='image'>
-          <img
-            src={IconGitHub}
-            alt='an icon of GitHub'
+          <FontAwesomeIcon
+            style={{ fontSize: '6vh' }}
+            icon={faGithub}
           />
         </p>
         <p className='label'>GitHub</p>
       </a>
 
       <a
-        id='label-send'
-        value='leoelicos@gmail.com'
-        className='btn-wrapper'
         target='_blank'
         rel='noreferrer'
         href='mailto: leoelicos@gmail.com'>
-        leoelicos@gmail.com
+        <p className='image'>
+          <FontAwesomeIcon
+            style={{ fontSize: '6vh' }}
+            icon={faEnvelope}
+          />
+        </p>
+        Email
       </a>
     </div>
   )

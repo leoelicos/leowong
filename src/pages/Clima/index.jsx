@@ -17,8 +17,8 @@ import useOpenWeatherOneCall from './hooks/useOpenWeatherOneCall'
 import { useEffect, useState } from 'react'
 
 export default function Clima() {
-  useFavicon('/favicons/13-favicon.png')
-  useTitle('WWAG')
+  useFavicon('favicons/13-favicon.png')
+  useTitle('Clima')
   const { savedCities, saveCity } = useLocalStorage()
   const [cityOptions, setCityOptions] = useState([])
   const updateCityOptions = (array) => {
@@ -55,8 +55,6 @@ export default function Clima() {
     updateCity(selectedCity)
     searchCoords(selectedCity.lat, selectedCity.lon)
   }
-
-  // console.log('render', { city })
 
   return (
     <div className='app-13'>

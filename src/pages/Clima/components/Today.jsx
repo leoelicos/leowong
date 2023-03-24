@@ -9,12 +9,9 @@ import Graph from './Graph'
 import useResize from '../hooks/useResize'
 
 function Today({ city }) {
-  // console.log('Today', city)
-
   const [activeGraph, setActiveGraph] = useState(0)
 
   const { hourlyData, current } = city
-  // console.log('Today', { hourlyData, current })
   const hourlyData24 = hourlyData.slice(0, 24)
 
   const d = current

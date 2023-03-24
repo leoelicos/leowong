@@ -8,7 +8,6 @@ const useModal = () => {
   }
 
   const showModal = () => {
-    console.log('Clicked show modal')
     setModal(true)
   }
 

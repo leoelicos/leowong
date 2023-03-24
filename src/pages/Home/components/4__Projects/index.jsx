@@ -1,30 +1,41 @@
-import list from '../../../../data/apps.js'
+import Project from './Project'
 
-import './index.css'
-
-import AppButton from './AppButton'
+import { featuredApps } from '../../../../data/apps.js'
+import './style.css'
 
 export default function Projects() {
   return (
-    <div className='toc'>
-      <div className='body'>
-        <h1 className='header'>FEATURED WORK</h1>
-        <div className='app-buttons'>
-          {list.map(({ title, description, keywords, link, finished, background1, background2, color1, color2 }) => (
-            <AppButton
-              key={title}
-              title={title}
-              description={description}
-              keywords={keywords}
-              link={link}
-              finished={finished}
-              background1={background1}
-              background2={background2}
-              color1={color1}
-              color2={color2}
-            />
-          ))}
-        </div>
+    <div
+      className='projects'
+      id='projects'>
+      <h3 className='projects-header'>Projects</h3>
+      <div className='project-cards'>
+        {featuredApps.map(
+          ({
+            title,
+            description,
+            keywords,
+            link,
+            background1,
+            background2,
+            color1,
+            color2 //
+          }) => {
+            return (
+              <Project
+                key={title}
+                title={title}
+                description={description}
+                keywords={keywords}
+                link={link}
+                background1={background1}
+                background2={background2}
+                color1={color1}
+                color2={color2}
+              />
+            )
+          }
+        )}
       </div>
     </div>
   )

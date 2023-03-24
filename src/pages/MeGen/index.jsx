@@ -33,7 +33,6 @@ export default function HTMLGenerator() {
     const bio = formValues?.formBio || '…'
     const linkedIn = formValues?.formLinkedIn || '…'
     const github = formValues?.formGithub || '…'
-    console.log({ name, location, bio, linkedIn, github })
     return `<html>
 <head>
 </head>
@@ -53,7 +52,6 @@ export default function HTMLGenerator() {
   /* event handlers */
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(formValues)
     const output = getString()
 
     try {

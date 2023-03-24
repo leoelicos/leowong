@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+.home header {
+  position: relative;
+  width: 100%;
+  height: 5vh;
+  background-color: maroon; /* black */
+  color: white;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 2vh;
+  display: flex;
+  align-items: center;
+}
+.home .logo {
+  margin: 0 auto 0 4px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 1vw;
+}
+
+.home nav {
+  flex: 1 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+}
+.home ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.home ul.big {
+  position: absolute;
+  bottom: -15vh;
+  right: 0;
+
+  z-index: 2;
+
+  padding-right: 1vw;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.home ul.big a {
+  height: 5vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.home ul.small {
+  display: none;
+}
+
+.home .hide {
+  display: none !important;
+}
+
+.home button.hamburger {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.home a,
+.home a:active,
+.home a:focus,
+.home a:focus-within,
+.home a:target,
+.home a:hover,
+.home a:visited,
+.home a:focus-visible {
+  text-decoration: none;
+  color: white;
+}
+
+/* medium screens */
+@media screen and (min-width: 700px) {
+  .home button.hamburger {
+    display: none;
+  }
+  .home ul {
+    padding: 0;
+    display: 100%;
+    flex-direction: row;
+    margin: auto;
+  }
+  .home ul a:not(:first-of-type) {
+    margin-left: 4vw;
+  }
+  .home ul.menu.big {
+    display: none;
+  }
+
+  .home ul.menu.small {
+    display: flex;
+  }
+}
+/* large screens */
+@media screen and (min-width: 700px) {
+  .home ul.menu {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* large screens */
+@media screen and (min-width: 1000px) {
+  .home ul.menu {
+    justify-content: center;
+  }
+}

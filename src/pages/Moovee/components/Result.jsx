@@ -27,8 +27,6 @@ const Result = ({
     setIsModalOpen(false)
   }
   const handleClickTrailer = async () => {
-    console.log('clicked')
-
     try {
       setTrailerWasClicked(true)
       setIdxOfClickedTrailer(idx)

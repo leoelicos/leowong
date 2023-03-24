@@ -21,7 +21,6 @@ const useRiddle = () => {
     try {
       setRiddleLoading(true)
       riddle = await fetchRiddle()
-      // console.log('Final', { riddle })
       setRiddleQuestion(spacingRiddle(riddle.riddle))
       setRiddleAnswer(riddle.answer.toLowerCase())
     } catch (error) {

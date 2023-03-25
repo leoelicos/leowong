@@ -2,7 +2,7 @@ const featuredApps = [
   {
     title: 'ingré',
     description: 'home shopping utility',
-    keywords: ['MERN, AntD, Stripe'],
+    keywords: ['mern', 'jwt', 'stripe'],
     link: 'https://ingre.herokuapp.com/',
     background2: [255, 249, 247],
     background1: [255, 214, 201],
@@ -12,27 +12,18 @@ const featuredApps = [
   {
     title: 'submitted!',
     description: 'student dev forum',
-    keywords: ['Handlebars, Sequelize'],
+    keywords: ['ssr', 'sql', 'session'],
     link: 'https://submitted-blog.herokuapp.com',
     background1: [38, 38, 38],
     background2: [166, 166, 166],
     color1: [0, 176, 80],
     color2: [255, 255, 255]
   },
-  {
-    title: 'AlgoZ',
-    description: 'algo blog',
-    keywords: ['react', 'prism', 'algorithms'],
-    link: '/algoz',
-    background1: [125, 188, 234],
-    background2: [255, 255, 255],
-    color1: [34, 42, 53],
-    color2: [255, 255, 255]
-  },
+
   {
     title: "Kiddin'",
     description: 'Baby picture forum',
-    keywords: ['handlebars', 'multer', 'session'],
+    keywords: ['ssr', 'sql', 'multer'],
     link: 'https://just-kidding-baby.herokuapp.com',
     background1: [255, 182, 209],
     background2: [255, 233, 246],
@@ -52,11 +43,21 @@ const featuredApps = [
   {
     title: 'Shopr',
     description: 'Fast Shopping Cart',
-    keywords: ['MERN', 'PWA', 'Stripe'],
+    keywords: ['mern', 'pwa', 'stripe'],
     link: 'https://snapfire-shop.herokuapp.com/',
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
+    color2: [255, 255, 255]
+  },
+  {
+    title: 'Book Search Engine',
+    description: 'about me',
+    keywords: ['gql'],
+    link: '/appname',
+    background1: [125, 188, 234],
+    background2: [255, 255, 255],
+    color1: [34, 42, 53],
     color2: [255, 255, 255]
   }
 ]
@@ -335,8 +336,9 @@ const apps = [
     color1: [181, 95, 38],
     color2: [255, 255, 255]
   },
+
   {
-    title: 'Book Search Engine',
+    title: 'Redux Refactor',
     description: 'about me',
     keywords: ['react'],
     link: '/appname',
@@ -346,13 +348,13 @@ const apps = [
     color2: [255, 255, 255]
   },
   {
-    title: 'Redux Refactor',
-    description: 'about me',
-    keywords: ['react'],
-    link: '/appname',
-    background1: [255, 214, 201],
-    background2: [255, 249, 247],
-    color1: [181, 95, 38],
+    title: 'AlgoZ',
+    description: 'algo blog',
+    keywords: ['react', 'prism', 'algorithms'],
+    link: '/algoz',
+    background1: [125, 188, 234],
+    background2: [255, 255, 255],
+    color1: [34, 42, 53],
     color2: [255, 255, 255]
   }
 ]

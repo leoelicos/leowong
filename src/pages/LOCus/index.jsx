@@ -5,7 +5,9 @@ import Typography from 'antd/es/typography/Typography'
 import { useEffect, useRef, useState } from 'react'
 import useResize from './hooks/useResize'
 
+import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
+import useData from './hooks/useData'
 
 const { Text, Title } = Typography
 const thinBar = {
@@ -22,48 +24,11 @@ const thinBar = {
 const thinBarText = {
   color: 'inherit'
 }
-const useData = () => {
-  const [results, setResults] = useState({ results: [], searchText: '', searchFormat: '' })
-  const [loading, setLoading] = useState(false)
-  const [savedText, setSavedText] = useState('')
-  const [savedFormat, setSavedFormat] = useState('')
 
-  const queryResults = (text, format) => {
-    setSavedText('')
-    setSavedFormat('')
-    setLoading(true)
-
-    fetch(
-      format === undefined //
-        ? `https://loc.gov/search/?q=${text}&fo=json`
-        : `https://loc.gov/${format}/?q=${text}&fo=json`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setResults(
-          data.results
-            .map((d) => ({
-              date: d.date || '',
-              title: d.title || '',
-              url: d.url || '',
-              subject: d.subject || '',
-              description: d.description || ''
-            }))
-            .slice(0, 2)
-        )
-        setSavedText(text)
-        setSavedFormat(format)
-
-        setLoading(false)
-      })
-      .catch((e) => {
-        console.error(e)
-      })
-  }
-
-  return { results, queryResults, loading, savedText, savedFormat }
-}
 function LibrarySearchTool() {
+  useTitle('Library of Congress')
+  useFavicon('favicons/locus.png')
+
   /* state */
   const [resultPage, setResultPage] = useState(false)
   const [form] = Form.useForm()
@@ -81,8 +46,6 @@ function LibrarySearchTool() {
     form.resetFields()
     queryResults(e['search-text'], e['search-format'])
   }
-
-  useTitle('Library of Congress')
 
   return (
     <Layout

@@ -7,7 +7,7 @@ function ProjectTrackerHeader({ time, showModal }) {
   const dateString = d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
   return (
     <div>
-      <Title level={1}>Project Tracker</Title>
+      <Title level={1}>Jobby</Title>
       <Title level={2}>
         Time&ensp;<span id='time-display'>{timeString}</span>
       </Title>

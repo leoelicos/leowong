@@ -14,7 +14,10 @@ import TimeBlock from './components/TimeBlock'
 /* style */
 import './css/index.css'
 
-export default function DayPlanner() {
+export default function Hourly() {
+  useFavicon('favicons/hourly.png')
+  useTitle(now.toLocaleDateString('en-US', { weekday: 'long' }))
+
   /* state */
   const [toggle, setToggle] = useState(false)
 
@@ -22,8 +25,6 @@ export default function DayPlanner() {
   const { schedule, addToSchedule } = useData()
   const now = useTime()
   const weather = useWeather()
-  useFavicon('favicons/11-favicon.png')
-  useTitle(now.toLocaleDateString('en-US', { weekday: 'long' }))
 
   /* event handlers */
   const handleToggle = () => {

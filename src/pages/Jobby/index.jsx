@@ -11,8 +11,13 @@ import HelpModal from './components/HelpModal'
 import useTime from './hooks/useTime'
 import useData from './hooks/useData'
 import useModal from './hooks/useModal'
+import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
 
 export default function ProjectTracker() {
+  useTitle('Jobby')
+  useFavicon('favicons/jobby.png')
+
   /* time */
   const time = useTime()
 

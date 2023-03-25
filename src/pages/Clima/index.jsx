@@ -17,8 +17,9 @@ import useOpenWeatherOneCall from './hooks/useOpenWeatherOneCall'
 import { useEffect, useState } from 'react'
 
 export default function Clima() {
-  useFavicon('favicons/13-favicon.png')
   useTitle('Clima')
+  useFavicon('favicons/clima.png')
+
   const { savedCities, saveCity } = useLocalStorage()
   const [cityOptions, setCityOptions] = useState([])
   const updateCityOptions = (array) => {

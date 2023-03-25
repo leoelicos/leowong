@@ -1,6 +1,8 @@
 // import './css/style.css'
 import { Button, Input, notification, Layout, Card, Space, Checkbox, Row, Col, Slider, InputNumber } from 'antd'
 import React, { useMemo, useState } from 'react'
+import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
 const { Header, Content, Footer } = Layout
 const { TextArea } = Input
 const headerStyle = {
@@ -21,6 +23,9 @@ const Context = React.createContext({
   name: 'Default'
 })
 export default function PasswordGenerator() {
+  useFavicon('favicons/passo.png')
+  useTitle('Passo')
+
   const [password, setPassword] = useState('')
   const [options, setOptions] = useState([false, false, false, false])
   const plainOptions = ['Lowercase', 'Uppercase', 'Numbers', 'Symbols']

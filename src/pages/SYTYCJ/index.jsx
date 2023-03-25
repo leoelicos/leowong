@@ -16,6 +16,8 @@ import Header from './components/Header'
 
 /* style */
 import './style/style.css'
+import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
 
 export default function CodeQuiz() {
   /* state */
@@ -31,12 +33,8 @@ export default function CodeQuiz() {
   const [secondsLeft, startTimer, stopTimer, resetTimer, penalize] = useTimer(60)
 
   /* effect */
-  useEffect(() => {
-    document.querySelector('#favicon').setAttribute('href', 'favicons/09-favicon.png')
-    return () => {
-      document.querySelector('#favicon').setAttribute('href', 'favicons/00-favicon.png')
-    }
-  }, [])
+  useTitle('SYTYCJ')
+  useFavicon('favicons/sytycj.png')
 
   useEffect(() => {
     localStorage.setItem('hs', JSON.stringify(highScores))

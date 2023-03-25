@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { getWord } from './data/wordlist'
+import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
 
 import Body from './components/Body'
 import Header from './components/Header'
@@ -15,6 +17,10 @@ import HelpModal from './components/Footer/HelpModal.jsx'
 import useTimer from './hooks/useTimer'
 
 export default function WordGuess() {
+  /* setup */
+  useFavicon('favicons/kiddle.png')
+  useTitle('Kiddle')
+
   /* state */
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [buttonMessage, setButtonMessage] = useState('Start')

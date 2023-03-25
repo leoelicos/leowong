@@ -21,8 +21,9 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faFaceMehBlank } from '@fortawesome/free-solid-svg-icons'
 
 export default function MooVee() {
-  useFavicon('favicons/14-favicon.png')
   useTitle('MOOVEE')
+  useFavicon('favicons/moovee.png')
+
   let hasSearched = useRef(false)
 
   const [idxOfClickedTrailer, setIdxOfClickedTrailer] = useState(-1)

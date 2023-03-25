@@ -8,7 +8,7 @@ import Resume from './components/5__Resume/index.jsx'
 
 import './style.css'
 export default function Home() {
-  useFavicon('favicons/00-favicon.png')
+  useFavicon('favicons/home.png')
   useTitle('Leo Wong')
   return (
     <div className='home'>

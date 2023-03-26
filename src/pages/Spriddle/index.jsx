@@ -12,6 +12,9 @@ import useTimer from './hooks/useTimer.jsx'
 import './style/index.css'
 
 const Spriddle = () => {
+  useTitle('Spriddle')
+  useFavicon('favicons/spriddle.png')
+
   const PAGE_SPLASH = 0
   const PAGE_PREGAME = 1
   const PAGE_GAME = 2

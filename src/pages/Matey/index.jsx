@@ -1,3 +1,5 @@
-export default function SocialNetworkAPI() {
-  return <div>SocialNetworkAPI</div>
+export default function Matey() {
+  useTitle('Matey')
+  useFavicon('favicons/matey.png')
+  return <div>Matey</div>
 }

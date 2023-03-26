@@ -1,3 +1,5 @@
-export default function BookSearchEngine() {
-  return <div>BookSearchEngine</div>
+export default function Readr() {
+  useTitle('Reader')
+  useFavicon('favicons/readr.png')
+  return <div>Readr</div>
 }

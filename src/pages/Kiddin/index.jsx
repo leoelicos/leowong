@@ -3,6 +3,6 @@ import useFavicon from '../../hooks/useFavicon'
 
 export default function JustKidding() {
   useTitle('Kiddin')
-  useFavicon('/favicons/27-favicon.png')
+  useFavicon('/favicons/kiddin.png')
   return <div>JustKidding</div>
 }

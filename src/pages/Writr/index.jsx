@@ -1,4 +1,8 @@
-export default function NoteTaker() {
+import useFavicon from '../../hooks/useFavicon'
+
+export default function Writr() {
+  useTitle('Writr')
+  useFavicon('favicons/writr.png')
   return (
     <div>
       <p>NoteTaker</p>

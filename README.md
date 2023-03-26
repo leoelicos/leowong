@@ -1,53 +1,87 @@
-# BCS
+# Leo Wong
 
-A collection of my [bootcamp](https://techbootcamp.sydney.edu.au/coding) projects rewritten in React.
+A portfolio of my work. Many of the projects were originally part of my coding bootcamp, but I have refactored them into React where possible, and where backend is absent have put them into this monorepo where possible. The idea is to clean up my GitHub repo of small components that I had when I started learning and organise them into meaningful, non-chronological categories: Search, Ecommerce, Games, Forums, Management, Editors, Articles, APIs and Utilities. The starred apps are ones I spent significant time developing.
 
-## Projects
+## Search
 
-\* Featured
+| App        | Description           | Deployed                                                | Code                                                                |
+| ---------- | --------------------- | ------------------------------------------------------- | ------------------------------------------------------------------- |
+| ingré\*\*  | home shopping utility | [Deployed](https://ingre.herokuapp.com)                 | [Code](https://github.com/leoelicos/ingre)                          |
+| Readr\*\*  | book search           | [Deployed](https://leoelicos-googlebooks.herokuapp.com) | [Code](https://github.com/leoelicos/book-search-engine)             |
+| MOOVEE\*\* | find movie trailers   | [Deployed](https://leowong.vercel.app/moovee)           | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/moovee) |
+| LOCus      | library search tool   | [Deployed](https://leowong.vercel.app/locus)            | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/locus)  |
+| Clima      | openweather dashboard | [Deployed](https://leowong.vercel.app/clima)            | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/clima)  |
 
-| W     | Name           | Description              | Keywords                       |
-| ----- | -------------- | ------------------------ | ------------------------------ |
-| 1     | About          | about me                 | react                          |
-| 2     | Design         | personal landing         | react                          |
-| 3     | Agency         | company landing          | react                          |
-| 4     | Style Snippets | css cheatsheet           | react                          |
-| 5     | Portfolio      | professional portfolio   | react                          |
-| 6     | RPS            | rock paper scissors      | react                          |
-| 7     | PasswordX      | password maker           | react                          |
-| 8     | KIDDLE         | word game for kids       | react                          |
-| 9     | SYTYCJ         | timed quiz               | react                          |
-| 10    | DevTrak        | project tracker          | react                          |
-| 11    | TaskTrak       | day planner              | react, openweather, ipregistry |
-| 12    | LibFind        | library search tool      | react, library of congress     |
-| 13 \* | WeatherX       | forecast panels          | react, openweather, svg        |
-| 14 \* | MOOVEE         | find movie trailers      | react, googleapi, omdb         |
-| 15    | PortfolioX     | html wysiwig editor      | react, iframe                  |
-| 16    | ReadmeX        | markdown wysiwig editor  | react, marked-react            |
-| 17    | SPRIDDLE       | word guess               | react                          |
-| 18    | TeamX          | team maker               | react, idb                     |
-| 19    | Dev Tips       | diagnostic routes        | react, express                 |
-| 20    | NoteX          | server-stored note taker | react, express                 |
-| 21    | Movies API     | movie database api       | react, mysql2                  |
-| 22    | Employees API  | employee cms api         | react, mysql2                  |
-| 24    | Trips API      | trip database api        | react, sequelize               |
-| 24    | Products API   | product database api     | react, sequelize               |
-| 25    | AddVenture     | crowdfunding api         | handlebars, express, sequelize |
-| 26 \* | Submitted      | wordpress style blog     | handlebars, express, sequelize |
-| 27 \* | Just Kidding   | baby image forum         | handlebars, express, sequelize |
-| 28 \* | AlgoRhythm     | algorithm blog           | react, prism                   |
-| 29    | RegExplained   | regex tutorial           | react, regex                   |
-| 30    | Students API   | student assignment api   | mongodb                        |
-| 31    | snapi          | social network api       | mongodb                        |
-| 32    | iContact Cards | contacts utility         | webpack, pwa                   |
-| 33    | JATE           | js supported editor      | webpack, pwa                   |
-| 34    | Bucket List    | task tracker             | react                          |
-| 35    | Pastel Profile | themed portfolio         | react                          |
-| 36    | Tech Battle    |                          |                                |
-| 37    | BookFind       |                          |                                |
-| 38    | Digital Garage |                          |                                |
-| 39    | Snapfire Shop  |                          |                                |
-| 40    | ingre          | home shopping utility    | react, express, mongodb        |
+## Ecommerce
+
+| App       | Description          | Deployed                                        | Code                                                               |
+| --------- | -------------------- | ----------------------------------------------- | ------------------------------------------------------------------ |
+| Shopr\*\* | fast shopping cart   | [Deployed](https://snapfire-shop.herokuapp.com) | [Code](https://github.com/leoelicos/snapfire-shop)                 |
+| Taggr     | product database api | [Deployed](https://leowong.vercel.app/taggr)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/taggr) |
+
+## Games
+
+| App      | Description         | Deployed                                        | Code                                                                  |
+| -------- | ------------------- | ----------------------------------------------- | --------------------------------------------------------------------- |
+| Kiddle   | word game for kids  | [Deployed](https://leowong.vercel.app/kiddle)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/kiddle)   |
+| Spriddle | word guess          | [Deployed](https://leowong.vercel.app/spriddle) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/spriddle) |
+| SYTYCJ   | timed quiz          | [Deployed](https://leowong.vercel.app/sytycj)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/sytycj)   |
+| 123Go    | rock paper scissors | [Deployed](https://leowong.vercel.app/123go)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/123go)    |
+
+## Forums
+
+| App            | Description       | Deployed                                            | Code                                                                 |
+| -------------- | ----------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
+| submitted!\*\* | student dev blog  | [Deployed](https://submitted-blog.herokuapp.com)    | [Code](https://github.com/leoelicos/submitted)                       |
+| kiddin'\*\*    | baby image forum  | [Deployed](https://just-kidding-baby.herokuapp.com) | [Code](https://github.com/leoelicos/just-kidding)                    |
+| DevTips        | diagnostic routes | [Deployed](https://leowong.vercel.app/devtips)      | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/devtips) |
+
+## Management
+
+| App     | Description          | Deployed                                       | Code                                                                 |
+| ------- | -------------------- | ---------------------------------------------- | -------------------------------------------------------------------- |
+| Hourly  | day planner          | [Deployed](https://leowong.vercel.app/hourly)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/hourly)  |
+| Emply   | team maker           | [Deployed](https://leowong.vercel.app/emply)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/emply)   |
+| Jobby   | project tracker      | [Deployed](https://leowong.vercel.app/jobby)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/jobby)   |
+| Clist   | contact list utility | [Deployed](https://leowong.vercel.app/clist)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/clist)   |
+| Buckets | bucket list tracker  | [Deployed](https://leowong.vercel.app/buckets) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/buckets) |
+
+## Editors
+
+| App   | Description             | Deployed                                     | Code                                                               |
+| ----- | ----------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| Docu  | readme editor           | [Deployed](https://leowong.vercel.app/docu)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/docu)  |
+| Writr | server persistent notes | [Deployed](https://leowong.vercel.app/writr) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/writr) |
+| Txtly | js supported editor     | [Deployed](https://leowong.vercel.app/txtly) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/txtly) |
+
+## Articles
+
+| App     | Description    | Deployed                                       | Code                                                                 |
+| ------- | -------------- | ---------------------------------------------- | -------------------------------------------------------------------- |
+| RegExpo | regex tutorial | [Deployed](https://leowong.vercel.app/regexpo) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/regexpo) |
+| Algoz   | algorithm blog | [Deployed](https://leowong.vercel.app/algoz)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/algoz)   |
+
+## APIs
+
+| App    | Description            | Deployed                                      | Code                                                                |
+| ------ | ---------------------- | --------------------------------------------- | ------------------------------------------------------------------- |
+| Depto  | employee cms api       | [Deployed](https://leowong.vercel.app/depto)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/depto)  |
+| Matey  | social network api     | [Deployed](https://leowong.vercel.app/matey)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/matey)  |
+| Cinem  | movie database api     | [Deployed](https://leowong.vercel.app/cinem)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/cinem)  |
+| Wander | trip database api      | [Deployed](https://leowong.vercel.app/wander) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/wander) |
+| Fundr  | crowdfund projects api | [Deployed](https://leowong.vercel.app/fundr)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/fundr)  |
+| Grader | student assignment api | [Deployed](https://leowong.vercel.app/grader) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/grader) |
+
+## Utilities
+
+| App   | Description             | Deployed                                     | Code                                                               |
+| ----- | ----------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| Passo | password maker          | [Deployed](https://leowong.vercel.app/passo) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/passo) |
+| MeGen | profile generator       | [Deployed](https://leowong.vercel.app/megen) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/megen) |
+| Vroom | car tracker             | [Deployed](https://leowong.vercel.app/vroom) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/vroom) |
+| Votr  | server-persistent votes | [Deployed](https://leowong.vercel.app/votr)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/votr)  |
+
+_\* featured_
 
 ## Learn More
 
@@ -55,11 +89,7 @@ You can learn about the projects at [The Coding Boot Camp at the University of S
 
 ### Deployment
 
-The apps are deployed at [bcs40.vercel.app](bcs40.vercel.app)
-
-## Credits
-
-- [The Coding Boot Camp at the University of Sydney](https://techbootcamp.sydney.edu.au/coding)
+The apps are deployed at [leowong.vercel.app](https://leowong.vercel.app)
 
 ## License
 

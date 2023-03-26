@@ -5,6 +5,8 @@ import Bucket from './components/Bucket'
 import './style/index.css'
 
 export default function Buckets() {
+  useTitle('Buckets')
+  useFavicon('favicons/buckets.png')
   const [bucket, setBucket] = useState([])
 
   const addBucketItem = (item) => {

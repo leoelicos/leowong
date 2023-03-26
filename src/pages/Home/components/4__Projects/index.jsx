@@ -1,16 +1,17 @@
 import Project from './Project'
 
-import { featuredApps } from '../../../../data/apps.js'
+import apps from '../../../../data/apps.js'
 import './style.css'
 
 export default function Projects() {
+  const projects = apps.filter((app) => ['ingre', 'submitted', 'shopr', 'kiddin', 'moovee', 'readr'].includes(app.endpoint))
   return (
     <div
       className='projects'
       id='projects'>
       <h3 className='projects-header'>Projects</h3>
       <div className='project-cards'>
-        {featuredApps.map(
+        {projects.map(
           ({
             title,
             description,

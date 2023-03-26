@@ -9,6 +9,8 @@ import { faReact } from '@fortawesome/free-brands-svg-icons'
 import Main from './components/Main'
 
 export default function Employ() {
+  useTitle('Emply')
+  useFavicon('favicons/emply.png')
   return (
     <div className='app-18'>
       <div className='body'>

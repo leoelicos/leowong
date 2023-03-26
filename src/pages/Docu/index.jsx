@@ -2,9 +2,10 @@ import './css/index.css'
 import Markdown from 'marked-react'
 
 import data from './data/types'
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState, createContext } from 'react'
 
 import { Button, notification, Tooltip } from 'antd'
+import useFavicon from '../../hooks/useFavicon'
 
 const Header = ({ children }) => {
   return <header>{children}</header>
@@ -17,10 +18,14 @@ const Content = ({ children }) => {
 const Footer = ({ children }) => {
   return <footer>{children}</footer>
 }
-const Context = React.createContext({
+const Context = createContext({
   name: 'Default'
 })
+
 export default function Docu() {
+  useTitle('Docu')
+  useFavicon('favicons/docu.png')
+
   const initialTypes = data.map((t) => ({ ...t, key: t.name, selected: false }))
 
   const [types, setTypes] = useState(initialTypes)

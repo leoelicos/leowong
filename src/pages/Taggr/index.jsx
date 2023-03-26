@@ -1,3 +1,5 @@
-export default function ECommerceBackEnd() {
-  return <div>ECommerceBackEnd</div>
+export default function Taggr() {
+  useTitle('Taggr')
+  useFavicon('favicons/taggr.png')
+  return <div>Taggr</div>
 }

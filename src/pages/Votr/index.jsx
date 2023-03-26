@@ -1,3 +1,3 @@
-export default function TechMatchupApp() {
-  return <div>TechMatchupApp</div>
+export default function Votr() {
+  return <div>Votr</div>
 }

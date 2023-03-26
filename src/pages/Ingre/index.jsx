@@ -3,6 +3,6 @@ import useFavicon from '../../hooks/useFavicon'
 
 export default function Ingre() {
   useTitle('ingré')
-  useFavicon('favicons/40-favicon.png')
+  useFavicon('favicons/ingre.png')
   return null
 }

@@ -1,9 +1,3 @@
-/* ant modal is the last sibling of react's root element
-? Sibling 1: createRoot
-? Sibling 2: antd Select Options (history)
-? Sibling 3: antd Modal (trailer)
-*/
-
 .app-14__modal {
   height: 100%;
   width: 100% !important;

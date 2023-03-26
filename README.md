@@ -30,11 +30,12 @@ A portfolio of my work. Many of the projects were originally part of my coding b
 
 ## Forums
 
-| App            | Description       | Deployed                                            | Code                                                                 |
-| -------------- | ----------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
-| submitted!\*\* | student dev blog  | [Deployed](https://submitted-blog.herokuapp.com)    | [Code](https://github.com/leoelicos/submitted)                       |
-| kiddin'\*\*    | baby image forum  | [Deployed](https://just-kidding-baby.herokuapp.com) | [Code](https://github.com/leoelicos/just-kidding)                    |
-| DevTips        | diagnostic routes | [Deployed](https://leowong.vercel.app/devtips)      | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/devtips) |
+| App            | Description             | Deployed                                            | Code                                                                 |
+| -------------- | ----------------------- | --------------------------------------------------- | -------------------------------------------------------------------- |
+| submitted!\*\* | student dev blog        | [Deployed](https://submitted-blog.herokuapp.com)    | [Code](https://github.com/leoelicos/submitted)                       |
+| kiddin'\*\*    | baby image forum        | [Deployed](https://just-kidding-baby.herokuapp.com) | [Code](https://github.com/leoelicos/just-kidding)                    |
+| DevTips        | diagnostic routes       | [Deployed](https://leowong.vercel.app/devtips)      | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/devtips) |
+| Votr           | server-persistent votes | [Deployed](https://leowong.vercel.app/votr)         | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/votr)    |
 
 ## Management
 
@@ -45,6 +46,7 @@ A portfolio of my work. Many of the projects were originally part of my coding b
 | Jobby   | project tracker      | [Deployed](https://leowong.vercel.app/jobby)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/jobby)   |
 | Clist   | contact list utility | [Deployed](https://leowong.vercel.app/clist)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/clist)   |
 | Buckets | bucket list tracker  | [Deployed](https://leowong.vercel.app/buckets) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/buckets) |
+| Vroom   | car tracker          | [Deployed](https://leowong.vercel.app/vroom)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/vroom)   |
 
 ## Editors
 
@@ -74,12 +76,10 @@ A portfolio of my work. Many of the projects were originally part of my coding b
 
 ## Utilities
 
-| App   | Description             | Deployed                                     | Code                                                               |
-| ----- | ----------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
-| Passo | password maker          | [Deployed](https://leowong.vercel.app/passo) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/passo) |
-| MeGen | profile generator       | [Deployed](https://leowong.vercel.app/megen) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/megen) |
-| Vroom | car tracker             | [Deployed](https://leowong.vercel.app/vroom) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/vroom) |
-| Votr  | server-persistent votes | [Deployed](https://leowong.vercel.app/votr)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/votr)  |
+| App   | Description       | Deployed                                     | Code                                                               |
+| ----- | ----------------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| Passo | password maker    | [Deployed](https://leowong.vercel.app/passo) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/passo) |
+| MeGen | profile generator | [Deployed](https://leowong.vercel.app/megen) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/megen) |
 
 _\* featured_
 

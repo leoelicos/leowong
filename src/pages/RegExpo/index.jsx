@@ -2,29 +2,32 @@ import { ConfigProvider, Layout } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
 import Title from 'antd/es/typography/Title'
 
-export default function RegexTutorial() {
-  const headerStyle = {
-    textAlign: 'center',
-    color: '#fff',
-    height: '84px',
-    paddingInline: '50px',
-    lineHeight: '64px',
-    backgroundColor: '#7dbcea',
-    width: '100%'
-  }
-  const contentStyle = {
-    minHeight: '120px',
-    color: '#000',
-    backgroundColor: '#ddd',
-    flex: '1',
-    maxWidth: '500px',
-    fontSize: '1.15rem',
-    fontWeight: 'bold',
-    fontFamily: 'Open Sans, sans-serif',
-    textAlign: 'left',
-    padding: '2rem',
-    whiteSpace: 'break-spaces'
-  }
+const headerStyle = {
+  textAlign: 'center',
+  color: '#fff',
+  height: '84px',
+  paddingInline: '50px',
+  lineHeight: '64px',
+  backgroundColor: '#7dbcea',
+  width: '100%'
+}
+const contentStyle = {
+  minHeight: '120px',
+  color: '#000',
+  backgroundColor: '#ddd',
+  flex: '1',
+  maxWidth: '500px',
+  fontSize: '1.15rem',
+  fontWeight: 'bold',
+  fontFamily: 'Open Sans, sans-serif',
+  textAlign: 'left',
+  padding: '2rem',
+  whiteSpace: 'break-spaces'
+}
+
+export default function RegExpo() {
+  useTitle('RegExpo')
+  useFavicon('favicons/regexpo.png')
   return (
     <div className='app-29'>
       <div

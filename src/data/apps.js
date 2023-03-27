@@ -5,7 +5,7 @@ import Moovee from '../pages/Moovee/index.jsx'
 import OneTwoThreeGo from '../pages/Onetwothreego/index.jsx'
 import Passo from '../pages/Passo/index.jsx'
 import Kiddle from '../pages/Kiddle/index.jsx'
-import Syt from '../pages/Syt/index.jsx'
+import Sytycj from '../pages/Sytycj/index.jsx'
 import Jobby from '../pages/Jobby/index.jsx'
 import Clima from '../pages/Clima/index.jsx'
 import Locus from '../pages/Locus/index.jsx'
@@ -240,7 +240,7 @@ const appData = {
     apis: [],
     frontEndTech: ['react'],
     backEndTech: [],
-    element: <Syt />
+    element: <Sytycj />
   },
   jobby: {
     endpoint: 'jobby',

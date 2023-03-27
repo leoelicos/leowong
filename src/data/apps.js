@@ -1,5 +1,5 @@
-const apps = [
-  {
+const appData = {
+  ingre: {
     endpoint: 'ingre',
     link: 'https://ingre.herokuapp.com/',
     code: 'https://github.com/leoelicos/ingre',
@@ -9,9 +9,15 @@ const apps = [
     background2: [255, 249, 247],
     background1: [255, 214, 201],
     color1: [181, 95, 38],
-    color2: [0, 0, 0]
+    color2: [0, 0, 0],
+    userStory: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
+    businessRequirements: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
+    apis: ['Edamam API'],
+    frontEndTech: ['react', 'react router', 'apollo/client', 'ant design', 'jwt decode', 'react masonry css', 'pluralize', 'axios', 'stripe'],
+    backEndTech: ['mongoose', 'express', 'apollo-server-express', 'graphql', 'stripe', 'jsonwebtoken', 'bcrypt', 'dotenv']
   },
-  {
+
+  submitted: {
     endpoint: 'submitted',
     link: 'https://submitted-blog.herokuapp.com',
     code: 'https://github.com/leoelicos/submitted',
@@ -21,58 +27,83 @@ const apps = [
     background1: [38, 38, 38],
     background2: [166, 166, 166],
     color1: [0, 176, 80],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [],
+    frontEndTech: [],
+    backEndTech: ['bcrypt', 'connect-session-sequelize', 'dotenv', 'express', 'express-handlebars', 'express-session', 'mysql2', 'sequelize']
   },
 
-  {
+  kiddin: {
     endpoint: 'kiddin',
     link: 'https://just-kidding-baby.herokuapp.com',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/kiddin',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Kiddin',
     title: "Kiddin'",
     description: 'Baby picture forum',
     keywords: ['ssr', 'sql', 'multer'],
     background1: [255, 182, 209],
     background2: [255, 233, 246],
     color1: [23, 73, 77],
-    color2: [61, 141, 174]
+    color2: [61, 141, 174],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  moovee: {
     endpoint: 'moovee',
     link: 'https://leowong.vercel.com/moovee',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/moovee',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Moovee',
     title: 'MOOVEE',
     description: 'find movie trailers',
     keywords: ['react', 'gapi', 'omdb'],
     background1: [38, 38, 27],
     background2: [166, 166, 166],
     color1: [255, 255, 255],
-    color2: [237, 125, 49]
+    color2: [237, 125, 49],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  shopr: {
     endpoint: 'shopr',
     link: 'https://snapfire-shop.herokuapp.com/',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/shopr',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Shopr',
     title: 'Shopr',
     description: 'Fast Shopping Cart',
     keywords: ['mern', 'pwa', 'stripe'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  readr: {
     endpoint: 'readr',
     link: 'https://leoelicos-googlebooks.herokuapp.com',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/readr',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Readr',
     title: 'Readr',
     description: 'book search engine',
     keywords: ['gql'],
     background1: [125, 188, 234],
     background2: [255, 255, 255],
     color1: [34, 42, 53],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  _123go: {
     endpoint: '123go',
     link: '/123go',
     code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/123go',
@@ -82,193 +113,273 @@ const apps = [
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  passo: {
     endpoint: 'passo',
     link: '/passo',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/passo',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Passo',
     title: 'Passo',
     description: 'password generator',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  kiddle: {
     endpoint: 'kiddle',
     link: 'https://leowong.vercel.com/kiddle',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/kiddle',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Kiddle',
     title: 'Kiddle',
     description: 'wordle for kids',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  sytycj: {
     endpoint: 'sytycj',
     link: 'https://leowong.vercel.com/sytycj',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/sytycj',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Sytycj',
     title: 'SYTYCJ',
     description: 'Javascript quiz',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  jobby: {
     endpoint: 'jobby',
     link: 'https://leowong.vercel.com/jobby',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/jobby',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Jobby',
     title: 'Jobby',
     description: 'project tracker',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  hourly: {
     endpoint: 'hourly',
     link: 'https://leowong.vercel.com/hourly',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/hourly',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Hourly',
     title: 'Hourly',
     description: 'about me',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  clima: {
     endpoint: 'clima',
     link: 'https://leowong.vercel.com/clima',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/clima',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Clima',
     title: 'Clima',
     description: 'weather dashboard',
     keywords: ['react', 'openweather', 'SVG'],
     background1: [81, 61, 110],
     background2: [203, 197, 212],
     color1: [255, 255, 255],
-    color2: [217, 217, 217]
+    color2: [217, 217, 217],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  locus: {
     endpoint: 'locus',
     link: 'https://leowong.vercel.com/locus',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/locus',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locus',
     title: 'LOCus',
     description: 'library search tool',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
 
-  {
+  megen: {
     endpoint: 'megen',
     link: 'https://leowong.vercel.com/megen',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/megen',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Megen',
     title: 'MeGen',
     description: 'about me generator',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  docu: {
     endpoint: 'docu',
     link: 'https://leowong.vercel.com/docu',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/docu',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Docu',
     title: 'Docu',
     description: 'about me',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  spriddle: {
     endpoint: 'spriddle',
     link: 'https://leowong.vercel.com/spriddle',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/spriddle',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Spriddle',
     title: 'Spriddle',
     description: 'speed riddle',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  emply: {
     endpoint: 'emply',
     link: 'https://leowong.vercel.com/emply',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/emply',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Emply',
     title: 'Emply',
     description: 'team generator',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
 
-  {
+  writr: {
     endpoint: 'writr',
     link: 'https://leowong.vercel.com/writr',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/writr',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Writr',
     title: 'Writr',
     description: 'server persistent notes',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  devtips: {
     endpoint: 'devtips',
     link: 'https://leowong.vercel.com/devtips',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/devtips',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Devtips',
     title: 'DevTips',
     description: 'about me',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  depto: {
     endpoint: 'depto',
     link: 'https://leowong.vercel.com/depto',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/depto',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Depto',
     title: 'Depto',
     description: 'Employee CMS',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  cinem: {
     endpoint: 'cinem',
     link: 'https://leowong.vercel.com/cinem',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/cinem',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Cinem',
     title: 'Cinem',
     description: 'Movie Database',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
-    endpoint: 'Taggr',
-    link: 'https://leowong.vercel.com/Taggr',
+  taggr: {
+    endpoint: 'taggr',
+    link: 'https://leowong.vercel.com/taggr',
     code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Taggr',
     title: 'Taggr',
     description: 'ecommerce back end',
@@ -276,49 +387,69 @@ const apps = [
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  wander: {
     endpoint: 'wander',
     link: 'https://leowong.vercel.com/wander',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/wander',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Wander',
     title: 'Wander',
     description: 'trips database',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
 
-  {
+  fundr: {
     endpoint: 'fundr',
     link: 'https://leowong.vercel.com/fundr',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/fundr',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Fundr',
     title: 'Fundr',
     description: 'crowdfunding api',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
 
-  {
+  regexpo: {
     endpoint: 'regexpo',
     link: 'https://leowong.vercel.com/regexpo',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/regexpo',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Regexpo',
     title: 'RegExpo',
     description: 'regex tutorial',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
-    endpoint: 'Grader',
-    link: 'https://leowong.vercel.com/Grader',
+  grader: {
+    endpoint: 'grader',
+    link: 'https://leowong.vercel.com/grader',
     code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Grader',
     title: 'Grader',
     description: 'student grades api',
@@ -326,93 +457,133 @@ const apps = [
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  matey: {
     endpoint: 'matey',
     link: 'https://leowong.vercel.com/matey',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/matey',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Matey',
     title: 'Matey',
     description: 'Social Network API',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  clist: {
     endpoint: 'clist',
     link: 'https://leowong.vercel.com/clist',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/clist',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Clist',
     title: 'Clist',
     description: 'contacts utility',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  txtly: {
     endpoint: 'txtly',
     link: 'https://leowong.vercel.com/txtly',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/txtly',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Txtly',
     title: 'Txtly',
     description: 'offline text editor',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  wants: {
     endpoint: 'wants',
     link: 'https://leowong.vercel.com/wants',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/wants',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Wants',
     title: 'Wants',
     description: 'about me',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
 
-  {
+  votr: {
     endpoint: 'votr',
     link: 'https://leowong.vercel.com/votr',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/votr',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Votr',
     title: 'Votr',
     description: 'about me',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
 
-  {
+  vroom: {
     endpoint: 'vroom',
     link: 'https://leowong.vercel.com/vroom',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/vroom',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Vroom',
     title: 'Vroom',
     description: 'car tracker',
     keywords: ['react'],
     background1: [255, 214, 201],
     background2: [255, 249, 247],
     color1: [181, 95, 38],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   },
-  {
+  algoz: {
     endpoint: 'algoz',
     link: 'https://leowong.vercel.com/algoz',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/algoz',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Algoz',
     title: 'AlgoZ',
     description: 'algo blog',
     keywords: ['react', 'prism', 'algorithms'],
     background1: [125, 188, 234],
     background2: [255, 255, 255],
     color1: [34, 42, 53],
-    color2: [255, 255, 255]
+    color2: [255, 255, 255],
+    userStory: '',
+    businessRequirements: '',
+    apis: [''],
+    frontEndTech: ['react'],
+    backEndTech: ['']
   }
-]
-export default apps
+}
+export default appData

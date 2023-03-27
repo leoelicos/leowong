@@ -3,7 +3,7 @@ import Project from '../Home/components/4__Projects/Project.jsx'
 import appData from '../../data/apps.js'
 import './style.css'
 import GradientText from '../../components/GradientText/index.jsx'
-const { ingre, readr, moovee, shopr, submitted, kiddin, locu, taggr, spriddle, syt, onetwothreego, devtips, votr, hourly, emply, clist, vroom, docu, writr, txtly, regexpo, algoz, depto, cinem, wander, grader, passo, megen } = appData
+const { ingre, readr, moovee, shopr, submitted, kiddin, locu, taggr, spriddle, syt, onetwothreego, devtips, votr, hourly, emply, clist, vroom, docu, writr, txtly, regexpo, algoz, depto, cinem, wander, grader, passo, meg } = appData
 
 function Projects({ projects }) {
   return (
@@ -30,7 +30,7 @@ export default function All() {
   const articles = [regexpo, algoz]
   const apis = [depto, cinem, wander, grader] // removed fundr for maintenance
   // also removed matey for maintenance
-  const generators = [passo, megen]
+  const generators = [passo, meg]
 
   return (
     <div className='all'>

@@ -6,6 +6,7 @@ import { useMemo, useState, createContext } from 'react'
 
 import { Button, notification, Tooltip } from 'antd'
 import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
 
 const Header = ({ children }) => {
   return <header>{children}</header>
@@ -24,7 +25,7 @@ const Context = createContext({
 
 export default function Docu() {
   useTitle('Docu')
-  useFavicon('favicons/docu.png')
+  useFavicon('/favicons/docu.png')
 
   const initialTypes = data.map((t) => ({ ...t, key: t.name, selected: false }))
 

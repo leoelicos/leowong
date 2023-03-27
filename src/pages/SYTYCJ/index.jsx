@@ -34,7 +34,7 @@ export default function CodeQuiz() {
 
   /* effect */
   useTitle('SYTYCJ')
-  useFavicon('favicons/sytycj.png')
+  useFavicon('/favicons/sytycj.png')
 
   useEffect(() => {
     localStorage.setItem('hs', JSON.stringify(highScores))

@@ -23,7 +23,7 @@ const Context = React.createContext({
   name: 'Default'
 })
 export default function PasswordGenerator() {
-  useFavicon('favicons/passo.png')
+  useFavicon('/favicons/passo.png')
   useTitle('Passo')
 
   const [password, setPassword] = useState('')

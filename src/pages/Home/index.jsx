@@ -8,8 +8,16 @@ import Resume from './components/5__Resume/index.jsx'
 
 import './style.css'
 export default function Home() {
-  useFavicon('favicons/home.png')
+  useFavicon('/favicons/home.png')
   useTitle('Leo Wong')
+
+  setTimeout(() => {
+    const hash = window.location.hash
+    const id = hash === '#about' ? 'about' : hash === '#projects' ? 'projects' : hash === '#resume' ? 'resume' : 'top'
+    const element = document.getElementById(id)
+    element.scrollIntoView({ alignToTop: true })
+  }, 0)
+
   return (
     <div className='home'>
       <Header />

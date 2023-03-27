@@ -25,7 +25,7 @@ const thinBarText = {
   color: 'inherit'
 }
 
-export default function Locu() {
+export default function Locus() {
   useTitle('Library of Congress')
   useFavicon('/favicons/locus.png')
 

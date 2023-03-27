@@ -8,7 +8,7 @@ import Kiddle from '../pages/Kiddle/index.jsx'
 import Syt from '../pages/Syt/index.jsx'
 import Jobby from '../pages/Jobby/index.jsx'
 import Clima from '../pages/Clima/index.jsx'
-import Locu from '../pages/Locu/index.jsx'
+import Locus from '../pages/Locus/index.jsx'
 import Meg from '../pages/Meg/index.jsx'
 import Docu from '../pages/Docu/index.jsx'
 import Spriddle from '../pages/Spriddle/index.jsx'
@@ -313,10 +313,10 @@ const appData = {
     backEndTech: [],
     element: <Clima />
   },
-  locu: {
-    endpoint: 'locu',
-    link: '/locu',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locu',
+  locus: {
+    endpoint: 'locus',
+    link: '/locus',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locus',
     title: 'LOCus',
     description: 'A library search tool',
     keywords: ['react'],
@@ -345,10 +345,9 @@ const appData = {
     apis: ['library of congress api'],
     frontEndTech: ['react'],
     backEndTech: [],
-    element: <Locu />
+    element: <Locus />
   },
 
- 
   meg: {
     endpoint: 'meg',
     link: '/meg',

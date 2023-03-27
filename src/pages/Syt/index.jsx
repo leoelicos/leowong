@@ -19,7 +19,7 @@ import './style/style.css'
 import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
 
-export default function Sytycj() {
+export default function Syt() {
   /* state */
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [page, setPage] = useState('Splash') // pages: ['Splash','Game','Record','High Scores']

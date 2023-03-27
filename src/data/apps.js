@@ -5,7 +5,7 @@ import Moovee from '../pages/Moovee/index.jsx'
 import OneTwoThreeGo from '../pages/Onetwothreego/index.jsx'
 import Passo from '../pages/Passo/index.jsx'
 import Kiddle from '../pages/Kiddle/index.jsx'
-import Sytycj from '../pages/Sytycj/index.jsx'
+import Syt from '../pages/Syt/index.jsx'
 import Jobby from '../pages/Jobby/index.jsx'
 import Clima from '../pages/Clima/index.jsx'
 import Locus from '../pages/Locus/index.jsx'
@@ -13,7 +13,6 @@ import Megen from '../pages/Megen/index.jsx'
 import Docu from '../pages/Docu/index.jsx'
 import Spriddle from '../pages/Spriddle/index.jsx'
 import Emply from '../pages/Emply/index.jsx'
-
 import Wants from '../pages/Wants/index.jsx'
 import Algoz from '../pages/Algoz/index.jsx'
 import Hourly from '../pages/Hourly/index.jsx'
@@ -224,10 +223,10 @@ const appData = {
     backEndTech: [],
     element: <Kiddle />
   },
-  sytycj: {
-    endpoint: 'sytycj',
-    link: '/sytycj',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Sytycj',
+  syt: {
+    endpoint: 'syt',
+    link: '/syt',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/syt',
     title: 'SYTYCJ',
     description: 'A Javascript quiz',
     keywords: ['react'],
@@ -241,7 +240,7 @@ const appData = {
     apis: [],
     frontEndTech: ['react'],
     backEndTech: [],
-    element: <Sytycj />
+    element: <Syt />
   },
   jobby: {
     endpoint: 'jobby',

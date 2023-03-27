@@ -348,6 +348,7 @@ const appData = {
     element: <Locu />
   },
 
+ 
   meg: {
     endpoint: 'meg',
     link: '/meg',

@@ -9,7 +9,7 @@ import Syt from '../pages/Syt/index.jsx'
 import Jobby from '../pages/Jobby/index.jsx'
 import Clima from '../pages/Clima/index.jsx'
 import Locus from '../pages/Locus/index.jsx'
-import Meg from '../pages/Meg/index.jsx'
+import Megen from '../pages/Megen/index.jsx'
 import Docu from '../pages/Docu/index.jsx'
 import Spriddle from '../pages/Spriddle/index.jsx'
 import Emply from '../pages/Emply/index.jsx'
@@ -348,10 +348,10 @@ const appData = {
     element: <Locus />
   },
 
-  meg: {
-    endpoint: 'meg',
-    link: '/meg',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Meg',
+  megen: {
+    endpoint: 'megen',
+    link: '/megen',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Megen',
     title: 'Megen',
     description: 'An about me generator',
     keywords: ['react', 'iframe'],
@@ -365,7 +365,7 @@ const appData = {
     apis: [],
     frontEndTech: ['react', 'iframe'],
     backEndTech: [],
-    element: <Meg />
+    element: <Megen />
   },
   docu: {
     endpoint: 'docu',

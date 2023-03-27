@@ -224,8 +224,8 @@ const appData = {
     element: <Kiddle />
   },
   syt: {
-    endpoint: 'syt',
-    link: '/syt',
+    endpoint: 'sytycj',
+    link: '/sytycj',
     code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/syt',
     title: 'SYTYCJ',
     description: 'A Javascript quiz',

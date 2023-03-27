@@ -12,7 +12,7 @@ export default function Resume() {
       <a
         target='_blank'
         rel='noreferrer'
-        href='https://drive.google.com/file/d/1h8cJZCP00_rwluAvS5hHzIPyXsKbvkZm/view?usp=sharing'>
+        href='https://drive.google.com/file/d/1Z6-Ec7gif7m8Zc9oGTFRcGc_SKSbtbzV/view?usp=sharing'>
         <p className='image download'>
           <FontAwesomeIcon
             style={{ fontSize: '6vh', color: 'orange' }}

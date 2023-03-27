@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
 
-export default function Project({
-  title,
-  link,
-  description,
-  keywords,
-  color1,
-  color2,
-  background1,
-  background2 //
-}) {
+export default function Project({ project }) {
+  const {
+    title,
+    endpoint,
+    description,
+    keywords,
+    color1,
+    color2,
+    background1,
+    background2 //
+  } = project
+
   const b1 = background1.join(',')
   const b2 = background2.join(',')
   const c1 = color1.join(',')
@@ -34,7 +36,7 @@ export default function Project({
     <Link
       className={`project-card`}
       style={projectStyle}
-      to={link}>
+      to={`/${endpoint}`}>
       <h4
         className='project-card-title'
         style={projectTitleStyle}>

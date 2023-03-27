@@ -20,7 +20,7 @@ import Hourly from '../pages/Hourly/index.jsx'
 const appData = {
   ingre: {
     endpoint: 'ingre',
-    link: 'https://ingre.herokuapp.com/',
+    link: 'https://ingre.vercel.app/',
     code: 'https://github.com/leoelicos/ingre',
     title: 'ingré',
     description: 'A home shopping utility',

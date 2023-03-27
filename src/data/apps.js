@@ -2,7 +2,7 @@
 
 /* these pages have been integrated into monorepo */
 import Moovee from '../pages/Moovee/index.jsx'
-import OneTwoThreeGo from '../pages/123go/index.jsx'
+import OneTwoThreeGo from '../pages/Onetwothreego/index.jsx'
 import Passo from '../pages/Passo/index.jsx'
 import Kiddle from '../pages/Kiddle/index.jsx'
 import Sytycj from '../pages/Sytycj/index.jsx'
@@ -167,10 +167,10 @@ const appData = {
     backEndTech: ['apollo-server-express', 'bcrypt', 'dotenv', 'express', 'graphql', 'jsonwebtoken', 'mongoose'],
     element: null
   },
-  _123go: {
-    endpoint: '123go',
-    link: '/123go',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/123go',
+  onetwothreego: {
+    endpoint: 'onetwothreego',
+    link: '/onetwothreego',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/onetwothreego',
     title: '123Go',
     description: "A classic children's game",
     keywords: ['react'],

@@ -22,7 +22,7 @@ import { faFaceMehBlank } from '@fortawesome/free-solid-svg-icons'
 
 export default function MooVee() {
   useTitle('MOOVEE')
-  useFavicon('favicons/moovee.png')
+  useFavicon('/favicons/moovee.png')
 
   let hasSearched = useRef(false)
 

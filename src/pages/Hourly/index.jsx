@@ -15,8 +15,8 @@ import TimeBlock from './components/TimeBlock'
 import './css/index.css'
 
 export default function Hourly() {
-  useFavicon('favicons/hourly.png')
-  useTitle(now.toLocaleDateString('en-US', { weekday: 'long' }))
+  useTitle('hourly')
+  useFavicon('/favicons/hourly.png')
 
   /* state */
   const [toggle, setToggle] = useState(false)

@@ -4,47 +4,47 @@ Hi I'm Leo. My application portfolio is organised by functionality and stars (�
 
 ## Projects
 
-| Category     | App          | Description           | Deployed                                                | Code                                                                |
-| ------------ | ------------ | --------------------- | ------------------------------------------------------- | ------------------------------------------------------------------- |
-| Search 🔎    | ingré⭐      | home shopping utility | [Deployed](https://ingre.herokuapp.com)                 | [Code](https://github.com/leoelicos/ingre)                          |
-| Search 🔎    | Readr⭐      | book search           | [Deployed](https://leoelicos-googlebooks.herokuapp.com) | [Code](https://github.com/leoelicos/book-search-engine)             |
-| Search 🔎    | MOOVEE⭐     | find movie trailers   | [Deployed](https://leowong.vercel.app/moovee)           | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Moovee) |
-| Ecommerce 🛒 | Shopr⭐      | fast shopping cart    | [Deployed](https://snapfire-shop.herokuapp.com)         | [Code](https://github.com/leoelicos/snapfire-shop)                  |
-| Forums 💬    | submitted!⭐ | student dev blog      | [Deployed](https://submitted-blog.herokuapp.com)        | [Code](https://github.com/leoelicos/submitted)                      |
-| Forums 💬    | kiddin'⭐    | baby image forum      | [Deployed](https://just-kidding-baby.herokuapp.com)     | [Code](https://github.com/leoelicos/just-kidding)                   |
+| Category     | App          | Description           |
+| ------------ | ------------ | --------------------- |
+| Search 🔎    | ingré⭐      | home shopping utility |
+| Search 🔎    | Readr⭐      | book search           |
+| Search 🔎    | MOOVEE⭐     | find movie trailers   |
+| Ecommerce 🛒 | Shopr⭐      | fast shopping cart    |
+| Forums 💬    | submitted!⭐ | student dev blog      |
+| Forums 💬    | kiddin'⭐    | baby image forum      |
 
 ## Other
 
-| Category      | App      | Description             | Deployed                                        | Code                                                                  |
-| ------------- | -------- | ----------------------- | ----------------------------------------------- | --------------------------------------------------------------------- |
-| Search 🔎     | LOCus    | library search tool     | [Deployed](https://leowong.vercel.app/locus)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Locus)    |
-|               | Clima    | openweather dashboard   | [Deployed](https://leowong.vercel.app/clima)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Clima)    |
-| Ecommerce 🛒  | Taggr    | product database api    | [Deployed](https://leowong.vercel.app/taggr)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Taggr)    |
-| Games 🕹️      | Kiddle   | word game for kids      | [Deployed](https://leowong.vercel.app/kiddle)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Kiddle)   |
-|               | Spriddle | word guess              | [Deployed](https://leowong.vercel.app/spriddle) | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Spriddle) |
-|               | SYTYCJ   | timed quiz              | [Deployed](https://leowong.vercel.app/sytycj)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Sytycj)   |
-|               | 123Go    | rock paper scissors     | [Deployed](https://leowong.vercel.app/123go)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/123go)    |
-| Forums 💬     | DevTips  | diagnostic routes       | [Deployed](https://leowong.vercel.app/devtips)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Devtips)  |
-|               | Votr     | server-persistent votes | [Deployed](https://leowong.vercel.app/votr)     | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Votr)     |
-| Management ⚒️ | Hourly   | day planner             | [Deployed](https://leowong.vercel.app/hourly)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Hourly)   |
-|               | Emply    | team maker              | [Deployed](https://leowong.vercel.app/emply)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Emply)    |
-|               | Jobby    | project tracker         | [Deployed](https://leowong.vercel.app/jobby)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Jobby)    |
-|               | Clist    | contact list utility    | [Deployed](https://leowong.vercel.app/clist)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Clist)    |
-|               | Wants    | bucket list tracker     | [Deployed](https://leowong.vercel.app/wants)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Wants)    |
-|               | Vroom    | car tracker             | [Deployed](https://leowong.vercel.app/vroom)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Vroom)    |
-| Editors 🗒️    | Docu     | readme editor           | [Deployed](https://leowong.vercel.app/docu)     | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Docu)     |
-|               | Writr    | server persistent notes | [Deployed](https://leowong.vercel.app/writr)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Writr)    |
-|               | Txtly    | js supported editor     | [Deployed](https://leowong.vercel.app/txtly)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Txtly)    |
-| Articles 📰   | RegExpo  | regex tutorial          | [Deployed](https://leowong.vercel.app/regexpo)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Regexpo)  |
-|               | Algoz    | algorithm blog          | [Deployed](https://leowong.vercel.app/algoz)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Algoz)    |
-| APIs 🔁       | Depto    | employee cms api        | [Deployed](https://leowong.vercel.app/depto)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Depto)    |
-|               | Matey    | social network api      | [Deployed](https://leowong.vercel.app/matey)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Matey)    |
-|               | Cinem    | movie database api      | [Deployed](https://leowong.vercel.app/cinem)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Cinem)    |
-|               | Wander   | trip database api       | [Deployed](https://leowong.vercel.app/wander)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Wander)   |
-|               | Fundr    | crowdfund projects api  | [Deployed](https://leowong.vercel.app/fundr)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Fundr)    |
-|               | Grader   | student assignment api  | [Deployed](https://leowong.vercel.app/grader)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Grader)   |
-| Generators 🤖 | Passo    | password maker          | [Deployed](https://leowong.vercel.app/passo)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Passo)    |
-|               | Megen    | profile generator       | [Deployed](https://leowong.vercel.app/megen)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Megen)    |
+| Category      | App      | Description             |
+| ------------- | -------- | ----------------------- |
+| Search 🔎     | LOCus    | library search tool     |
+|               | Clima    | openweather dashboard   |
+| Ecommerce 🛒  | Taggr    | product database api    |
+| Games 🕹️      | Kiddle   | word game for kids      |
+|               | Spriddle | word guess              |
+|               | SYTYCJ   | timed quiz              |
+|               | 123Go    | rock paper scissors     |
+| Forums 💬     | DevTips  | diagnostic routes       |
+|               | Votr     | server-persistent votes |
+| Management ⚒️ | Hourly   | day planner             |
+|               | Emply    | team maker              |
+|               | Jobby    | project tracker         |
+|               | Clist    | contact list utility    |
+|               | Wants    | bucket list tracker     |
+|               | Vroom    | car tracker             |
+| Editors 🗒️    | Docu     | readme editor           |
+|               | Writr    | server persistent notes |
+|               | Txtly    | js supported editor     |
+| Articles 📰   | RegExpo  | regex tutorial          |
+|               | Algoz    | algorithm blog          |
+| APIs 🔁       | Depto    | employee cms api        |
+|               | Matey    | social network api      |
+|               | Cinem    | movie database api      |
+|               | Wander   | trip database api       |
+|               | Fundr    | crowdfund projects api  |
+|               | Grader   | student assignment api  |
+| Generators 🤖 | Passo    | password maker          |
+|               | Megen    | profile generator       |
 
 ## Learn More
 

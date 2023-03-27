@@ -69,7 +69,7 @@ function Header({ savedCities, saveCity, handleClickHistory, cityOptions, search
     <header className='header'>
       <Globe />
       <div className='header-contents'>
-        <h1 className='title'>WORLDWIDE WEATHER AT A GLANCE</h1>
+        <h1 className='title'>CLIMA</h1>
 
         <form
           className='buttons'

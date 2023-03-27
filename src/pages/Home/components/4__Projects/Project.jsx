@@ -36,7 +36,7 @@ export default function Project({ project }) {
     <Link
       className={`project-card`}
       style={projectStyle}
-      to={`/${endpoint}`}>
+      to={`/description/${endpoint}`}>
       <h4
         className='project-card-title'
         style={projectTitleStyle}>

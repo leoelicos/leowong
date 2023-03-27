@@ -3,10 +3,12 @@ import BucketForm from './components/BucketForm'
 import Bucket from './components/Bucket'
 
 import './style/index.css'
+import useTitle from '../../hooks/useTitle'
+import useFavicon from '../../hooks/useFavicon'
 
-export default function Buckets() {
-  useTitle('Buckets')
-  useFavicon('favicons/buckets.png')
+export default function Wants() {
+  useTitle('Wants')
+  useFavicon('/favicons/buckets.png')
   const [bucket, setBucket] = useState([])
 
   const addBucketItem = (item) => {

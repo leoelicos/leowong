@@ -18,13 +18,13 @@ import useTimer from './hooks/useTimer'
 
 export default function WordGuess() {
   /* setup */
-  useFavicon('favicons/kiddle.png')
+  useFavicon('/favicons/kiddle.png')
   useTitle('Kiddle')
 
   /* state */
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [buttonMessage, setButtonMessage] = useState('Start')
-  const [tally, setTally] = useState(JSON.parse(localStorage.getItem('tally')))
+  const [tally, setTally] = useState(localStorage.getItem('tally') === 'undefined' ? [] : JSON.parse(localStorage.getItem('tally')))
   const [tiles, setTiles] = useState(['_', '_', '_', '_'])
 
   /* ref */

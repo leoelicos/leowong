@@ -25,9 +25,9 @@ const thinBarText = {
   color: 'inherit'
 }
 
-function LibrarySearchTool() {
+export default function Locu() {
   useTitle('Library of Congress')
-  useFavicon('favicons/locus.png')
+  useFavicon('/favicons/locus.png')
 
   /* state */
   const [resultPage, setResultPage] = useState(false)
@@ -277,4 +277,3 @@ function LibrarySearchTool() {
     </Layout>
   )
 }
-export default LibrarySearchTool

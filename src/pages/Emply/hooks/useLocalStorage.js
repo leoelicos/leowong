@@ -4,7 +4,11 @@ const useLocalStorage = (name) => {
   const [employeesLS, setEmployeesLS] = useState()
 
   useEffect(() => {
-    setEmployeesLS(JSON.parse(localStorage.getItem(name)) || [])
+    let item = localStorage.getItem(name)
+    if (item === 'undefined') item = []
+    else item = JSON.parse(item)
+
+    setEmployeesLS(item)
   }, [name])
 
   useEffect(() => {

@@ -14,13 +14,13 @@ import Home from './pages/Home/index.jsx'
 
 import appData from './data/apps'
 import Description from './components/Description/index.jsx'
+import All from './pages/All'
 
-console.log({ appData })
 const routes = []
 for (const app in appData) {
   routes.push(
     <Route
-      path={`/${appData[app].endpoint}`}
+      path={`/description/${appData[app].endpoint}`}
       element={
         <Description
           app={appData[app]}
@@ -29,6 +29,15 @@ for (const app in appData) {
       }
     />
   )
+
+  if (appData[app].element !== null) {
+    routes.push(
+      <Route
+        path={`/${appData[app].endpoint}`}
+        element={appData[app].element}
+      />
+    )
+  }
 }
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -37,15 +46,16 @@ const router = createBrowserRouter(
       element={<Home />}
       errorElement={<ErrorPage />}
     />,
-    ...routes
+    ...routes,
+    <Route
+      path='/all'
+      element={<All />}
+      errorElement={<ErrorPage />}
+    />
   ])
 )
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />)
 
 /* 
 

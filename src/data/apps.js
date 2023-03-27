@@ -40,7 +40,7 @@ const appData = {
 
   submitted: {
     endpoint: 'submitted',
-    link: 'https://submitted-blog.herokuapp.com',
+    link: 'https://submitted.onrender.com',
     code: 'https://github.com/leoelicos/submitted',
     title: 'submitted!',
     description: 'A student dev forum',
@@ -115,7 +115,7 @@ const appData = {
   },
   shopr: {
     endpoint: 'shopr',
-    link: 'https://snapfire-shop.herokuapp.com/',
+    link: 'https://shopr-seven.vercel.app/',
     code: 'https://github.com/leoelicos/snapfire-shop',
     title: 'Shopr',
     description: 'A fast shopping cart',
@@ -134,7 +134,7 @@ const appData = {
   },
   readr: {
     endpoint: 'readr',
-    link: 'https://leoelicos-googlebooks.herokuapp.com',
+    link: 'https://readr-murex.vercel.app/',
     code: 'https://github.com/leoelicos/book-search-engine',
     title: 'Readr',
     description: 'A book search engine',

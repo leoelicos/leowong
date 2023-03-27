@@ -30,7 +30,7 @@ Hi I'm Leo. My application portfolio is organised by functionality and stars (‚≠
 |               | Emply    | team maker              | [Deployed](https://leowong.vercel.app/emply)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Emply)    |
 |               | Jobby    | project tracker         | [Deployed](https://leowong.vercel.app/jobby)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Jobby)    |
 |               | Clist    | contact list utility    | [Deployed](https://leowong.vercel.app/clist)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Clist)    |
-|               | Buckets  | bucket list tracker     | [Deployed](https://leowong.vercel.app/buckets)  | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Buckets)  |
+|               | Wants    | bucket list tracker     | [Deployed](https://leowong.vercel.app/wants)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Wants)    |
 |               | Vroom    | car tracker             | [Deployed](https://leowong.vercel.app/vroom)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Vroom)    |
 | Editors üóíÔ∏è    | Docu     | readme editor           | [Deployed](https://leowong.vercel.app/docu)     | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Docu)     |
 |               | Writr    | server persistent notes | [Deployed](https://leowong.vercel.app/writr)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Writr)    |
@@ -44,7 +44,7 @@ Hi I'm Leo. My application portfolio is organised by functionality and stars (‚≠
 |               | Fundr    | crowdfund projects api  | [Deployed](https://leowong.vercel.app/fundr)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Fundr)    |
 |               | Grader   | student assignment api  | [Deployed](https://leowong.vercel.app/grader)   | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Grader)   |
 | Generators ü§ñ | Passo    | password maker          | [Deployed](https://leowong.vercel.app/passo)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Passo)    |
-|               | MeGen    | profile generator       | [Deployed](https://leowong.vercel.app/megen)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Megen)    |
+|               | Megen    | profile generator       | [Deployed](https://leowong.vercel.app/megen)    | [Code](https://github.com/leoelicos/bcs/tree/main/src/pages/Megen)    |
 
 ## Learn More
 

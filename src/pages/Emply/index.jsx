@@ -7,10 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 
 import Main from './components/Main'
+import useTitle from '../../hooks/useTitle'
+import useFavicon from '../../hooks/useFavicon'
 
 export default function Employ() {
   useTitle('Emply')
-  useFavicon('favicons/emply.png')
+  useFavicon('/favicons/emply.png')
   return (
     <div className='app-18'>
       <div className='body'>

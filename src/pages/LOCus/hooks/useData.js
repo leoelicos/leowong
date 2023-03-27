@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 export default function useData() {
   const [results, setResults] = useState({ results: [], searchText: '', searchFormat: '' })
   const [loading, setLoading] = useState(false)

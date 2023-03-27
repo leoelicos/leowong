@@ -15,7 +15,7 @@ export default function Resume() {
         href='https://drive.google.com/file/d/1h8cJZCP00_rwluAvS5hHzIPyXsKbvkZm/view?usp=sharing'>
         <p className='image download'>
           <FontAwesomeIcon
-            style={{ fontSize: '6vh' }}
+            style={{ fontSize: '6vh', color: 'orange' }}
             icon={faDownload}
           />
         </p>
@@ -28,7 +28,7 @@ export default function Resume() {
         href='https://www.linkedin.com/in/leoelicos'>
         <p className='image'>
           <FontAwesomeIcon
-            style={{ fontSize: '6vh' }}
+            style={{ fontSize: '6vh', color: 'orange' }}
             icon={faLinkedinIn}
           />
         </p>
@@ -40,7 +40,7 @@ export default function Resume() {
         href='https://github.com/leoelicos'>
         <p className='image'>
           <FontAwesomeIcon
-            style={{ fontSize: '6vh' }}
+            style={{ fontSize: '6vh', color: 'orange' }}
             icon={faGithub}
           />
         </p>
@@ -53,12 +53,13 @@ export default function Resume() {
         href='mailto: leoelicos@gmail.com'>
         <p className='image'>
           <FontAwesomeIcon
-            style={{ fontSize: '6vh' }}
+            style={{ fontSize: '6vh', color: 'orange' }}
             icon={faEnvelope}
           />
         </p>
-        Email
+        <p className='label'>Email</p>
       </a>
+      <div style={{ marginBottom: '15vh' }}>&nbsp;</div>
     </div>
   )
 }

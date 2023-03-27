@@ -10,10 +10,12 @@ import useRiddle from './data/useRiddle.jsx'
 import useTimer from './hooks/useTimer.jsx'
 
 import './style/index.css'
+import useTitle from '../../hooks/useTitle.js'
+import useFavicon from '../../hooks/useFavicon.js'
 
 const Spriddle = () => {
   useTitle('Spriddle')
-  useFavicon('favicons/spriddle.png')
+  useFavicon('/favicons/spriddle.png')
 
   const PAGE_SPLASH = 0
   const PAGE_PREGAME = 1

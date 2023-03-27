@@ -1,5 +1,6 @@
 /* custom images */
 import Avatar from '../../images/avatar.png'
+import GradientText from '../../../../components/GradientText/index.jsx'
 import './style.css'
 export default function About() {
   return (
@@ -11,7 +12,13 @@ export default function About() {
         src={Avatar}
         alt='leo wong'
       />
-      <h3>About Leo Wong</h3>
+      <h3 style={{ fontSize: 'max(64px, 8vh)', fontFamily: "'Allerta Stencil', sans-serif" }}>
+        <GradientText
+          color1='red'
+          color2='orange'>
+          &nbsp;Leo Wong
+        </GradientText>
+      </h3>
       <h4>Full stack developer</h4>
       <p>Leo is a passionate developer who has spent a year studying both front-end and back-end coding. His love for coding started when he did an intensive coding bootcamp with the University of Sydney. He soon realized his love for React, building and designing user interfaces that are not only functional but also aesthetically pleasing.</p>
 

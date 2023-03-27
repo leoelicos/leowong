@@ -16,7 +16,7 @@ import useTitle from '../../hooks/useTitle'
 
 export default function ProjectTracker() {
   useTitle('Jobby')
-  useFavicon('favicons/jobby.png')
+  useFavicon('/favicons/jobby.png')
 
   /* time */
   const time = useTime()

@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react'
 
 export default function Clima() {
   useTitle('Clima')
-  useFavicon('favicons/clima.png')
+  useFavicon('/favicons/clima.png')
 
   const { savedCities, saveCity } = useLocalStorage()
   const [cityOptions, setCityOptions] = useState([])

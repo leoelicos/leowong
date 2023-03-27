@@ -77,7 +77,7 @@ const appData = {
 
   kiddin: {
     endpoint: 'kiddin',
-    link: 'https://just-kidding-baby.herokuapp.com',
+    link: 'https://kiddin.onrender.com',
     code: 'https://github.com/leoelicos/just-kidding',
     title: "kiddin'",
     description: 'A baby picture forum',

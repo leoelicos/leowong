@@ -5,11 +5,11 @@ import Moovee from '../pages/Moovee/index.jsx'
 import OneTwoThreeGo from '../pages/Onetwothreego/index.jsx'
 import Passo from '../pages/Passo/index.jsx'
 import Kiddle from '../pages/Kiddle/index.jsx'
-import Syt from '../pages/Syt/index.jsx'
+import Sytycj from '../pages/Sytycj/index.jsx'
 import Jobby from '../pages/Jobby/index.jsx'
 import Clima from '../pages/Clima/index.jsx'
-import Locu from '../pages/Locu/index.jsx'
-import Meg from '../pages/Meg/index.jsx'
+import Locus from '../pages/Locus/index.jsx'
+import Megen from '../pages/Megen/index.jsx'
 import Docu from '../pages/Docu/index.jsx'
 import Spriddle from '../pages/Spriddle/index.jsx'
 import Emply from '../pages/Emply/index.jsx'
@@ -240,7 +240,7 @@ const appData = {
     apis: [],
     frontEndTech: ['react'],
     backEndTech: [],
-    element: <Syt />
+    element: <Sytycj />
   },
   jobby: {
     endpoint: 'jobby',
@@ -313,10 +313,10 @@ const appData = {
     backEndTech: [],
     element: <Clima />
   },
-  locu: {
-    endpoint: 'locu',
-    link: '/locu',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locu',
+  locus: {
+    endpoint: 'locus',
+    link: '/locus',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locus',
     title: 'LOCus',
     description: 'A library search tool',
     keywords: ['react'],
@@ -345,14 +345,13 @@ const appData = {
     apis: ['library of congress api'],
     frontEndTech: ['react'],
     backEndTech: [],
-    element: <Locu />
+    element: <Locus />
   },
 
- 
-  meg: {
-    endpoint: 'meg',
-    link: '/meg',
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Meg',
+  megen: {
+    endpoint: 'megen',
+    link: '/megen',
+    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Megen',
     title: 'Megen',
     description: 'An about me generator',
     keywords: ['react', 'iframe'],
@@ -366,7 +365,7 @@ const appData = {
     apis: [],
     frontEndTech: ['react', 'iframe'],
     backEndTech: [],
-    element: <Meg />
+    element: <Megen />
   },
   docu: {
     endpoint: 'docu',

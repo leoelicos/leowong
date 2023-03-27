@@ -44,7 +44,7 @@ Hi I'm Leo. My application portfolio is organised by functionality and stars (â­
 |               | Fundr    | crowdfund projects api  |
 |               | Grader   | student assignment api  |
 | Generators ðŸ¤– | Passo    | password maker          |
-|               | Meg      | profile generator       |
+|               | Megen    | profile generator       |
 
 ## Learn More
 

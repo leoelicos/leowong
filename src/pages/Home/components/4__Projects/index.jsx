@@ -1,42 +1,27 @@
 import Project from './Project'
 
-import apps from '../../../../data/apps.js'
+import appData from '../../../../data/apps.js'
+
 import './style.css'
 
+const { ingre, submitted, shopr, kiddin, moovee, readr } = appData
+
 export default function Projects() {
-  const projects = apps.filter((app) => ['ingre', 'submitted', 'shopr', 'kiddin', 'moovee', 'readr'].includes(app.endpoint))
+  const projects = [ingre, submitted, shopr, kiddin, moovee, readr]
   return (
     <div
       className='projects'
       id='projects'>
       <h3 className='projects-header'>Projects</h3>
       <div className='project-cards'>
-        {projects.map(
-          ({
-            title,
-            description,
-            keywords,
-            link,
-            background1,
-            background2,
-            color1,
-            color2 //
-          }) => {
-            return (
-              <Project
-                key={title}
-                title={title}
-                description={description}
-                keywords={keywords}
-                link={link}
-                background1={background1}
-                background2={background2}
-                color1={color1}
-                color2={color2}
-              />
-            )
-          }
-        )}
+        {projects.map((project) => {
+          return (
+            <Project
+              key={project.title}
+              project={project}
+            />
+          )
+        })}
       </div>
     </div>
   )

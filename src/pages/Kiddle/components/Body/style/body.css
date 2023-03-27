@@ -32,6 +32,7 @@
 .app-08 button {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
+  font-weight: bold;
   border-radius: 0.5rem;
   border-color: #deebf7;
   box-shadow: 0px 1px 3px #ece47a;

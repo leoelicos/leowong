@@ -1,0 +1,99 @@
+.description table.description-table {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 0 0 2vmin 2vmin;
+  padding: 1vh 1vw;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+
+  width: 100%;
+  max-width: max(600px, 60vw);
+}
+.description table.description-table th,
+.description table.description-table td {
+  display: table-cell;
+  text-align: left;
+  vertical-align: top;
+
+  font-weight: normal;
+  padding: 2vh 1vw;
+  width: min-content;
+}
+.description table.description-table td {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.description table.description-table td ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+.description table.description-table td ul li {
+  width: 100%;
+  margin: 0 0 1vh;
+}
+
+.description .description-title {
+  width: 100%;
+  max-width: max(600px, 60vw);
+  margin: 3vh 0 0;
+  padding: 1vh 1vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+  position: relative;
+}
+
+.description .code-button,
+.description .deploy-button {
+  width: 100%;
+  max-width: 100px;
+  border-radius: max(12px, 1vmin);
+  padding: 1vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  position: relative;
+  font-size: max(16px, 2vmin);
+}
+
+.description .deploy-button {
+  background: linear-gradient(45deg, #000000, #f0bb48bb 50%), linear-gradient(225deg, #4f418f, #ffffff 50%);
+  color: black !important;
+  font-weight: bold;
+}
+
+.description .code-button > svg {
+  color: black;
+}
+.description .description-title:hover::before,
+.description .code-button:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: max(12px, 1vmin);
+}
+.description .description-title:active::before,
+.description .code-button:active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: max(12px, 1vmin);
+}

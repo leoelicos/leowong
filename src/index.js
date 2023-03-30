@@ -10,15 +10,15 @@ import './style/index.css'
 
 import ErrorPage from './components/ErrorPage/index.jsx'
 
-import Home from './pages/Home/index.jsx'
+import Home, { HomeContent } from './pages/Home/index.jsx'
 
 import appData from './data/apps'
-import Description from './components/Description/index.jsx'
+import Description from './pages/Home/components/Description/index.jsx'
 import All from './pages/All'
 
 const routes = []
 for (const app in appData) {
-  routes.push(
+  /*   routes.push(
     <Route
       path={`/description/${appData[app].endpoint}`}
       element={
@@ -28,7 +28,7 @@ for (const app in appData) {
         />
       }
     />
-  )
+  ) */
 
   if (appData[app].element !== null) {
     routes.push(
@@ -44,8 +44,16 @@ const router = createBrowserRouter(
     <Route
       path='/'
       element={<Home />}
-      errorElement={<ErrorPage />}
-    />,
+      errorElement={<ErrorPage />}>
+      <Route
+        path='/'
+        element={<HomeContent />}
+      />
+      <Route
+        path='/description/:appName'
+        element={<Description />}
+      />
+    </Route>,
     ...routes,
     <Route
       path='/all'

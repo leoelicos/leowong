@@ -64,6 +64,19 @@
 .home .logo:active {
   background-color: #aaa;
 }
+.home ul.menu.description {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 max(8px, 1vw);
+}
+.home ul.menu.description a {
+  width: max(32px, 4vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .home ul.small {
   display: none;
   height: 100%;
@@ -119,5 +132,9 @@
 
   .home ul.menu.small {
     display: flex;
+  }
+
+  .home ul.menu.description {
+    justify-content: center;
   }
 }

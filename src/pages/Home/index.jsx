@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom'
 import useFavicon from '../../hooks/useFavicon.js'
 import useTitle from '../../hooks/useTitle.js'
 import Header from './components/1__Header/index.jsx'
@@ -11,6 +12,15 @@ export default function Home() {
   useFavicon('/favicons/home.png')
   useTitle('Leo Wong')
 
+  return (
+    <div className='home'>
+      <Header />
+
+      {<Outlet />}
+    </div>
+  )
+}
+export function HomeContent() {
   setTimeout(() => {
     const hash = window.location.hash
     const id = hash === '#about' ? 'about' : hash === '#projects' ? 'projects' : hash === '#resume' ? 'resume' : 'top'
@@ -19,15 +29,12 @@ export default function Home() {
   }, 0)
 
   return (
-    <div className='home'>
-      <Header />
-      <div className='home-content'>
-        <Hero>
-          <About />
-          <Projects />
-          <Resume />
-        </Hero>
-      </div>
+    <div className='home-content'>
+      <Hero>
+        <About />
+        <Projects />
+        <Resume />
+      </Hero>
     </div>
   )
 }

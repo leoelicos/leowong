@@ -11,45 +11,32 @@ export default function Project({ project }) {
     background1,
     background2 //
   } = project
-
-  const b1 = background1.join(',')
-  const b2 = background2.join(',')
-  const c1 = color1.join(',')
-  const c2 = color2.join(',')
-  const projectStyle = {
-    background: `linear-gradient(45deg, rgb(${b1}), rgb(${b2}, 50%)`
-  }
-
-  const projectTitleStyle = {
-    color: `rgb(${c1})`
-  }
-
-  const projectDescriptionStyle = {
-    color: `rgb(${c2})`
-  }
-
-  const projectKeywordsStyle = {
-    color: `rgb(${c1})`
-  }
-
   return (
     <Link
       className={`project-card`}
-      style={projectStyle}
+      style={{
+        background: `linear-gradient(45deg, ${background1}, ${background2} 100%`
+      }}
       to={`/description/${endpoint}`}>
       <h4
         className='project-card-title'
-        style={projectTitleStyle}>
+        style={{
+          color: `${color1}`
+        }}>
         {title}
       </h4>
       <p
         className='project-card-description'
-        style={projectDescriptionStyle}>
+        style={{
+          color: `${color2}`
+        }}>
         {description}
       </p>
       <p
         className='project-card-keywords'
-        style={projectKeywordsStyle}>
+        style={{
+          color: `${color1}`
+        }}>
         {keywords.join(' · ')}
       </p>
     </Link>

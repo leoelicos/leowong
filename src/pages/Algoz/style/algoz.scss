@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
+$algozHeaderHeight: max(5vh, 40px);
+$algozContentHeight: calc(100vh - $algozHeaderHeight);
+
+.algoz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #000000;
+  user-select: none;
+  header {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    height: $algozHeaderHeight;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    position: relative;
+
+    h1 {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      font-size: 32px;
+    }
+
+    nav {
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        height: 100%;
+
+        li {
+          height: 100%;
+
+          a {
+            position: relative;
+            padding: 0 4px;
+            margin: 0;
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 24px;
+            color: white;
+
+            &:hover {
+              color: #673380;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      margin: 0 1vw;
+      padding: 1vh 1vw;
+      transition: border 100ms linear;
+      cursor: pointer;
+      border: 1px solid gray;
+      border-radius: 1rem;
+      font-size: max(16px, 1vmin);
+      font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+
+      &:hover {
+        transition: border 100ms linear;
+        border: 1px solid black;
+      }
+
+      &:active {
+        transition: border 100ms linear;
+        border: 1px solid white;
+      }
+
+      &.active {
+        background-color: red;
+      }
+    }
+  }
+
+  main {
+    padding-top: 2vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+    height: $algozContentHeight;
+
+    font-size: 1.15rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    white-space: break-spaces;
+
+    .card {
+      position: relative;
+
+      background-color: orange;
+      padding: 1vh 1vw;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 1rem;
+
+      .name {
+        color: white;
+      }
+      .buttons {
+        border: 1px solid blue;
+
+        button {
+          margin: 0 1vw;
+          padding: 1vh 1vw;
+          transition: border 100ms linear;
+          cursor: pointer;
+          border: 0;
+          border-radius: 1rem;
+          font-size: max(16px, 1vmin);
+          font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+
+          &.problem {
+            background-color: yellow;
+          }
+
+          &.solution {
+            &.on {
+              background-color: red;
+            }
+
+            &.off {
+              background-color: maroon;
+            }
+          }
+          &.white {
+            background-color: white;
+          }
+
+          &.black {
+            background-color: black;
+          }
+
+          &:hover {
+            transition: background 100ms linear;
+          }
+
+          &:active {
+            transition: background 100ms linear;
+          }
+
+          &.active {
+            background-color: red;
+          }
+        }
+      }
+    }
+
+    .language-js {
+      background: #000;
+      color: #eee;
+      text-align: left;
+      word-spacing: normal;
+      word-wrap: normal;
+      word-break: normal;
+      white-space: pre;
+    }
+
+    .language-js > * {
+      font-size: 12px;
+      font-family: 'Source Code Pro', monospace;
+      line-height: 16px;
+      tab-size: 4;
+      hyphens: none;
+    }
+
+    code[class*='language-']::selection,
+    pre[class*='language-']::selection {
+      background: #000;
+    }
+
+    pre[class*='language-'] {
+      position: relative;
+      overflow: auto;
+      margin: 0.5em 0;
+      padding: 1.25em 1em;
+    }
+
+    .language-css > code,
+    .language-sass > code,
+    .language-scss > code {
+      color: #fd9170;
+    }
+
+    [class*='language-'] .namespace {
+      opacity: 0.7;
+    }
+  }
+}
+@import './tokens';
+
+@media screen and (min-width: 600px) {
+  .algoz main .card {
+    width: 50%;
+  }
+}

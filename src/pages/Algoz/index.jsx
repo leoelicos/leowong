@@ -1,31 +1,10 @@
-import { Button, Card, ConfigProvider, Layout } from 'antd'
-import { Content, Header } from 'antd/es/layout/layout'
-import Title from 'antd/es/typography/Title'
-
 import Prism from 'prismjs'
-import './style/index.css'
+import './style/algoz.scss'
 
 import algos from './data/data.json'
 import { useState } from 'react'
 import useTitle from '../../hooks/useTitle'
 import useFavicon from '../../hooks/useFavicon'
-
-const contentStyle = {
-  minHeight: '120px',
-  color: '#000',
-  flex: '1',
-  maxWidth: '500px',
-  fontSize: '1.15rem',
-  fontWeight: 'bold',
-  fontFamily: 'Open Sans, sans-serif',
-  textAlign: 'left',
-
-  whiteSpace: 'break-spaces',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '1rem',
-  width: '100%'
-}
 
 function formatCode(code) {
   return Prism.highlight(code, Prism.languages.javascript, 'javascript')
@@ -35,84 +14,35 @@ export default function Algoz() {
   useTitle('Algoz')
   useFavicon('/favicons/algoz.png')
   return (
-    <div className='app-28'>
+    <div className='algoz'>
       <div
         className='body'
         style={{ width: '100%', height: '100%' }}>
-        <ConfigProvider
-          theme={{
-            token: {
-              colorPrimary: '#000'
-            }
-          }}>
-          <Layout
-            style={{
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <Header
-              style={{
-                textAlign: 'center',
-                color: '#fff',
-                paddingInline: '50px',
-                lineHeight: '64px',
-                backgroundColor: '#7dbcea',
-                width: '100%',
-                flex: '1',
-                display: 'flex',
-                flexFlow: 'column',
-                alignItems: 'center'
-              }}>
-              <Title
-                level={2}
-                style={{ margin: '1rem 0' }}>
-                Algoz
-              </Title>
-
-              <Title
-                level={3}
-                style={{ margin: '1rem 0' }}>
-                My LeetCode Collection
-              </Title>
-              <p
-                style={{
-                  lineHeight: '1.8rem',
-                  padding: '0 1rem',
-                  maxWidth: '500px',
-                  textAlign: 'center',
-                  margin: '1rem 0'
-                }}>
-                {algos.length} Medium-level algorithms for you to attempt. Read about the LeetCode{' '}
-                <Button
-                  type='default'
-                  size='small'>
-                  Problem
-                </Button>{' '}
-                and check out my{' '}
-                <Button
-                  type='primary'
-                  size='small'>
-                  Solution
-                </Button>{' '}
-                too.
-              </p>
-            </Header>
-            <Content style={contentStyle}>
-              {algos
-                .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
-                .map((algo) => (
-                  <ACard
-                    algo={algo}
-                    key={algo.name}
-                  />
-                ))}
-            </Content>
-          </Layout>
-        </ConfigProvider>
+        <header>
+          <h1>Algoz</h1>
+          <nav>
+            <ul>
+              <li>
+                <button
+                  onClick={() => {
+                    console.log('Clicked Medium!')
+                  }}>
+                  Medium
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          {algos
+            .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+            .map((algo) => (
+              <ACard
+                algo={algo}
+                key={algo.name}
+              />
+            ))}
+        </main>
       </div>
     </div>
   )
@@ -125,36 +55,31 @@ const ACard = ({ algo }) => {
 
   return (
     <>
-      <Card
-        size='small'
-        bordered={false}
-        title={
-          <div
-            style={{
-              width: '100%',
-              whiteSpace: 'pre-wrap'
-            }}>
-            {algo.name}
-          </div>
-        }
-        className='algo-card'>
-        <div className='algo-card-body'>
-          <Button
-            style={{ marginRight: '4px' }}
+      <div className='card'>
+        <div
+          className='name'
+          style={{
+            width: '100%',
+            whiteSpace: 'pre-wrap'
+          }}>
+          {algo.name}
+        </div>
+        <div className='buttons'>
+          <button
             type='default'
             onClick={() => {
               window.open(algo.link, '_blank', 'noreferrer')
-            }}>
+            }}
+            className='button problem'>
             Problem
-          </Button>
-          <Button
-            type='primary'
-            danger={toggle ? true : false}
-            onClick={handleToggle}>
+          </button>
+          <button
+            onClick={handleToggle}
+            className={`button solution ${toggle ? 'on' : 'off'}`}>
             Solution
-          </Button>
+          </button>
         </div>
-      </Card>
+      </div>
       <div
         style={{
           margin: '-2rem 0 0 0',

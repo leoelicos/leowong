@@ -816,7 +816,7 @@ const appData = {
     color2: '#FFFFFF',
 
     userStory: ['Implement bubble sort', 'Implement quick sort', 'Implement merge sort'],
-    businessRequirements: ['lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem '],
+    businessRequirements: ['practice algorithms on your own'],
     changes: ['I replaced the original three algorithms (Merge Sort, Bubble Sort, Binary Sort) to my own collection of LeetCode algorithms', 'I added links to LeetCode questions', 'I added Prism rendering of Javascript'],
     apis: [],
     frontEndTech: ['react', 'prism'],

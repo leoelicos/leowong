@@ -1,3 +1,108 @@
-@import './css/layout.css';
-@import './css/appearance.css';
-@import './css/text.css';
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+.emply {
+  font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.emply header {
+  height: max(5vh, 40px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0014ab;
+  background-color: #faead6;
+  position: relative;
+}
+.emply header .logo {
+  position: absolute;
+  left: 4px;
+  margin: 0;
+  padding: 0;
+}
+.emply main {
+  height: calc(100vh - max(5vh, 40px));
+  overflow-y: auto;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #7a6345;
+}
+.emply section {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.emply section.new-employees {
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: column wrap;
+}
+.emply section.new-employees .buttons {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emply section.new-employees .buttons button {
+  margin: 0 4px;
+}
+.emply article {
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 300px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.emply article .employee-card {
+  padding-top: 8px;
+}
+.emply article .buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+}
+.emply table {
+  border-spacing: 0;
+}
+.emply td {
+  border-spacing: 0;
+  width: 100%;
+}
+.emply th {
+  border-spacing: 0;
+  padding-right: 8px;
+  text-align: right;
+}
+.emply tr:not(:last-of-type) th {
+  padding-top: 5px;
+  vertical-align: top;
+}
+.emply footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0014ab;
+  background-color: #faead6;
+  padding: 4px 0;
+}
+.emply footer p {
+  margin: 0;
+}/*# sourceMappingURL=index.css.map */

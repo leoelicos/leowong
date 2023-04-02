@@ -3,13 +3,14 @@
 $algozHeaderHeight: max(5vh, 40px);
 $algozContentHeight: calc(100vh - $algozHeaderHeight);
 
-.algoz {
+.algoz { 
   user-select: none;
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 100%;
+  width: 100%; 
   background-color: #000000;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   header {
@@ -25,6 +26,7 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
       position: absolute;
       top: 50%;
       left: 8px;
+ 
       transform: translateY(-50%);
       margin: 0;
       font-size: 32px;
@@ -32,10 +34,11 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
 
     nav {
       ul {
+ 
         display: flex;
         justify-content: flex-start;
         align-items: flex-end;
-        height: 100%;
+        height: 100%; 
         margin: 0;
         padding: 0;
         list-style-type: none;
@@ -66,11 +69,12 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
             }
             &.active {
               color: white;
+ 
             }
           }
         }
       }
-    }
+    } 
   }
 
   main {
@@ -128,5 +132,6 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
         white-space: break-spaces;
       }
     }
+ 
   }
 }

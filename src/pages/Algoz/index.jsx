@@ -6,6 +6,7 @@ import { createContext, useMemo, useState } from 'react'
 import useTitle from '../../hooks/useTitle'
 import useFavicon from '../../hooks/useFavicon'
 
+ 
 import { Button, ConfigProvider, Modal, notification } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
@@ -13,6 +14,7 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons'
 const Context = createContext({
   name: 'Default'
 })
+ 
 function formatCode(code) {
   return Prism.highlight(code, Prism.languages.javascript, 'javascript')
 }
@@ -59,12 +61,15 @@ export default function Algoz() {
   const contextValue = useMemo(() => ({ name: 'Password copied to clipboard' }), [])
   return (
     <div className='algoz'>
+ 
       <Context.Provider value={contextValue}>
         {contextHolder}
+ 
         <header>
           <h1>Algoz</h1>
           <nav>
             <ul>
+ 
               {difficulties.map((d) => (
                 <li key={d}>
                   <button
@@ -77,17 +82,21 @@ export default function Algoz() {
                   </button>
                 </li>
               ))}
+ 
             </ul>
           </nav>
         </header>
         <main>
           {algos
+ 
             .filter((algo) => algo.difficulty === difficulty)
+ 
             .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
             .map((algo) => (
               <ACard
                 algo={algo}
                 key={algo.name}
+ 
                 onClickAlgo={() => {
                   setAlgo(algo)
                   showModal()
@@ -139,17 +148,19 @@ export default function Algoz() {
           </ConfigProvider>
         )}
       </Context.Provider>
+ 
     </div>
   )
 }
 const ACard = ({ algo, onClickAlgo }) => {
-  return (
+  return ( 
     <div className='card'>
       <ConfigProvider
         theme={{
           token: {
             colorLink: 'black'
           }
+ 
         }}>
         <Button
           block

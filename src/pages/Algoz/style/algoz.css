@@ -1,282 +1,124 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap");
 .algoz {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   width: 100%;
-  font-family: "Open Sans", sans-serif;
   background-color: #000000;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 .algoz header {
   display: flex;
-  align-items: stretch;
   justify-content: center;
+  align-items: stretch;
+  position: relative;
   width: 100%;
   height: max(5vh, 40px);
-  color: #ffffff;
   border-bottom: 1px solid #ffffff;
-  position: relative;
+  color: #ffffff;
 }
 .algoz header h1 {
   position: absolute;
-  left: 16px;
   top: 50%;
+  left: 8px;
   transform: translateY(-50%);
   margin: 0;
   font-size: 32px;
 }
 .algoz header nav ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 .algoz header nav ul li {
   height: 100%;
 }
-.algoz header nav ul li a {
-  position: relative;
-  padding: 0 4px;
-  margin: 0;
+.algoz header nav ul li button {
   display: flex;
   align-items: flex-end;
+  position: relative;
   height: 100%;
-  cursor: pointer;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 24px;
-  color: white;
-}
-.algoz header nav ul li a:hover {
-  color: #673380;
-}
-.algoz header button {
   margin: 0 1vw;
   padding: 1vh 1vw;
   transition: border 100ms linear;
+  background-color: transparent;
   cursor: pointer;
-  border: 1px solid gray;
+  border: none;
   border-radius: 1rem;
   font-size: max(16px, 1vmin);
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: gray;
 }
-.algoz header button:hover {
+.algoz header nav ul li button:hover {
   transition: border 100ms linear;
-  border: 1px solid black;
+  color: white;
 }
-.algoz header button:active {
+.algoz header nav ul li button:active {
+  outline: none;
   transition: border 100ms linear;
-  border: 1px solid white;
 }
-.algoz header button.active {
-  background-color: red;
+.algoz header nav ul li button.active {
+  color: white;
 }
 .algoz main {
-  padding-top: 2vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  flex: 1;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
   overflow-y: auto;
   width: 100%;
+  max-width: 100%;
   height: calc(100vh - max(5vh, 40px));
+  padding: 8px;
   font-size: 1.15rem;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  color: #000;
+  color: white;
   text-align: left;
   white-space: break-spaces;
 }
-.algoz .card {
-  position: relative;
-  border: 1px solid orange;
-  width: 100%;
+.algoz main .card {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.algoz .card button {
-  margin: 0 1vw;
-  padding: 1vh 1vw;
-  transition: border 100ms linear;
-  cursor: pointer;
-  border: 1px solid gray;
-  border-radius: 1rem;
-  font-size: max(16px, 1vmin);
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
-}
-.algoz .card button.white {
-  background-color: white;
-}
-.algoz .card button.black {
-  background-color: black;
-}
-.algoz .card button:hover {
-  transition: border 100ms linear;
-  border: 1px solid black;
-}
-.algoz .card button:active {
-  transition: border 100ms linear;
-  border: 1px solid white;
-}
-.algoz .card button.active {
-  background-color: red;
-}
-.algoz .language-js {
-  background: #000;
-  color: #eee;
-  text-align: left;
-  word-spacing: normal;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: pre;
-}
-.algoz .language-js > * {
-  font-size: 12px;
-  font-family: "Source Code Pro", monospace;
-  line-height: 16px;
-  -moz-tab-size: 4;
-    -o-tab-size: 4;
-       tab-size: 4;
-  -webkit-hyphens: none;
-          hyphens: none;
-}
-.algoz code[class*=language-]::-moz-selection, .algoz pre[class*=language-]::-moz-selection {
-  background: #000;
-}
-.algoz code[class*=language-]::selection,
-.algoz pre[class*=language-]::selection {
-  background: #000;
-}
-.algoz pre[class*=language-] {
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
-  overflow: auto;
-  margin: 0.5em 0;
-  padding: 1.25em 1em;
+  background-color: #383838;
+  border-radius: 1rem;
 }
-.algoz .language-css > code,
-.algoz .language-sass > code,
-.algoz .language-scss > code {
-  color: #fd9170;
+.algoz main .card .leetcode-link {
+  display: flex;
+  height: -moz-min-content !important;
+  height: min-content !important;
+  margin: 0;
+  padding: 0;
+  background-color: orange;
+  border: 0;
+  border-radius: 0 16px 0 0;
+  text-decoration: none;
 }
-.algoz [class*=language-] .namespace {
-  opacity: 0.7;
+.algoz main .card .leetcode-link span {
+  padding: 8px;
 }
-
-.token.atrule {
-  color: #c792ea;
+.algoz__code {
+  background: black;
+  font-size: 16px;
+  font-family: "Source Code Pro", monospace;
+  color: white;
 }
-.token.attr-name {
-  color: #ffcb6b;
+.algoz__code pre {
+  margin: 0;
+  line-height: 19px;
 }
-.token.attr-value {
-  color: #a5e844;
-}
-.token.attribute {
-  color: #a5e844;
-}
-.token.boolean {
-  color: #c792ea;
-}
-.token.builtin {
-  color: #ffcb6b;
-}
-.token.cdata {
-  color: #80cbc4;
-}
-.token.char {
-  color: #80cbc4;
-}
-.token.class {
-  color: #ffcb6b;
-}
-.token.class-name {
-  color: #f2ff00;
-}
-.token.comment {
-  color: #616161;
-}
-.token.constant {
-  color: #c792ea;
-}
-.token.deleted {
-  color: #ff6666;
-}
-.token.doctype {
-  color: #616161;
-}
-.token.entity {
-  color: #ff6666;
-}
-.token.function {
-  color: #c792ea;
-}
-.token.hexcode {
-  color: #f2ff00;
-}
-.token.id {
-  color: #c792ea;
-  font-weight: bold;
-}
-.token.important {
-  color: #c792ea;
-  font-weight: bold;
-}
-.token.inserted {
-  color: #80cbc4;
-}
-.token.keyword {
-  color: #c792ea;
-}
-.token.number {
-  color: #fd9170;
-}
-.token.operator {
-  color: #89ddff;
-}
-.token.prolog {
-  color: #616161;
-}
-.token.property {
-  color: #80cbc4;
-}
-.token.pseudo-class {
-  color: #a5e844;
-}
-.token.pseudo-element {
-  color: #a5e844;
-}
-.token.punctuation {
-  color: #89ddff;
-}
-.token.regex {
-  color: #f2ff00;
-}
-.token.selector {
-  color: #ff6666;
-}
-.token.string {
-  color: #a5e844;
-}
-.token.symbol {
-  color: #c792ea;
-}
-.token.tag {
-  color: #ff6666;
-}
-.token.unit {
-  color: #fd9170;
-}
-.token.url {
-  color: #ff6666;
-}
-.token.variable {
-  color: #ff6666;
+.algoz__code pre code {
+  word-break: keep-all;
+  white-space: break-spaces;
 }/*# sourceMappingURL=algoz.css.map */

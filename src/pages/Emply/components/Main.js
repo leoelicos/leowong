@@ -1,84 +1,132 @@
-/* react */
-import { useState, useContext, useEffect } from 'react'
-import { EmployeeContext, EmployeeDispatchContext } from '../context/EmployeeContext'
-
-import EmployeeCard from './EmployeeCard'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAdd } from '@fortawesome/free-solid-svg-icons'
-import { Button, ConfigProvider } from 'antd'
+import { useState, useContext } from 'react'
 import useIDB from '../hooks/useIdb'
 import useLocalStorage from '../hooks/useLocalStorage'
 
+import { EmployeeContext, EmployeeDispatchContext } from '../context/EmployeeContext'
+import EmployeeCard from './EmployeeCard'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAdd, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { Button, ConfigProvider } from 'antd'
+import { faker } from '@faker-js/faker'
+
 const Main = () => {
   const [newEmployees, setNewEmployees] = useState([])
-  const { employeesLS, updateEmployeesLS } = useLocalStorage('team-maker-employees')
+
+  const { updateLS } = useLocalStorage('team-maker-employees')
+
+  const { putDb, deleteDb, clearDb } = useIDB()
+
   const dispatchEmployee = useContext(EmployeeDispatchContext)
+
   const employees = useContext(EmployeeContext)
-  const { putDb, getDb, deleteDb } = useIDB()
 
   const handleSave = ({ id, name, email, role }) => {
-    dispatchEmployee({ type: 'savedEmployee', action: { id, name, email, role } })
-    putDb({ id, name, email, role })
+    const employee = { id, name, email, role }
+    const n = employees.map((e) => (e.id === id ? employee : e))
 
-    updateEmployeesLS(
-      !employees.find((e) => e.id === id) //
-        ? employees.concat({ id, name, email, role })
-        : employees.map((e) =>
-            e.id === id //
-              ? { id, name, email, role }
-              : e
-          )
-    )
+    putDb(employee) /* update idb */
+
+    updateLS(n) /* update local storage */
+
+    /* update Context */
+    dispatchEmployee({
+      type: 'savedEmployee',
+      action: employee
+    })
   }
 
-  const handleAdd = () => {
+  const handleAdd = ({ name, email, role }) => {
+    const id = new Date().getTime() + name.slice(0, 3)
+    const employee = { id, name, email, role }
+    const n = employees.concat(employee)
+
+    putDb(employee) /* update idb */
+
+    updateLS(n) /* update local storage */
+
+    /* update Context */
+    dispatchEmployee({
+      type: 'addedEmployee',
+      action: employee
+    })
+  }
+
+  const handleAddBlank = () => {
     setNewEmployees((prev) => prev.concat({ id: new Date().getTime() }))
   }
 
-  const handleDelete = (id) => {
-    dispatchEmployee({ type: 'removedEmployee', action: { id: id } })
-    deleteDb(id)
-    let employee = employees.find((e) => e.id === id)
-    if (!!employee) updateEmployeesLS(employees.filter((e) => e.id !== id))
+  const handleDeleteBlank = (id) => {
+    setNewEmployees((prev) => prev.filter((employee) => employee.id !== id))
   }
 
-  useEffect(() => {
-    const fallback = [
-      { name: 'Bob', role: 0, id: 1677409204360, email: 'bob@github.com' },
-      { name: 'Grace', role: 1, id: 1677409204361, email: 'grace@github.com' },
-      { name: 'Keyley', role: 2, id: 1677409204362, email: 'kayley@github.com' }
-    ]
-    const ls = employeesLS
-    const initialiseEmployeeContext = async () => {
-      try {
-        const idb = await getDb()
-        if (idb?.length > 0) {
-          updateEmployeesLS(idb)
-          idb.forEach((e) => dispatchEmployee({ type: 'savedEmployee', action: e }))
-        } else if (ls?.length > 0) {
-          ls.forEach((e) => {
-            putDb(e)
-            dispatchEmployee({ type: 'savedEmployee', action: e })
-          })
-        } else {
-          updateEmployeesLS(fallback)
-          fallback.forEach((e) => {
-            putDb(e)
-            dispatchEmployee({ type: 'savedEmployee', action: e })
-          })
-        }
-      } catch (e) {
-        console.error(e)
-      }
-    }
-    initialiseEmployeeContext()
-  }, [dispatchEmployee, employeesLS, getDb, putDb, updateEmployeesLS])
+  const handleDeleteAllBlanks = () => {
+    setNewEmployees([])
+  }
+
+  const handleDeleteAllEmployees = () => {
+    clearDb() /* update idb */
+
+    updateLS([]) /* update local storage */
+
+    dispatchEmployee({
+      type: 'clickedDeleteAllEmployees',
+      action: undefined
+    })
+  }
+
+  const handleAddRandomEmployees = () => {
+    const randoms = new Array(10).fill(0).map(() => {
+      const name = faker.name.fullName()
+      const id = new Date().getTime() + name.slice(0, 3)
+      const email = faker.internet.email()
+      const role = Math.floor(Math.random() * 3)
+      return { id, name, email, role }
+    })
+
+    const randomEmployees = employees.concat(randoms)
+    /* update local storage */
+    updateLS(randomEmployees)
+    randoms.forEach((e) => {
+      /* update idb */
+      putDb(e)
+
+      /* update Context */
+      dispatchEmployee({
+        type: 'addedEmployee',
+        action: e
+      })
+    })
+  }
+
+  const handleDelete = (id) => {
+    /* update idb */
+    deleteDb(id)
+
+    /* update local storage */
+    let employee = employees.find((e) => e.id === id)
+    if (!!employee) updateLS(employees.filter((e) => e.id !== id))
+
+    /* update Context */
+    dispatchEmployee({ type: 'removedEmployee', action: { id: id } })
+  }
 
   return (
     <main>
-      {!employees?.length ? null : (
-        <View>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#0014ab',
+            colorBgBase: '#faebd7',
+            colorBorder: '#0014ab',
+            colorBorderSecondary: 'transparent',
+            colorTextDescription: '#7a6345',
+            colorError: '#b22',
+            colorBgElevated: '#faead6',
+
+            colorPrimaryBg: 'transparent'
+          }
+        }}>
+        <section className='employees'>
           {employees
             .sort((a, b) => a.role - b.role)
             .map(({ id, name, email, role }) => (
@@ -96,71 +144,80 @@ const Main = () => {
                 onSave={handleSave}
               />
             ))}
-        </View>
-      )}
-      <NewEmployees>
-        <Button
-          style={{ boxShadow: 'none' }}
-          type='primary'
-          onClick={handleAdd}>
-          <FontAwesomeIcon icon={faAdd} />
-        </Button>
-        {newEmployees?.length > 0 && (
-          <section className='new-employees-list'>
-            {newEmployees.map(({ id }) => (
-              <EmployeeCard
-                key={id}
-                id={id}
-                onDelete={() => {
-                  setNewEmployees((prev) => prev.filter((employee) => employee.id !== id))
-                }}
-                initialValues={{ name: '', email: '', role: undefined }}
-                initialMode='edit'
-                onSave={handleSave}
-              />
-            ))}
-          </section>
-        )}
-      </NewEmployees>
+          <div className='buttons above'>
+            <Button
+              style={{ boxShadow: 'none' }}
+              type='primary'
+              onClick={handleAddRandomEmployees}>
+              <FontAwesomeIcon icon={faAdd} />
+              &nbsp;10 random employees
+            </Button>
+            {employees?.length > 0 && (
+              <Button
+                style={{ boxShadow: 'none' }}
+                type='primary'
+                danger
+                onClick={handleDeleteAllEmployees}>
+                <FontAwesomeIcon icon={faTrash} />
+                &nbsp;Delete all employees
+              </Button>
+            )}
+          </div>
+        </section>
+      </ConfigProvider>
+
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: 'black',
+            colorBgBase: 'white',
+            colorError: '#b22',
+            colorBorderSecondary: 'transparent',
+
+            colorBorder: '#0014ab',
+            colorBgElevated: 'white',
+
+            colorPrimaryBg: 'transparent'
+          }
+        }}>
+        <section className='new-employees'>
+          <div className='buttons below'>
+            <Button
+              style={{ boxShadow: 'none' }}
+              type='primary'
+              onClick={handleAddBlank}>
+              <FontAwesomeIcon icon={faAdd} />
+            </Button>
+            {newEmployees?.length > 0 && (
+              <Button
+                style={{ boxShadow: 'none' }}
+                type='default'
+                danger
+                onClick={handleDeleteAllBlanks}>
+                <FontAwesomeIcon icon={faTrash} />
+                &nbsp;Clear unsaved
+              </Button>
+            )}
+          </div>
+          {newEmployees?.length > 0 && (
+            <section className='new-employees-list'>
+              {newEmployees.map(({ id }) => (
+                <EmployeeCard
+                  key={id}
+                  id={id}
+                  onDelete={() => {
+                    handleDeleteBlank(id)
+                  }}
+                  initialValues={{ name: '', email: '', role: undefined }}
+                  initialMode='edit'
+                  onSave={handleAdd}
+                />
+              ))}
+            </section>
+          )}
+        </section>
+      </ConfigProvider>
     </main>
   )
 }
 export default Main
-
-const View = ({ children }) => (
-  <ConfigProvider
-    theme={{
-      token: {
-        colorPrimary: '#0014ab',
-        colorBgBase: '#faebd7',
-        colorBorder: '#0014ab',
-        colorBorderSecondary: 'transparent',
-        colorTextDescription: '#7a6345',
-        colorError: '#b22',
-        colorBgElevated: '#faead6',
-
-        colorPrimaryBg: 'transparent'
-      }
-    }}>
-    <section className='view'>{children}</section>
-  </ConfigProvider>
-)
-
-const NewEmployees = ({ children }) => (
-  <ConfigProvider
-    theme={{
-      token: {
-        colorPrimary: 'black',
-        colorBgBase: 'white',
-        colorError: '#b22',
-        colorBorderSecondary: 'transparent',
-
-        colorBorder: '#0014ab',
-        colorBgElevated: 'white',
-
-        colorPrimaryBg: 'transparent'
-      }
-    }}>
-    <section className='new-employees'>{children}</section>
-  </ConfigProvider>
-)

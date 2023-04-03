@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 .emply {
-  font-family: "Lato", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100vh;
+  font-family: "Lato", sans-serif;
 }
 .emply header {
-  height: max(5vh, 40px);
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: #0014ab;
-  background-color: #faead6;
+  align-items: center;
   position: relative;
+  width: 100%;
+  height: max(5vh, 40px);
+  background-color: #faead6;
+  color: #0014ab;
 }
 .emply header .logo {
   position: absolute;
@@ -25,48 +25,44 @@
   padding: 0;
 }
 .emply main {
-  height: calc(100vh - max(5vh, 40px));
-  overflow-y: auto;
-  width: 100%;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #7a6345;
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100vh - max(5vh, 40px));
 }
 .emply section {
-  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-content: space-evenly;
   gap: 1rem;
+  width: 100%;
   padding: 1rem 0;
+}
+.emply section.employees {
+  flex: 1;
+  background-color: hsl(34, 28%, 37%);
 }
 .emply section.new-employees {
   flex: 1;
-  align-items: center;
-  justify-content: flex-start;
-  flex-flow: column wrap;
+  background-color: hsl(34, 28%, 57%);
 }
-.emply section.new-employees .buttons {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 4px 0;
-  width: 100%;
+.emply section .buttons {
   display: flex;
-  align-items: center;
+  flex-flow: row wrap;
   justify-content: center;
-}
-.emply section.new-employees .buttons button {
-  margin: 0 4px;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 0;
 }
 .emply article {
-  border-radius: 1rem;
   width: 100%;
   max-width: 300px;
   height: -moz-fit-content;
   height: fit-content;
+  border-radius: 1rem;
 }
 .emply article .employee-card {
   padding-top: 8px;
@@ -76,33 +72,5 @@
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
-  color: white;
-}
-.emply table {
-  border-spacing: 0;
-}
-.emply td {
-  border-spacing: 0;
-  width: 100%;
-}
-.emply th {
-  border-spacing: 0;
-  padding-right: 8px;
-  text-align: right;
-}
-.emply tr:not(:last-of-type) th {
-  padding-top: 5px;
-  vertical-align: top;
-}
-.emply footer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0014ab;
-  background-color: #faead6;
-  padding: 4px 0;
-}
-.emply footer p {
-  margin: 0;
+  color: red;
 }/*# sourceMappingURL=index.css.map */

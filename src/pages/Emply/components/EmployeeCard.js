@@ -1,17 +1,13 @@
-/* react */
 import { useRef, useState } from 'react'
-
-/* antd */
 import { Alert, Button, Card, Divider, Form, Input, Select } from 'antd'
-
-/* images */
-import { faClose, faPen, faSave, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faClose, faDice, faPen, faSave, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Meta from 'antd/es/card/Meta'
-
-const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, onSave }) => {
+import { faker } from '@faker-js/faker'
+export default function EmployeeCard({ id, onDelete, initialValues, initialMode, actualValues, onSave }) {
   const [mode, setMode] = useState(initialMode) // view or edit
   const hasSubmitted = useRef(false)
+  const [form] = Form.useForm()
 
   const handleFinish = ({ name, role, email }) => {
     onSave({ name, role, email, id })
@@ -20,11 +16,23 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, 
     hasSubmitted.current = false
   }
 
+  const handleFill = () => {
+    console.log('Clicked handleFill', form.getFieldsValue())
+
+    const name = faker.name.fullName().replace(/[^A-Za-z ]/g, '')
+    const email = faker.internet.email()
+    const role = Math.floor(Math.random() * 3)
+
+    form.setFieldsValue({ name, role, email })
+  }
   return mode === 'edit' ? (
-    <article className='employee'>
+    <article>
       <Form
+        form={form}
         onFinish={handleFinish}
-        initialValues={initialValues}>
+        initialValues={initialValues}
+        labelCol={{ span: 5 }}
+        wrapperCol={{ span: 19 }}>
         <Card
           headStyle={{ paddingBottom: '8px' }}
           size='small'
@@ -43,124 +51,42 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, 
               <FontAwesomeIcon icon={faClose} />
             </Button>
           }
-          title={actualValues ? 'Edit employee' : 'New employee'}
-          style={{ paddingTop: '1.5rem' }}>
-          <table>
-            <tbody>
-              <tr>
-                <th>Name</th>
-                <td>
-                  <Form.Item
-                    name='name'
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <Alert
-                            type='error'
-                            message='Required'
-                            showIcon
-                          />
-                        )
-                      },
-                      {
-                        pattern: new RegExp(/^[^\d]+$/g),
-                        message: (
-                          <Alert
-                            type='error'
-                            message='No numbers'
-                            showIcon
-                          />
-                        )
-                      },
-                      {
-                        pattern: new RegExp(/^[^!";#$%&'()*+,./:;<=>?@[\]^_{|}~]+$/),
-                        message: (
-                          <Alert
-                            type='error'
-                            message='No symbols'
-                            showIcon
-                          />
-                        )
-                      }
-                    ]}>
-                    <Input placeholder='Enter a name' />
-                  </Form.Item>
-                </td>
-              </tr>
-              <tr>
-                <th>Role</th>
-                <td>
-                  <Form.Item
-                    name='role'
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <Alert
-                            type='error'
-                            message='Required'
-                            showIcon
-                          />
-                        )
-                      }
-                    ]}>
-                    <Select
-                      placeholder='Select a role'
-                      options={[
-                        { label: 'Manager', value: 0 },
-                        { label: 'Engineer', value: 1 },
-                        { label: 'Intern', value: 2 }
-                      ]}
-                    />
-                  </Form.Item>
-                </td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td>
-                  <Form.Item
-                    name='email'
-                    rules={[
-                      {
-                        required: true,
-                        message: (
-                          <Alert
-                            type='error'
-                            message='Required'
-                            showIcon
-                          />
-                        )
-                      },
-                      {
-                        type: 'email',
-                        message: (
-                          <Alert
-                            type='error'
-                            message='Valid email required'
-                            showIcon
-                          />
-                        )
-                      }
-                    ]}>
-                    <Input placeholder='Enter an email' />
-                  </Form.Item>
-                </td>
-              </tr>
-              <tr>
-                <th>ID</th>
-                <td>
-                  <Input
-                    width='100%'
-                    disabled
-                    value={id}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          title={actualValues ? 'Edit employee' : 'New employee'}>
+          <Form.Item
+            label='Name'
+            name='name'
+            rules={[ruleRequired, ruleNoNumbers, ruleNoSymbols]}>
+            <Input placeholder='Enter a name' />
+          </Form.Item>
+          <Form.Item
+            label='Role'
+            name='role'
+            rules={[ruleRequired]}>
+            <Select
+              placeholder='Select a role'
+              options={[
+                { label: 'Manager', value: 0 },
+                { label: 'Engineer', value: 1 },
+                { label: 'Intern', value: 2 }
+              ]}
+            />
+          </Form.Item>
+          <Form.Item
+            label='Email'
+            name='email'
+            rules={[ruleRequired, ruleValidEmail]}>
+            <Input placeholder='Enter an email' />
+          </Form.Item>
+
           <Divider style={{ width: 'unset', margin: '8px -12px' }} />
           <div className='buttons'>
+            <Button
+              type='primary'
+              htmlType='submit'
+              shape='default'>
+              <FontAwesomeIcon icon={faSave} />
+              &ensp;Save
+            </Button>
             <Button
               type='primary'
               htmlType='button'
@@ -170,11 +96,11 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, 
               &ensp;Delete
             </Button>
             <Button
-              type='primary'
-              htmlType='submit'
-              shape='default'>
-              <FontAwesomeIcon icon={faSave} />
-              &ensp;Save
+              type='default'
+              htmlType='button'
+              onClick={handleFill}>
+              <FontAwesomeIcon icon={faDice} />
+              &ensp;Fill
             </Button>
           </div>
         </Card>
@@ -201,7 +127,7 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, 
             <p>
               <strong>Email</strong>&ensp;<a href={`mailto:${actualValues.email}`}>{actualValues.email}</a>
               <br />
-              <strong>ID</strong>&ensp;{id}
+              <strong>ID</strong>&ensp;<span style={{ fontFamily: 'monospace' }}>{id}</span>
             </p>
           }
         />
@@ -209,4 +135,44 @@ const EmployeeCard = ({ id, onDelete, initialValues, initialMode, actualValues, 
     </article>
   ) : null
 }
-export default EmployeeCard
+
+var ruleRequired = {
+  required: true,
+  message: (
+    <Alert
+      type='error'
+      message='Required'
+      showIcon
+    />
+  )
+}
+var ruleValidEmail = {
+  type: 'email',
+  message: (
+    <Alert
+      type='error'
+      message='Valid email required'
+      showIcon
+    />
+  )
+}
+var ruleNoNumbers = {
+  pattern: new RegExp(/^[^\d]+$/g),
+  message: (
+    <Alert
+      type='error'
+      message='No numbers'
+      showIcon
+    />
+  )
+}
+var ruleNoSymbols = {
+  pattern: new RegExp(/^[^!";#$%&'()*+,./:;<=>?@[\]^_{|}~]+$/),
+  message: (
+    <Alert
+      type='error'
+      message='No symbols'
+      showIcon
+    />
+  )
+}

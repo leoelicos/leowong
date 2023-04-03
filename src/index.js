@@ -35,6 +35,7 @@ for (const app in appData) {
       <Route
         path={`/${appData[app].endpoint}`}
         element={appData[app].element}
+        errorElement={<ErrorPage />}
       />
     )
   }

@@ -64,7 +64,20 @@ const useIDB = () => {
     }
   }
 
-  return { putDb, getDb, deleteDb }
+  /* clears out a Db without deleting it */
+  const clearDb = async () => {
+    try {
+      const db = await connect()
+      const tx = db.transaction(dbName, 'readwrite')
+      const store = tx.objectStore(dbName)
+      const request = store.clear()
+      await request
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  return { putDb, getDb, deleteDb, clearDb }
 }
 
 export default useIDB

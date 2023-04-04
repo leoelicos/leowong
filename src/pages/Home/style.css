@@ -6,42 +6,41 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  background: floralwhite url('./images/bg/mountain.png');
+  background: floralwhite url("./images/bg/mountain.png");
   background-position-x: center;
   background-position-y: 4.5vh;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-
-  font-family: 'Open Sans', sans-serif;
-
-  user-select: none;
-
+  font-family: "Open Sans", sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-.home-content {
+.home .home-content {
   height: calc(100vh - max(40px, 5vh));
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
 .home figure img {
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   height: 100vh;
   width: 100vw;
 }
 .home ::-webkit-scrollbar {
   display: none;
 }
-
 .home .body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
 .home h3 {
   width: 100%;
   margin: 1rem 0;
@@ -49,4 +48,4 @@
   justify-content: center;
   font-size: max(20px, 4vmin);
   margin: 2vh 0;
-}
+}/*# sourceMappingURL=style.css.map */

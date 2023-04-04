@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
 .home header {
   position: relative;
   width: 100%;
   height: max(40px, 5vh);
   background-color: black;
   color: white;
-  font-family: "Allerta Stencil", sans-serif;
+  font-family: 'Allerta Stencil', sans-serif;
   font-size: max(16px, 2vh);
   display: flex;
   align-items: center;
 }
-
 .home .logo {
   margin: 0 auto 0;
   display: flex;
@@ -25,11 +25,12 @@
 .home nav {
   flex: 1 1;
   height: 100%;
+
   display: flex;
   justify-content: center;
+
   position: relative;
 }
-
 .home ul {
   width: 100%;
   margin: 0;
@@ -37,15 +38,15 @@
   flex-direction: column;
   align-items: flex-end;
 }
-
 .home ul.big {
   position: absolute;
   bottom: -15vh;
   right: 0;
+
   z-index: 8;
+
   background-color: rgba(0, 0, 0, 0.9);
 }
-
 .home ul.big a {
   padding-right: 1vw;
   height: 5vh;
@@ -55,37 +56,31 @@
   justify-content: flex-end;
   z-index: 2;
 }
-
 .home ul a:hover,
 .home .logo:hover {
   background-color: #222;
 }
-
 .home ul a:active,
 .home .logo:active {
   background-color: #aaa;
 }
-
 .home ul.menu.description {
   display: flex !important;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
 }
-
 .home ul.menu.description a {
   width: max(32px, 4vw);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .home ul.small {
   display: none;
   height: 100%;
   align-items: center;
 }
-
 .home ul.small a {
   height: 100%;
   display: flex;
@@ -133,12 +128,14 @@
   .home ul.menu.big {
     display: none;
   }
+
   .home ul.menu.small {
     display: flex;
   }
+
   /* description page */
   .home ul.small.description {
     justify-content: center;
     width: 100%;
   }
-}/*# sourceMappingURL=style.css.map */
+}

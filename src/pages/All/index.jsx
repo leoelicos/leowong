@@ -3,7 +3,7 @@ import Project from '../Home/components/4__Projects/Project.jsx'
 import appData from '../../data/apps.js'
 import './style.css'
 import GradientText from '../../components/GradientText/index.jsx'
-const { ingre, readr, moovee, shopr, submitted, kiddin, locus, taggr, spriddle, syt, onetwothreego, devtips, votr, hourly, emply, clist, vroom, docu, writr, txtly, regexpo, algoz, depto, cinem, wander, grader, passo, megen } = appData
+const { ingre, readr, moovee, shopr, submitted, kiddin, locus, /* taggr, */ spriddle, sytycj, onetwothreego, /* devtips, */ /* votr, */ hourly, emply, /* clist, */ /* vroom, */ docu, /* writr, */ txtly, regexpo, algoz, /* depto, */ /* cinem, */ /* wander, */ /* grader, */ /* passo, */ /* megen, */ fundr } = appData
 
 function Projects({ projects }) {
   return (
@@ -19,18 +19,16 @@ function Projects({ projects }) {
 }
 
 export default function All() {
-  const search = [ingre, readr, moovee, locus] // removed clima for maintenance
-  const ecommerce = [shopr, taggr]
-  const games = [spriddle, syt, onetwothreego] // removed kiddle for maintenance
+  const search = [ingre, readr, moovee, locus] // removed clima
+  const ecommerce = [shopr] // removed taggr
+  const games = [spriddle, sytycj, onetwothreego] // removed kiddle
 
-  const forums = [submitted, kiddin, devtips, votr]
-  const management = [hourly, emply, clist, vroom] // removed wants for maintenance
-  // removed jobby for maintenance
-  const editors = [docu, writr, txtly]
+  const forums = [submitted, kiddin] // removed devtips, votr
+  const management = [hourly, emply, fundr] // removed wants, clist, vroom, jobby
+  const editors = [docu, txtly] // removed writr
   const articles = [regexpo, algoz]
-  const apis = [depto, cinem, wander, grader] // removed fundr for maintenance
-  // also removed matey for maintenance
-  const generators = [passo, megen]
+  /* const apis = [] */ // removed ,depto, cinem, wander, grader, matey
+  /* const generators = [] */ // removed passo, megen
 
   return (
     <div className='all'>
@@ -42,7 +40,7 @@ export default function All() {
         </GradientText>
       </h3>
       <h3
-        class='projects-header'
+        className='projects-header'
         style={{ color: 'white', textAlign: 'center', fontSize: 'max(1vmin, 36px)' }}>
         All projects
       </h3>
@@ -61,10 +59,10 @@ export default function All() {
         <Projects projects={editors} />
         <h3 className='projects-header'>Articles 📰</h3>
         <Projects projects={articles} />
-        <h3 className='projects-header'>APIs 🔁</h3>
-        <Projects projects={apis} />
-        <h3 className='projects-header'>Generators 🤖</h3>
-        <Projects projects={generators} />
+        {/* <h3 className='projects-header'>APIs 🔁</h3> */}
+        {/* <Projects projects={apis} /> */}
+        {/* <h3 className='projects-header'>Generators 🤖</h3>
+        <Projects projects={generators} /> */}
         <div style={{ height: '36vh' }} />
       </div>
     </div>

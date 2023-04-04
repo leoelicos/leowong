@@ -5,8 +5,7 @@ import useFavicon from '../../../../hooks/useFavicon.js'
 import useTitle from '../../../../hooks/useTitle.js'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 
 export default function Description() {
@@ -17,14 +16,13 @@ export default function Description() {
 
   const {
     endpoint,
-    link,
+    links,
     code,
     title,
     description,
     keywords,
     userStory,
-    businessRequirements,
-    changes,
+    features,
     frontEndTech,
     backEndTech,
     apis,
@@ -39,55 +37,104 @@ export default function Description() {
   useTitle(title)
   useFavicon(`/favicons/${endpoint}.png`)
 
+  const titleGradient = `linear-gradient(45deg, 
+    ${background1}, 
+    ${background2} 50%, 
+    ${background1} 100%)`
+  const titleColor = color1
+
   return (
-    <PageWrapper>
-      <SectionTitle
-        className='description-title'
-        title={title}
-        background1={background1}
-        background2={background2}
-        color1={color1}
-        color2={color2}
-        description={description}
-        keywords={keywords}
-        link={link}
-      />
+    <div className='description'>
+      {/* header */}
+      <div
+        target='blank'
+        rel='noreferrer'
+        style={{
+          background: titleGradient,
+          color: titleColor
+        }}
+        className='description-title '>
+        <h4 style={{ color: `${color1}`, fontSize: 'max(36px, 4vmin)', margin: '0 0 4px 0' }}>{title}</h4>
+        <p
+          style={{
+            color: `${color2}`,
+            margin: '0 0 2px 0'
+          }}>
+          {description}
+        </p>
+        <p
+          style={{
+            color: `${color1}`,
+            margin: 0
+          }}>
+          {keywords.join(' · ')}
+        </p>
+        <div className='links'>
+          <a
+            href={links[0]}
+            target='_blank'
+            rel='noreferrer'
+            className='deploy-button link'>
+            App
+          </a>
+
+          <a
+            href={code}
+            target='_blank'
+            rel='noreferrer'
+            className='code-button link'>
+            Code
+          </a>
+        </div>
+      </div>
 
       <table className='description-table'>
         <tbody>
-          <tr>
-            <th>Deployed</th>
-            <td>
-              <DeployButton link={link} />
-            </td>
-          </tr>
-          <tr>
-            <th>Code</th>
-            <td>
-              <CodeButton link={code} />
-            </td>
-          </tr>
-          <tr>
-            <th>Summary</th>
-            <td>{description}</td>
-          </tr>
+          {userStory.length > 0 && (
+            <tr>
+              <th>Story</th>
+              <td>
+                <ul>
+                  {userStory.map((point) => (
+                    <li key={point}>
+                      <FontAwesomeIcon
+                        icon={faAngleRight}
+                        style={{ color: 'gold' }}
+                      />
+                      &nbsp;
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </td>
+            </tr>
+          )}
+          {features.length > 0 && (
+            <tr>
+              <th>Features</th>
+              <td>
+                <ul>
+                  {features.map((point) => (
+                    <li key={point}>
+                      <FontAwesomeIcon
+                        icon={faAngleRight}
+                        style={{ color: 'gold' }}
+                      />
+                      &nbsp;{point}
+                    </li>
+                  ))}
+                </ul>
+              </td>
+            </tr>
+          )}
           {frontEndTech.length > 0 && (
             <tr>
-              <th>Front end</th>
+              <th>Client</th>
               <td>
                 {frontEndTech.map((tech) => (
                   <span
                     key={tech}
-                    style={{
-                      backgroundColor: 'white',
-                      color: 'black',
-                      padding: '0.5vh 2vw',
-                      borderRadius: '1vmin',
-
-                      fontSize: 'max(16px, 1vmin)',
-                      textAlign: 'center',
-                      whiteSpace: 'nowrap'
-                    }}>
+                    className='tech frontend'>
                     {tech}
                   </span>
                 ))}
@@ -96,180 +143,51 @@ export default function Description() {
           )}
           {backEndTech.length > 0 && (
             <tr>
-              <th>Back end</th>
+              <th>Server</th>
               <td>
                 {backEndTech.map((tech) => (
-                  <Tech
-                    key={tech}
-                    name={tech}
-                    background='black'
-                    color='white'
-                  />
+                  <div
+                    className='tech backend'
+                    key={tech}>
+                    {tech}
+                  </div>
                 ))}
               </td>
             </tr>
           )}
           {apis.length > 0 && (
             <tr>
-              <th>APIs</th>
+              <th>DaaS</th>
               <td>
-                {apis.map((tech) => (
-                  <Tech
-                    key={tech}
-                    name={tech}
-                    background='purple'
-                    color='white'
-                  />
+                {apis.map((api) => (
+                  <div
+                    className='tech api'
+                    key={api}>
+                    {api}
+                  </div>
                 ))}
               </td>
             </tr>
           )}
-          {userStory.length > 0 && (
+          {links.length > 1 && (
             <tr>
-              <th>User story</th>
+              <th>Backup</th>
               <td>
-                <ul>
-                  {userStory.map((point) => (
-                    <li key={point}>👉🏻{point}</li>
-                  ))}
-                </ul>
-              </td>
-            </tr>
-          )}
-          {businessRequirements.length > 0 && (
-            <tr>
-              <th>Requirements</th>
-              <td>
-                <ul>
-                  {businessRequirements.map((point) => (
-                    <li key={point}>👉🏻{point}</li>
-                  ))}
-                </ul>
-              </td>
-            </tr>
-          )}
-          {changes.length > 0 && (
-            <tr>
-              <th>Updates</th>
-              <td>
-                <ul>
-                  {changes.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                {links.slice(1).map((link, i) => (
+                  <a
+                    key={link}
+                    href={link}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='deploy-button link'>
+                    Mirror&nbsp;{i + 1}
+                  </a>
+                ))}
               </td>
             </tr>
           )}
         </tbody>
       </table>
-    </PageWrapper>
-  )
-}
-function DeployButton({ link }) {
-  const site = link.includes('herokuapp.com') //
-    ? 'heroku'
-    : link.includes('onrender.com')
-    ? 'Render'
-    : 'Vercel'
-
-  return (
-    <a
-      href={link}
-      target='_blank'
-      rel='noreferrer'
-      className='deploy-button'>
-      {site}
-    </a>
-  )
-}
-function CodeButton({ link }) {
-  return (
-    <a
-      href={link}
-      target='_blank'
-      rel='noreferrer'
-      className='code-button'>
-      <FontAwesomeIcon icon={faGithub} />
-    </a>
-  )
-}
-
-function SectionTitle({
-  title,
-  background1,
-  background2,
-  color1,
-  color2,
-  link,
-  description,
-  keywords //
-}) {
-  console.log({ title, background1, background2, color1, color2, link, description, keywords })
-  return (
-    <a
-      href={link}
-      target='blank'
-      rel='noreferrer'
-      style={{
-        background: `linear-gradient(45deg, 
-          ${background1}, 
-          ${background2} 50%, 
-          ${background1} 100%)`,
-        color: `${color1}`
-      }}
-      className='description-title'>
-      <h4 style={{ color: `${color1}`, fontSize: 'max(36px, 4vmin)', margin: '0 0 4px 0' }}>{title}</h4>
-      <p
-        style={{
-          color: `${color2}`,
-          margin: '0 0 2px 0'
-        }}>
-        {description}
-      </p>
-      <p
-        style={{
-          color: `${color1}`,
-          margin: 0
-        }}>
-        {keywords.join(' · ')}
-      </p>
-    </a>
-  )
-}
-
-function Tech({ name, background, color }) {
-  var style = {
-    backgroundColor: background,
-    color: color,
-    padding: '0.5vmin 2vmin',
-    borderRadius: '1vmin',
-
-    fontSize: 'max(16px, 1vmin)',
-    textAlign: 'center',
-    whiteSpace: 'nowrap'
-  }
-  return <span style={style}>{name}</span>
-}
-
-function PageWrapper({ children }) {
-  const style = {
-    display: 'flex',
-
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    flexFlow: 'column',
-    flex: '1',
-    height: '100vh',
-    width: '100%',
-    overflowY: 'auto',
-    maxWidth: '100%',
-    fontFamily: "'Open Sans', Arial, sans-serif"
-  }
-  return (
-    <div
-      style={style}
-      className='description'>
-      {children}
     </div>
   )
 }

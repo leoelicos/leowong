@@ -20,7 +20,7 @@ import Hourly from '../pages/Hourly/index.jsx'
 const appData = {
   ingre: {
     endpoint: 'ingre',
-    links: ['https://ingre.vercel.app/'],
+    links: ['https://ingre.herokuapp.com/', 'https://ingre.vercel.app/'],
     code: 'https://github.com/leoelicos/ingre',
     title: 'ingré',
     description: 'home shopping utility',
@@ -128,7 +128,7 @@ const appData = {
 
   shopr: {
     endpoint: 'shopr',
-    links: ['https://shopr-seven.vercel.app/', 'https://snapfire-shop.herokuapp.com/'],
+    links: ['https://snapfire-shop.herokuapp.com/', 'https://shopr-seven.vercel.app/'],
     code: 'https://github.com/leoelicos/snapfire-shop',
     title: 'shopr',
     description: 'fast shopping cart',
@@ -155,7 +155,7 @@ const appData = {
 
   readr: {
     endpoint: 'readr',
-    links: ['https://readr-murex.vercel.app/', 'https://leoelicos-googlebooks.herokuapp.com/'],
+    links: ['https://leoelicos-googlebooks.herokuapp.com/', 'https://readr-murex.vercel.app/'],
     code: 'https://github.com/leoelicos/book-search-engine',
     title: 'Readr',
     description: 'book search engine',

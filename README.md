@@ -2,7 +2,7 @@
 
 Hi I'm Leo. My application portfolio is organised by functionality and stars (⭐). Originally from my coding bootcamp, I have refactored the CSR apps into React and imported them into this monorepo where possible. Search, Ecommerce, Games, Forums, Management, Editors, Articles, APIs and Utilities. Stars indicate I wish to showcase them as my best apps.
 
-## Projects
+## Featured
 
 | Category     | App          | Description           |
 | ------------ | ------------ | --------------------- |
@@ -18,33 +18,16 @@ Hi I'm Leo. My application portfolio is organised by functionality and stars (�
 | Category      | App      | Description             |
 | ------------- | -------- | ----------------------- |
 | Search 🔎     | LOCus    | library search tool     |
-|               | Clima    | openweather dashboard   |
-| Ecommerce 🛒  | Taggr    | product database api    |
-| Games 🕹️      | Kiddle   | word game for kids      |
-|               | Spriddle | word guess              |
-|               | SYTYCJ   | timed quiz              |
-|               | 123Go    | rock paper scissors     |
-| Forums 💬     | DevTips  | diagnostic routes       |
-|               | Votr     | server-persistent votes |
+| Games 🕹️      | Spriddle | word guess              |
+|               | SYTYCJ   | javascript              |
+|               | 123Go    | classic children's game |
 | Management ⚒️ | Hourly   | day planner             |
-|               | Emply    | team maker              |
-|               | Jobby    | project tracker         |
-|               | Clist    | contact list utility    |
-|               | Wants    | bucket list tracker     |
-|               | Vroom    | car tracker             |
+|               | Emply    | team manager            |
+|               | Fundr    | crowdfund projects      |
 | Editors 🗒️    | Docu     | readme editor           |
-|               | Writr    | server persistent notes |
 |               | Txtly    | js supported editor     |
 | Articles 📰   | RegExpo  | regex tutorial          |
 |               | Algoz    | algorithm blog          |
-| APIs 🔁       | Depto    | employee cms api        |
-|               | Matey    | social network api      |
-|               | Cinem    | movie database api      |
-|               | Wander   | trip database api       |
-|               | Fundr    | crowdfund projects api  |
-|               | Grader   | student assignment api  |
-| Generators 🤖 | Passo    | password maker          |
-|               | Megen    | profile generator       |
 
 ## Learn More
 

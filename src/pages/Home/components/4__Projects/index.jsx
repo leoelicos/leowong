@@ -25,7 +25,6 @@ export default function Projects() {
           )
         })}
       </div>
-
       <Link
         className='project-all '
         to={`/all`}>

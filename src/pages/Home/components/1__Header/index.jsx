@@ -49,15 +49,19 @@ export default function Header() {
       <nav className='nav'>
         {onDescriptionPage ? (
           <ul className='menu small description'>
-            {currPosition > 0 && (
+            {currPosition > 0 ? (
               <a href={`/description/${order[prevPosition]}`}>
                 <FontAwesomeIcon icon={faAngleLeft} />
               </a>
+            ) : (
+              <span className='nolink'>&emsp;</span>
             )}
-            {currPosition < order.length - 1 && (
+            {currPosition < order.length - 1 ? (
               <a href={`/description/${order[nextPosition]}`}>
                 <FontAwesomeIcon icon={faAngleRight} />
               </a>
+            ) : (
+              <span className='nolink'>&emsp;</span>
             )}
           </ul>
         ) : (

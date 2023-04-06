@@ -1,5 +1,6 @@
 .description {
   display: flex;
+  align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   flex: 1;
@@ -7,7 +8,7 @@
   height: 100vh;
   overflow-y: scroll;
   font-family: "Open Sans", sans-serif;
-  max-width: max(600px, 60vw);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .description .link {
   position: relative;
@@ -52,17 +53,12 @@
 .description .description-title p {
   margin: 0 0 2px 0;
 }
-@media screen and (min-width: max(600px, 60vw)) {
-  .description .description-title {
-    margin: 3vh 0 0;
-  }
-}
 .description table {
-  background-color: rgba(0, 0, 0, 0.9);
   padding: 1vh 1vw;
   color: white;
   font-family: "Open Sans", sans-serif;
   width: 100%;
+  max-width: max(600px, 60vw);
 }
 .description table th {
   display: table-cell;
@@ -114,6 +110,7 @@
 .description table td ul li {
   width: 100%;
   margin: 0 0 1vh;
+  white-space: break-spaces;
 }
 .description .link:hover::before, .description .link:active::before {
   content: "";

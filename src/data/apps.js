@@ -75,8 +75,8 @@ const appData = {
 
   kiddin: {
     endpoint: 'kiddin',
-    links: ['https://just-kidding-baby.herokuapp.com/', 'https://kiddin.onrender.com'],
-    code: 'https://github.com/leoelicos/just-kidding',
+    links: ['https://kiddin.herokuapp.com/', 'https://kiddin.onrender.com'],
+    code: 'https://github.com/leoelicos/kiddin',
     title: "kiddin'",
     description: 'baby picture forum',
     keywords: ['collab', 'mvc', 'multer'],
@@ -128,8 +128,8 @@ const appData = {
 
   shopr: {
     endpoint: 'shopr',
-    links: ['https://snapfire-shop.herokuapp.com/', 'https://shopr-seven.vercel.app/'],
-    code: 'https://github.com/leoelicos/snapfire-shop',
+    links: ['https://shpr.herokuapp.com/', 'https://shopr-seven.vercel.app/'],
+    code: 'https://github.com/leoelicos/shopr',
     title: 'shopr',
     description: 'fast shopping cart',
     keywords: ['mern', 'pwa', 'stripe'],

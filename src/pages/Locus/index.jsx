@@ -26,7 +26,7 @@ const thinBarText = {
 }
 
 export default function Locus() {
-  useTitle('Library of Congress')
+  useTitle('Locus')
   useFavicon('/favicons/locus.png')
 
   /* state */

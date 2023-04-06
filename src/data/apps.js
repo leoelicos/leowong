@@ -342,7 +342,12 @@ const appData = {
     color2: '#D9D9D9',
 
     userStory: ['As a traveler, I want to view the weather outlook for multiple cities so that I can plan a trip accordingly.'],
-    features: ['Type in the box to search for a city', 'Choose from a dropdown list of matched cities and this city will be saved to search history', "See today's and 5-days' forecast: temperature, humidity, wind speed, and UV index", "View an hourly visualization of today's weather"],
+    features: [
+      'Type in the box to search for a city',
+      'Choose from a dropdown list of matched cities and this city will be saved to search history',
+      "See today's and 5-days' forecast: temperature, humidity, wind speed, and UV index",
+      "View an hourly visualization of today's weather" //
+    ],
     apis: ['openweathermap.org'],
     frontEndTech: ['react'],
     backEndTech: [],
@@ -362,7 +367,12 @@ const appData = {
     color2: '#eee',
 
     userStory: ['As a libray user, I want to search media from the Library of Congress, with the option of specifying a media format, and see the results of my search displayed on a separate page, from where I can also search for more movies.'],
-    features: ['Get data from the Library of Congress', 'View a homepage with a search form and an optional dropdown to search with a specific format', 'View search results: publication date, title, subject, description, and link to the Library of Congress entry', 'Search another entry from the search result page'],
+    features: [
+      'Get data from the Library of Congress',
+      'View a homepage with a search form and an optional dropdown to search with a specific format',
+      'View search results: publication date, title, subject, description, and link to the Library of Congress entry',
+      'Search another entry from the search result page' //
+    ],
     apis: ['loc.gov'],
     frontEndTech: ['react'],
     backEndTech: [],
@@ -406,7 +416,13 @@ const appData = {
     color2: 'white',
 
     userStory: ['As a developer, I want to quickly create a professional README for a new project using a README generator.'],
-    features: ['Create a readme template by clicking on cards', 'Choose from a wide selection of industry-wide README sections', 'Sections include Header, Overview, Setup, References, Footer', 'Click Generate button to copy markdown file to clipboard', 'Click Reset button to reset selected cards'],
+    features: [
+      'Create a readme template by clicking on cards',
+      'Choose from a wide selection of industry-wide README sections',
+      'Sections include Header, Overview, Setup, References, Footer',
+      'Click Generate button to copy markdown file to clipboard',
+      'Click Reset button to reset selected cards' //
+    ],
     apis: [],
     frontEndTech: ['react', 'marked-react', 'antd'],
     backEndTech: [],
@@ -454,7 +470,7 @@ const appData = {
     features: [
       "View each employee's name, ID, email, and office number",
       'Add or delete employees as desired.',
-      'Create employees by pressing the + button, and save, delete or fill with random information using same window',
+      'Create employees by pressing the add button, and save, delete or fill with random information using same window',
       'Entries will be saved locally automatically' //
     ],
     apis: [],
@@ -475,14 +491,13 @@ const appData = {
     color1: 'green',
     color2: 'green',
 
-    userStory: ['As a small business owner, I want to write and save notes, so that I can keep track of tasks, organize my thoughts, and plan my work effectively. '],
+    userStory: ['As a business owner, I want to write and save notes, so that I can keep track of tasks, organize my thoughts, and plan my work effectively. '],
     features: [
-      'Create, edit, and delete notes.',
-      'The notes are stored securely and are accessible from any device with an internet connection.',
       'View a landing page with a link to the notes page',
-      'View a list of existing notes in the left column, and empty fields to enter a new note in the right column',
-      'When a new note is entered, a save icon appears in the navigation. Save the note and it appears in the left column',
-      'When an existing note in the left column is clicked, it appears in the right column' //
+      'View saved notes on the left',
+      'View current note on the right',
+      'Create, edit, and delete notes',
+      'Save to store notes securely on the server' //
     ],
     changes: [],
     apis: [],
@@ -503,10 +518,16 @@ const appData = {
     color2: 'white',
 
     userStory: [
-      'As a responsible developer, I want to serve a custom 404 page when the requested resource does not exist. I want to log usage statistics from users of my site, so that I can track user behavior and use the data to improve site performance.',
-      'As a forum user, I want to create dev tips for other developers to use, as well as leave feedback for the website.' //
+      'As a forum user, I want to create dev tips for other developers to use, as well as leave feedback for the website. If I go to a page that does not exist, I want to see a page telling me that.',
+      'As a developer, I want to log usage statistics from users of my site, so that I can track user behavior and use the data to improve site performance.'
+      //
     ],
-    features: ['See a 404 page when a route does not exist. Try /api/x', 'View `/api/diagnostics` for information about the invalid form submissions.'],
+    features: [
+      'Add dev tips by typing in the text box, typing a username, and pressing Add Tip',
+      'Leave feedback by clicking Feedback, typing feedback',
+      'See a 404 page when a route does not exist. Try /api/x',
+      'See usage statistics from users of the site at /api/diagnostics.' //
+    ],
     changes: [],
     apis: [],
     frontEndTech: [],
@@ -526,7 +547,7 @@ const appData = {
     color1: 'white',
     color2: 'white',
 
-    userStory: ['As a business owner, I want to manage manage the departments, roles, and employees in my company in order to organize and plan my business more efficiently.'],
+    userStory: ['As a business owner, I want to manage the departments, roles, and employees in my company in order to organize and plan my business more efficiently.'],
     features: [
       'Add, edit, and delete departments, roles, and employees',
       'Assign roles to employees and set their salaries',
@@ -553,6 +574,7 @@ const appData = {
     color2: 'white',
 
     userStory: [
+      'As a developer working on a movie list application, I want to view, add and delete movies and reviews with a database.'
       //
     ],
     features: [
@@ -570,18 +592,35 @@ const appData = {
 
   taggr: {
     endpoint: 'taggr',
-    links: [''],
+    links: ['https://products-api-v0.herokuapp.com/api/products'],
     code: 'https://github.com/leoelicos/bcs-13-ecommerce-back-end',
     title: 'Taggr',
     description: 'ecommerce back end',
     keywords: ['sequelize', 'express', 'mysql2'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ["As a manager at an internet retail company, I want to update my e-commerce website's backend with the latest technologies so that my company can stay competitive in the market. The backend should include features such as advanced search and filtering, customer management, inventory management, and support for multiple payment gateways. Additionally, the backend should be scalable and flexible enough to handle future updates and changes to the website's functionality."],
-    features: ['Given a functional Express.js API, when I add my database name, MySQL username, and MySQL password to an environment variable file, then I am able to connect to a database using Sequelize.', 'When I enter schema and seed commands, then a development database is created and is seeded with test data.', 'When I enter the command to invoke the application, then my server is started and the Sequelize models are synced to the MySQL database.', 'When I open API GET routes in Insomnia for categories, products, or tags, then the data for each of these routes is displayed in a formatted JSON.', 'When I test API POST, PUT, and DELETE routes in Insomnia, then I am able to successfully create, update, and delete data in my database.'],
+    userStory: ["As a retail manager, I want to update my e-commerce website's backend with product and tag information."],
+    features: [
+      'GET /api/categories',
+      'POST /api/categories{ "category_name": STRING }',
+      'GET /api/categories/:categoryId',
+      'PUT /api/categories/:categoryId\n{ "category_name": STRING }',
+      'DELETE /api/categories/:categoryId',
+      'GET /api/tags',
+      'POST /api/tags\n{ "tag_name": STRING, "productIds": [INTEGER, INTEGER…] }',
+      'GET /api/tags/:tagId',
+      'PUT /api/tags/:tagId\n{ "tag_name": STRING, "productIds": [INTEGER, INTEGER…] }',
+      'DELETE /api/tags/:tagId',
+      'GET /api/products',
+      'POST /api/products\n{ "product_name": STRING, "price": DECIMAL, "stock": INTEGER, category_id: INTEGER, "tagIds": [INTEGER, INTEGER…] }',
+      'GET /api/products/:productId',
+      'PUT /api/products/:productId\n{ "product_name": STRING, "price": DECIMAL, "stock": INTEGER, category_id: INTEGER, "tagIds": [INTEGER, INTEGER…] }',
+      'DELETE /api/products/:productId',
+      'GET /api/product_tags' //
+    ],
     changes: [],
     apis: [],
     frontEndTech: [],
@@ -596,26 +635,24 @@ const appData = {
     title: 'Wander',
     description: 'trips database backend',
     keywords: ['express', 'mysql2', 'sequelize'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ['As a traveller, I want to be able to create an account.', 'As a traveller, I want to be able to create a new trip for myself using a location from a list.', 'As a traveller, I want to be able to create and view location data.', "As a traveller, I want to be able to view all of the trips I'm taking, along with their locations."],
+    userStory: ['As a developer working on a trips application, I want to be able to create a new trip using a location from a list, create and view location data, and view all of the trips and trip locations for a user.'],
     features: [
-      'The GET route `/api/travellers` must return all traveller data without associated trips in Insomnia.',
-      'The POST route `/api/travellers` must create traveller data and return a successful response in Insomnia.',
-      "The GET route `/api/travellers/:id` must return a single traveller's data with their associated trips and a list of locations in Insomnia.",
-      'The DELETE route `/api/travellers/:id` must remove a traveller and any trips associated with them and return a successful response in Insomnia.',
-      'The GET route `/api/locations` must return all location data in Insomnia.',
-      'The POST route `/api/locations` must create location data and return a successful response in Insomnia.',
-      "The GET route `/api/locations/:id` must return a single location's data, with its associated trips, in Insomnia.",
-      'The DELETE route `/api/locations/:id` must remove a location and any trips associated with it and return a successful response in Insomnia.',
-      'The POST route `/api/trips` must create trip data between associated travellers and locations.',
-      'The DELETE route `/api/trips/:id` must remove a trip and return a successful response in Insomnia.',
-      'The API must be successfully deployed to Heroku with a MySQL database.'
+      'GET\t\t/api/travellers',
+      'POST\t\t/api/travellers\n\t\t\t{"name": STRING,\n\t\t\t"email": STRING}',
+      'GET\t\t/api/travellers/:id',
+      'DELETE\t/api/travellers/:id',
+      'GET\t\t/api/locations',
+      'POST\t\t/api/locations\n\t\t\t{"location_name": INTEGER}',
+      'GET\t\t/api/locations/:id',
+      'DELETE\t/api/locations/:id',
+      'POST\t\t/api/trips\n\t\t\t{"trip_budget": INTEGER,\n\t\t\t"traveller_amount": INTEGER,\n\t\t\t"traveller_id": INTEGER,\n\t\t\t"location_id": INTEGER}',
+      'DELETE\t/api/trips/:id' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: ['bcrypt', 'dotenv', 'express', 'mysql2', 'sequelize'],
@@ -634,8 +671,14 @@ const appData = {
     color1: 'green',
     color2: 'green',
 
-    userStory: ['As a venture capitalist, I want to be able to view a list of current projects seeking funding, so that I can explore and discover new projects that interest me.', 'As a registered user, I want to be able to post my own projects to ask for funding, so that I can raise funds and bring my ideas to life.'],
-    features: ['Create an account to save and manage projects, receive updates, and contribute to funding', 'Create an account to post projects to ask for funding'],
+    userStory: [
+      'As a venture capitalist, I want to be able to view a list of current projects seeking funding, so that I can explore and discover new projects that interest me.',
+      'As a registered user, I want to be able to post my own projects to ask for funding, so that I can raise funds and bring my ideas to life.' //
+    ],
+    features: [
+      'Create an account to save and manage projects, receive updates, and contribute to funding',
+      'Create an account to post projects to ask for funding' //
+    ],
     changes: [],
     apis: [],
     frontEndTech: [],
@@ -645,29 +688,26 @@ const appData = {
 
   regexpo: {
     endpoint: 'regexpo',
-    links: [''],
-    code: 'https://gist.github.com/leoelicos/5d8dfb511b682fc5894688d54cfb5a73',
+    links: ['https://gist.github.com/leoelicos/5d8dfb511b682fc5894688d54cfb5a73'],
+    code: 'https://gist.githubusercontent.com/leoelicos/5d8dfb511b682fc5894688d54cfb5a73/raw/340d891eb5299ca0b81cf117de45a4e61393af0c/regex-tutorial-password-matching.md',
     title: 'RegExpo',
     description: 'regex tutorial',
     keywords: ['regex', 'gist', 'mermaid'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
     userStory: [
-      'As a web development student, I want a tutorial that explains Regex to help me understand search patterns.' //
+      'As a web development student, I want a tutorial that explains Regex so that I can understand search patterns.' //
     ],
     features: [
-      'Regex Syntax',
-      'Anchors',
-      'Quantifiers',
-      'Lookarounds',
-      'Grouping Constructs',
-      'Bracket Expressions',
-      'Character Classes',
-      'Character Escapes',
-      'Mermaid schema' //
+      'Rationale for the article',
+      'Small digestible regex snippets',
+      'Covers Regex Syntax, Anchors, Quantifiers, Lookarounds, Grouping Constructs, Bracket Expressions, Character Classes, Character Escapes',
+      'Summary table',
+      'Mermaid schema to visualise the logic',
+      'Glossary' //
     ],
     apis: [],
     frontEndTech: [],
@@ -682,13 +722,20 @@ const appData = {
     title: 'Grader',
     description: 'student grades api',
     keywords: ['cors', 'express', 'mongoose'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ['As a user, I want to be able to view all the students and get a total count of the number of students enrolled.', "As a user, I want to be able to view a specific student's overall grade in the class using MongoDB operators and their score on each assignment.", 'As a user, I want to be able to execute create, read, update, and delete operations on courses, students, and assignments.'],
-    features: ['Use MongoDB, Mongoose, and Express', 'Seed the database with sample data', 'Create an aggregate function for headcount that uses MongoDB operators', 'Create an aggregate function for grade that uses MongoDB operators', 'Test the endpoints with Insomnia', 'Deploy using Heroku and MongoDB Atlas'],
+    userStory: [
+      "As a teacher, I want to view all students and get a head count,view a specific student's overall grade in the class using and their score on each assignment, and execute create, read, update, and delete operations on courses, students, and assignments." //
+    ],
+    features: [
+      'View all students and get a head count',
+      "View a specific student's overall grade in the class",
+      "View a student's score on each assignment",
+      'Create, read, update, and delete courses, students, and assignments.' //
+    ],
     changes: ['I deployed it to Render for faster load'],
     apis: [],
     frontEndTech: [],
@@ -703,13 +750,28 @@ const appData = {
     title: 'Matey',
     description: 'social network back end',
     keywords: ['express', 'mongoose', 'validator'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
     userStory: ['As a social media startup, I want to have an API for my social network that utilizes a NoSQL database, so that my website can handle large amounts of unstructured data.'],
-    features: ["The application's server is started", 'The Mongoose models are synced to the MongoDB database', 'The data for each API GET route is displayed in a formatted JSON', 'API POST, PUT, and DELETE routes are successfully able to create, update, and delete users and thoughts in the database', "API POST and DELETE routes are successfully able to create and delete reactions to thoughts and add and remove friends to a user's friend list"],
+    features: [
+      'GET\t\t/users',
+      `POST\t\t/users\n\t\t\t{"username": "harry",\n\t\t\t"email": "hp@hw.com"}`,
+      'GET\t\t/users/:userId',
+      `PUT\t\t/users/:userId\n\t\t\t{"username": "harry",\n\t\t\t"email": "hp@hw.com"}`,
+      'DELETE\t/users/:userId',
+      'POST\t\t/users/:userId/friends/:friendId',
+      'DELETE\t/users/:userId/friends/:friendId',
+      'GET\t\t/thoughts',
+      'GET\t\t/thoughts',
+      `POST\t\t/thoughts\n\t\t\t{"thoughtText": "Life's good",\n\t\t\t"username": "harry",\n\t\t\t"userId": 5edf}`,
+      `PUT\t\t/thoughts/:thoughtId\n\t\t\t{"email": "hp@hw.com"}`,
+      'DELETE\t/thoughts/:thoughtId',
+      `POST\t\t/thoughts/:thoughtId/reactions\n\t\t\t{"reactionBody": "OMG really ? ",\n\t\t\t"username": "ron"}`,
+      'DELETE\t/thoughts/:thoughtId/reactions/:reactionId' //
+    ],
     changes: ['I deployed it to Render for faster load', 'I added a seed file with Harry, Ron and Hermione'],
     apis: [],
     frontEndTech: [],
@@ -724,13 +786,18 @@ const appData = {
     title: 'Clist',
     description: 'contacts utility',
     keywords: ['express', 'idb', 'bootstrap'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'hlack',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ['As a user, I want to be able to install the web application as a PWA. I want to be able to add and remove my contact cards.', "As a developer, I want all my scripts to run from the root directory package.json. I want to be able to run npm run start in the command line and have both my client and server start. I want to be able to run npm run start:prod in the command line to run our build script and start our server. I want to be able to run npm run server in the command line and have just our server start without the client. I want to be able to run npm run build in the command line and have our client run the webpack build script. I want to be able to run npm run install in the command line and have all of the client's dependencies installed. I want to be able to run npm run client in the command line and have just our client start without the server."],
-    features: ['The application uses webpack for bundling.', 'The application uses a service worker to cache static assets.', 'The application uses IndexedDB GET, ADD, and DELETE methods.', 'The application uses object store for async/await.', 'The application uses CSS loaders.', "Scripts are placed in the root and client directory's `package.json`.", '`npm run start` starts both the client and server.', '`npm run start:prod` runs the `build` script and starts the server.', '`npm run server` starts just the server and not the client.', '`npm run build` runs the webpack build script in the client.', '`npm run install` installs the dependencies for the client.', '`npm run client` starts the client without the server.', 'The web application can be installed from the web address provided by Heroku.', 'The web application is deployed using Heroku.'],
+    userStory: ['As a businessperson, I want to create, view, and remove contacts in an application that can be installed, works offline, and syncs to the server when reconnected to the internet.'],
+    features: [
+      'Add, view and remove contact cards',
+      'Installable from the web address',
+      'Start online or offline and pick up where it was left off',
+      'Updates when online' //
+    ],
     changes: [],
     apis: [],
     frontEndTech: ['idb'],
@@ -752,12 +819,11 @@ const appData = {
 
     userStory: ['As a developer, I want to create a note-taking application that allows users to create notes or code snippets, with or without an internet connection, so that they can reliably retrieve them for later use.'],
     features: [
-      'Renders Javascript code in Javascript markup',
-      'Renders markdown code in markdown markup',
-      'Edit existing notes',
-      'Installable',
+      'Take notes in Javascript with markup',
+      'Take notes in markdown with markup',
+      'Installable from the web',
       'Works offline after install and save notes locally',
-      'Sync notes with a remote server when an internet connection is available' //
+      'Updates automatically when online' //
     ],
     changes: [],
     apis: [],
@@ -771,16 +837,20 @@ const appData = {
     links: ['/wants'],
     code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Wants',
     title: 'Wants',
-    description: 'bucket list',
+    description: 'priority list',
     keywords: ['react'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ['As a user, I want to be able to enter a bucket-list item. I also want to be able to set the eagerness level of a bucket-list item. After adding a bucket-list item, I want to see a list of all my bucket-list items with colors that identify their eagerness level. Finally, I want to be able to edit and delete bucket-list items.'],
-    features: ['Write logic to add a bucket-list item in `components/BucketList.js`', 'Write logic to mark a bucket-list item as complete or incomplete', 'Write logic to remove a bucket-list item from the list', 'Write logic to update a bucket-list item in `components/Bucket.js`', 'Write logic that will render a list of bucket-list items using `.map`', 'Each bucket-list item has a color that corresponds to the priority or "eagerness" to complete', 'Each bucket-list item renders a button to edit and delete the item'],
-    changes: ['I refactored the React to be more modular and maintainable'],
+    userStory: ['As a user, I want a priority list that allows me to add, edit and delete tasks as well as their priority from low, medium and high'],
+    features: [
+      'Add, edit and delete tasks',
+      'Mark tasks as complete or incomplete',
+      'Edit task priorities',
+      'View tasks with a color coding corresponding to priority' //
+    ],
     apis: [],
     frontEndTech: ['react'],
     backEndTech: [],
@@ -794,13 +864,18 @@ const appData = {
     title: 'Votr',
     description: 'voting application',
     keywords: ['graphql', 'react', 'mongoose'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ['As a user, I want to see a list of technology matchups.', 'As a user, I want to be able to create a new matchup between two technologies.', 'As a user, I want to be able to vote for one of the two technologies in the matchup.', 'As a user, I want to see the current number of votes for each technology in the matchup.', "As a user, if I reach a page that doesn't exist, I want to see a 404 page."],
-    features: ['The `/` homepage route renders a list of technologies', 'The `/matchup` route renders a form to choose two technologies to create a matchup', 'The `/matchup/:id` route renders a matchup to vote on', 'An Apollo Server is set up to use GraphQL queries and mutations to fetch and modify data, replacing the existing RESTful API', 'Apollo Client is set up so that requests can communicate with an Apollo Server', "A 404 page `NotFound` is rendered if the user tries to access a page that doesn't exist"],
+    userStory: ['As a dev, I want to vote on new and shiny tools so my company will use them'],
+    features: [
+      'Create a new matchup between two technologies.',
+      'Vote for one technology in the matchup.',
+      'View current votes for each technology in each matchup.',
+      'See a 404 page when going to a page that does not exist' //
+    ],
     changes: [],
     apis: [],
     frontEndTech: ['@apollo/client', 'graphql', 'react', 'react-dom', 'react-router-dom'],
@@ -815,13 +890,17 @@ const appData = {
     title: 'Vroom',
     description: 'car tracker',
     keywords: ['react', 'redux'],
-    background2: '#FFF9F7',
-    background1: '#FFD6C9',
-    color1: '#B55F26',
-    color2: '#FFFFFF',
+    background2: 'black',
+    background1: 'black',
+    color1: 'white',
+    color2: 'white',
 
-    userStory: ['As a developer, I want to refactor an application that currently uses the Context API, so that it can handle state management using the open source JavaScript library Redux.'],
-    features: ['Import `{ createStore }` from `redux`', 'Import `reducers` from `./reducers`', 'Create a default export of `createStore` that accepts an argument of `reducers`', 'In `/utils/CarContext.js` import `{ Provider }` from `react-redux` and `store` from `./store`', 'Refactor the `CarProvider` component so that it returns `<Provider>` with an attribute of `store`, set to the value of `store`', 'Clean up any unused code left over from the React Hooks', 'Run the application, using `npm run start`, to ensure that functionality is unchanged for the end user'],
+    userStory: ['As a car enthusiast, I want to simulate a garage by adding cars and setting their engines on and off.'],
+    features: [
+      'Add cars by name, model and year',
+      'Turn the cars on or off',
+      'Installable from web and works offline' //
+    ],
     changes: [],
     apis: [],
     frontEndTech: ['react', 'react-dom', 'react-redux', 'react-scripts', 'redux'],

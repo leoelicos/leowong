@@ -104,7 +104,7 @@ const appData = {
   moovee: {
     endpoint: 'moovee',
     links: ['/moovee'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Moovee',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Moovee',
     title: 'MOOVEE',
     description: 'trailer search',
     keywords: ['collab', 'gapi', 'omdb'],
@@ -181,7 +181,7 @@ const appData = {
   onetwothreego: {
     endpoint: 'onetwothreego',
     links: ['/onetwothreego'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/onetwothreego',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/onetwothreego',
     title: '123Go',
     description: "classic children's game",
     keywords: ['react'],
@@ -204,7 +204,7 @@ const appData = {
   passo: {
     endpoint: 'passo',
     links: ['/passo'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Passo',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Passo',
     title: 'Passo',
     description: 'password generator',
     keywords: ['antd', 'react'],
@@ -227,7 +227,7 @@ const appData = {
   kiddle: {
     endpoint: 'kiddle',
     links: ['/kiddle'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Kiddle',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Kiddle',
     title: 'Kiddle',
     description: 'Wordle for kids',
     keywords: ['react'],
@@ -254,7 +254,7 @@ const appData = {
   sytycj: {
     endpoint: 'sytycj',
     links: ['/sytycj'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/syt',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/syt',
     title: 'SYTYCJ',
     description: 'JavaScript knowledge test',
     keywords: ['react'],
@@ -280,7 +280,7 @@ const appData = {
   jobby: {
     endpoint: 'jobby',
     links: ['/jobby'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Jobby',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Jobby',
     title: 'Jobby',
     description: 'project tracker',
     keywords: ['react'],
@@ -304,7 +304,7 @@ const appData = {
   hourly: {
     endpoint: 'hourly',
     links: ['/hourly'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Hourly',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Hourly',
     title: 'Hourly',
     description: 'hourly task manager',
     keywords: [],
@@ -332,7 +332,7 @@ const appData = {
   clima: {
     endpoint: 'clima',
     links: ['/clima'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Clima',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Clima',
     title: 'Clima',
     description: 'weather dashboard',
     keywords: ['react', 'openweather', 'SVG'],
@@ -357,7 +357,7 @@ const appData = {
   locus: {
     endpoint: 'locus',
     links: ['/locus'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locus',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Locus',
     title: 'Locus',
     description: 'library search tool',
     keywords: ['react'],
@@ -382,7 +382,7 @@ const appData = {
   megen: {
     endpoint: 'megen',
     links: ['/megen'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Megen',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Megen',
     title: 'Megen',
     description: 'about me generator',
     keywords: ['react', 'iframe'],
@@ -406,7 +406,7 @@ const appData = {
   docu: {
     endpoint: 'docu',
     links: ['/docu'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Docu',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Docu',
     title: 'Docu',
     description: 'readme generator',
     keywords: ['react', ''],
@@ -432,7 +432,7 @@ const appData = {
   spriddle: {
     endpoint: 'spriddle',
     links: ['/spriddle'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Spriddle',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Spriddle',
     title: 'Spriddle',
     description: 'timed riddle game',
     keywords: ['react', 'fun'],
@@ -457,7 +457,7 @@ const appData = {
   emply: {
     endpoint: 'emply',
     links: ['/emply'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Emply',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Emply',
     title: 'Emply',
     description: 'team visualizer',
     keywords: ['react'],
@@ -835,7 +835,7 @@ const appData = {
   wants: {
     endpoint: 'wants',
     links: ['/wants'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Wants',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Wants',
     title: 'Wants',
     description: 'priority list',
     keywords: ['react'],
@@ -911,7 +911,7 @@ const appData = {
   algoz: {
     endpoint: 'algoz',
     links: ['/algoz'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Algoz',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Algoz',
     title: 'AlgoZ',
     description: 'collection of algorithms',
     keywords: ['react', 'prism', 'algorithms'],

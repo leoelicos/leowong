@@ -5,8 +5,12 @@ import BgCar from '../../images/bg/car.png'
 import BgMotorway from '../../images/bg/motorway.png'
 import BgRoad from '../../images/bg/road.png'
 import './style.css'
+import useFavicon from '../../../../hooks/useFavicon.js'
+import useTitle from '../../../../hooks/useTitle.js'
 
 export default function Hero({ children }) {
+  useFavicon('/favicons/home.png')
+  useTitle('Leo Wong')
   return (
     <div className='app-05'>
       <div className='body'>

@@ -661,8 +661,8 @@ const appData = {
 
   fundr: {
     endpoint: 'fundr',
-    links: ['https://projects-api-v0.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/bcs-14-crowdfunding-app',
+    links: ['https://fundr.herokuapp.com/'],
+    code: 'https://github.com/leoelicos/fundr',
     title: 'Fundr',
     description: 'crowdfunding backend',
     keywords: ['handlebars', 'session', 'mysql2'],
@@ -807,8 +807,8 @@ const appData = {
 
   txtly: {
     endpoint: 'txtly',
-    links: ['https://leoelicos-jate.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/progressive-text-editor',
+    links: ['https://txtly.herokuapp.com/'],
+    code: 'https://github.com/leoelicos/txtly',
     title: 'Txtly',
     description: 'offline text editor',
     keywords: ['pwa', 'express', 'idb'],

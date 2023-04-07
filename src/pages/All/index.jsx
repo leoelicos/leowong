@@ -32,18 +32,14 @@ export default function All() {
 
   return (
     <div className='all'>
-      <h3 style={{ fontSize: 'max(64px, 8vh)', fontFamily: "'Allerta Stencil', sans-serif", textAlign: 'center' }}>
+      <h1>
         <GradientText
           color1='red'
           color2='orange'>
           &nbsp;Leo Wong
         </GradientText>
-      </h3>
-      <h3
-        className='projects-header'
-        style={{ color: 'white', textAlign: 'center', fontSize: 'max(1vmin, 36px)' }}>
-        All projects
-      </h3>
+      </h1>
+      <h2 style={{ color: 'white', textAlign: 'center', fontSize: 'max(1vmin, 36px)' }}>All projects</h2>
       <div className='projects'>
         <h3 className='projects-header'>Search 🔎</h3>
         <Projects projects={search} />

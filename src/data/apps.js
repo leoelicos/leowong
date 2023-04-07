@@ -481,8 +481,8 @@ const appData = {
 
   writr: {
     endpoint: 'writr',
-    links: ['https://leoelicos-note-taker.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/bcs-11-note-taker',
+    links: ['https://writr.herokuapp.com/'],
+    code: 'https://github.com/leoelicos/writr',
     title: 'Writr',
     description: 'server persistent notepad',
     keywords: ['ssr', 'express', 'bootstrap'],
@@ -507,8 +507,8 @@ const appData = {
   },
   devtips: {
     endpoint: 'devtips',
-    links: ['https://leoelicos-diagnostic-routes.herokuapp.com'],
-    code: 'https://github.com/leoelicos/bcs-11-diagnostic-routes',
+    links: ['https://dvtps.herokuapp.com'],
+    code: 'https://github.com/leoelicos/devtips',
     title: 'DevTips',
     description: 'dev forum',
     keywords: ['ssr', 'express', 'uuid'],
@@ -537,8 +537,8 @@ const appData = {
 
   depto: {
     endpoint: 'depto',
-    links: ['https://employees-api.herokuapp.com/api/employees'],
-    code: 'https://github.com/leoelicos/bcs-12-employee-management-system',
+    links: ['https://dpto.herokuapp.com/api/employees'],
+    code: 'https://github.com/leoelicos/depto',
     title: 'Depto',
     description: 'employee CMS backend',
     keywords: ['express', 'mysql2'],
@@ -563,8 +563,8 @@ const appData = {
 
   cinem: {
     endpoint: 'cinem',
-    links: ['https://movies-api-9x92.herokuapp.com/api/movies'],
-    code: 'https://github.com/leoelicos/bcs-12-movie-database',
+    links: ['https://cinemapi.herokuapp.com/api/movies'],
+    code: 'https://github.com/leoelicos/cinem',
     title: 'Cinem',
     description: 'movie database backend',
     keywords: ['express', 'mysql2'],
@@ -592,8 +592,8 @@ const appData = {
 
   taggr: {
     endpoint: 'taggr',
-    links: ['https://products-api-v0.herokuapp.com/api/products'],
-    code: 'https://github.com/leoelicos/bcs-13-ecommerce-back-end',
+    links: ['https://taggr.herokuapp.com/api/products'],
+    code: 'https://github.com/leoelicos/taggr',
     title: 'Taggr',
     description: 'ecommerce back end',
     keywords: ['sequelize', 'express', 'mysql2'],
@@ -630,8 +630,8 @@ const appData = {
 
   wander: {
     endpoint: 'wander',
-    links: ['https://leoelicos-trips-database.herokuapp.com/api/trips'],
-    code: 'https://github.com/leoelicos/bcs-13-trips-database',
+    links: ['https://wndr.herokuapp.com/api/trips'],
+    code: 'https://github.com/leoelicos/wander',
     title: 'Wander',
     description: 'trips database backend',
     keywords: ['express', 'mysql2', 'sequelize'],

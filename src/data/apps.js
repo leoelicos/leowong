@@ -20,7 +20,7 @@ import Hourly from '../pages/Hourly/index.jsx'
 const appData = {
   ingre: {
     endpoint: 'ingre',
-    links: ['https://ingre.herokuapp.com/', 'https://ingre.vercel.app/'],
+    links: ['https://ingre.herokuapp.com', 'https://ingre.vercel.app/'],
     code: 'https://github.com/leoelicos/ingre',
     title: 'ingré',
     description: 'home shopping utility',
@@ -48,7 +48,10 @@ const appData = {
 
   submitted: {
     endpoint: 'submitted',
-    links: ['https://submitted-blog.herokuapp.com/', 'https://submitted.onrender.com'],
+    links: [
+      'https://submittd.herokuapp.com',
+      'https://submitted.onrender.com' //
+    ],
     code: 'https://github.com/leoelicos/submitted',
     title: 'submitted!',
     description: 'coding forum',
@@ -75,7 +78,10 @@ const appData = {
 
   kiddin: {
     endpoint: 'kiddin',
-    links: ['https://kiddin.herokuapp.com/', 'https://kiddin.onrender.com'],
+    links: [
+      'https://kiddin.herokuapp.com',
+      'https://kiddin.onrender.com' //
+    ],
     code: 'https://github.com/leoelicos/kiddin',
     title: "kiddin'",
     description: 'baby picture forum',
@@ -104,7 +110,7 @@ const appData = {
   moovee: {
     endpoint: 'moovee',
     links: ['/moovee'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Moovee',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Moovee',
     title: 'MOOVEE',
     description: 'trailer search',
     keywords: ['collab', 'gapi', 'omdb'],
@@ -128,7 +134,7 @@ const appData = {
 
   shopr: {
     endpoint: 'shopr',
-    links: ['https://shpr.herokuapp.com/', 'https://shopr-seven.vercel.app/'],
+    links: ['https://shpr.herokuapp.com', 'https://shopr-seven.vercel.app/'],
     code: 'https://github.com/leoelicos/shopr',
     title: 'shopr',
     description: 'fast shopping cart',
@@ -155,7 +161,7 @@ const appData = {
 
   readr: {
     endpoint: 'readr',
-    links: ['https://leoelicos-googlebooks.herokuapp.com/', 'https://readr-murex.vercel.app/'],
+    links: ['https://leoelicos-googlebooks.herokuapp.com', 'https://readr-murex.vercel.app/'],
     code: 'https://github.com/leoelicos/book-search-engine',
     title: 'Readr',
     description: 'book search engine',
@@ -181,7 +187,7 @@ const appData = {
   onetwothreego: {
     endpoint: 'onetwothreego',
     links: ['/onetwothreego'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/onetwothreego',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/onetwothreego',
     title: '123Go',
     description: "classic children's game",
     keywords: ['react'],
@@ -204,7 +210,7 @@ const appData = {
   passo: {
     endpoint: 'passo',
     links: ['/passo'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Passo',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Passo',
     title: 'Passo',
     description: 'password generator',
     keywords: ['antd', 'react'],
@@ -227,7 +233,7 @@ const appData = {
   kiddle: {
     endpoint: 'kiddle',
     links: ['/kiddle'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Kiddle',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Kiddle',
     title: 'Kiddle',
     description: 'Wordle for kids',
     keywords: ['react'],
@@ -254,7 +260,7 @@ const appData = {
   sytycj: {
     endpoint: 'sytycj',
     links: ['/sytycj'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/syt',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/syt',
     title: 'SYTYCJ',
     description: 'JavaScript knowledge test',
     keywords: ['react'],
@@ -280,7 +286,7 @@ const appData = {
   jobby: {
     endpoint: 'jobby',
     links: ['/jobby'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Jobby',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Jobby',
     title: 'Jobby',
     description: 'project tracker',
     keywords: ['react'],
@@ -304,7 +310,7 @@ const appData = {
   hourly: {
     endpoint: 'hourly',
     links: ['/hourly'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Hourly',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Hourly',
     title: 'Hourly',
     description: 'hourly task manager',
     keywords: [],
@@ -332,7 +338,7 @@ const appData = {
   clima: {
     endpoint: 'clima',
     links: ['/clima'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Clima',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Clima',
     title: 'Clima',
     description: 'weather dashboard',
     keywords: ['react', 'openweather', 'SVG'],
@@ -357,7 +363,7 @@ const appData = {
   locus: {
     endpoint: 'locus',
     links: ['/locus'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Locus',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Locus',
     title: 'Locus',
     description: 'library search tool',
     keywords: ['react'],
@@ -382,7 +388,7 @@ const appData = {
   megen: {
     endpoint: 'megen',
     links: ['/megen'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Megen',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Megen',
     title: 'Megen',
     description: 'about me generator',
     keywords: ['react', 'iframe'],
@@ -406,7 +412,7 @@ const appData = {
   docu: {
     endpoint: 'docu',
     links: ['/docu'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Docu',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Docu',
     title: 'Docu',
     description: 'readme generator',
     keywords: ['react', ''],
@@ -432,7 +438,7 @@ const appData = {
   spriddle: {
     endpoint: 'spriddle',
     links: ['/spriddle'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Spriddle',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Spriddle',
     title: 'Spriddle',
     description: 'timed riddle game',
     keywords: ['react', 'fun'],
@@ -457,7 +463,7 @@ const appData = {
   emply: {
     endpoint: 'emply',
     links: ['/emply'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Emply',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Emply',
     title: 'Emply',
     description: 'team visualizer',
     keywords: ['react'],
@@ -481,8 +487,8 @@ const appData = {
 
   writr: {
     endpoint: 'writr',
-    links: ['https://leoelicos-note-taker.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/bcs-11-note-taker',
+    links: ['https://writr.herokuapp.com'],
+    code: 'https://github.com/leoelicos/writr',
     title: 'Writr',
     description: 'server persistent notepad',
     keywords: ['ssr', 'express', 'bootstrap'],
@@ -507,8 +513,8 @@ const appData = {
   },
   devtips: {
     endpoint: 'devtips',
-    links: ['https://leoelicos-diagnostic-routes.herokuapp.com'],
-    code: 'https://github.com/leoelicos/bcs-11-diagnostic-routes',
+    links: ['https://dvtps.herokuapp.com'],
+    code: 'https://github.com/leoelicos/devtips',
     title: 'DevTips',
     description: 'dev forum',
     keywords: ['ssr', 'express', 'uuid'],
@@ -537,8 +543,8 @@ const appData = {
 
   depto: {
     endpoint: 'depto',
-    links: ['https://employees-api.herokuapp.com/api/employees'],
-    code: 'https://github.com/leoelicos/bcs-12-employee-management-system',
+    links: ['https://dpto.herokuapp.com/api/employees'],
+    code: 'https://github.com/leoelicos/depto',
     title: 'Depto',
     description: 'employee CMS backend',
     keywords: ['express', 'mysql2'],
@@ -563,8 +569,8 @@ const appData = {
 
   cinem: {
     endpoint: 'cinem',
-    links: ['https://movies-api-9x92.herokuapp.com/api/movies'],
-    code: 'https://github.com/leoelicos/bcs-12-movie-database',
+    links: ['https://cinemapi.herokuapp.com/api/movies'],
+    code: 'https://github.com/leoelicos/cinem',
     title: 'Cinem',
     description: 'movie database backend',
     keywords: ['express', 'mysql2'],
@@ -592,8 +598,8 @@ const appData = {
 
   taggr: {
     endpoint: 'taggr',
-    links: ['https://products-api-v0.herokuapp.com/api/products'],
-    code: 'https://github.com/leoelicos/bcs-13-ecommerce-back-end',
+    links: ['https://taggr.herokuapp.com/api/products'],
+    code: 'https://github.com/leoelicos/taggr',
     title: 'Taggr',
     description: 'ecommerce back end',
     keywords: ['sequelize', 'express', 'mysql2'],
@@ -630,8 +636,8 @@ const appData = {
 
   wander: {
     endpoint: 'wander',
-    links: ['https://leoelicos-trips-database.herokuapp.com/api/trips'],
-    code: 'https://github.com/leoelicos/bcs-13-trips-database',
+    links: ['https://wndr.herokuapp.com/api/trips'],
+    code: 'https://github.com/leoelicos/wander',
     title: 'Wander',
     description: 'trips database backend',
     keywords: ['express', 'mysql2', 'sequelize'],
@@ -661,8 +667,8 @@ const appData = {
 
   fundr: {
     endpoint: 'fundr',
-    links: ['https://projects-api-v0.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/bcs-14-crowdfunding-app',
+    links: ['https://fundr.herokuapp.com'],
+    code: 'https://github.com/leoelicos/fundr',
     title: 'Fundr',
     description: 'crowdfunding backend',
     keywords: ['handlebars', 'session', 'mysql2'],
@@ -717,8 +723,8 @@ const appData = {
 
   grader: {
     endpoint: 'grader',
-    links: ['https://students-api.herokuapp.com/api', 'https://students-api-sqma.onrender.com/'],
-    code: 'https://github.com/leoelicos/students-api',
+    links: ['https://gradr.herokuapp.com/api/students'],
+    code: 'https://github.com/leoelicos/grader',
     title: 'Grader',
     description: 'student grades api',
     keywords: ['cors', 'express', 'mongoose'],
@@ -745,8 +751,8 @@ const appData = {
 
   matey: {
     endpoint: 'matey',
-    links: ['https://snapi.herokuapp.com/api/users', 'https://social-network-api-v4ec.onrender.com/api/users'],
-    code: 'https://github.com/leoelicos/snapi',
+    links: ['https://matey.herokuapp.com/api/users'],
+    code: 'https://github.com/leoelicos/matey',
     title: 'Matey',
     description: 'social network back end',
     keywords: ['express', 'mongoose', 'validator'],
@@ -807,8 +813,8 @@ const appData = {
 
   txtly: {
     endpoint: 'txtly',
-    links: ['https://leoelicos-jate.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/progressive-text-editor',
+    links: ['https://txtly.herokuapp.com'],
+    code: 'https://github.com/leoelicos/txtly',
     title: 'Txtly',
     description: 'offline text editor',
     keywords: ['pwa', 'express', 'idb'],
@@ -835,7 +841,7 @@ const appData = {
   wants: {
     endpoint: 'wants',
     links: ['/wants'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Wants',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Wants',
     title: 'Wants',
     description: 'priority list',
     keywords: ['react'],
@@ -859,7 +865,7 @@ const appData = {
 
   votr: {
     endpoint: 'votr',
-    links: ['https://tech-battle.herokuapp.com/'],
+    links: ['https://tech-battle.herokuapp.com'],
     code: 'https://github.com/leoelicos/tech-battle',
     title: 'Votr',
     description: 'voting application',
@@ -885,8 +891,8 @@ const appData = {
 
   vroom: {
     endpoint: 'vroom',
-    links: ['https://digital-garage.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/digital-garage',
+    links: ['https://vroooom.herokuapp.com'],
+    code: 'https://github.com/leoelicos/vroom',
     title: 'Vroom',
     description: 'car tracker',
     keywords: ['react', 'redux'],
@@ -911,7 +917,7 @@ const appData = {
   algoz: {
     endpoint: 'algoz',
     links: ['/algoz'],
-    code: 'https://github.com/leoelicos/bcs/tree/main/src/pages/Algoz',
+    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Algoz',
     title: 'AlgoZ',
     description: 'collection of algorithms',
     keywords: ['react', 'prism', 'algorithms'],

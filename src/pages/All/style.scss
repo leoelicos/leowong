@@ -1,0 +1,138 @@
+.all {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+
+  font-family: 'Open Sans', sans-serif;
+
+  user-select: none;
+
+  background-color: black;
+
+  background: floralwhite url('./leather-texture-bake.png');
+  background-position-x: center;
+  background-position-y: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size: max(64px, 8vh);
+    font-family: 'Allerta Stencil', sans-serif;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Allerta Stencil', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: max(1vmin, 36px);
+  }
+
+  .projects {
+    padding-top: 5vh;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .projects-header {
+      color: white;
+      font-size: max(18px, 2vmin);
+      margin-top: max(16px, 3vh);
+    }
+
+    .project-cards {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+
+      .project-card {
+        width: 100%;
+        padding: 16px;
+        border: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+
+        text-align: center;
+        font-weight: 500;
+
+        .project-card-title {
+          font-size: max(36px, 2vmin);
+          margin: 0 0 4px 0;
+        }
+
+        .project-card-description {
+          margin: 0 0 2px 0;
+        }
+        .project-card-keywords {
+          margin: 0;
+        }
+
+        &:hover::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &:active::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media screen and (min-width: 500px) {
+          width: 50% !important;
+        }
+
+        @media screen and (min-width: 750px) {
+          width: 33% !important;
+        }
+
+        @media screen and (min-width: 1000px) {
+          width: 25% !important;
+        }
+
+        @media screen and (min-width: 1250px) {
+          width: 20% !important;
+        }
+
+        @media screen and (min-width: 1500px) {
+          width: 16% !important;
+        }
+      }
+    }
+  }
+}

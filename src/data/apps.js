@@ -717,8 +717,8 @@ const appData = {
 
   grader: {
     endpoint: 'grader',
-    links: ['https://students-api.herokuapp.com/api', 'https://students-api-sqma.onrender.com/'],
-    code: 'https://github.com/leoelicos/students-api',
+    links: ['https://gradr.herokuapp.com/api/students'],
+    code: 'https://github.com/leoelicos/grader',
     title: 'Grader',
     description: 'student grades api',
     keywords: ['cors', 'express', 'mongoose'],
@@ -745,8 +745,8 @@ const appData = {
 
   matey: {
     endpoint: 'matey',
-    links: ['https://snapi.herokuapp.com/api/users', 'https://social-network-api-v4ec.onrender.com/api/users'],
-    code: 'https://github.com/leoelicos/snapi',
+    links: ['https://matey.herokuapp.com/api/users'],
+    code: 'https://github.com/leoelicos/matey',
     title: 'Matey',
     description: 'social network back end',
     keywords: ['express', 'mongoose', 'validator'],

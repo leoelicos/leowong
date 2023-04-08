@@ -20,7 +20,7 @@ import Hourly from '../pages/Hourly/index.jsx'
 const appData = {
   ingre: {
     endpoint: 'ingre',
-    links: ['https://ingre.herokuapp.com/', 'https://ingre.vercel.app/'],
+    links: ['https://ingre.herokuapp.com', 'https://ingre.vercel.app/'],
     code: 'https://github.com/leoelicos/ingre',
     title: 'ingré',
     description: 'home shopping utility',
@@ -49,7 +49,7 @@ const appData = {
   submitted: {
     endpoint: 'submitted',
     links: [
-      'https://submitted-blog.herokuapp.com/',
+      'https://submittd.herokuapp.com',
       'https://submitted.onrender.com' //
     ],
     code: 'https://github.com/leoelicos/submitted',
@@ -79,7 +79,7 @@ const appData = {
   kiddin: {
     endpoint: 'kiddin',
     links: [
-      'https://kiddin.herokuapp.com/',
+      'https://kiddin.herokuapp.com',
       'https://kiddin.onrender.com' //
     ],
     code: 'https://github.com/leoelicos/kiddin',
@@ -134,7 +134,7 @@ const appData = {
 
   shopr: {
     endpoint: 'shopr',
-    links: ['https://shpr.herokuapp.com/', 'https://shopr-seven.vercel.app/'],
+    links: ['https://shpr.herokuapp.com', 'https://shopr-seven.vercel.app/'],
     code: 'https://github.com/leoelicos/shopr',
     title: 'shopr',
     description: 'fast shopping cart',
@@ -161,7 +161,7 @@ const appData = {
 
   readr: {
     endpoint: 'readr',
-    links: ['https://leoelicos-googlebooks.herokuapp.com/', 'https://readr-murex.vercel.app/'],
+    links: ['https://leoelicos-googlebooks.herokuapp.com', 'https://readr-murex.vercel.app/'],
     code: 'https://github.com/leoelicos/book-search-engine',
     title: 'Readr',
     description: 'book search engine',
@@ -487,7 +487,7 @@ const appData = {
 
   writr: {
     endpoint: 'writr',
-    links: ['https://writr.herokuapp.com/'],
+    links: ['https://writr.herokuapp.com'],
     code: 'https://github.com/leoelicos/writr',
     title: 'Writr',
     description: 'server persistent notepad',
@@ -667,7 +667,7 @@ const appData = {
 
   fundr: {
     endpoint: 'fundr',
-    links: ['https://fundr.herokuapp.com/'],
+    links: ['https://fundr.herokuapp.com'],
     code: 'https://github.com/leoelicos/fundr',
     title: 'Fundr',
     description: 'crowdfunding backend',
@@ -813,7 +813,7 @@ const appData = {
 
   txtly: {
     endpoint: 'txtly',
-    links: ['https://txtly.herokuapp.com/'],
+    links: ['https://txtly.herokuapp.com'],
     code: 'https://github.com/leoelicos/txtly',
     title: 'Txtly',
     description: 'offline text editor',
@@ -865,7 +865,7 @@ const appData = {
 
   votr: {
     endpoint: 'votr',
-    links: ['https://tech-battle.herokuapp.com/'],
+    links: ['https://tech-battle.herokuapp.com'],
     code: 'https://github.com/leoelicos/tech-battle',
     title: 'Votr',
     description: 'voting application',
@@ -891,7 +891,7 @@ const appData = {
 
   vroom: {
     endpoint: 'vroom',
-    links: ['https://vroooom.herokuapp.com/'],
+    links: ['https://vroooom.herokuapp.com'],
     code: 'https://github.com/leoelicos/vroom',
     title: 'Vroom',
     description: 'car tracker',

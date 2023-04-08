@@ -1,7 +1,7 @@
 import { faAngleLeft, faAngleRight, faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
-import { Link, resolvePath, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './style.css'
 
 export default function Header() {

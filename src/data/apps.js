@@ -48,7 +48,10 @@ const appData = {
 
   submitted: {
     endpoint: 'submitted',
-    links: ['https://submitted-blog.herokuapp.com/', 'https://submitted.onrender.com'],
+    links: [
+      'https://submitted-blog.herokuapp.com/',
+      'https://submitted.onrender.com' //
+    ],
     code: 'https://github.com/leoelicos/submitted',
     title: 'submitted!',
     description: 'coding forum',
@@ -75,7 +78,10 @@ const appData = {
 
   kiddin: {
     endpoint: 'kiddin',
-    links: ['https://kiddin.herokuapp.com/', 'https://kiddin.onrender.com'],
+    links: [
+      'https://kiddin.herokuapp.com/',
+      'https://kiddin.onrender.com' //
+    ],
     code: 'https://github.com/leoelicos/kiddin',
     title: "kiddin'",
     description: 'baby picture forum',

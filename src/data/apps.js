@@ -885,8 +885,8 @@ const appData = {
 
   vroom: {
     endpoint: 'vroom',
-    links: ['https://digital-garage.herokuapp.com/'],
-    code: 'https://github.com/leoelicos/digital-garage',
+    links: ['https://vroooom.herokuapp.com/'],
+    code: 'https://github.com/leoelicos/vroom',
     title: 'Vroom',
     description: 'car tracker',
     keywords: ['react', 'redux'],

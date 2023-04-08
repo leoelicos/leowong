@@ -3,21 +3,20 @@ import { getWord } from './data/wordlist'
 import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
 
-import Body from './components/Body'
-import Header from './components/Header'
-import Main from './components/Main'
-import Alarm from './components/Main/Alarm.jsx'
-import StartButton from './components/Main/StartButton.jsx'
-import Tiles from './components/Main/Tiles'
-import Footer from './components/Footer'
-import Tally from './components/Footer/Tally.jsx'
-import FooterButtons from './components/Footer/FooterButtons.jsx'
-import HelpModal from './components/Footer/HelpModal.jsx'
+import Alarm from './components/Alarm.jsx'
+import StartButton from './components/StartButton.jsx'
+import Tiles from './components/Tiles'
+
+import Tally from './components/Tally.jsx'
+import FooterButtons from './components/FooterButtons.jsx'
+import HelpModal from './components/HelpModal.jsx'
 
 import useTimer from './hooks/useTimer'
 
+import './style/index.css'
+
+import Elephant from './images/elephantOrange.png'
 export default function WordGuess() {
-  /* setup */
   useFavicon('/favicons/kiddle.png')
   useTitle('Kiddle')
 
@@ -121,19 +120,30 @@ export default function WordGuess() {
   }, [seconds, endGame])
 
   return (
-    <div className='app-08'>
-      <Body>
-        <Header />
-        <Main>
+    <div className='kiddle'>
+      <div className='body'>
+        <header>
+          <div className='logo'>
+            <img
+              src={Elephant}
+              alt='elephant logo'
+            />
+          </div>
+          <div>
+            <h1>KIDDLE</h1>
+          </div>
+        </header>
+
+        <main>
           <Alarm seconds={seconds} />
           <Tiles tiles={tiles} />
           <StartButton
             handleClickStart={handleClickStart}
             buttonMessage={buttonMessage}
           />
-        </Main>
+        </main>
 
-        <Footer>
+        <footer>
           <Tally
             wins={tally?.wins || 0}
             losses={tally?.losses || 0}
@@ -147,8 +157,8 @@ export default function WordGuess() {
             handleClickModalCancel={handleClickModalCancel}
             isModalOpen={isModalOpen}
           />
-        </Footer>
-      </Body>
+        </footer>
+      </div>
     </div>
   )
 }

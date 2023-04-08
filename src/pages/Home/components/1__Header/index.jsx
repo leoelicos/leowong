@@ -27,8 +27,6 @@ export default function Header() {
 
   const onDescriptionPage = params.appName !== undefined
 
-  const resolved = resolvePath({ to: '#top' })
-  console.log({ resolved })
   return (
     <header>
       {onDescriptionPage ? (

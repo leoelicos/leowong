@@ -107,13 +107,47 @@
         &#button-tally-wins {
           background-color: hsl(138, 97%, 38%);
           border: 1px solid rgb(52, 206, 87);
-          box-shadow: rgb(72, 211, 104) 0px 0px 0px 0px, rgb(72, 211, 104) 0px 0px 0px 0px, rgb(72, 211, 104) 0px 1px 0px 0px, rgb(72, 211, 104) 0px 2px 0px 0px, rgb(72, 211, 104) 0px 3px 0px 0px, rgb(72, 211, 104) 0px 4px 0px 0px, rgb(72, 211, 104) 0px 5px 0px 0px, hsl(60, 100%, 80%) 2px 2.5px 4px 0px, hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
+          box-shadow://
+            rgb(72, 211, 104) 0px 0px 0px 0px,
+            //
+            rgb(72, 211, 104) 0px 0px 0px 0px,
+            //
+            rgb(72, 211, 104) 0px 1px 0px 0px,
+            //
+            rgb(72, 211, 104) 0px 2px 0px 0px,
+            //
+            rgb(72, 211, 104) 0px 3px 0px 0px,
+            //
+            rgb(72, 211, 104) 0px 4px 0px 0px,
+            //
+            rgb(72, 211, 104) 0px 5px 0px 0px,
+            //
+            hsl(60, 100%, 80%) 2px 2.5px 4px 0px,
+            //
+            hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
         }
 
         &#button-tally-losses {
           background-color: hsl(359, 63%, 44%);
           border: 1px solid hsl(359, 43%, 46%);
-          box-shadow: hsl(359, 43%, 46%) 0px 0px 0px 0px, hsl(359, 43%, 46%) 0px 0px 0px 0px, hsl(359, 43%, 46%) 0px 1px 0px 0px, hsl(359, 43%, 46%) 0px 2px 0px 0px, hsl(359, 43%, 46%) 0px 3px 0px 0px, hsl(359, 43%, 46%) 0px 4px 0px 0px, hsl(359, 43%, 46%) 0px 5px 0px 0px, hsl(60, 100%, 80%) 2px 2.5px 4px 0px, hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
+          box-shadow://
+            hsl(359, 43%, 46%) 0px 0px 0px 0px,
+            //
+            hsl(359, 43%, 46%) 0px 0px 0px 0px,
+            //
+            hsl(359, 43%, 46%) 0px 1px 0px 0px,
+            //
+            hsl(359, 43%, 46%) 0px 2px 0px 0px,
+            //
+            hsl(359, 43%, 46%) 0px 3px 0px 0px,
+            //
+            hsl(359, 43%, 46%) 0px 4px 0px 0px,
+            //
+            hsl(359, 43%, 46%) 0px 5px 0px 0px,
+            //
+            hsl(60, 100%, 80%) 2px 2.5px 4px 0px,
+            //
+            hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
         }
       }
 

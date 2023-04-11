@@ -1,189 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Contrail+One&family=Limelight&family=Montserrat:wght@800&family=PT+Sans+Narrow:wght@700&display=swap");
-.kiddle header {
-  background-color: hsl(25, 84%, 61%);
-  border-top: none;
-  width: 90%;
-  padding: 0.5rem 0;
-  border-radius: 0 0 1rem 1rem;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Elephant Logo */
-.kiddle .logo img {
-  width: 100px;
-}
-
-/* Kiddle */
-.kiddle h1 {
-  font-family: "Limelight", cursive;
-  color: #ffff98;
-  font-size: 3.7rem;
-  margin: 0px 0;
-  padding: 0;
-}
-
-@media screen and (max-height: 800px) {
-  .kiddle header {
-    flex-direction: row;
-  }
-}
-.kiddle * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.kiddle .body {
+.kiddle {
   width: 100vw;
   height: 100vh;
-  background-color: #ece47a;
   font-family: sans-serif;
+  overflow-x: hidden;
+  background-color: #ece47a;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
-  margin: 0;
-  position: relative;
 }
-
 .kiddle header,
 .kiddle main,
 .kiddle footer {
   max-width: 500px;
-  min-width: 350px;
+  min-width: 320px;
 }
-
-.kiddle button {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 0.5rem;
-  border-color: #deebf7;
-  box-shadow: 0px 1px 3px #ece47a;
-  color: hsl(25, 84%, 61%);
-  background-color: #deebf7;
-  padding: 0.8rem 2.4rem;
-  display: inline-block;
-}
-
-.kiddle .alarm-wrapper,
-.kiddle .tile-wrapper,
-.kiddle .display-wrapper,
-.kiddle .start-wrapper {
-  margin: 0.2rem 0;
-}
-
-.kiddle footer {
-  background-color: hsl(25, 84%, 61%);
-  border-bottom: none;
-  width: 90%;
-  padding: 0.5rem 0;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 1rem 1rem 0 0;
-}
-
-.kiddle .tally button {
-  align-items: flex-start;
-  box-sizing: border-box;
-  display: inline;
-  height: 62px;
-  margin: 6px 6px 11px 6px;
-  padding: 6px 12px;
-  font-size: 1.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  text-align: left;
-  color: rgb(248, 249, 250);
-}
-
-.kiddle #button-tally-wins {
-  background-color: hsl(138, 97%, 38%);
-  border: 1px solid rgb(52, 206, 87);
-  box-shadow: rgb(72, 211, 104) 0px 0px 0px 0px, rgb(72, 211, 104) 0px 0px 0px 0px, rgb(72, 211, 104) 0px 1px 0px 0px, rgb(72, 211, 104) 0px 2px 0px 0px, rgb(72, 211, 104) 0px 3px 0px 0px, rgb(72, 211, 104) 0px 4px 0px 0px, rgb(72, 211, 104) 0px 5px 0px 0px, hsl(60, 100%, 80%) 2px 2.5px 4px 0px, hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
-}
-
-.kiddle #button-tally-losses {
-  background-color: hsl(359, 63%, 44%);
-  border: 1px solid hsl(359, 43%, 46%);
-  box-shadow: hsl(359, 43%, 46%) 0px 0px 0px 0px, hsl(359, 43%, 46%) 0px 0px 0px 0px, hsl(359, 43%, 46%) 0px 1px 0px 0px, hsl(359, 43%, 46%) 0px 2px 0px 0px, hsl(359, 43%, 46%) 0px 3px 0px 0px, hsl(359, 43%, 46%) 0px 4px 0px 0px, hsl(359, 43%, 46%) 0px 5px 0px 0px, hsl(60, 100%, 80%) 2px 2.5px 4px 0px, hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
-}
-
-/* footer buttons */
-.kiddle .footer-buttons {
-  display: block;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-/* modal */
-div#root:has(.kiddle) + div .ant-modal-header {
-  background-color: hsl(25, 84%, 61%) !important;
-  margin: 0 !important;
-}
-
-div#root:has(.kiddle) + div .ant-modal-body {
-  background-color: #ffff98;
-  margin: 0;
-  padding: 1rem;
-}
-
-div#root:has(.kiddle) + div .ant-modal-footer {
-  background-color: #ffff98;
-  margin: 0;
-  padding: 1rem;
-}
-
-.kiddle .modal-start-button {
-  font-size: "1.1rem";
-  border-radius: "0.5rem";
-  border-color: "#deebf7";
-  box-shadow: "0px 1px 3px #ece47a";
-  color: "hsl(25; 84%; 61%)";
-  background-color: "#deebf7";
-  padding: "0.3rem 1.6rem";
-  display: "inline-block";
-}
-
 .kiddle header {
   background-color: hsl(25, 84%, 61%);
   border-top: none;
   width: 90%;
   padding: 0.5rem 0;
   border-radius: 0 0 1rem 1rem;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
+  display: none;
 }
-
-/* Elephant Logo */
-.kiddle .logo img {
+@media screen and (min-height: 450px) {
+  .kiddle header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (min-height: 675px) {
+  .kiddle header {
+    flex-direction: column;
+  }
+}
+.kiddle header .logo img {
   width: 100px;
 }
-
-/* Kiddle */
-.kiddle h1 {
+.kiddle header h1 {
   font-family: "Limelight", cursive;
   color: #ffff98;
   font-size: 3.7rem;
   margin: 0px 0;
   padding: 0;
 }
-
-@media screen and (max-height: 800px) {
-  .kiddle header {
-    flex-direction: row;
-  }
+.kiddle .alarm-wrapper,
+.kiddle .tile-wrapper,
+.kiddle .display-wrapper,
+.kiddle .start-wrapper {
+  margin: 0.2rem 0;
 }
 .kiddle main {
   margin: 1rem 0;
@@ -196,8 +65,7 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   justify-content: center;
   align-items: center;
 }
-
-.kiddle .alarm {
+.kiddle main .alarm {
   display: inline-block;
   transform: rotateX(20deg) rotateY(10deg) rotateZ(2.9deg);
   background-color: black;
@@ -206,24 +74,18 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   animation: glow 3s;
   border-radius: 0.6rem;
   font-family: "Montserrat", sans-serif;
-  font-size: 2.5rem;
+  font-size: max(16px, 5vh);
   font-weight: bold;
   border: 3px solid hsl(0, 0%, 100%);
   box-shadow: 7px -6px 0px 0px #b9b6b6, 10px -6px 6px 2px #ece47a;
 }
-
-.kiddle .tile-wrapper {
+.kiddle main .tile-wrapper {
   height: 200px;
   width: 100%;
   position: relative;
 }
-
-.kiddle .dash,
-.kiddle .tile {
+.kiddle main .tile-wrapper .tile {
   transform: translate3d(0, 0, 0);
-}
-
-.kiddle .tile {
   width: 80px;
   height: 80px;
   padding: 2px;
@@ -241,20 +103,7 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   justify-content: center;
   transition: 1s;
 }
-
-.kiddle a.tile,
-.kiddle a.tile:focus,
-.kiddle a.tile:hover {
-  text-decoration: none;
-}
-
-.kiddle .dash {
-  height: 30px;
-  color: dodgerblue;
-  font-size: 4rem;
-}
-
-.kiddle #tile0 {
+.kiddle main .tile-wrapper #tile0 {
   position: absolute;
   left: 15%;
   bottom: 15%;
@@ -262,8 +111,22 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   transform: translate3d(0, 0, 0) rotate(-4deg);
   z-index: 5;
 }
-
-.kiddle #tile1 {
+@media screen and (max-width: 585px) {
+  .kiddle main .tile-wrapper #tile0 {
+    left: 10%;
+  }
+}
+@media screen and (max-width: 470px) {
+  .kiddle main .tile-wrapper #tile0 {
+    left: 5%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .kiddle main .tile-wrapper #tile0 {
+    left: 2%;
+  }
+}
+.kiddle main .tile-wrapper #tile1 {
   position: absolute;
   left: 33%;
   top: 20%;
@@ -271,8 +134,22 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   transform: translate3d(0, 0, 0) rotate(4deg);
   z-index: 5;
 }
-
-.kiddle #tile2 {
+@media screen and (max-width: 585px) {
+  .kiddle main .tile-wrapper #tile1 {
+    left: 30%;
+  }
+}
+@media screen and (max-width: 470px) {
+  .kiddle main .tile-wrapper #tile1 {
+    left: 28%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .kiddle main .tile-wrapper #tile1 {
+    left: 26%;
+  }
+}
+.kiddle main .tile-wrapper #tile2 {
   position: absolute;
   right: 33%;
   top: 40%;
@@ -280,8 +157,22 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   transform: translate3d(0, 0, 0) rotate(-4deg);
   z-index: 3;
 }
-
-.kiddle #tile3 {
+@media screen and (max-width: 585px) {
+  .kiddle main .tile-wrapper #tile2 {
+    right: 30%;
+  }
+}
+@media screen and (max-width: 470px) {
+  .kiddle main .tile-wrapper #tile2 {
+    right: 28%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .kiddle main .tile-wrapper #tile2 {
+    right: 26%;
+  }
+}
+.kiddle main .tile-wrapper #tile3 {
   position: absolute;
   right: 15%;
   top: 20%;
@@ -289,121 +180,65 @@ div#root:has(.kiddle) + div .ant-modal-footer {
   transform: translate3d(0, 0, 0) rotate(4deg);
   z-index: 1;
 }
-
-.kiddle .display-wrapper {
-  display: relative;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 70%;
-  background-color: white;
-  border-radius: 0.6rem;
-  border: 1px solid gray;
-  padding: 10px 0px;
-  position: relative;
-}
-
-.kiddle input {
-  width: 100%;
-  height: 90%;
-  margin: 0;
-  text-align: center;
-  border: none;
-  border-radius: 0.6rem;
-  font-size: 2.5rem;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
-  color: black;
-  cursor: text;
-}
-
-.kiddle input::-moz-placeholder {
-  color: hsl(25, 84%, 61%);
-}
-
-.kiddle input::placeholder {
-  color: hsl(25, 84%, 61%);
-}
-
-.kiddle input:active,
-.kiddle input:focus,
-.kiddle input:focus-within,
-.kiddle input:target,
-.kiddle input:hover,
-.kiddle input:visited,
-.kiddle input:focus-visible {
-  outline: none;
-}
-
-.kiddle input:active::-moz-placeholder, .kiddle input:focus::-moz-placeholder, .kiddle input:focus-within::-moz-placeholder, .kiddle input:target::-moz-placeholder, .kiddle input:visited::-moz-placeholder, .kiddle input:focus-visible::-moz-placeholder {
-  color: transparent;
-}
-
-.kiddle input:active::placeholder,
-.kiddle input:focus::placeholder,
-.kiddle input:focus-within::placeholder,
-.kiddle input:target::placeholder,
-.kiddle input:visited::placeholder,
-.kiddle input:focus-visible::placeholder {
-  color: transparent;
-}
-
-.kiddle #guess {
-  position: relative;
-}
-
-.kiddle .small-button {
-  position: absolute;
-  top: 25%;
-  right: 2%;
-}
-
-.kiddle .small-button img {
-  height: 40px;
-}
-
-.kiddle button:focus-visible {
-  outline: none;
-}
-
 @media screen and (max-width: 585px) {
-  .kiddle #tile0 {
-    left: 10%;
-  }
-  .kiddle #tile1 {
-    left: 30%;
-  }
-  .kiddle #tile2 {
-    right: 30%;
-  }
-  .kiddle #tile3 {
+  .kiddle main .tile-wrapper #tile3 {
     right: 10%;
   }
 }
 @media screen and (max-width: 470px) {
-  .kiddle #tile0 {
-    left: 5%;
-  }
-  .kiddle #tile1 {
-    left: 28%;
-  }
-  .kiddle #tile2 {
-    right: 28%;
-  }
-  .kiddle #tile3 {
+  .kiddle main .tile-wrapper #tile3 {
     right: 5%;
   }
 }
 @media screen and (max-width: 420px) {
-  .kiddle #tile0 {
-    left: 2%;
-  }
-  .kiddle #tile1 {
-    left: 26%;
-  }
-  .kiddle #tile2 {
-    right: 26%;
-  }
-  .kiddle #tile3 {
+  .kiddle main .tile-wrapper #tile3 {
     right: 2%;
   }
+}
+.kiddle footer {
+  display: none;
+  border: 1px solid hsl(25, 84%, 61%);
+  border-bottom: none;
+  width: 90%;
+  padding: 0.5rem 0;
+  border-radius: 1rem 1rem 0 0;
+}
+@media screen and (min-height: 600px) {
+  .kiddle footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+@media screen and (min-height: 800px) {
+  .kiddle footer {
+    flex-flow: column;
+  }
+}
+.kiddle footer button {
+  align-items: flex-start;
+  font-size: 1rem;
+}
+.kiddle footer .tally button {
+  color: rgb(248, 249, 250);
+  box-shadow: white 0px 0px 4px 1px;
+  border: none;
+}
+.kiddle footer .tally button#button-tally-wins {
+  background-color: #004f18;
+}
+.kiddle footer .tally button#button-tally-losses {
+  background-color: #b72a2c;
+}
+.kiddle button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 1px 3px #ece47a;
+  background-color: hsl(25, 84%, 61%);
+  color: #ffffff;
+  padding: 0.8rem 2.4rem;
+  display: inline-block;
 }/*# sourceMappingURL=index.css.map */

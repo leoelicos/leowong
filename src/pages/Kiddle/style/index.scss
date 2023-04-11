@@ -1,27 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Limelight&family=Montserrat:wght@800&family=PT+Sans+Narrow:wght@700&display=swap');
 
 .kiddle {
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  background-color: #ece47a;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
   header,
   main,
   footer {
     max-width: 500px;
-    min-width: 350px;
-  }
-
-  .body {
-    width: 100vw;
-    height: 100vh;
-
-    background-color: #ece47a;
-    font-family: sans-serif;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-    margin: 0;
-    position: relative;
+    min-width: 320px;
   }
 
   header {
@@ -31,40 +26,30 @@
     padding: 0.5rem 0;
     border-radius: 0 0 1rem 1rem;
 
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
+    display: none;
 
-    @media screen and (max-height: 800px) {
+    @media screen and (min-height: 450px) {
+      display: flex;
       flex-direction: row;
+      align-items: center;
+      justify-content: center;
     }
-  }
 
-  .logo img {
-    width: 100px;
-  }
+    @media screen and (min-height: 675px) {
+      flex-direction: column;
+    }
 
-  h1 {
-    font-family: 'Limelight', cursive;
-    color: #ffff98;
-    font-size: 3.7rem;
-    margin: 0px 0;
-    padding: 0;
-  }
+    .logo img {
+      width: 100px;
+    }
 
-  button {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    border-color: #deebf7;
-    box-shadow: 0px 1px 3px #ece47a;
-    color: hsl(25, 84%, 61%);
-    background-color: #deebf7;
-
-    padding: 0.8rem 2.4rem;
-    display: inline-block;
+    h1 {
+      font-family: 'Limelight', cursive;
+      color: #ffff98;
+      font-size: 3.7rem;
+      margin: 0px 0;
+      padding: 0;
+    }
   }
 
   .alarm-wrapper,
@@ -72,111 +57,6 @@
   .display-wrapper,
   .start-wrapper {
     margin: 0.2rem 0;
-  }
-
-  footer {
-    background-color: hsl(25, 84%, 61%);
-    background-color: red;
-    border-bottom: none;
-
-    width: 90%;
-    padding: 0.5rem 0;
-
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: space-evenly;
-
-    border-radius: 1rem 1rem 0 0;
-
-    .tally {
-      button {
-        align-items: flex-start;
-        box-sizing: border-box;
-        display: inline;
-        height: 62px;
-        margin: 6px 6px 11px 6px;
-        padding: 6px 12px;
-
-        font-size: 1.5rem;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1rem;
-        text-align: left;
-
-        color: rgb(248, 249, 250);
-        &#button-tally-wins {
-          background-color: hsl(138, 97%, 38%);
-          border: 1px solid rgb(52, 206, 87);
-          box-shadow://
-            rgb(72, 211, 104) 0px 0px 0px 0px,
-            //
-            rgb(72, 211, 104) 0px 0px 0px 0px,
-            //
-            rgb(72, 211, 104) 0px 1px 0px 0px,
-            //
-            rgb(72, 211, 104) 0px 2px 0px 0px,
-            //
-            rgb(72, 211, 104) 0px 3px 0px 0px,
-            //
-            rgb(72, 211, 104) 0px 4px 0px 0px,
-            //
-            rgb(72, 211, 104) 0px 5px 0px 0px,
-            //
-            hsl(60, 100%, 80%) 2px 2.5px 4px 0px,
-            //
-            hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
-        }
-
-        &#button-tally-losses {
-          background-color: hsl(359, 63%, 44%);
-          border: 1px solid hsl(359, 43%, 46%);
-          box-shadow://
-            hsl(359, 43%, 46%) 0px 0px 0px 0px,
-            //
-            hsl(359, 43%, 46%) 0px 0px 0px 0px,
-            //
-            hsl(359, 43%, 46%) 0px 1px 0px 0px,
-            //
-            hsl(359, 43%, 46%) 0px 2px 0px 0px,
-            //
-            hsl(359, 43%, 46%) 0px 3px 0px 0px,
-            //
-            hsl(359, 43%, 46%) 0px 4px 0px 0px,
-            //
-            hsl(359, 43%, 46%) 0px 5px 0px 0px,
-            //
-            hsl(60, 100%, 80%) 2px 2.5px 4px 0px,
-            //
-            hsl(60, 100%, 80%) 0px -1px 2.5px 0px;
-        }
-      }
-
-      .footer-buttons {
-        display: block;
-
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-      }
-    }
-  }
-
-  /* modal */
-  div#root:has() + div .ant-modal-header {
-    background-color: hsl(25, 84%, 61%) !important;
-    margin: 0 !important;
-  }
-  div#root:has() + div .ant-modal-body {
-    background-color: #ffff98;
-    margin: 0;
-    padding: 1rem;
-  }
-
-  div#root:has() + div .ant-modal-footer {
-    background-color: #ffff98;
-    margin: 0;
-    padding: 1rem;
   }
 
   main {
@@ -326,9 +206,58 @@
         }
       }
     }
+  }
+
+  footer {
+    display: none;
+
+    border: 1px solid hsl(25, 84%, 61%);
+    border-bottom: none;
+
+    width: 90%;
+    padding: 0.5rem 0;
+
+    border-radius: 1rem 1rem 0 0;
+
+    @media screen and (min-height: 600px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    @media screen and (min-height: 800px) {
+      flex-flow: column;
+    }
 
     button {
-      outline: none;
+      align-items: flex-start;
+      font-size: 1rem;
     }
+    .tally {
+      button {
+        color: rgb(248, 249, 250);
+        box-shadow: white 0px 0px 4px 1px;
+        border: none;
+        &#button-tally-wins {
+          background-color: #004f18;
+        }
+
+        &#button-tally-losses {
+          background-color: #b72a2c;
+        }
+      }
+    }
+  }
+  button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0px 1px 3px #ece47a;
+    background-color: hsl(25, 84%, 61%);
+    color: #ffffff;
+
+    padding: 0.8rem 2.4rem;
+    display: inline-block;
   }
 }

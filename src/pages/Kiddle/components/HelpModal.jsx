@@ -1,35 +1,52 @@
-import { Modal, Button } from 'antd'
+import { Modal, Button, ConfigProvider } from 'antd'
 const HelpModal = ({ handleClickModalOk, handleClickModalCancel, isModalOpen }) => (
-  <Modal
-    maskStyle={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
-    title={
-      <section style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Limelight, cursive', color: '#ffff98' }}>
-          <span style={{ fontSize: '3.7rem', margin: '0', padding: '0' }}>KIDDLE</span>
-          <br />
-          instructions
-        </h1>
-      </section>
-    }
-    centered
-    open={isModalOpen}
-    okType={'danger'}
-    onOk={handleClickModalOk}
-    onCancel={handleClickModalCancel}
-    footer={
-      <Button
-        key='ok'
-        type='primary'
-        onClick={handleClickModalOk}>
-        OK
-      </Button>
-    }
-    bodyStyle={{ fontFamily: 'Montserrat, sans-serif' }}>
-    <p style={{ margin: '0' }}>
-      Click <button className='modal-start-button'>Start</button> to play.
-      <br />
-      Type the letters to guess the word before the timer hits 0!
-    </p>
-  </Modal>
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'hsl(25, 84%, 61%)',
+        colorBgBase: '#ffff98',
+        colorBgMask: 'rgba(0,0,0,0.8)',
+
+        margin: 0,
+        borderRadius: 0,
+        colorText: 'black',
+        fontFamily: "'Montserrat', sans-serif",
+        paddingContentHorizontal: '4px'
+      }
+    }}>
+    <Modal
+      title={
+        <section>
+          <h1
+            style={{
+              margin: 0,
+              fontFamily: 'Limelight, cursive',
+              fontSize: '2rem',
+              textAlign: 'center'
+            }}>
+            KIDDLE
+          </h1>
+        </section>
+      }
+      centered
+      open={isModalOpen}
+      okType={'danger'}
+      onOk={handleClickModalOk}
+      onCancel={handleClickModalCancel}
+      footer={
+        <Button
+          key='ok'
+          type='primary'
+          onClick={handleClickModalOk}>
+          OK
+        </Button>
+      }>
+      <p>
+        Click <button>Start</button> to play.
+        <br />
+        Type the letters to guess the word before the timer hits 0!
+      </p>
+    </Modal>
+  </ConfigProvider>
 )
 export default HelpModal

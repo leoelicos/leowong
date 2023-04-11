@@ -121,44 +121,42 @@ export default function WordGuess() {
 
   return (
     <div className='kiddle'>
-      <div className='body'>
-        <header>
-          <div className='logo'>
-            <img
-              src={Elephant}
-              alt='elephant logo'
-            />
-          </div>
-          <div>
-            <h1>KIDDLE</h1>
-          </div>
-        </header>
+      <header>
+        <div className='logo'>
+          <img
+            src={Elephant}
+            alt='elephant logo'
+          />
+        </div>
+        <div>
+          <h1>KIDDLE</h1>
+        </div>
+      </header>
 
-        <main>
-          <Alarm seconds={seconds} />
-          <Tiles tiles={tiles} />
-          <StartButton
-            handleClickStart={handleClickStart}
-            buttonMessage={buttonMessage}
-          />
-        </main>
+      <main>
+        <Alarm seconds={seconds} />
+        <Tiles tiles={tiles} />
+        <StartButton
+          handleClickStart={handleClickStart}
+          buttonMessage={buttonMessage}
+        />
+      </main>
 
-        <footer>
-          <Tally
-            wins={tally?.wins || 0}
-            losses={tally?.losses || 0}
-          />
-          <FooterButtons
-            handleClickResetTally={handleClickResetTally}
-            handleClickHelp={handleClickHelp}
-          />
-          <HelpModal
-            handleClickModalOk={handleClickModalOk}
-            handleClickModalCancel={handleClickModalCancel}
-            isModalOpen={isModalOpen}
-          />
-        </footer>
-      </div>
+      <footer>
+        <Tally
+          wins={tally?.wins || 0}
+          losses={tally?.losses || 0}
+        />
+        <div>
+          <button onClick={handleClickResetTally}>Reset</button>
+          <button onClick={handleClickHelp}>?</button>
+        </div>
+        <HelpModal
+          handleClickModalOk={handleClickModalOk}
+          handleClickModalCancel={handleClickModalCancel}
+          isModalOpen={isModalOpen}
+        />
+      </footer>
     </div>
   )
 }

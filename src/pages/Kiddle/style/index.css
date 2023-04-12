@@ -197,37 +197,30 @@
 }
 .kiddle footer {
   display: none;
-  border: 1px solid hsl(25, 84%, 61%);
-  border-bottom: none;
-  width: 90%;
-  padding: 0.5rem 0;
-  border-radius: 1rem 1rem 0 0;
+  border-top: 1px solid hsl(25, 84%, 61%);
+  width: 100%;
+  padding: 1rem 5%;
 }
 @media screen and (min-height: 600px) {
   .kiddle footer {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-}
-@media screen and (min-height: 800px) {
-  .kiddle footer {
-    flex-flow: column;
+    align-items: stretch;
+    gap: 8px;
   }
 }
 .kiddle footer button {
+  flex: 1;
+  padding: 4px;
   align-items: flex-start;
   font-size: 1rem;
-}
-.kiddle footer .tally button {
   color: rgb(248, 249, 250);
   box-shadow: white 0px 0px 4px 1px;
   border: none;
 }
-.kiddle footer .tally button#button-tally-wins {
+.kiddle footer button#button-tally-wins {
   background-color: #004f18;
 }
-.kiddle footer .tally button#button-tally-losses {
+.kiddle footer button#button-tally-losses {
   background-color: #b72a2c;
 }
 .kiddle button {

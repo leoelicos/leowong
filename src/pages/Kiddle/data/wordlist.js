@@ -447,7 +447,7 @@ let words = [
   'town',
   'tree',
   'trip',
-  'TRUE',
+  'true',
   'tune',
   'turn',
   'twin',

@@ -1,21 +1,23 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { getWord } from './data/wordlist'
+
+/* custom hooks */
+import useTimer from './hooks/useTimer'
 import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
 
+/* data */
+import { getWord } from './data/wordlist'
+
+/* components */
 import Alarm from './components/Alarm.jsx'
 import StartButton from './components/StartButton.jsx'
 import Tiles from './components/Tiles'
-
-import Tally from './components/Tally.jsx'
-import FooterButtons from './components/FooterButtons.jsx'
 import HelpModal from './components/HelpModal.jsx'
 
-import useTimer from './hooks/useTimer'
-
+/* style */
 import './style/index.css'
-
 import Elephant from './images/elephantOrange.png'
+
 export default function WordGuess() {
   useFavicon('/favicons/kiddle.png')
   useTitle('Kiddle')
@@ -23,7 +25,10 @@ export default function WordGuess() {
   /* state */
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [buttonMessage, setButtonMessage] = useState('Start')
-  const [tally, setTally] = useState(localStorage.getItem('tally') === 'undefined' ? [] : JSON.parse(localStorage.getItem('tally')))
+  const [tally, setTally] = useState(() => {
+    if (!localStorage.getItem('tally')) return { wins: 0, losses: 0 }
+    return JSON.parse(localStorage.getItem('tally'))
+  })
   const [tiles, setTiles] = useState(['_', '_', '_', '_'])
 
   /* ref */
@@ -44,10 +49,9 @@ export default function WordGuess() {
   }
   const endGame = useCallback(
     (win) => {
-      if (!unguessed.current) return
       stopTimer()
       started.current = false
-      if (win) {
+      if (win === true) {
         setButtonMessage('You win! Start again?')
         updateTally(true)
       } else {
@@ -89,12 +93,18 @@ export default function WordGuess() {
 
   const handleKeyDown = useCallback(
     (e) => {
-      if (!started.current) return
+      if (started.current === false) return
 
       let match = e.key.match(/[a-z]/i)
       if (!match) return
 
       let key = match[0]
+
+      if (tiles.includes(key)) {
+        console.log('includes')
+        return
+      }
+
       if (!unguessed.current.includes(key)) return
 
       setTiles((prev) => {
@@ -103,7 +113,7 @@ export default function WordGuess() {
         return newTile
       })
     },
-    [endGame]
+    [endGame, tiles]
   )
 
   /* effect */
@@ -116,8 +126,10 @@ export default function WordGuess() {
   }, [handleKeyDown])
 
   useEffect(() => {
-    if (seconds === 0) endGame(false)
-  }, [seconds, endGame])
+    if (seconds === 0 && started.current === true) {
+      endGame(false)
+    }
+  }, [seconds, endGame, tiles])
 
   return (
     <div className='kiddle'>
@@ -143,14 +155,21 @@ export default function WordGuess() {
       </main>
 
       <footer>
-        <Tally
-          wins={tally?.wins || 0}
-          losses={tally?.losses || 0}
-        />
-        <div>
-          <button onClick={handleClickResetTally}>Reset</button>
-          <button onClick={handleClickHelp}>?</button>
-        </div>
+        <button id='button-tally-wins'>
+          Wins
+          <br />
+          {tally?.wins}
+        </button>
+
+        <button id='button-tally-losses'>
+          Losses
+          <br />
+          {tally?.losses}
+        </button>
+
+        <button onClick={handleClickResetTally}>Reset</button>
+        <button onClick={handleClickHelp}>?</button>
+
         <HelpModal
           handleClickModalOk={handleClickModalOk}
           handleClickModalCancel={handleClickModalCancel}

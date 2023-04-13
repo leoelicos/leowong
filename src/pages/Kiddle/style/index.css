@@ -4,25 +4,28 @@
   height: 100vh;
   font-family: sans-serif;
   overflow-x: hidden;
-  background-color: #ece47a;
+  background-color: #ef8e48;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 1vh;
 }
-.kiddle header,
-.kiddle main,
-.kiddle footer {
-  max-width: 500px;
-  min-width: 320px;
+.kiddle button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #ece47a;
+  color: black;
+  padding: 0.8rem 2.4rem;
+  display: inline-block;
+  cursor: pointer;
 }
 .kiddle header {
-  background-color: hsl(25, 84%, 61%);
-  border-top: none;
-  width: 90%;
-  padding: 0.5rem 0;
-  border-radius: 0 0 1rem 1rem;
+  padding-top: 0.5rem;
   display: none;
 }
 @media screen and (min-height: 450px) {
@@ -48,190 +51,99 @@
   margin: 0px 0;
   padding: 0;
 }
-.kiddle .alarm-wrapper,
-.kiddle .tile-wrapper,
-.kiddle .display-wrapper,
-.kiddle .start-wrapper {
+.kiddle header .alarm-wrapper {
   margin: 0.2rem 0;
 }
-.kiddle main {
-  margin: 1rem 0;
-  background-color: #ffff98;
-  border-radius: 1rem;
-  width: 90%;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-}
-.kiddle main .alarm {
-  display: inline-block;
-  transform: rotateX(20deg) rotateY(10deg) rotateZ(2.9deg);
+.kiddle header .alarm-wrapper .alarm {
   background-color: black;
-  color: hsl(0, 0%, 100%);
+  color: #ffffff;
   padding: 0.5rem;
   animation: glow 3s;
   border-radius: 0.6rem;
   font-family: "Montserrat", sans-serif;
   font-size: max(16px, 5vh);
   font-weight: bold;
-  border: 3px solid hsl(0, 0%, 100%);
+  border: 3px solid #ffffff;
   box-shadow: 7px -6px 0px 0px #b9b6b6, 10px -6px 6px 2px #ece47a;
+}
+.kiddle header button {
+  cursor: pointer;
+}
+.kiddle main {
+  background-color: #ffff98;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .kiddle main .tile-wrapper {
   height: 200px;
   width: 100%;
-  position: relative;
+  padding: 1vw;
+  display: flex;
+  gap: 1vw;
+  max-width: 968px;
+  margin: 0.2rem 0;
 }
 .kiddle main .tile-wrapper .tile {
-  transform: translate3d(0, 0, 0);
-  width: 80px;
-  height: 80px;
+  flex: 1;
+  aspect-ratio: 1;
   padding: 2px;
-  color: white;
-  box-shadow: 0 0 #ece47a, 0 0 #ece47a, 0 1px #ece47a, 0 2px #ece47a, 0 3px #ece47a, 0 4px #ece47a, 0 5px #ece47a, 2px 2.5px 4px #fff, 0 -1px 2.5px #fff;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 3rem;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  box-shadow: 2px 2.5px 4px #fff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: max(64px, 12vmin);
+  font-weight: bold;
+  line-height: 1.5;
   transition: 1s;
 }
 .kiddle main .tile-wrapper #tile0 {
-  position: absolute;
-  left: 15%;
-  bottom: 15%;
   background-color: #a7b9f2;
-  transform: translate3d(0, 0, 0) rotate(-4deg);
-  z-index: 5;
-}
-@media screen and (max-width: 585px) {
-  .kiddle main .tile-wrapper #tile0 {
-    left: 10%;
-  }
-}
-@media screen and (max-width: 470px) {
-  .kiddle main .tile-wrapper #tile0 {
-    left: 5%;
-  }
-}
-@media screen and (max-width: 420px) {
-  .kiddle main .tile-wrapper #tile0 {
-    left: 2%;
-  }
 }
 .kiddle main .tile-wrapper #tile1 {
-  position: absolute;
-  left: 33%;
-  top: 20%;
   background-color: #f79a99;
-  transform: translate3d(0, 0, 0) rotate(4deg);
-  z-index: 5;
-}
-@media screen and (max-width: 585px) {
-  .kiddle main .tile-wrapper #tile1 {
-    left: 30%;
-  }
-}
-@media screen and (max-width: 470px) {
-  .kiddle main .tile-wrapper #tile1 {
-    left: 28%;
-  }
-}
-@media screen and (max-width: 420px) {
-  .kiddle main .tile-wrapper #tile1 {
-    left: 26%;
-  }
 }
 .kiddle main .tile-wrapper #tile2 {
-  position: absolute;
-  right: 33%;
-  top: 40%;
   background-color: #77dd77;
-  transform: translate3d(0, 0, 0) rotate(-4deg);
-  z-index: 3;
-}
-@media screen and (max-width: 585px) {
-  .kiddle main .tile-wrapper #tile2 {
-    right: 30%;
-  }
-}
-@media screen and (max-width: 470px) {
-  .kiddle main .tile-wrapper #tile2 {
-    right: 28%;
-  }
-}
-@media screen and (max-width: 420px) {
-  .kiddle main .tile-wrapper #tile2 {
-    right: 26%;
-  }
 }
 .kiddle main .tile-wrapper #tile3 {
-  position: absolute;
-  right: 15%;
-  top: 20%;
   background-color: #ffc078;
-  transform: translate3d(0, 0, 0) rotate(4deg);
-  z-index: 1;
-}
-@media screen and (max-width: 585px) {
-  .kiddle main .tile-wrapper #tile3 {
-    right: 10%;
-  }
-}
-@media screen and (max-width: 470px) {
-  .kiddle main .tile-wrapper #tile3 {
-    right: 5%;
-  }
-}
-@media screen and (max-width: 420px) {
-  .kiddle main .tile-wrapper #tile3 {
-    right: 2%;
-  }
 }
 .kiddle footer {
   display: none;
-  border-top: 1px solid hsl(25, 84%, 61%);
   width: 100%;
-  padding: 1rem 5%;
+  padding-bottom: 1vh;
 }
 @media screen and (min-height: 600px) {
   .kiddle footer {
     display: flex;
+    justify-content: center;
     align-items: stretch;
     gap: 8px;
   }
 }
 .kiddle footer button {
-  flex: 1;
-  padding: 4px;
+  padding: 1vh 1vw;
   align-items: flex-start;
   font-size: 1rem;
-  color: rgb(248, 249, 250);
-  box-shadow: white 0px 0px 4px 1px;
   border: none;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .kiddle footer button#button-tally-wins {
-  background-color: #004f18;
+  background-color: transparent;
+  box-shadow: none;
+  color: #004f18;
 }
 .kiddle footer button#button-tally-losses {
-  background-color: #b72a2c;
-}
-.kiddle button {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1px 3px #ece47a;
-  background-color: hsl(25, 84%, 61%);
-  color: #ffffff;
-  padding: 0.8rem 2.4rem;
-  display: inline-block;
+  background-color: transparent;
+  box-shadow: none;
+  color: #b72a2c;
 }/*# sourceMappingURL=index.css.map */

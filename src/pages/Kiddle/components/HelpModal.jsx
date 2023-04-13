@@ -10,8 +10,7 @@ const HelpModal = ({ handleClickModalOk, handleClickModalCancel, isModalOpen }) 
         margin: 0,
         borderRadius: 0,
         colorText: 'black',
-        fontFamily: "'Montserrat', sans-serif",
-        paddingContentHorizontal: '4px'
+        fontFamily: 'Montserrat, sans-serif'
       }
     }}>
     <Modal
@@ -21,13 +20,14 @@ const HelpModal = ({ handleClickModalOk, handleClickModalCancel, isModalOpen }) 
             style={{
               margin: 0,
               fontFamily: 'Limelight, cursive',
-              fontSize: '2rem',
+              fontSize: 'max(32px,6vmin)',
               textAlign: 'center'
             }}>
             KIDDLE
           </h1>
         </section>
       }
+      bodyStyle={{ fontSize: 'max(16px, 3vmin)' }}
       centered
       open={isModalOpen}
       okType={'danger'}

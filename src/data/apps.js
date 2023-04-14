@@ -41,8 +41,27 @@ const appData = {
       'Upgrade to see cooking instructions from Edamam API' //
     ],
     apis: ['Edamam API'],
-    frontEndTech: ['react', 'react router', 'apollo/client', 'ant design', 'jwt decode', 'react masonry css', 'pluralize', 'axios', 'stripe'],
-    backEndTech: ['mongoose', 'express', 'apollo-server-express', 'graphql', 'stripe', 'jsonwebtoken', 'bcrypt', 'dotenv'],
+    frontEndTech: [
+      'react',
+      'react router',
+      'apollo/client',
+      'ant design',
+      'jwt decode',
+      'react masonry css',
+      'pluralize',
+      'axios',
+      'stripe' //
+    ],
+    backEndTech: [
+      'mongoose',
+      'express',
+      'apollo-server-express',
+      'graphql',
+      'stripe',
+      'jsonwebtoken',
+      'bcrypt',
+      'dotenv' //
+    ],
     element: null
   },
 
@@ -72,7 +91,16 @@ const appData = {
     ],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['bcrypt', 'connect-session-sequelize', 'dotenv', 'express', 'express-handlebars', 'express-session', 'mysql2', 'sequelize'],
+    backEndTech: [
+      'bcrypt',
+      'connect-session-sequelize',
+      'dotenv',
+      'express',
+      'express-handlebars',
+      'express-session',
+      'mysql2',
+      'sequelize' //
+    ],
     element: null
   },
 
@@ -85,7 +113,7 @@ const appData = {
     code: 'https://github.com/leoelicos/kiddin',
     title: "kiddin'",
     description: 'baby picture forum',
-    keywords: ['collab', 'mvc', 'multer'],
+    keywords: ['handlebars', 'mvc', 'multer'],
     background2: '#FFE9F6',
     background1: '#FFB6D1',
     color1: '#17494D',
@@ -102,7 +130,17 @@ const appData = {
     ],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['bcrypt', 'connect-session-sequelize', 'dotenv', 'express', 'express-handlebars', 'express-session', 'multer', 'mysql2', 'sequelize'],
+    backEndTech: [
+      'bcrypt',
+      'connect-session-sequelize',
+      'dotenv',
+      'express',
+      'express-handlebars',
+      'express-session',
+      'multer',
+      'mysql2',
+      'sequelize' //
+    ],
 
     element: null
   },
@@ -154,15 +192,36 @@ const appData = {
       'View Order History of previously purchased orders' //
     ],
     apis: [],
-    frontEndTech: ['@apollo/client', '@stripe/stripe-js', 'graphql', 'jwt-decode', 'react', 'react-dom', 'react-redux', 'react-router-dom', 'redux', 'web-vitals'],
-    backEndTech: ['apollo-server-express', 'bcrypt', 'express', 'graphql', 'jsonwebtoken', 'mongoose', 'stripe'],
+    frontEndTech: [
+      //
+      '@apollo/client',
+      '@stripe/stripe-js',
+      'graphql',
+      'jwt-decode',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router-dom',
+      'redux',
+      'web-vitals'
+    ],
+    backEndTech: [
+      //
+      'apollo-server-express',
+      'bcrypt',
+      'express',
+      'graphql',
+      'jsonwebtoken',
+      'mongoose',
+      'stripe'
+    ],
     element: null
   },
 
   readr: {
     endpoint: 'readr',
-    links: ['https://leoelicos-googlebooks.herokuapp.com', 'https://readr-murex.vercel.app/'],
-    code: 'https://github.com/leoelicos/book-search-engine',
+    links: ['https://reader.herokuapp.com/', 'https://readr-murex.vercel.app/'],
+    code: 'https://github.com/leoelicos/readr',
     title: 'Readr',
     description: 'book search engine',
     keywords: ['gql', 'jwt', 'bootstrap'],
@@ -179,8 +238,28 @@ const appData = {
     ],
     changes: [],
     apis: ['google books'],
-    frontEndTech: ['@apollo/client', 'bootstrap', 'graphql', 'jwt-decode', 'react', 'react-bootstrap', 'react-dom', 'react-router-dom', 'react-scripts'],
-    backEndTech: ['apollo-server-express', 'bcrypt', 'dotenv', 'express', 'graphql', 'jsonwebtoken', 'mongoose'],
+    frontEndTech: [
+      //
+      '@apollo/client',
+      'bootstrap',
+      'graphql',
+      'jwt-decode',
+      'react',
+      'react-bootstrap',
+      'react-dom',
+      'react-router-dom',
+      'react-scripts'
+    ],
+    backEndTech: [
+      //
+      'apollo-server-express',
+      'bcrypt',
+      'dotenv',
+      'express',
+      'graphql',
+      'jsonwebtoken',
+      'mongoose'
+    ],
     element: null
   },
 
@@ -430,7 +509,12 @@ const appData = {
       'Click Reset button to reset selected cards' //
     ],
     apis: [],
-    frontEndTech: ['react', 'marked-react', 'antd'],
+    frontEndTech: [
+      //
+      'react',
+      'marked-react',
+      'antd'
+    ],
     backEndTech: [],
     element: <Docu />
   },
@@ -563,7 +647,12 @@ const appData = {
     changes: [],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['cors', 'dotenv', 'express', 'mysql2'],
+    backEndTech: [
+      'cors',
+      'dotenv',
+      'express',
+      'mysql2' //
+    ],
     element: null
   },
 
@@ -630,7 +719,13 @@ const appData = {
     changes: [],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['cors', 'dotenv', 'express', 'mysql2', 'sequelize'],
+    backEndTech: [
+      'cors',
+      'dotenv',
+      'express',
+      'mysql2',
+      'sequelize' //
+    ],
     element: null
   },
 
@@ -661,7 +756,13 @@ const appData = {
     ],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['bcrypt', 'dotenv', 'express', 'mysql2', 'sequelize'],
+    backEndTech: [
+      'bcrypt',
+      'dotenv',
+      'express',
+      'mysql2',
+      'sequelize' //
+    ],
     element: null
   },
 
@@ -688,7 +789,16 @@ const appData = {
     changes: [],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['bcrypt', 'connect-session-sequelize', 'dotenv', 'express', 'express-handlebars', 'express-session', 'mysql2', 'sequelize'],
+    backEndTech: [
+      'bcrypt',
+      'connect-session-sequelize',
+      'dotenv',
+      'express',
+      'express-handlebars',
+      'express-session',
+      'mysql2',
+      'sequelize' //
+    ],
     element: null
   },
 
@@ -745,7 +855,11 @@ const appData = {
     changes: ['I deployed it to Render for faster load'],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['cors', 'express', 'mongoose'],
+    backEndTech: [
+      'cors',
+      'express',
+      'mongoose' //
+    ],
     element: null
   },
 
@@ -781,7 +895,12 @@ const appData = {
     changes: ['I deployed it to Render for faster load', 'I added a seed file with Harry, Ron and Hermione'],
     apis: [],
     frontEndTech: [],
-    backEndTech: ['cors', 'express', 'mongoose', 'validator'],
+    backEndTech: [
+      'cors',
+      'express',
+      'mongoose',
+      'validator' //
+    ],
     element: null
   },
 
@@ -833,7 +952,11 @@ const appData = {
     ],
     changes: [],
     apis: [],
-    frontEndTech: ['code-mirror-themes', 'idb', 'workbox'],
+    frontEndTech: [
+      'code-mirror-themes',
+      'idb',
+      'workbox' //
+    ],
     backEndTech: ['express'],
     element: null
   },
@@ -884,8 +1007,23 @@ const appData = {
     ],
     changes: [],
     apis: [],
-    frontEndTech: ['@apollo/client', 'graphql', 'react', 'react-dom', 'react-router-dom'],
-    backEndTech: ['@apollo/server', 'body-parser', 'cors', 'express', 'graphql', 'graphql-tag', 'http', 'mongoose'],
+    frontEndTech: [
+      '@apollo/client',
+      'graphql',
+      'react',
+      'react-dom',
+      'react-router-dom' //
+    ],
+    backEndTech: [
+      '@apollo/server',
+      'body-parser',
+      'cors',
+      'express',
+      'graphql',
+      'graphql-tag',
+      'http',
+      'mongoose' //
+    ],
     element: null
   },
 
@@ -909,7 +1047,13 @@ const appData = {
     ],
     changes: [],
     apis: [],
-    frontEndTech: ['react', 'react-dom', 'react-redux', 'react-scripts', 'redux'],
+    frontEndTech: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-scripts',
+      'redux' //
+    ],
     backEndTech: [],
     element: null
   },

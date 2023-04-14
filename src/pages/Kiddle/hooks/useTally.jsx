@@ -17,11 +17,11 @@ export default function useTally() {
 
   /* handler */
   const updateTally = (win) => {
-    setTally((prev) => {
-      let wins = (prev?.wins || 0) + win ? 1 : 0
-      let losses = (prev?.losses || 0) + win ? 0 : 1
-      return { wins, losses }
-    })
+    setTally((prev) =>
+      win //
+        ? { wins: prev.wins + 1, losses: prev.losses }
+        : { wins: prev.wins, losses: prev.losses + 1 }
+    )
   }
 
   const handleClickResetTally = () => {

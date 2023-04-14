@@ -10,8 +10,7 @@ export default function useGame() {
   const { tally, updateTally, handleClickResetTally } = useTally()
 
   /* state */
-  const [tiles, setTiles] = useState(['_', '_', '_', '_'])
-  const [buttonMessage, setButtonMessage] = useState('Start')
+  const [tiles, setTiles] = useState(['＿', '＿', '＿', '＿'])
 
   /* ref */
 
@@ -19,27 +18,22 @@ export default function useGame() {
   const unguessed = useRef('')
 
   /* handlers */
-  const startGame = useCallback(() => {
+  const startGame = () => {
+    console.log('started')
     if (started.current) return
     started.current = true
     unguessed.current = getWord().split('')
-    setTiles(['_', '_', '_', '_'])
-    setButtonMessage(`Quick! Guess the letters!`)
+    setTiles(['＿', '＿', '＿', '＿'])
     resetTimer()
     startTimer()
-  }, [resetTimer, startTimer])
+  }
 
   const endGame = useCallback(
     (win) => {
       stopTimer()
       started.current = false
-      if (win === true) {
-        setButtonMessage('You win! Start again?')
-        updateTally(true)
-      } else {
-        setButtonMessage(`Answer: '${unguessed.current.join('')}'. Start again?'`) // fix impure
-        updateTally(false)
-      }
+      if (win === true) updateTally(true)
+      else updateTally(false)
     },
     [stopTimer, updateTally]
   )
@@ -56,7 +50,6 @@ export default function useGame() {
 
   // update tiles
   useEffect(() => {
-    console.log('update tiles')
     // game has not started - nothing to update
     if (started.current === false) return
     // already guessed - nothing to update
@@ -68,7 +61,7 @@ export default function useGame() {
       console.log('k')
       setTiles((prev) => {
         const newTiles = prev.map((tile, i) => (unguessed.current[i] === k ? k : tile))
-        if (newTiles.every((v) => v !== '_')) endGame(true)
+        if (newTiles.every((v) => v !== '＿')) endGame(true)
         return newTiles
       })
     }
@@ -80,9 +73,8 @@ export default function useGame() {
 
     tally,
     handleClickResetTally,
-    buttonMessage,
 
-    started,
+    started: started.current,
     startGame
   }
 }

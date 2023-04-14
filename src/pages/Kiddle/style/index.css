@@ -1,108 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Contrail+One&family=Limelight&family=Montserrat:wght@800&family=PT+Sans+Narrow:wght@700&display=swap");
 .kiddle {
-  width: 100vw;
-  height: 100vh;
-  font-family: sans-serif;
-  overflow-x: hidden;
-  background-color: #ef8e48;
-  font-size: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1vh;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ef8e48;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
 }
 .kiddle button {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
-  font-weight: bold;
+  display: inline-block;
+  padding: 4px;
   border: none;
   border-radius: 0.5rem;
-  background-color: #ece47a;
-  color: black;
-  padding: 0.8rem 2.4rem;
-  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 .kiddle header {
   padding-top: 0.5rem;
-  display: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 2px 0 #fff;
 }
-@media screen and (min-height: 450px) {
+@media all and (min-width: 600px) {
   .kiddle header {
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
   }
 }
-@media screen and (min-height: 675px) {
+@media all and (max-height: 600px) {
   .kiddle header {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 .kiddle header .logo img {
-  width: 100px;
+  height: max(64px, 8vmin);
 }
 .kiddle header h1 {
-  font-family: "Limelight", cursive;
-  color: #ffff98;
-  font-size: 3.7rem;
   margin: 0px 0;
   padding: 0;
+  font-size: max(64px, 8vmin);
+  font-family: "Limelight", cursive;
+  color: #ffff98;
+  position: relative;
 }
-.kiddle header .alarm-wrapper {
-  margin: 0.2rem 0;
+@media all and (min-width: 600px) {
+  .kiddle header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
-.kiddle header .alarm-wrapper .alarm {
-  background-color: black;
-  color: #ffffff;
-  padding: 0.5rem;
-  animation: glow 3s;
-  border-radius: 0.6rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: max(16px, 5vh);
-  font-weight: bold;
-  border: 3px solid #ffffff;
-  box-shadow: 7px -6px 0px 0px #b9b6b6, 10px -6px 6px 2px #ece47a;
+.kiddle header .extra {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  margin-right: max(1vw, 16px);
+  gap: max(1vw, 16px);
 }
-.kiddle header button {
-  cursor: pointer;
+.kiddle header .extra button {
+  background-color: transparent;
+  margin: 4px 0;
+  font-size: max(64px, 8vmin);
+  border: none;
+  box-shadow: none;
+  color: #ffff98;
+}
+.kiddle header .extra button:hover {
+  background-color: rgba(255, 255, 255, 0.2666666667);
 }
 .kiddle main {
-  background-color: #ffff98;
+  flex: 1; /* height */
   width: 100%;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 .kiddle main .tile-wrapper {
-  height: 200px;
-  width: 100%;
-  padding: 1vw;
   display: flex;
-  gap: 1vw;
-  max-width: 968px;
-  margin: 0.2rem 0;
+  gap: max(16px, 2vw);
+  margin: max(16px, 2vh) 0;
+  padding: 0 max(16px, 2vw);
+  width: 100%;
+}
+@media all and (min-width: 800px) {
+  .kiddle main .tile-wrapper {
+    padding: max(16px, 2vh) max(16px, 2vw);
+  }
 }
 .kiddle main .tile-wrapper .tile {
-  flex: 1;
-  aspect-ratio: 1;
-  padding: 2px;
-  border-radius: 4px;
+  box-shadow: 0 0 max(16px, 2vmin) #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 2px 2.5px 4px #fff;
-  text-align: center;
+  align-items: center;
+  flex: 1;
+  padding: 2vh 2vw;
+  transition: 0.2s;
+  border-radius: max(16px, 2vmin);
+  width: 25%;
+  height: 40vh;
+  font-size: min(25vh, 10vw);
   font-family: "Montserrat", sans-serif;
-  font-size: max(64px, 12vmin);
   font-weight: bold;
   line-height: 1.5;
-  transition: 1s;
+  color: white;
+  text-align: center;
 }
 .kiddle main .tile-wrapper #tile0 {
   background-color: #a7b9f2;
@@ -116,34 +124,22 @@
 .kiddle main .tile-wrapper #tile3 {
   background-color: #ffc078;
 }
-.kiddle footer {
-  display: none;
+.kiddle main .alarm-wrapper {
+  margin: 1vh 0;
+}
+.kiddle main .alarm-wrapper .alarm {
+  box-shadow: 7px -6px 0px 0px #b9b6b6, 10px -6px 6px 2px #ece47a;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: black;
+  border: 3px solid #ffffff;
+  border-radius: 0.6rem;
+  font-size: max(64px, 8vmin);
+  font-family: "Courier", monospace;
+  font-weight: bold;
+  color: #ffffff;
+}
+.kiddle main button {
   width: 100%;
-  padding-bottom: 1vh;
-}
-@media screen and (min-height: 600px) {
-  .kiddle footer {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 8px;
-  }
-}
-.kiddle footer button {
-  padding: 1vh 1vw;
-  align-items: flex-start;
-  font-size: 1rem;
-  border: none;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.kiddle footer button#button-tally-wins {
-  background-color: transparent;
-  box-shadow: none;
-  color: #004f18;
-}
-.kiddle footer button#button-tally-losses {
-  background-color: transparent;
-  box-shadow: none;
-  color: #b72a2c;
+  font-size: max(64px, 8vmin);
 }/*# sourceMappingURL=index.css.map */

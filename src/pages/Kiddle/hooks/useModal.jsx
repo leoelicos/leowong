@@ -5,7 +5,7 @@ export default function useModal() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   /* handlers */
-  const handleClickHelp = () => {
+  const handleClickOpen = () => {
     setIsModalOpen(true)
   }
 
@@ -17,5 +17,5 @@ export default function useModal() {
     setIsModalOpen(false)
   }
 
-  return { isModalOpen, handleClickHelp, handleClickModalOk, handleClickModalCancel }
+  return { isModalOpen, handleClickOpen, handleClickModalOk, handleClickModalCancel }
 }

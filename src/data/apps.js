@@ -451,7 +451,7 @@ const appData = {
     color1: '#fff',
     color2: '#eee',
 
-    userStory: ['As a libray user, I want to search media from the Library of Congress, with the option of specifying a media format, and see the results of my search displayed on a separate page, from where I can also search for more movies.'],
+    userStory: ['As a library user, I want to search media from the Library of Congress, with the option of specifying a media format, and see the results of my search displayed on a separate page, from where I can also search for more movies.'],
     features: [
       'Get data from the Library of Congress',
       'View a homepage with a search form and an optional dropdown to search with a specific format',
@@ -906,12 +906,12 @@ const appData = {
 
   clist: {
     endpoint: 'clist',
-    links: ['https://contact-list.herokuapp.com'],
-    code: 'https://github.com/leoelicos/contact-list',
+    links: ['https://clst.herokuapp.com'],
+    code: 'https://github.com/leoelicos/clist',
     title: 'Clist',
     description: 'contacts utility',
     keywords: ['express', 'idb', 'bootstrap'],
-    background2: 'hlack',
+    background2: 'black',
     background1: 'black',
     color1: 'white',
     color2: 'white',

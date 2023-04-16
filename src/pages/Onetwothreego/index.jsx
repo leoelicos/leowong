@@ -1,12 +1,15 @@
 import { faHandPaper, faHandRock, faHandScissors } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRef, useState } from 'react'
+import useTitle from '../../hooks/useTitle'
+import useFavicon from '../../hooks/useFavicon'
 import './style/style.css'
 const choices = [
   { id: 'rock', icon: faHandRock },
   { id: 'paper', icon: faHandPaper },
   { id: 'scissors', icon: faHandScissors }
 ]
+
 const judge = (playerChoice, computerChoice) =>
   computerChoice === playerChoice
     ? 'draw'
@@ -15,7 +18,11 @@ const judge = (playerChoice, computerChoice) =>
       (computerChoice === 'scissors' && playerChoice === 'paper')
     ? 'computer'
     : 'player'
+
 export default function App() {
+  useTitle('123Go')
+  useFavicon('/favicons/onetwothreego.png')
+
   const [playerChoice, setPlayerChoice] = useState(undefined)
   const [computerChoice, setComputerChoice] = useState(undefined)
   const [win, setWin] = useState(undefined)

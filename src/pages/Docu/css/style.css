@@ -1,0 +1,83 @@
+.docu {
+  /* scrollbar */
+}
+.docu header {
+  position: relative;
+  background-color: #660274;
+}
+.docu header:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 1px 2px 0 #660274;
+}
+.docu main {
+  background-color: #410137;
+}
+.docu footer {
+  background-color: #660274;
+  position: relative;
+}
+.docu footer:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 -1px 2px 0 #660274;
+  transition: box-shadow 0.06s linear;
+}
+.docu article {
+  position: relative;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+}
+.docu article:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 4px 0 hsl(293, 97%, 23%);
+  transition: box-shadow 0.06s linear;
+}
+.docu article:hover {
+  cursor: pointer;
+}
+.docu article:hover:before {
+  box-shadow: 0 0 4px 0 #f0055b;
+  transition: box-shadow 0.06s linear;
+}
+.docu article:active:before {
+  box-shadow: 0 0 4px 0 #8c0367;
+  transition: box-shadow 0.06s linear;
+}
+.docu article.selected {
+  background-color: #8c0367;
+}
+.docu article.selected:hover:before {
+  box-shadow: 0 0 8px 0 #f0055b;
+  transition: box-shadow 0.06s linear;
+}
+.docu article.selected:active:before {
+  box-shadow: 0 0 4px 0 #8c0367;
+  transition: box-shadow 0.06s linear;
+}
+.docu article p {
+  margin: 0;
+}
+.docu ::-webkit-scrollbar {
+  width: 1rem;
+}
+.docu ::-webkit-scrollbar-track {
+  box-shadow: inset 1px -1px 5px #8c0367;
+}
+.docu ::-webkit-scrollbar-thumb {
+  background: #8c0367;
+}/*# sourceMappingURL=style.css.map */

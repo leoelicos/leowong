@@ -119,7 +119,8 @@
   align-items: center;
   position: relative;
   width: 100%;
-  background-color: #000000;
+  color: #7dbcea;
+  background-color: #222a35;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 .algoz header {
@@ -129,8 +130,7 @@
   position: relative;
   width: 100%;
   height: max(5vh, 40px);
-  border-bottom: 1px solid #ffffff;
-  color: #ffffff;
+  border-bottom: 1px solid #7dbcea;
 }
 .algoz header h1 {
   position: absolute;
@@ -179,12 +179,6 @@
   color: white;
 }
 .algoz main {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 8px;
   overflow-y: auto;
   width: 100%;
   max-width: 100%;
@@ -197,27 +191,40 @@
   text-align: left;
   white-space: break-spaces;
 }
+.algoz main .grid {
+  gap: 4px !important;
+}
 .algoz main .card {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #7dbcea;
+  border-radius: 1vmin;
+  background-color: rgba(125, 188, 234, 0.1333333333);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.algoz main .card .title {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 4px;
+  text-decoration: none;
+  max-width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: left;
+  white-space: pre-wrap;
+}
+.algoz main .card .buttons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  background-color: #383838;
-  border-radius: 1rem;
-}
-.algoz main .card .leetcode-link {
-  display: flex;
-  height: -moz-min-content !important;
-  height: min-content !important;
-  margin: 0;
-  padding: 0;
-  background-color: orange;
-  border: 0;
-  border-radius: 0 16px 0 0;
-  text-decoration: none;
-}
-.algoz main .card .leetcode-link span {
-  padding: 8px;
+  padding: 4px;
+  gap: 4px;
 }
 .algoz__code {
   background: black;

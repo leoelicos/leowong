@@ -11,7 +11,7 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
   position: relative;
   width: 100%;
   color: #7dbcea;
-  background-color: #222a35;
+  background-color: black;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   header {
     display: flex;
@@ -96,27 +96,18 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      color: #7dbcea;
+      color: #ffffff;
 
       border-radius: 1vmin;
-      background-color: #7dbcea22;
+      background-color: rgba(61, 94, 117, 0.133);
+
       font-size: 16px;
       font-weight: bold;
       line-height: 1.5;
 
+      position: relative;
       .title {
-        width: 100%;
-        display: flex;
-        flex-flow: row wrap;
-
-        margin: 0;
         padding: 4px;
-
-        text-decoration: none;
-
-        max-width: 100%;
-        height: fit-content;
-        text-align: left;
         white-space: pre-wrap;
       }
       .buttons {
@@ -124,6 +115,21 @@ $algozContentHeight: calc(100vh - $algozHeaderHeight);
         flex-direction: column;
         padding: 4px;
         gap: 4px;
+        z-index: 2;
+      }
+      &:hover {
+        color: hotpink;
+      }
+      &:hover::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 1;
+        border-radius: 1vmin;
+        background-color: #7dbcea22;
       }
     }
   }

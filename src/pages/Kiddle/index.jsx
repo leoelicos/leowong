@@ -26,7 +26,7 @@ export default function WordGuess() {
     tiles,
     tally,
     handleClickResetTally,
-    buttonMessage,
+
     started,
     startGame //
   } = useGame()

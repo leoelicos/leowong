@@ -11,14 +11,7 @@
 
   user-select: none;
 
-  background-color: black;
-
-  background: floralwhite url('./leather-texture-bake.png');
-  background-position-x: center;
-  background-position-y: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(to bottom, #4a2d0d, #1b0e03);
 
   ::-webkit-scrollbar {
     display: none;
@@ -46,8 +39,9 @@
 
   .projects {
     padding-top: 5vh;
-    z-index: 3;
+
     position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -62,6 +56,7 @@
     .project-cards {
       display: flex;
       flex-flow: row wrap;
+      gap: 4px;
       width: 100%;
       text-align: center;
       justify-content: center;

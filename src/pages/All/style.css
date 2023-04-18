@@ -10,13 +10,7 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  background-color: black;
-  background: floralwhite url("./leather-texture-bake.png");
-  background-position-x: center;
-  background-position-y: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(to bottom, #4a2d0d, #1b0e03);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -39,7 +33,6 @@
 }
 .all .projects {
   padding-top: 5vh;
-  z-index: 3;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,6 +47,7 @@
 .all .projects .project-cards {
   display: flex;
   flex-flow: row wrap;
+  gap: 4px;
   width: 100%;
   text-align: center;
   justify-content: center;

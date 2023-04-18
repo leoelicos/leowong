@@ -230,7 +230,6 @@ const appData = {
       'Search books for book details: title, author, description, cover image, link to Google Books',
       'Login to save and unsave books and view saved books' //
     ],
-    changes: [],
     apis: ['google books'],
     frontEndTech: [
       //
@@ -531,7 +530,6 @@ const appData = {
       'Enter letters or use the on-screen keyboard',
       'Guess the riddle before the timer runs out and the maximum wrong answers is reached' //
     ],
-    changes: ['I rewrote the backend command line into a React front end'],
     apis: [],
     frontEndTech: ['react'],
     backEndTech: [],
@@ -583,7 +581,6 @@ const appData = {
       'Create, edit, and delete notes',
       'Save to store notes securely on the server' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: ['express', 'uuid'],
@@ -612,7 +609,6 @@ const appData = {
       'See a 404 page when a route does not exist. Try /api/x',
       'See usage statistics from users of the site at /api/diagnostics.' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: ['express', 'uuid'],
@@ -638,7 +634,6 @@ const appData = {
       'View reports and analytics on employee performance and business operations',
       'Generate custom reports based on selected parameters' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: [
@@ -672,7 +667,6 @@ const appData = {
       'Create and delete a movie.',
       'View a list of all the reviews and the associated movie name.' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: ['express', 'mysql2'],
@@ -710,7 +704,6 @@ const appData = {
       'DELETE /api/products/:productId',
       'GET /api/product_tags' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: [
@@ -780,7 +773,6 @@ const appData = {
       'Create an account to save and manage projects, receive updates, and contribute to funding',
       'Create an account to post projects to ask for funding' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [],
     backEndTech: [
@@ -853,7 +845,7 @@ const appData = {
       'DELETE\t/courses/:courseId',
 
       'GET\t\t/students',
-      `POST\t\t/students\n\t\t\t{"first": "Harry",\n\t\t\t"last": "Potter",\n\t\t\t"github": hpotter, "assignments": [{"assignmentName": "Wands", "score": 1}]}`,
+      `POST\t\t/students\n\t\t\t{"first": "Harry",\n\t\t\t"last": "Potter",\n\t\t\t"github": "hpotter",\n\t\t\t"assignments": [\n\t\t\t{"assignmentName": "Wands", \n\t\t\t"score": 1}\n\t\t\t]}`,
       'GET\t\t/students/:studentId',
       'DELETE\t/students/:studentId',
       `POST\t\t/students/:studentId/assignments\n\t\t\t{"assignmentName": "Wands", "score": 1}`,
@@ -898,7 +890,7 @@ const appData = {
       `POST\t\t/thoughts/:thoughtId/reactions\n\t\t\t{"reactionBody": "OMG really ? ",\n\t\t\t"username": "ron"}`,
       'DELETE\t/thoughts/:thoughtId/reactions/:reactionId' //
     ],
-    changes: ['I deployed it to Render for faster load', 'I added a seed file with Harry, Ron and Hermione'],
+
     apis: [],
     frontEndTech: [],
     backEndTech: [
@@ -929,7 +921,7 @@ const appData = {
       'Start online or offline and pick up where it was left off',
       'Updates when online' //
     ],
-    changes: [],
+
     apis: [],
     frontEndTech: ['idb'],
     backEndTech: ['express'],
@@ -956,7 +948,6 @@ const appData = {
       'Works offline after install and save notes locally',
       'Updates automatically when online' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [
       'code-mirror-themes',
@@ -1011,7 +1002,6 @@ const appData = {
       'View current votes for each technology in each matchup.',
       'See a 404 page when going to a page that does not exist' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [
       '@apollo/client',
@@ -1051,7 +1041,6 @@ const appData = {
       'Turn the cars on or off',
       'Installable from web and works offline' //
     ],
-    changes: [],
     apis: [],
     frontEndTech: [
       'react',

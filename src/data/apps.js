@@ -20,7 +20,7 @@ import Hourly from '../pages/Hourly/index.jsx'
 const appData = {
   ingre: {
     endpoint: 'ingre',
-    links: ['https://ingre.herokuapp.com', 'https://ingre.vercel.app/'],
+    links: ['https://ingre.herokuapp.com'],
     code: 'https://github.com/leoelicos/ingre',
     title: 'ingré',
     description: 'home shopping utility',
@@ -67,10 +67,7 @@ const appData = {
 
   submitted: {
     endpoint: 'submitted',
-    links: [
-      'https://submittd.herokuapp.com',
-      'https://submitted.onrender.com' //
-    ],
+    links: ['https://submittd.herokuapp.com'],
     code: 'https://github.com/leoelicos/submitted',
     title: 'submitted!',
     description: 'coding forum',
@@ -106,10 +103,7 @@ const appData = {
 
   kiddin: {
     endpoint: 'kiddin',
-    links: [
-      'https://kiddin.herokuapp.com',
-      'https://kiddin.onrender.com' //
-    ],
+    links: ['https://kiddin.herokuapp.com'],
     code: 'https://github.com/leoelicos/kiddin',
     title: "kiddin'",
     description: 'baby picture forum',
@@ -172,7 +166,7 @@ const appData = {
 
   shopr: {
     endpoint: 'shopr',
-    links: ['https://shpr.herokuapp.com', 'https://shopr-seven.vercel.app/'],
+    links: ['https://shpr.herokuapp.com'],
     code: 'https://github.com/leoelicos/shopr',
     title: 'shopr',
     description: 'fast shopping cart',
@@ -220,7 +214,7 @@ const appData = {
 
   readr: {
     endpoint: 'readr',
-    links: ['https://reader.herokuapp.com/', 'https://readr-murex.vercel.app/'],
+    links: ['https://reader.herokuapp.com/'],
     code: 'https://github.com/leoelicos/readr',
     title: 'Readr',
     description: 'book search engine',
@@ -392,7 +386,7 @@ const appData = {
     code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Hourly',
     title: 'Hourly',
     description: 'hourly task manager',
-    keywords: [],
+    keywords: ['react', 'openweather'],
     background2: '#8f5fc2',
     background1: '#8f5fc2',
     color1: '#fff',
@@ -494,11 +488,11 @@ const appData = {
     code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Docu',
     title: 'Docu',
     description: 'readme generator',
-    keywords: ['react', ''],
-    background2: 'black',
-    background1: 'black',
-    color1: 'white',
-    color2: 'white',
+    keywords: ['react'],
+    background2: '#410137',
+    background1: '#410137',
+    color1: '#fadcfe',
+    color2: '#fadcfe',
 
     userStory: ['As a developer, I want to quickly create a professional README for a new project using a README generator.'],
     features: [
@@ -1062,7 +1056,7 @@ const appData = {
     endpoint: 'algoz',
     links: ['/algoz'],
     code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Algoz',
-    title: 'AlgoZ',
+    title: 'Algoz',
     description: 'collection of algorithms',
     keywords: ['react', 'prism', 'algorithms'],
     background2: '#7DBCEA',

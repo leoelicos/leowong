@@ -1,9 +1,4 @@
-/* AntD components */
-import { Layout } from 'antd'
-import { Content, Header } from 'antd/es/layout/layout'
-
 /* custom components */
-import ProjectTrackerHeader from './components/ProjectTrackerHeader'
 import ProjectTable from './components/ProjectTable'
 import HelpModal from './components/HelpModal'
 
@@ -14,6 +9,14 @@ import useModal from './hooks/useModal'
 import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
 
+/* style */
+import './style/style.css'
+
+import logo from './images/jobby.png'
+import { Button } from 'antd'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 export default function ProjectTracker() {
   useTitle('Jobby')
   useFavicon('/favicons/jobby.png')
@@ -22,34 +25,52 @@ export default function ProjectTracker() {
   const time = useTime()
 
   /* data and data methods */
-  const { data, addProject, deleteProject } = useData()
+  const { jobs, addJob, deleteJob } = useData()
 
   /* modal and modal methods */
   const { modal, showModal, hideModal } = useModal()
 
-  const headerStyle = { height: '300px', background: '#eee', display: 'flex', justifyContent: 'center', textAlign: 'center' }
+  const d = new Date(time)
+  const timeString = d.toLocaleTimeString([], { hourCycle: 'h11', hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' })
+  const dateString = d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
 
   return (
-    <Layout>
-      <Header style={headerStyle}>
-        <ProjectTrackerHeader
-          time={time}
-          showModal={showModal}
+    <div className='jobby'>
+      <header>
+        <img
+          src={logo}
+          alt='logo'
         />
-      </Header>
-      <Layout>
-        <Content>
-          <ProjectTable
-            data={data}
-            onDelete={deleteProject}
-          />
-        </Content>
-      </Layout>
-      <HelpModal
-        modal={modal}
-        onAdd={addProject}
-        hideModal={hideModal}
-      />
-    </Layout>
+        <div className='add'>
+          <h1>Jobby</h1>
+        </div>
+        <div className='datetime'>
+          <span id='time-display'>{timeString}</span>
+          <span id='date-display'>{dateString}</span>
+        </div>
+      </header>
+      <main>
+        <div className='button-holder'>
+          <Button
+            type='primary'
+            shape='circle'
+            onClick={showModal}>
+            <div>
+              <FontAwesomeIcon icon={faPlus} />
+            </div>
+          </Button>
+        </div>
+
+        <ProjectTable
+          data={jobs}
+          onDelete={deleteJob}
+        />
+        <HelpModal
+          modal={modal}
+          onAdd={addJob}
+          hideModal={hideModal}
+        />
+      </main>
+    </div>
   )
 }

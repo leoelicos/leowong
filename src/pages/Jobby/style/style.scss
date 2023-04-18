@@ -1,0 +1,51 @@
+.jobby {
+  height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+  background-color: hsl(22, 100%, 90%);
+  color: #1677ff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    padding: 0 3px;
+
+    img {
+      height: 50px;
+    }
+
+    .add {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+      h1 {
+        margin: 0;
+      }
+    }
+
+    .datetime {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  main {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    width: 100%;
+
+    .button-holder {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

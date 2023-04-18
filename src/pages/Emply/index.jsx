@@ -15,6 +15,7 @@ export default function Emply() {
         <img
           className='logo'
           src={logo}
+          alt='logo'
         />
         <h1>Emply</h1>
       </header>

@@ -3,20 +3,17 @@ import { useCallback, useEffect, useState } from 'react'
 function useResize(element = null) {
   let [w, setW] = useState(0)
 
-  const onResize = useCallback(
-    (event) => {
-      let w = window.innerWidth
+  const onResize = useCallback(() => {
+    let w = window.innerWidth
 
-      if (element && element.current) {
-        const clientRect = element.current.getBoundingClientRect()
+    if (element && element.current) {
+      const clientRect = element.current.getBoundingClientRect()
 
-        w = clientRect.width
-      }
+      w = clientRect.width
+    }
 
-      setW(w)
-    },
-    [element]
-  )
+    setW(w)
+  }, [element])
 
   useEffect(() => {
     window.addEventListener('resize', onResize, false)

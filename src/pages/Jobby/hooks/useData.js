@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useData = () => {
-  const [data, setData] = useState([])
+  const [jobs, setJobs] = useState(() => {
+    const currentStorage = JSON.parse(localStorage.getItem('jobs'))
+    if (!currentStorage) return []
 
-  const addProject = (data) => {
+    const newStorage = currentStorage.map((x) => ({ ...x, dueDate: new Date(Date.parse(x.dueDate)) }))
+    return newStorage
+  })
+
+  useEffect(() => {
+    localStorage.setItem('jobs', JSON.stringify(jobs))
+  }, [jobs])
+
+  const addJob = (data) => {
     const { projectName, projectType, hours, hourlyRate, dueDate } = data
-    setData((prev) => {
+    setJobs((prev) => {
       const timestamp = new Date().getTime()
       const serialized = {
         key: timestamp,
@@ -14,16 +24,16 @@ const useData = () => {
         projectType,
         hours,
         hourlyRate,
-        dueDate: dueDate.$d.toLocaleDateString()
+        dueDate: dueDate.$d
       }
       return prev.concat(serialized)
     })
   }
-  const deleteProject = (timestamp) => {
-    setData((prev) => prev.filter((project) => project.timestamp !== timestamp))
+  const deleteJob = (timestamp) => {
+    setJobs((prev) => prev.filter((project) => project.timestamp !== timestamp))
   }
 
-  return { data, addProject, deleteProject }
+  return { jobs, addJob, deleteJob }
 }
 
 export default useData

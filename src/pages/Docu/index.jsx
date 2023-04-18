@@ -100,7 +100,11 @@ export default function Docu() {
       <Context.Provider value={contextValue}>
         {contextHolder}
         <header>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center'
+            }}>
             <img
               src={logo}
               className='logo'

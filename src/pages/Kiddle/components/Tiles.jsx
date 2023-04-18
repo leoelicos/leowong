@@ -1,12 +1,12 @@
 const Tiles = ({ tiles }) => {
   return (
     <div className='tile-wrapper'>
-      {tiles.map((v, i) => (
+      {tiles.map((letter, i) => (
         <div
           key={`tile${i}`}
           className='tile'
           id={`tile${i}`}>
-          {v}
+          {letter}
         </div>
       ))}
     </div>

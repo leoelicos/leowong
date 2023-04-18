@@ -80,14 +80,22 @@ Purpose 1. Purpose 2.`,
     name: 'Features',
     description: 'Features, Components, API',
     content: `## Features
-- Components: Features, Components, API`,
+- Features
+- Components
+- API`,
     section: 'overview'
   },
   {
     name: 'Tech',
     description: 'Tech Stack/Tech Concepts/Software names only with suitable links',
-    content: `## Tech
-- Tech stack: **Client** React, Redux, TailwindCSS **Server** Node, Express
+    content: `## Tech Stack
+- **Client**: 
+  - React
+  - Redux
+  - TailwindCSS
+- **Server**
+  - Node
+  - Express
 `,
     section: 'overview'
   },
@@ -295,7 +303,7 @@ Purpose 1. Purpose 2.`,
     name: 'OSS Report',
     description: 'OSS Report',
     content: `## OSS Report
-- [OSS Report: Performance, scale, benchmarks](https://www.google.com)
+- [Performance, scale, benchmarks](https://www.google.com)
 
 `,
     section: 'references'

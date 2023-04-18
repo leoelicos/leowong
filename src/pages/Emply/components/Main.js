@@ -150,7 +150,7 @@ const Main = () => {
               type='primary'
               onClick={handleAddRandomEmployees}>
               <FontAwesomeIcon icon={faAdd} />
-              &nbsp;10 random employees
+              &nbsp;10 random
             </Button>
             {employees?.length > 0 && (
               <Button
@@ -159,7 +159,7 @@ const Main = () => {
                 danger
                 onClick={handleDeleteAllEmployees}>
                 <FontAwesomeIcon icon={faTrash} />
-                &nbsp;Delete all employees
+                &nbsp;Delete all
               </Button>
             )}
           </div>

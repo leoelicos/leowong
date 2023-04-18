@@ -10,7 +10,7 @@
 }
 .emply header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   width: 100%;
@@ -19,8 +19,13 @@
   color: #0014ab;
 }
 .emply header .logo {
+  margin-left: 4px;
+  height: 100%;
+}
+.emply header h1 {
   position: absolute;
-  left: 4px;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0;
   padding: 0;
 }
@@ -63,14 +68,4 @@
   height: -moz-fit-content;
   height: fit-content;
   border-radius: 1rem;
-}
-.emply article .employee-card {
-  padding-top: 8px;
-}
-.emply article .buttons {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-  color: red;
 }/*# sourceMappingURL=index.css.map */

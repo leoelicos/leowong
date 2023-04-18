@@ -6,15 +6,18 @@ import { createContext, useMemo, useState } from 'react'
 import useTitle from '../../hooks/useTitle'
 import useFavicon from '../../hooks/useFavicon'
 
- 
 import { Button, ConfigProvider, Modal, notification } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
+import { faCode, faLink } from '@fortawesome/free-solid-svg-icons'
 import { faCopy } from '@fortawesome/free-regular-svg-icons'
+
+/* render articles as Masonry components */
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+
 const Context = createContext({
   name: 'Default'
 })
- 
+
 function formatCode(code) {
   return Prism.highlight(code, Prism.languages.javascript, 'javascript')
 }
@@ -60,16 +63,14 @@ export default function Algoz() {
   }
   const contextValue = useMemo(() => ({ name: 'Password copied to clipboard' }), [])
   return (
-    <div className='algoz'>
- 
+    <div className='algoz disable-caret'>
       <Context.Provider value={contextValue}>
         {contextHolder}
- 
+
         <header>
           <h1>Algoz</h1>
           <nav>
             <ul>
- 
               {difficulties.map((d) => (
                 <li key={d}>
                   <button
@@ -82,27 +83,59 @@ export default function Algoz() {
                   </button>
                 </li>
               ))}
- 
             </ul>
           </nav>
         </header>
         <main>
-          {algos
- 
-            .filter((algo) => algo.difficulty === difficulty)
- 
-            .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
-            .map((algo) => (
-              <ACard
-                algo={algo}
-                key={algo.name}
- 
-                onClickAlgo={() => {
-                  setAlgo(algo)
-                  showModal()
-                }}
-              />
-            ))}
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 0: 1, 700: 2, 1050: 3, 1400: 4, 1750: 5 }}
+            style={{ width: '100%', overflowX: 'hidden' }}>
+            <Masonry className='grid'>
+              {algos
+                .filter((algo) => algo.difficulty === difficulty)
+                .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+                .map((algo) => (
+                  <div
+                    className='card'
+                    key={algo.name}>
+                    <div className='title'>{algo.name}</div>
+                    <div className='buttons'>
+                      <ConfigProvider
+                        theme={{
+                          token: {
+                            colorPrimary: 'red'
+                          }
+                        }}>
+                        <Button
+                          block
+                          size='small'
+                          shape='round'
+                          type='default'
+                          href={algo.link}
+                          target='_blank'
+                          rel='noreferrer'
+                          className='leetcode'>
+                          <FontAwesomeIcon icon={faLink} />
+                          &nbsp;LeetCode
+                        </Button>
+                      </ConfigProvider>
+                      <Button
+                        size='small'
+                        shape='round'
+                        type='primary'
+                        block
+                        onClick={() => {
+                          setAlgo(algo)
+                          showModal()
+                        }}>
+                        <FontAwesomeIcon icon={faCode} />
+                        &nbsp;My solution
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </main>
         {algo && (
           <ConfigProvider
@@ -113,6 +146,7 @@ export default function Algoz() {
               }
             }}>
             <Modal
+              centered='false'
               closable={false}
               footer={
                 <>
@@ -132,7 +166,12 @@ export default function Algoz() {
               title={<div style={{ color: 'white' }}>{algo.name}</div>}
               open={isModalOpen}
               onCancel={handleCancel}
-              bodyStyle={{ backgroundColor: 'black' }}
+              bodyStyle={{
+                backgroundColor: 'black',
+                marginTop: '1vh',
+                maxHeight: '80vh',
+                overflowY: 'auto'
+              }}
               children={
                 <div className='algoz__code'>
                   <pre>
@@ -148,37 +187,6 @@ export default function Algoz() {
           </ConfigProvider>
         )}
       </Context.Provider>
- 
-    </div>
-  )
-}
-const ACard = ({ algo, onClickAlgo }) => {
-  return ( 
-    <div className='card'>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorLink: 'black'
-          }
- 
-        }}>
-        <Button
-          block
-          type='link'
-          href={algo.link}
-          target='_blank'
-          rel='noreferrer'
-          className='leetcode-link'>
-          {algo.name}
-        </Button>
-      </ConfigProvider>
-      <Button
-        type='default'
-        block
-        onClick={onClickAlgo}
-        style={{ borderRadius: '0 0 16px 16px' }}>
-        <FontAwesomeIcon icon={faCode} />
-      </Button>
     </div>
   )
 }

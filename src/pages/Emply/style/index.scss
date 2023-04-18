@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-$emply-header-color: #0014ab;
-$emply-header-background-color: #faead6;
-$emply-header-height: max(5vh, 40px);
-$emply-main-height: calc(100vh - $emply-header-height);
-
 .emply {
   display: flex;
   flex-direction: column;
@@ -19,9 +14,9 @@ $emply-main-height: calc(100vh - $emply-header-height);
     align-items: center;
     position: relative;
     width: 100%;
-    height: $emply-header-height;
-    background-color: $emply-header-background-color;
-    color: $emply-header-color;
+    height: max(5vh, 40px);
+    background-color: #faead6;
+    color: #0014ab;
     .logo {
       position: absolute;
       left: 4px;
@@ -35,7 +30,6 @@ $emply-main-height: calc(100vh - $emply-header-height);
     flex-direction: column;
     overflow-y: auto;
     width: 100%;
-    height: $emply-main-height;
   }
 
   section {
@@ -71,6 +65,7 @@ $emply-main-height: calc(100vh - $emply-header-height);
     max-width: 300px;
     height: fit-content;
     border-radius: 1rem;
+
     .employee-card {
       padding-top: 8px;
     }

@@ -29,7 +29,6 @@
   flex-direction: column;
   overflow-y: auto;
   width: 100%;
-  height: calc(100vh - max(5vh, 40px));
 }
 .emply section {
   display: flex;

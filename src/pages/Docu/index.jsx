@@ -1,24 +1,21 @@
-import './css/index.css'
-import Markdown from 'marked-react'
-
-import data from './data/types'
-import { useMemo, useState, createContext } from 'react'
-
-import { Button, notification, Tooltip } from 'antd'
+import { useMemo, useState, createContext, Fragment } from 'react'
 import useFavicon from '../../hooks/useFavicon'
 import useTitle from '../../hooks/useTitle'
 
-const Header = ({ children }) => {
-  return <header>{children}</header>
-}
+import data from './data/types'
 
-const Content = ({ children }) => {
-  return <main>{children}</main>
-}
+import { Badge, Button, notification } from 'antd'
 
-const Footer = ({ children }) => {
-  return <footer>{children}</footer>
-}
+import './css/style.css'
+
+/* render markdown as React components */
+import Markdown from 'marked-react'
+
+/* render articles as Masonry components */
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+
+import logo from './images/docu.png'
+
 const Context = createContext({
   name: 'Default'
 })
@@ -27,11 +24,21 @@ export default function Docu() {
   useTitle('Docu')
   useFavicon('/favicons/docu.png')
 
-  const initialTypes = data.map((t) => ({ ...t, key: t.name, selected: false }))
+  const initialTypes = data.map((t) => ({
+    ...t, //
+    key: t.name,
+    selected: false
+  }))
 
   const [types, setTypes] = useState(initialTypes)
   const handleClick = ({ name }) => {
-    setTypes((prev) => prev.map((type) => (type.name === name ? { ...type, selected: !type.selected } : type)))
+    setTypes((prev) =>
+      prev.map((type) =>
+        type.name === name //
+          ? { ...type, selected: !type.selected }
+          : type
+      )
+    )
   }
   const [api, contextHolder] = notification.useNotification()
   const openNotification = () => {
@@ -44,134 +51,109 @@ export default function Docu() {
     })
   }
   const contextValue = useMemo(() => ({ name: 'Markdown copied to clipboard' }), [])
+
+  const sections = useMemo(
+    () => [
+      {
+        title: 'Header',
+        types: types.filter((t) => t.section === 'header')
+      },
+      {
+        title: 'Overview',
+        types: types.filter((t) => t.section === 'overview')
+      },
+      {
+        title: 'Setup',
+        types: types.filter((t) => t.section === 'setup')
+      },
+      {
+        title: 'References',
+        types: types.filter((t) => t.section === 'references')
+      },
+      {
+        title: 'Footer',
+        types: types.filter((t) => t.section === 'footer')
+      }
+    ],
+    [types]
+  )
+
+  const handleClickGenerate = async () => {
+    const output = types
+      .filter((v) => v.selected)
+      .map((v) => v.content)
+      .join('\n\n')
+
+    try {
+      await navigator.clipboard.writeText(output)
+
+      openNotification()
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const count = useMemo(() => types.filter((type) => type.selected).length, [types])
+
   return (
-    <div className='app-15'>
-      <div className='body'>
-        <Header>
-          <h1>Readme Maker</h1>
-        </Header>
-        <Content>
-          <h1>Header</h1>
-          <section className='readme-header'>
-            {types
-              .filter((t) => t.section === 'header')
-              .map(({ name, selected, content, key, description }) => (
-                <Tooltip
-                  key={key}
-                  title={description}>
-                  <article
-                    onClick={() => {
-                      handleClick({ name })
-                    }}
-                    className={selected ? 'selected' : ''}>
-                    {<Markdown>{content}</Markdown>}
-                  </article>
-                </Tooltip>
-              ))}
-          </section>
-          <h1>Overview</h1>
-          <section className='readme-header'>
-            {types
-              .filter((t) => t.section === 'overview')
-              .map(({ name, selected, content, key, description }) => (
-                <Tooltip
-                  key={key}
-                  title={description}>
-                  <article
-                    onClick={() => {
-                      handleClick({ name })
-                    }}
-                    className={selected ? 'selected' : ''}>
-                    {<Markdown>{content}</Markdown>}
-                  </article>
-                </Tooltip>
-              ))}
-          </section>
-          <h1>Setup</h1>
-          <section className='readme-header'>
-            {types
-              .filter((t) => t.section === 'setup')
-              .map(({ name, selected, content, key, description }) => (
-                <Tooltip
-                  key={key}
-                  title={description}>
-                  <article
-                    onClick={() => {
-                      handleClick({ name })
-                    }}
-                    className={selected ? 'selected' : ''}>
-                    {<Markdown>{content}</Markdown>}
-                  </article>
-                </Tooltip>
-              ))}
-          </section>
-          <h1>References</h1>
-          <section className='readme-header'>
-            {types
-              .filter((t) => t.section === 'references')
-              .map(({ name, selected, content, key, description }) => (
-                <Tooltip
-                  key={key}
-                  title={description}>
-                  <article
-                    onClick={() => {
-                      handleClick({ name })
-                    }}
-                    className={selected ? 'selected' : ''}>
-                    {<Markdown>{content}</Markdown>}
-                  </article>
-                </Tooltip>
-              ))}
-          </section>
-          <h1>Footer</h1>
-          <section className='readme-header'>
-            {types
-              .filter((t) => t.section === 'footer')
-              .map(({ name, selected, content, key, description }) => (
-                <Tooltip
-                  key={key}
-                  title={description}>
-                  <article
-                    onClick={() => {
-                      handleClick({ name })
-                    }}
-                    className={selected ? 'selected' : ''}>
-                    {<Markdown>{content}</Markdown>}
-                  </article>
-                </Tooltip>
-              ))}
-          </section>
-        </Content>
-        <Footer>
-          <Context.Provider value={contextValue}>
-            {contextHolder}
+    <div className='docu'>
+      <Context.Provider value={contextValue}>
+        {contextHolder}
+        <header>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <img
+              src={logo}
+              className='logo'
+            />
+            <h1>Docu</h1>
+          </div>
+          <div>
+            <Badge
+              count={count}
+              showZero>
+              <Button
+                type='primary'
+                onClick={handleClickGenerate}>
+                Generate
+              </Button>
+            </Badge>
             <Button
-              onClick={async () => {
-                const output = types
-                  .filter((v) => v.selected)
-                  .map((v) => v.content)
-                  .join('\n\n')
-
-                try {
-                  await navigator.clipboard.writeText(output)
-
-                  openNotification()
-                } catch (e) {
-                  console.error(e)
-                }
-              }}>
-              Generate .md
-            </Button>
-            <Button
-              type='danger'
+              type='primary'
+              danger
               onClick={() => {
                 setTypes((prev) => prev.map((type) => ({ ...type, selected: false })))
               }}>
               Reset clicks
             </Button>
-          </Context.Provider>
-        </Footer>
-      </div>
+          </div>
+        </header>
+
+        <main>
+          {sections.map((section) => (
+            <Fragment key={section.title}>
+              <h1>{section.title}</h1>
+              <section>
+                <ResponsiveMasonry
+                  columnsCountBreakPoints={{ 0: 1, 450: 2, 679: 3, 908: 4, 1137: 5 }}
+                  style={{ width: '100%', overflowX: 'hidden' }}>
+                  <Masonry className='grid'>
+                    {section.types.map(({ name, selected, content, key, description }) => (
+                      <article
+                        key={key}
+                        onClick={() => {
+                          handleClick({ name })
+                        }}
+                        className={selected ? 'selected' : ''}>
+                        <Markdown>{content}</Markdown>
+                      </article>
+                    ))}
+                  </Masonry>
+                </ResponsiveMasonry>
+              </section>
+            </Fragment>
+          ))}
+        </main>
+      </Context.Provider>
     </div>
   )
 }

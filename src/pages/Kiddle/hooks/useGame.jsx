@@ -34,6 +34,7 @@ export default function useGame() {
       started.current = false
       if (win === true) updateTally(true)
       else updateTally(false)
+      setTiles((prev) => prev.map((letter, i) => (letter === '＿' ? unguessed.current[i].toUpperCase() : letter)))
     },
     [stopTimer, updateTally]
   )

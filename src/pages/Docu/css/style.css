@@ -1,11 +1,22 @@
 .docu {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
   /* scrollbar */
 }
 .docu header {
+  width: 100%;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #660274;
+  padding: 1vw;
 }
-.docu header:before {
+.docu header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -14,29 +25,66 @@
   right: 0;
   box-shadow: 0 1px 2px 0 #660274;
 }
-.docu main {
-  background-color: #410137;
+.docu header img {
+  margin-left: 1vw;
+  height: max(64px, 10vh);
 }
-.docu footer {
-  background-color: #660274;
+.docu header h1 {
   position: relative;
+  color: #fadcfe;
+  font-size: max(32px, 5vh);
+  margin: 0;
 }
-.docu footer:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  box-shadow: 0 -1px 2px 0 #660274;
-  transition: box-shadow 0.06s linear;
+@media screen and (min-width: 750px) {
+  .docu header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
-.docu article {
+.docu header div {
+  display: flex;
+  gap: max(2vw, 16px);
+}
+.docu main {
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 1vh 1vw;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  flex-grow: 1;
+  gap: 1vh;
+  width: 100%;
+  background-color: #410137;
+  color: #fadcfe;
+  font-size: 1rem;
+}
+.docu main section {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  flex-grow: 1;
+  gap: 1rem;
+  width: 100%;
+}
+.docu main section article {
   position: relative;
   border-radius: 0.7rem;
-  padding: 0.7rem;
+  padding: 1vh 1vw;
+  height: auto;
+  min-width: 200px;
+  flex-basis: calc((100% - 0rem) / 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  text-align: center;
 }
-.docu article:before {
+.docu main section article::before {
   content: "";
   position: absolute;
   top: 0;
@@ -47,30 +95,77 @@
   box-shadow: 0 0 4px 0 hsl(293, 97%, 23%);
   transition: box-shadow 0.06s linear;
 }
-.docu article:hover {
+.docu main section article:hover {
   cursor: pointer;
 }
-.docu article:hover:before {
+.docu main section article:hover::before {
   box-shadow: 0 0 4px 0 #f0055b;
   transition: box-shadow 0.06s linear;
 }
-.docu article:active:before {
+.docu main section article:active::before {
   box-shadow: 0 0 4px 0 #8c0367;
   transition: box-shadow 0.06s linear;
 }
-.docu article.selected {
+.docu main section article.selected {
   background-color: #8c0367;
 }
-.docu article.selected:hover:before {
+.docu main section article.selected:hover::before {
   box-shadow: 0 0 8px 0 #f0055b;
   transition: box-shadow 0.06s linear;
 }
-.docu article.selected:active:before {
+.docu main section article.selected:active::before {
   box-shadow: 0 0 4px 0 #8c0367;
   transition: box-shadow 0.06s linear;
 }
-.docu article p {
+.docu main section article h2 {
+  margin: 1vh 0;
+}
+.docu main section article ul,
+.docu main section article ol {
+  margin: 1vh 0;
+  padding-left: 20px;
+}
+.docu main section article li {
+  margin: 1vh 0;
+  text-align: left;
+}
+.docu main section article p {
   margin: 0;
+}
+.docu main section article img {
+  max-width: 100%;
+}
+.docu main section article a {
+  text-decoration: none;
+  color: green;
+}
+.docu main section div {
+  gap: 1vmin !important;
+}
+.docu main section div .grid {
+  padding: 4px;
+}
+.docu footer {
+  background-color: #660274;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+.docu footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 -1px 2px 0 #660274;
+  transition: box-shadow 0.06s linear;
+}
+.docu footer h2 {
+  color: #fadcfe;
+  font-size: 0.9rem;
+  margin: 4px 0;
 }
 .docu ::-webkit-scrollbar {
   width: 1rem;

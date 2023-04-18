@@ -1,0 +1,178 @@
+.megen {
+  background-color: black;
+  font-family: "Arial", sans-serif;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+.megen header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 1vh 1vw;
+}
+.megen header .logo {
+  height: max(50px, 5vh);
+}
+.megen header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+  flex: 1;
+  font-size: max(50px, 5vh);
+}
+.megen header button {
+  border: none;
+  background-color: #d303fc;
+  border-radius: 0;
+  height: max(50px, 5vh);
+  padding: 1vh 1vw;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: max(16px, 2vh);
+  cursor: pointer;
+}
+.megen header button:hover {
+  background-color: #e468fd;
+  border: none;
+}
+.megen header button:active {
+  outline: none;
+  background-color: #f6cdfe;
+  border: none;
+}
+.megen main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 1rem 0 0;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+@media screen and (min-width: 576px) {
+  .megen main {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+.megen main form {
+  color: inherit;
+}
+.megen main fieldset {
+  border: 0;
+  border-radius: 20px;
+}
+.megen main fieldset:nth-of-type(1) {
+  border-bottom: 1px solid #f0473c;
+}
+.megen main fieldset:nth-of-type(2) {
+  border-bottom: 1px solid #def048;
+}
+.megen main fieldset:nth-of-type(3) {
+  border-bottom: 1px solid #f031c8;
+}
+.megen main fieldset:nth-of-type(4) {
+  border-bottom: 1px solid #18f06f;
+}
+.megen main fieldset:nth-of-type(5) {
+  border-bottom: 1px solid #9924f0;
+}
+.megen main label:nth-of-type(1) {
+  color: #f0473c;
+}
+.megen main label:nth-of-type(2) {
+  color: #def048;
+}
+.megen main label:nth-of-type(3) {
+  color: #f031c8;
+}
+.megen main label:nth-of-type(4) {
+  color: #18f06f;
+}
+.megen main label:nth-of-type(5) {
+  color: #9924f0;
+}
+.megen main input {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+@media screen and (min-width: 576px) {
+  .megen main header {
+    width: 100%;
+    flex-direction: row;
+    gap: 1vw;
+  }
+}
+.megen main form {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.megen main fieldset {
+  padding: 0;
+  width: 100%;
+}
+.megen main fieldset:not(:last-of-type) {
+  margin: 0 0 1rem;
+}
+.megen main label {
+  color: white;
+  font-size: 10px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.megen main input {
+  padding: 0 4px;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+.megen main input:focus-visible {
+  outline: none;
+}
+.megen main .portfolio-container {
+  width: 100%;
+  margin: 1rem 0;
+}
+.megen main .portfolio {
+  padding: 0;
+}
+.megen main .portfolio h1 {
+  margin: 0;
+}
+.megen main .iframe {
+  border: none;
+  border-radius: 20px;
+  margin: 0;
+  background-color: white;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 200px;
+}
+.megen main .body > header h1 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+.megen main fieldset {
+  font: inherit;
+  color: inherit;
+}
+.megen main input {
+  font-family: inherit;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=style.css.map */

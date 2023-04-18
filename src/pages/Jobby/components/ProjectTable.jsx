@@ -62,7 +62,6 @@ export default function ProjectTable({ data, onDelete }) {
       hourlyRate,
       dueDate //
     }) => {
-      console.log({ dueDate, type: typeof dueDate })
       return {
         key: timestamp,
         projectName,

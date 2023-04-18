@@ -31,8 +31,18 @@ export default function ProjectTracker() {
   const { modal, showModal, hideModal } = useModal()
 
   const d = new Date(time)
-  const timeString = d.toLocaleTimeString([], { hourCycle: 'h11', hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' })
-  const dateString = d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })
+  const timeString = d.toLocaleTimeString([], {
+    hourCycle: 'h11',
+    hour12: true,
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit'
+  })
+  const dateString = d.toLocaleDateString(undefined, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
 
   return (
     <div className='jobby'>

@@ -104,6 +104,7 @@ export default function Docu() {
             <img
               src={logo}
               className='logo'
+              alt='logo'
             />
             <h1>Docu</h1>
           </div>

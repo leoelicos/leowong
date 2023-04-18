@@ -841,12 +841,24 @@ const appData = {
       "As a teacher, I want to view all students and get a head count,view a specific student's overall grade in the class using and their score on each assignment, and execute create, read, update, and delete operations on courses, students, and assignments." //
     ],
     features: [
-      'View all students and get a head count',
       "View a specific student's overall grade in the class",
       "View a student's score on each assignment",
       'Create, read, update, and delete courses, students, and assignments.' //
     ],
-    changes: ['I deployed it to Render for faster load'],
+    features: [
+      'GET\t\t/courses',
+      `POST\t\t/courses\n\t\t\t{"courseName": "science",\n\t\t\t"inPerson": true,\n\t\t\t"startDate": Date.now(),\n\t\t\t"students": [1, 2, 3]}`,
+      'GET\t\t/courses/:courseId',
+      `PUT\t\t/courses/:courseId\n\t\t\t{"courseName": "science",\n\t\t\t"inPerson": true,\n\t\t\t"startDate": Date.now(),\n\t\t\t"students": [1, 2, 3]}`,
+      'DELETE\t/courses/:courseId',
+
+      'GET\t\t/students',
+      `POST\t\t/students\n\t\t\t{"first": "Harry",\n\t\t\t"last": "Potter",\n\t\t\t"github": hpotter, "assignments": [{"assignmentName": "Wands", "score": 1}]}`,
+      'GET\t\t/students/:studentId',
+      'DELETE\t/students/:studentId',
+      `POST\t\t/students/:studentId/assignments\n\t\t\t{"assignmentName": "Wands", "score": 1}`,
+      'DELETE\t/students/:studentId/assignments/:assignmentId' //
+    ],
     apis: [],
     frontEndTech: [],
     backEndTech: [

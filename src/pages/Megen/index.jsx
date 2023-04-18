@@ -1,19 +1,26 @@
 /* state */
-import { faReact } from '@fortawesome/free-brands-svg-icons'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 
 /* style */
-import './style/index.css'
+import './style/style.css'
 import injectHTML from './iframeLoad'
-import { notification } from 'antd'
+import { notification, Button } from 'antd'
 
+/* favicon, title */
+import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
+
+import logo from './images/megen.png'
 const Context = createContext({
   name: 'Default'
 })
 
 export default function HTMLGenerator() {
+  useFavicon('/favicons/megen.png')
+  useTitle('Megen')
+
   const [api, contextHolder] = notification.useNotification()
   const openNotification = () => {
     const options = {
@@ -36,7 +43,7 @@ export default function HTMLGenerator() {
     return `<html>
 <head>
 </head>
-<body>
+<body >
 <h1>About me</h1>
 <ul>
 <li>👋🏻 Hi, I'm ${name}</li>
@@ -70,114 +77,107 @@ export default function HTMLGenerator() {
   const contextValue = useMemo(() => ({ name: 'HTML copied to clipboard' }), [])
 
   return (
-    <div className='app-16'>
-      <div className='body'>
-        <header>
-          <h1>Portfolio Maker</h1>
-        </header>
-        <main>
-          <form>
-            <label htmlFor='form-name'>Name</label>
-            <fieldset>
-              <input
-                type='text'
-                id='form-name'
-                value={formValues.formName}
-                onChange={(e) => {
-                  setFormValues((prev) => {
-                    return { ...prev, formName: e.target.value }
-                  })
-                }}
-                placeholder='…'
-              />
-            </fieldset>
-            <label htmlFor='form-location'>Location</label>
-            <fieldset>
-              <input
-                type='text'
-                id='form-location'
-                value={formValues.formLocation}
-                onChange={(e) => {
-                  setFormValues((prev) => ({ ...prev, formLocation: e.target.value }))
-                }}
-                placeholder='…'
-              />
-            </fieldset>
-            <label htmlFor='form-bio'>Bio</label>
-            <fieldset>
-              <input
-                type='text'
-                id='form-bio'
-                value={formValues.formBio}
-                onChange={(e) => {
-                  setFormValues((prev) => ({ ...prev, formBio: e.target.value }))
-                }}
-                placeholder='…'
-              />
-            </fieldset>
-            <label htmlFor='form-linked-in'>LinkedIn</label>
-            <fieldset>
-              <input
-                type='text'
-                id='form-linked-in'
-                value={formValues.formLinkedIn}
-                onChange={(e) => {
-                  setFormValues((prev) => ({ ...prev, formLinkedIn: e.target.value }))
-                }}
-                placeholder='…'
-              />
-            </fieldset>
-            <label htmlFor='form-github'>GitHub</label>
-            <fieldset>
-              <input
-                type='text'
-                id='form-github'
-                value={formValues.formGithub}
-                onChange={(e) => {
-                  setFormValues((prev) => ({ ...prev, formGithub: e.target.value }))
-                }}
-                placeholder='…'
-              />
-            </fieldset>
-            <Context.Provider value={contextValue}>
-              {contextHolder}
-              <button
-                className='disable-caret'
-                type='button'
-                onClick={handleSubmit}>
-                <FontAwesomeIcon icon={faCopy} /> Copy HTML
-              </button>
-            </Context.Provider>
-          </form>
-          <section
-            className='portfolio-container'
+    <div className='megen'>
+      <header>
+        <img
+          src={logo}
+          alt='logo'
+          className='logo'
+        />
+        <h1>Megen</h1>
+        <Context.Provider value={contextValue}>
+          {contextHolder}
+          <Button
+            className='disable-caret'
+            type='button'
+            onClick={handleSubmit}>
+            <FontAwesomeIcon icon={faCopy} />
+            &nbsp;Generate HTML
+          </Button>
+        </Context.Provider>
+      </header>
+      <main>
+        <form>
+          <label htmlFor='form-name'>Name</label>
+          <fieldset>
+            <input
+              type='text'
+              id='form-name'
+              value={formValues.formName}
+              onChange={(e) => {
+                setFormValues((prev) => {
+                  return { ...prev, formName: e.target.value }
+                })
+              }}
+              placeholder='…'
+            />
+          </fieldset>
+          <label htmlFor='form-location'>Location</label>
+          <fieldset>
+            <input
+              type='text'
+              id='form-location'
+              value={formValues.formLocation}
+              onChange={(e) => {
+                setFormValues((prev) => ({ ...prev, formLocation: e.target.value }))
+              }}
+              placeholder='…'
+            />
+          </fieldset>
+          <label htmlFor='form-bio'>Bio</label>
+          <fieldset>
+            <input
+              type='text'
+              id='form-bio'
+              value={formValues.formBio}
+              onChange={(e) => {
+                setFormValues((prev) => ({ ...prev, formBio: e.target.value }))
+              }}
+              placeholder='…'
+            />
+          </fieldset>
+          <label htmlFor='form-linked-in'>LinkedIn</label>
+          <fieldset>
+            <input
+              type='text'
+              id='form-linked-in'
+              value={formValues.formLinkedIn}
+              onChange={(e) => {
+                setFormValues((prev) => ({ ...prev, formLinkedIn: e.target.value }))
+              }}
+              placeholder='…'
+            />
+          </fieldset>
+          <label htmlFor='form-github'>GitHub</label>
+          <fieldset>
+            <input
+              type='text'
+              id='form-github'
+              value={formValues.formGithub}
+              onChange={(e) => {
+                setFormValues((prev) => ({ ...prev, formGithub: e.target.value }))
+              }}
+              placeholder='…'
+            />
+          </fieldset>
+        </form>
+        <section
+          className='portfolio-container'
+          style={{ height: '100%' }}>
+          <article
+            className='portfolio'
             style={{ height: '100%' }}>
-            <article
-              className='portfolio'
-              style={{ height: '100%' }}>
-              <iframe
-                title='generated page'
-                className='iframe'
-                id='test_iframe'
-                src='about:blank'
-                width='100%'
-                height='100%'
-              />
-            </article>
-          </section>
-        </main>
-        <footer>
-          <div className='message'>
-            <p>
-              Made with&ensp;
-              <FontAwesomeIcon
-                icon={faReact}
-                className='react-icon'
-              />
-            </p>
-          </div>
-        </footer>
-      </div>
+            <iframe
+              title='generated page'
+              className='iframe'
+              id='test_iframe'
+              src='about:blank'
+              width='100%'
+              height='100%'
+            />
+          </article>
+        </section>
+      </main>
     </div>
   )
 }

@@ -2,13 +2,16 @@ import { useState } from 'react'
 import BucketForm from './components/BucketForm'
 import Bucket from './components/Bucket'
 
-import './style/index.css'
-import useTitle from '../../hooks/useTitle'
+import logo from './images/wants.png'
+
+import './style/style.css'
+
 import useFavicon from '../../hooks/useFavicon'
+import useTitle from '../../hooks/useTitle'
 
 export default function Wants() {
   useTitle('Wants')
-  useFavicon('/favicons/buckets.png')
+  useFavicon('/favicons/wants.png')
   const [bucket, setBucket] = useState([])
 
   const addBucketItem = (item) => {
@@ -33,18 +36,24 @@ export default function Wants() {
   }
 
   return (
-    <div className='app-34'>
-      <div className='body'>
-        <div className='bucket-app'>
-          <h1>What is on your bucket list?</h1>
-          <BucketForm onSubmit={addBucketItem} />
-          <Bucket
-            bucket={bucket}
-            completeBucketItem={completeBucketItem}
-            removeBucketItem={removeBucketItem}
-            editBucketItem={editBucketItem}
+    <div className='wants'>
+      <header>
+        <div className='logo'>
+          <img
+            src={logo}
+            alt='logo'
           />
+          <h1>Wants</h1>
         </div>
+        <BucketForm onSubmit={addBucketItem} />
+      </header>
+      <div className='bucket-app'>
+        <Bucket
+          bucket={bucket}
+          completeBucketItem={completeBucketItem}
+          removeBucketItem={removeBucketItem}
+          editBucketItem={editBucketItem}
+        />
       </div>
     </div>
   )

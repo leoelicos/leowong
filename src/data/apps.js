@@ -832,11 +832,7 @@ const appData = {
     userStory: [
       "As a teacher, I want to view all students and get a head count,view a specific student's overall grade in the class using and their score on each assignment, and execute create, read, update, and delete operations on courses, students, and assignments." //
     ],
-    features: [
-      "View a specific student's overall grade in the class",
-      "View a student's score on each assignment",
-      'Create, read, update, and delete courses, students, and assignments.' //
-    ],
+
     features: [
       'GET\t\t/courses',
       `POST\t\t/courses\n\t\t\t{"courseName": "science",\n\t\t\t"inPerson": true,\n\t\t\t"startDate": Date.now(),\n\t\t\t"students": [1, 2, 3]}`,

@@ -1,7 +1,7 @@
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import BucketForm from './BucketForm'
 
 function Bucket(props) {
@@ -51,27 +51,28 @@ function Bucket(props) {
             }}>
             <div
               key={item.id}
-              style={{ padding: '1rem', width: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+              className='item-text'>
               {item.text}
             </div>
             <div className='icons'>
-              <div className='edit-icon-wrapper'>
-                <Button
-                  type='primary'
-                  shape='round'
-                  className='bucket-button'
-                  onClick={() => {
-                    handleEdit(item)
-                  }}>
-                  <FontAwesomeIcon
-                    icon={faPen}
-                    className='edit-icon'
-                  />
-                </Button>
-              </div>
+              <Button
+                type='primary'
+                shape='circle'
+                className='bucket-button'
+                onClick={() => {
+                  handleEdit(item)
+                }}>
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className='edit-icon'
+                />
+              </Button>
 
-              <div
-                className='delete-icon-wrapper'
+              <Button
+                type='primary'
+                danger
+                shape='circle'
+                className='bucket-button'
                 onClick={() => {
                   props.removeBucketItem(item.id)
                 }}>
@@ -79,7 +80,7 @@ function Bucket(props) {
                   icon={faTrash}
                   className='delete-icon'
                 />
-              </div>
+              </Button>
             </div>
           </div>
         ))

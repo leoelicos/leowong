@@ -1,0 +1,211 @@
+.wants {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: black;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid white;
+    padding: 0 1vw;
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        height: 50px;
+        margin-right: 1vw;
+      }
+      h1 {
+        margin: 0;
+        color: #fff;
+        font-size: max(32px, 8vmin);
+      }
+    }
+  }
+
+  .bucket-form {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 1vw 1vh;
+    width: 100%;
+    margin-left: 3vw;
+
+    h3 {
+      color: white;
+      padding-left: 4px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bucket-input {
+      display: flex;
+
+      flex: 1;
+      border-radius: 4px 0 0 4px;
+      border: 2px solid #5d0cff;
+      outline: none;
+
+      background: transparent;
+      color: #fff;
+
+      &::placeholder {
+        color: #e2e2e2;
+      }
+
+      &.edit {
+        border: 2px solid #149fff;
+      }
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      .dropbtn {
+        background-color: #ec5700; // 'Priority'
+
+        width: fit-content;
+        height: 100%;
+        color: black;
+        padding: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: #ffffff;
+        min-width: 215px;
+
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        ul {
+          margin: 0;
+
+          li:hover {
+            background-color: #ddd;
+          }
+        }
+      }
+    }
+    .bucket-button {
+      padding: 16px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      background: #5d0cff;
+      color: #fff;
+      text-transform: capitalize;
+
+      height: 100%;
+
+      .edit-icon {
+        background: transparent !important;
+        padding: 16px 22px;
+      }
+
+      .save-icon {
+        color: #fff;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .bucket-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1000px;
+
+    text-align: center;
+    margin: 32px auto;
+    border-radius: 20px;
+    padding-bottom: 32px;
+
+    .bucket-container {
+      display: flex;
+      flex-flow: row wrap;
+      position: relative;
+
+      gap: 1rem;
+      max-width: 1000px;
+
+      .bucket-row {
+        width: 100%;
+        display: flex;
+        color: white;
+        padding: 1vh 1vw;
+
+        &.complete {
+          text-decoration: line-through;
+          opacity: 0.4;
+        }
+
+        .item-text {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+
+        .icons {
+          display: flex;
+          align-items: stretch;
+          font-size: 24px;
+          cursor: pointer;
+          font-size: max(32px, 8vmin);
+
+          button {
+            margin-left: 1vw;
+          }
+        }
+      }
+    }
+  }
+
+  .add-icon {
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .low {
+    background: linear-gradient(90deg, rgba(93, 12, 255, 1) 0%, rgba(155, 0, 250, 1) 100%);
+  }
+
+  .medium {
+    background: linear-gradient(90deg, rgba(255, 12, 241, 1) 0%, rgba(250, 0, 135, 1) 100%);
+  }
+
+  .high {
+    background: linear-gradient(90deg, rgba(20, 159, 255, 1) 0%, rgba(17, 122, 255, 1) 100%);
+  }
+
+  .low,
+  .medium,
+  .high {
+    &:hover {
+      background: white;
+      color: black !important;
+    }
+  }
+}

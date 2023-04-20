@@ -441,8 +441,8 @@ const appData = {
     keywords: ['react'],
     background1: '#fff',
     background2: '#376BB3',
-    color1: '#fff',
-    color2: '#eee',
+    color1: '#222',
+    color2: '#000',
 
     userStory: ['As a library user, I want to search media from the Library of Congress, with the option of specifying a media format, and see the results of my search displayed on a separate page, from where I can also search for more movies.'],
     features: [
@@ -758,7 +758,7 @@ const appData = {
     links: ['https://fundr.herokuapp.com'],
     code: 'https://github.com/leoelicos/fundr',
     title: 'Fundr',
-    description: 'crowdfunding backend',
+    description: 'crowdfunding',
     keywords: ['handlebars', 'session', 'mysql2'],
     background2: 'white',
     background1: 'white',

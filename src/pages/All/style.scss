@@ -3,7 +3,7 @@
   height: 100vh;
   overflow-y: auto;
   position: relative;
-  padding: 0;
+
   margin: 0;
   scroll-behavior: smooth;
 
@@ -12,13 +12,6 @@
   user-select: none;
 
   background: linear-gradient(to bottom, #4a2d0d, #1b0e03);
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 
   a {
     text-decoration: none;
@@ -38,7 +31,7 @@
   }
 
   .projects {
-    padding-top: 5vh;
+    padding: 1vh 1vw 36vh 1vw;
 
     position: relative;
 
@@ -46,6 +39,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    &.featured {
+      padding-bottom: 0;
+    }
 
     .projects-header {
       color: white;
@@ -56,7 +53,7 @@
     .project-cards {
       display: flex;
       flex-flow: row wrap;
-      gap: 4px;
+      gap: 1vw;
       width: 100%;
       text-align: center;
       justify-content: center;
@@ -109,25 +106,32 @@
         }
 
         @media screen and (min-width: 500px) {
-          width: 50% !important;
+          width: calc((100% - 1vw) / 2) !important;
         }
 
         @media screen and (min-width: 750px) {
-          width: 33% !important;
+          width: calc((100% - 2vw) / 3) !important;
         }
 
         @media screen and (min-width: 1000px) {
-          width: 25% !important;
+          width: calc((100% - 3vw) / 4) !important;
         }
 
         @media screen and (min-width: 1250px) {
-          width: 20% !important;
+          width: calc((100% - 4vw) / 5) !important;
         }
 
         @media screen and (min-width: 1500px) {
-          width: 16% !important;
+          width: calc((100% - 5vw) / 6) !important;
         }
       }
     }
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

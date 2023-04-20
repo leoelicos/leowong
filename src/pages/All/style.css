@@ -3,7 +3,6 @@
   height: 100vh;
   overflow-y: auto;
   position: relative;
-  padding: 0;
   margin: 0;
   scroll-behavior: smooth;
   font-family: "Open Sans", sans-serif;
@@ -13,9 +12,6 @@
   background: linear-gradient(to bottom, #4a2d0d, #1b0e03);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-}
-.all ::-webkit-scrollbar {
-  display: none;
 }
 .all a {
   text-decoration: none;
@@ -32,12 +28,15 @@
   font-size: max(1vmin, 36px);
 }
 .all .projects {
-  padding-top: 5vh;
+  padding: 1vh 1vw 36vh 1vw;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+.all .projects.featured {
+  padding-bottom: 0;
 }
 .all .projects .projects-header {
   color: white;
@@ -47,7 +46,7 @@
 .all .projects .project-cards {
   display: flex;
   flex-flow: row wrap;
-  gap: 4px;
+  gap: 1vw;
   width: 100%;
   text-align: center;
   justify-content: center;
@@ -94,26 +93,29 @@
 }
 @media screen and (min-width: 500px) {
   .all .projects .project-cards .project-card {
-    width: 50% !important;
+    width: calc((100% - 1vw) / 2) !important;
   }
 }
 @media screen and (min-width: 750px) {
   .all .projects .project-cards .project-card {
-    width: 33% !important;
+    width: calc((100% - 2vw) / 3) !important;
   }
 }
 @media screen and (min-width: 1000px) {
   .all .projects .project-cards .project-card {
-    width: 25% !important;
+    width: calc((100% - 3vw) / 4) !important;
   }
 }
 @media screen and (min-width: 1250px) {
   .all .projects .project-cards .project-card {
-    width: 20% !important;
+    width: calc((100% - 4vw) / 5) !important;
   }
 }
 @media screen and (min-width: 1500px) {
   .all .projects .project-cards .project-card {
-    width: 16% !important;
+    width: calc((100% - 5vw) / 6) !important;
   }
+}
+.all ::-webkit-scrollbar {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,335 @@
-@import url("./appearance.css");
-@import url("./layout.css");
-@import url("./text.css");
-@import url("./antd-overrides.css");/*# sourceMappingURL=index.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+.app-14 {
+  --primary: black;
+  --grey: #212121;
+  --blue: #0d278a;
+  --purple: #7d2aac;
+  --call-to-action: #ed7d31;
+  --text1: azure;
+}
+
+.app-14 .body {
+  background-color: var(--primary);
+  color: var(--text1);
+}
+
+.app-14 li.rated {
+  color: var(--call-to-action);
+}
+
+.app-14 .footer-icon {
+  color: var(--primary);
+}
+
+.app-14 .footer-icon:hover {
+  opacity: 0.7;
+}
+
+.app-14 .result-container {
+  background: radial-gradient(circle, var(--grey) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 1rem;
+}
+
+.app-14 .result-container.empty {
+  background: none;
+  border-radius: 0;
+}
+
+.app-14 .result-container.empty h5 {
+  color: white;
+}
+
+.app-14 .result-container.empty h5 svg {
+  color: pink;
+}
+
+.app-14 footer {
+  border-top: 1px solid white;
+}
+
+.app-14 footer a {
+  cursor: pointer;
+}
+
+.app-14 footer a .facebook-icon {
+  color: #ed7d31;
+}
+
+.app-14 .body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-14 .affix {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.app-14 header {
+  width: 100%;
+  background-color: black;
+  box-shadow: 0px 2px 2px -1px white;
+}
+
+.app-14 header .header-contents {
+  display: flex;
+  max-width: 916px;
+  padding: 4px;
+  margin: 0 auto;
+}
+
+.app-14 header.unsearched {
+  margin: 20vh auto;
+  box-shadow: none;
+}
+
+.app-14 header.unsearched .header-contents {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-14 header.unsearched .header__elements {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.app-14 header.unsearched img {
+  margin-bottom: 0;
+}
+
+.app-14 header.unsearched p {
+  margin: 0 0 20px 0;
+}
+
+.app-14 .header__elements {
+  display: flex;
+  width: 100%;
+}
+
+.app-14 header img {
+  height: 32px;
+  width: unset;
+  margin-right: 4px;
+}
+
+.app-14 header.unsearched img {
+  height: auto;
+  max-width: 20vh;
+  width: 50%;
+  margin-right: unset;
+}
+
+.app-14 .header__elements {
+  gap: 2px;
+}
+
+.app-14 .movie-search {
+  flex: 3;
+}
+
+.app-14 .history-select {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+}
+
+.app-14 ul {
+  margin: 0;
+  padding: 0;
+}
+
+.app-14 main {
+  flex: 1;
+  padding: 0 4px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 916px;
+}
+
+.app-14 .movie-grid {
+  gap: 4px !important;
+  max-width: 908px;
+}
+
+.app-14 .result-container {
+  max-width: 449px;
+  display: flex;
+  flex-direction: column;
+  margin: 4px auto 0 auto;
+  transition: all 0.5s linear;
+}
+
+.app-14 .result-container.empty h5 svg {
+  display: inline-block;
+  margin-bottom: 1px;
+}
+
+.app-14 .result {
+  padding: 12px 4px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-14 .result .title {
+  margin: 0;
+  line-height: 1.15;
+}
+
+.app-14 .result .movie-poster {
+  margin: 10px;
+}
+
+.app-14 .movie-poster img {
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: cover;
+     object-position: cover;
+}
+
+.app-14 .result .plot {
+  padding: 0 16px;
+}
+
+.app-14 .result .actors {
+  line-height: 2;
+}
+
+.app-14 .result .genre {
+  padding-bottom: 5px;
+}
+
+.app-14 footer {
+  padding-bottom: 4px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: calc(900px + 2rem)) {
+  .app-14 .movie-grid {
+    margin: auto;
+  }
+}
+.app-14 * {
+  font-family: "Montserrat", sans-serif;
+}
+
+.app-14 header.unsearched p {
+  font-size: 1rem;
+  font-family: cursive;
+}
+
+.app-14 .result .title {
+  font-size: 1rem;
+}
+
+.app-14 .result-container {
+  text-align: center;
+}
+
+.app-14 .result-container.empty h5 {
+  font-size: 1.2rem;
+}
+
+.app-14 .result-container.empty h5 svg {
+  font-size: 0.8rem;
+}
+
+.app-14 footer a {
+  font-size: 1rem;
+}
+
+.app-14 .result .plot {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.app-14 .result .rating {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.app-14__modal {
+  height: 100%;
+  width: 100% !important;
+  transform-origin: 0 !important;
+  top: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.app-14__modal .loading-spin,
+.app-14__modal .loading-spin {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-14__modal .ant-spin {
+  width: 100%;
+}
+
+.app-14__modal .finished {
+  display: none;
+}
+
+.app-14__modal .ant-spin-dot {
+  font-size: 100px;
+}
+
+.app-14__modal .ant-spin-dot-item {
+  background-color: black;
+}
+
+.app-14__modal .ant-modal-wrap {
+  position: fixed;
+}
+
+.app-14__modal .ant-modal-content {
+  display: flex;
+  padding: 0;
+  border-radius: 0;
+  position: fixed;
+  top: 8px;
+  bottom: 48px;
+  left: 8px;
+  right: 8px;
+  background: white;
+  box-shadow: none;
+}
+
+.app-14__modal .ant-modal-body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.app-14__modal .ant-modal-footer {
+  margin: 0;
+  height: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.app-14__modal .ant-modal-footer button {
+  position: absolute;
+  bottom: -2.5rem;
+  right: 0;
+}/*# sourceMappingURL=index.css.map */

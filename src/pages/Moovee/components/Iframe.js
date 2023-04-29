@@ -8,11 +8,10 @@ const Iframe = ({ uri }) => {
   }
   return (
     <>
-      <Spin className={loading ? '' : 'finished'} />
-      <div
-        className={loading ? 'finished' : ''}
-        style={{ height: '100%', width: '100%' }}>
+      <Spin className={`modal-spin ${loading ? '' : 'finished'}`} />
+      <div className={`modal-iframe-wrapper ${loading ? 'finished' : ''}`}>
         <iframe
+          className='modal-iframe'
           title='Trailer'
           src={uri}
           width='100%'

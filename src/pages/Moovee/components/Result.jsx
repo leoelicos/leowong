@@ -140,7 +140,7 @@ const Result = ({
         onCancel={hideModal}
         closable={false}
         maskClosable={true}
-        className='app-14__modal'
+        className='moovee-modal'
         footer={
           <Button
             type='primary'

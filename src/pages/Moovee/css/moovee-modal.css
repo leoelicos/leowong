@@ -1,0 +1,52 @@
+div.moovee-modal {
+  height: 100%;
+  width: 100% !important;
+  transform-origin: 0 !important;
+  top: 0;
+  overflow: hidden;
+  padding: 0;
+}
+div.moovee-modal div.ant-modal-content {
+  display: flex;
+  padding: 0;
+  border-radius: 0;
+  position: fixed;
+  top: 8px;
+  bottom: 48px;
+  left: 8px;
+  right: 8px;
+  background: white;
+  box-shadow: none;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-body div.modal-spin {
+  font-size: 100px;
+  width: 100%;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-body div.modal-spin span.ant-spin-dot i.ant-spin-dot-item {
+  background-color: black;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-body div.modal-spin.finished {
+  display: none;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-body div.modal-iframe-wrapper {
+  height: 100%;
+  width: 100%;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-footer {
+  margin: 0;
+  height: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+div.moovee-modal div.ant-modal-content div.ant-modal-footer button {
+  position: absolute;
+  bottom: -2.5rem;
+  right: 0;
+}/*# sourceMappingURL=moovee-modal.css.map */

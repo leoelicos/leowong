@@ -6,7 +6,7 @@ import useFavicon from '../../hooks/useFavicon'
 import useOMDB from './hooks/useOMDB'
 
 /* components */
-import { Button, ConfigProvider, Spin } from 'antd'
+import { ConfigProvider, Spin } from 'antd'
 import Title from 'antd/es/typography/Title'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
@@ -16,6 +16,7 @@ import Result from './components/Result'
 
 /* appearance */
 import './css/index.css'
+import './css/moovee-modal.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
 import { faFaceMehBlank } from '@fortawesome/free-solid-svg-icons'
@@ -49,71 +50,68 @@ export default function MooVee() {
   }
   const o = <FontAwesomeIcon icon={faFaceMehBlank} />
   return (
-    <div className='app-14'>
-      <div className='body'>
-        <ConfigProvider
-          theme={{
-            token: {
-              colorPrimary: '#ed7d31'
-            }
-          }}>
-          <MooHeader
-            searched={hasSearched?.current}
-            handleSubmit={handleSubmit}
-            history={history}
-            handleSelectMovieHistory={handleSelectMovieHistory}
-          />
-          {hasSearched?.current && (
-            <main>
-              {omdbLoading ? (
-                <Spin
-                  size='large'
-                  className='loading-spin'
-                />
-              ) : !omdbMovies.length ? (
-                <div className='result-container empty'>
-                  <Title
-                    className='no-movies'
-                    level={5}>
-                    N{o}&ensp;m{o}vies&ensp;f{o}und
-                  </Title>
-                </div>
-              ) : (
-                <ResponsiveMasonry columnsCountBreakPoints={{ 0: 1, 450: 2, 679: 3 }}>
-                  <Masonry className='movie-grid'>
-                    {omdbMovies.map((movie, i) => (
-                      <Result
-                        key={i}
-                        idx={i}
-                        idxOfClickedTrailer={idxOfClickedTrailer}
-                        setIdxOfClickedTrailer={setIdxOfClickedTrailer}
-                        trailerWasClicked={trailerWasClicked}
-                        setTrailerWasClicked={setTrailerWasClicked}
-                        resetIdxOfClickedTrailer={() => {
-                          setIdxOfClickedTrailer(-1)
-                        }}
-                        {...movie}
-                      />
-                    ))}
-                  </Masonry>
-                </ResponsiveMasonry>
-              )}
-            </main>
-          )}
-          <footer>
-            <Button
-              type='text'
-              href='https://www.facebook.com/MooVee-The-Movies-104712718873649/'
-              target='_blank'
-              rel='noferrer'>
-              <FontAwesomeIcon
-                className='facebook-icon'
-                icon={faFacebookF}
+    <div className='moovee'>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#ed7d31'
+          }
+        }}>
+        <MooHeader
+          searched={hasSearched?.current}
+          handleSubmit={handleSubmit}
+          history={history}
+          handleSelectMovieHistory={handleSelectMovieHistory}
+        />
+        {hasSearched?.current && (
+          <main>
+            {omdbLoading ? (
+              <Spin
+                size='large'
+                className='loading-spin'
               />
-            </Button>
-          </footer>
-        </ConfigProvider>
-      </div>
+            ) : !omdbMovies.length ? (
+              <div className='result-container empty'>
+                <Title
+                  className='no-movies'
+                  level={5}>
+                  N{o}&ensp;m{o}vies&ensp;f{o}und
+                </Title>
+              </div>
+            ) : (
+              <ResponsiveMasonry columnsCountBreakPoints={{ 0: 1, 450: 2, 679: 3 }}>
+                <Masonry className='movie-grid'>
+                  {omdbMovies.map((movie, i) => (
+                    <Result
+                      key={i}
+                      idx={i}
+                      idxOfClickedTrailer={idxOfClickedTrailer}
+                      setIdxOfClickedTrailer={setIdxOfClickedTrailer}
+                      trailerWasClicked={trailerWasClicked}
+                      setTrailerWasClicked={setTrailerWasClicked}
+                      resetIdxOfClickedTrailer={() => {
+                        setIdxOfClickedTrailer(-1)
+                      }}
+                      {...movie}
+                    />
+                  ))}
+                </Masonry>
+              </ResponsiveMasonry>
+            )}
+          </main>
+        )}
+        <footer>
+          <a
+            href='https://www.facebook.com/MooVee-The-Movies-104712718873649/'
+            target='_blank'
+            rel='noferrer'>
+            <FontAwesomeIcon
+              className='facebook-icon'
+              icon={faFacebookF}
+            />
+          </a>
+        </footer>
+      </ConfigProvider>
     </div>
   )
 }

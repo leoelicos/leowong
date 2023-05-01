@@ -17,7 +17,8 @@ export default async function googleapisYouTubeV3Search(term) {
         q: term,
         type: 'video'
       }
-      response = await axios(uri, { params })
+      // response = await axios(uri, { params })
+      response = await mockGoogle()
     }
   } catch (e) {
     console.error(e)
@@ -25,3 +26,14 @@ export default async function googleapisYouTubeV3Search(term) {
     return response
   }
 }
+
+const mockGoogle = () =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        data: {
+          items: [{ id: { videoId: 'bKn-NdqSkU4' } }]
+        }
+      })
+    }, 1000)
+  })

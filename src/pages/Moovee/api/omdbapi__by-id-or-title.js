@@ -17,7 +17,7 @@ export default async function OMDbAPIById(id) {
         i: id
       }
       const res = await axios(uri, { params })
-      data = await res.json()
+      data = res.data
     }
   } catch (error) {
     console.error(error)

@@ -18,8 +18,7 @@ export default async function OMDbAPIBySearch(str) {
         page: 1
       }
       const res = await axios(uri, { params })
-      data = await res.json()
-      data = data.Search
+      data = res.data.Search
     }
   } catch (error) {
     console.error(error)

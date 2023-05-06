@@ -1,25 +1,18 @@
 import axios from 'axios'
-
 const { REACT_APP_14_GAPI_KEY } = process.env
 
-export default async function googleapisYouTubeV3Search(term) {
+const googleapisYouTubeV3Search = async (term) => {
   let response = null
   try {
-    if (term === undefined) {
-      throw new Error('googleapisYouTubeV3Search: No term to search')
-    } else if (REACT_APP_14_GAPI_KEY === undefined) {
-      throw new Error('Gapi key undefined')
-    } else {
-      var uri = 'https://www.googleapis.com/youtube/v3/search'
-      var params = {
-        part: 'snippet',
-        key: REACT_APP_14_GAPI_KEY,
-        q: term,
-        type: 'video'
-      }
-      // response = await axios(uri, { params })
-      response = await mockGoogle()
+    if (!REACT_APP_14_GAPI_KEY) throw new Error('Gapi key undefined')
+    var ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
+    var params = {
+      part: 'snippet',
+      key: REACT_APP_14_GAPI_KEY,
+      q: term,
+      type: 'video'
     }
+    response = await axios(ROOT_URL, { params })
   } catch (e) {
     console.error(e)
   } finally {
@@ -27,13 +20,4 @@ export default async function googleapisYouTubeV3Search(term) {
   }
 }
 
-const mockGoogle = () =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        data: {
-          items: [{ id: { videoId: 'bKn-NdqSkU4' } }]
-        }
-      })
-    }, 1000)
-  })
+export default googleapisYouTubeV3Search

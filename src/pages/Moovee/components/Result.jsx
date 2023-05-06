@@ -1,21 +1,8 @@
 /* components */
-import { Tag, Button, Modal, Collapse } from 'antd'
-
+import { Tag, Button, Progress, Space, Tooltip, Modal } from 'antd'
 import { useState } from 'react'
 import useYouTube from '../hooks/useYouTube'
-import Trailer from './Trailer.js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons'
-
-function NoPoster({ title }) {
-  return (
-    <div className='noposter'>
-      <div className='title'>{title}</div>
-      <div className='text'>No poster</div>
-    </div>
-  )
-}
-const { Panel } = Collapse
+import Iframe from './Iframe'
 
 const Result = ({
   poster,
@@ -57,122 +44,94 @@ const Result = ({
 
   return (
     <div className='result-container'>
-      {poster ? (
+      {poster !== 'N/A' && (
         <div className='movie-poster'>
           <img
             src={poster}
             alt='movie poster'
           />
         </div>
-      ) : (
-        <div className='movie-poster'>
-          <NoPoster title={title} />
-        </div>
       )}
 
       <div className='result'>
+        {title && <h3 className='title'>{title}</h3>}
+
         <Button
-          block
           loading={youTubeLoading}
           disabled={youTubeError || (trailerWasClicked && idxOfClickedTrailer !== idx)}
           className='trailer-btn'
           type='primary'
           onClick={handleClickTrailer}>
-          <FontAwesomeIcon icon={faFilm} />
+          {youTubeLoading ? 'Finding' : youTubeError ? 'Unavailable' : 'Watch Trailer'}
         </Button>
-        <Collapse
-          expandIconPosition='start'
-          bordered={false}
-          className='details'>
-          <Panel
-            className='panel'
-            key='1'
-            header={
-              <span
-                className={
-                  imdbRating <= 2
-                    ? 'one' //
-                    : imdbRating <= 4
-                    ? 'two'
-                    : imdbRating <= 6
-                    ? 'three'
-                    : imdbRating <= 8
-                    ? 'four'
-                    : 'five'
-                }>
-                {!imdbRating ? (
-                  '' //
-                ) : imdbRating <= 2 ? (
-                  <FontAwesomeIcon icon={faStar} />
-                ) : imdbRating <= 4 ? (
-                  <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </>
-                ) : imdbRating <= 6 ? (
-                  <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </>
-                ) : imdbRating <= 8 ? (
-                  <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </>
-                ) : (
-                  <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </>
-                )}
-              </span>
-            }>
-            {
-              <>
-                <div className='deets'>
-                  <h3 className='title'>{title || 'Untitled'}</h3>
 
-                  {year && <div className='year'>{year}</div>}
+        {plot && <div className='plot'>{plot}</div>}
 
-                  {esrb && <div className='esrb'>{esrb}</div>}
+        {imdbRating && (
+          <div className='rating'>
+            <Tooltip
+              title='IMDB'
+              placement='bottom'>
+              <div
+                style={{
+                  backgroundColor: 'rgba(0,0,0,0.5)',
+                  borderRadius: '1rem',
+                  padding: '0 0 1px 8px '
+                }}>
+                <Progress
+                  percent={imdbRating * 10}
+                  format={(percent) => parseFloat(percent / 10).toFixed(1)}
+                  style={{ color: 'white' }}
+                  steps={10}
+                  status={imdbRating < 7 ? 'exception' : 'success'}
+                  strokeColor={imdbRating < 4 ? 'red' : imdbRating < 7 ? 'orange' : 'green'}
+                />
+              </div>
+            </Tooltip>
+          </div>
+        )}
 
-                  {plot && <div className='plot'>{plot}</div>}
+        {year && esrb ? (
+          <div>
+            {year}
+            <br />
+            {esrb}
+          </div>
+        ) : year ? (
+          <div>{year}</div>
+        ) : esrb ? (
+          <div>{esrb}</div>
+        ) : null}
 
-                  {actors.length > 0 && (
-                    <div className='actors'>
-                      {actors.split(', ').map((actor, i) => (
-                        <Tag
-                          key={i}
-                          color='#222'
-                          style={{ color: 'white' }}>
-                          {actor}
-                        </Tag>
-                      ))}
-                    </div>
-                  )}
+        {actors.length > 0 && (
+          <div className='actors'>
+            {actors.split(', ').map((actor, i) => (
+              <Tag
+                key={i}
+                color='#222'
+                style={{ color: 'white' }}>
+                {actor}
+              </Tag>
+            ))}
+          </div>
+        )}
 
-                  {genre && (
-                    <div className='genre'>
-                      {genre.map((g, i) => (
-                        <Tag
-                          color='black'
-                          key={i}>
-                          {g}
-                        </Tag>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </>
-            }
-          </Panel>
-        </Collapse>
+        {genre && (
+          <div className='genre'>
+            <Space
+              style={{ justifyContent: 'center' }}
+              size={[0, 8]}
+              wrap>
+              {genre.map((g, i) => (
+                <Tag
+                  color='black'
+                  key={i}>
+                  {g}
+                </Tag>
+              ))}
+            </Space>
+          </div>
+        )}
       </div>
 
       <Modal
@@ -181,7 +140,7 @@ const Result = ({
         onCancel={hideModal}
         closable={false}
         maskClosable={true}
-        className='moovee-modal'
+        className='app-14__modal'
         footer={
           <Button
             type='primary'
@@ -194,7 +153,7 @@ const Result = ({
         maskStyle={{ background: 'radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%)' }}
         transitionName='' // cancel popup animation
       >
-        <Trailer uri={youTubeData} />
+        <Iframe uri={youTubeData} />
       </Modal>
     </div>
   )

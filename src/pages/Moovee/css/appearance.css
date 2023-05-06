@@ -1,0 +1,52 @@
+.app-14 {
+  --primary: black;
+  --grey: #212121;
+  --blue: #0d278a;
+  --purple: #7d2aac;
+
+  --call-to-action: #ed7d31;
+  --text1: azure;
+}
+
+.app-14 .body {
+  background-color: var(--primary);
+  color: var(--text1);
+}
+
+.app-14 li.rated {
+  color: var(--call-to-action);
+}
+
+.app-14 .footer-icon {
+  color: var(--primary);
+}
+.app-14 .footer-icon:hover {
+  opacity: 0.7;
+}
+.app-14 .result-container {
+  background: radial-gradient(circle, var(--grey) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 1rem;
+}
+
+.app-14 .result-container.empty {
+  background: none;
+  border-radius: 0;
+}
+
+.app-14 .result-container.empty h5 {
+  color: white;
+}
+.app-14 .result-container.empty h5 svg {
+  color: pink;
+}
+
+.app-14 footer {
+  border-top: 1px solid white;
+}
+.app-14 footer a {
+  cursor: pointer;
+}
+
+.app-14 footer a .facebook-icon {
+  color: #ed7d31;
+}

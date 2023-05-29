@@ -160,7 +160,7 @@ const appData = {
     apis: ['youtube v3 search', 'omdb api', 'tmdb api'],
     frontEndTech: ['react'],
     backEndTech: [],
-    element: <Moovee />
+    element: null
   },
 
   shopr: {

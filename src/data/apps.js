@@ -1,7 +1,6 @@
 /* this page acts as the Single Source of Truth for my app metadata */
 
 /* these pages have been integrated into monorepo */
-import Moovee from '../pages/Moovee/index.jsx'
 import OneTwoThreeGo from '../pages/Onetwothreego/index.jsx'
 import Passo from '../pages/Passo/index.jsx'
 import Kiddle from '../pages/Kiddle/index.jsx'
@@ -141,8 +140,8 @@ const appData = {
 
   moovee: {
     endpoint: 'moovee',
-    links: ['/moovee'],
-    code: 'https://github.com/leoelicos/leowong/tree/main/src/pages/Moovee',
+    links: ['https://mooovee.vercel.app/'],
+    code: 'https://github.com/leoelicos/moovee',
     title: 'MOOVEE',
     description: 'trailer search',
     keywords: ['collab', 'gapi', 'omdb'],

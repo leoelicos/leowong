@@ -1,4 +1,4 @@
-# Hi
+# 👋
 
 I'm Leo. This repo is a portfolio of my work. The application portfolio is organised by functionality and stars (⭐). Originally from my coding bootcamp, I have refactored the CSR apps into React and imported them into this monorepo where possible. Search, Ecommerce, Games, Forums, Management, Editors, Articles, APIs and Utilities. Stars indicate I wish to showcase them as my best apps.
 

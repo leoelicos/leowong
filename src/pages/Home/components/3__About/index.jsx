@@ -10,7 +10,7 @@ export default function About() {
       <img
         className='avatar'
         src={Avatar}
-        alt='leo wong'
+        alt='Leo Wong'
       />
       <h3 style={{ fontSize: 'max(64px, 8vh)', fontFamily: "'Allerta Stencil', sans-serif" }}>
         <GradientText
@@ -19,26 +19,24 @@ export default function About() {
           &nbsp;Leo Wong
         </GradientText>
       </h3>
-      <h4>Full stack developer</h4>
-      <p>Leo is a passionate developer who has spent a year studying both front-end and back-end coding. His love for coding started when he did an intensive coding bootcamp with the University of Sydney. He soon realized his love for React, building and designing user interfaces that are not only functional but also aesthetically pleasing.</p>
-
-      <h4>Front end</h4>
-      <p className='hashtags'>
-        <span className='hashtag'>React</span>
-        <span className='hashtag'>AntD</span>
-        <span className='hashtag'>jQuery</span>
-        <span className='hashtag'>HTML</span>
-        <span className='hashtag'>CSS</span>
-        <span className='hashtag'>Bootstrap</span>
-        <span className='hashtag'>Materialize</span>
+      <h4>Full stack developer, Sydney</h4>
+      <p>
+        I build web applications and the services behind them. I maintain ingré, a shopping list for home cooks. An iPhone app and an Android app are in progress. They will use the same recipes as the website.
       </p>
 
-      <h4>Back end</h4>
+      <h4>Web</h4>
       <p className='hashtags'>
+        <span className='hashtag'>React</span>
+        <span className='hashtag'>TypeScript</span>
+        <span className='hashtag'>Node.js</span>
         <span className='hashtag'>Express</span>
-        <span className='hashtag'>SQL</span>
-        <span className='hashtag'>MongoQL</span>
-        <span className='hashtag'>GQL</span>
+        <span className='hashtag'>MongoDB</span>
+      </p>
+
+      <h4>In progress</h4>
+      <p className='hashtags'>
+        <span className='hashtag'>Swift</span>
+        <span className='hashtag'>Kotlin</span>
       </p>
     </section>
   )

@@ -7,7 +7,7 @@ export default function Resume() {
     <div
       className='resume'
       id='resume'>
-      <h3>Resume</h3>
+      <h3>Contact</h3>
 
       <a
         target='_blank'
@@ -19,7 +19,7 @@ export default function Resume() {
             icon={faDownload}
           />
         </p>
-        <p className='label'>Resume</p>
+        <p className='label'>CV</p>
       </a>
 
       <a
@@ -50,7 +50,7 @@ export default function Resume() {
       <a
         target='_blank'
         rel='noreferrer'
-        href='mailto: leoelicos@gmail.com'>
+        href='mailto:leoelicos@gmail.com'>
         <p className='image'>
           <FontAwesomeIcon
             style={{ fontSize: '6vh', color: 'orange' }}

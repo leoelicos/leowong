@@ -16,7 +16,6 @@ export default function Header() {
     currPosition = order.indexOf(params.appName)
     prevPosition = Math.max(0, currPosition - 1)
     nextPosition = Math.min(order.length - 1, currPosition + 1)
-    console.log({ currPosition, prevPosition, nextPosition })
   }
 
   const [showMenu, setShowMenu] = useState(true)
@@ -34,7 +33,7 @@ export default function Header() {
           className='logo'
           href={params.appName === undefined ? '/#top' : '/#projects'}>
           <FontAwesomeIcon icon={faAngleLeft} />
-          &nbsp;PROJECTS
+          &nbsp;WORK
         </a>
       ) : (
         <Link
@@ -66,8 +65,8 @@ export default function Header() {
           <>
             <ul className='menu small'>
               <a href='/#about'>ABOUT</a>
-              <a href='/#projects'>PROJECTS</a>
-              <a href='/#resume'>RESUME</a>
+              <a href='/#projects'>WORK</a>
+              <a href='/#resume'>CONTACT</a>
             </ul>
             <button
               className='hamburger'
@@ -84,12 +83,12 @@ export default function Header() {
               <a
                 href='/#projects'
                 onClick={toggle}>
-                PROJECTS
+                WORK
               </a>
               <a
                 href='/#resume'
                 onClick={toggle}>
-                RESUME
+                CONTACT
               </a>
             </ul>
           </>

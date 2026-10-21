@@ -116,3 +116,31 @@
     width: 50% !important;
   }
 }
+
+.home .case-study {
+  max-width: 40rem;
+  margin: 0 auto 6vh;
+  padding: 0 8vw;
+  color: white;
+  text-align: left;
+}
+
+.home .case-study h4 {
+  margin: 0 0 1rem;
+  font-size: max(28px, 4vmin);
+}
+
+.home .case-study p {
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.home .case-study-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.home .case-study-links a {
+  color: white;
+  text-underline-offset: 0.2em;
+}

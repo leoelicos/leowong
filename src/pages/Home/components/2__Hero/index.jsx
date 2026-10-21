@@ -21,6 +21,9 @@ export default function Hero({ children }) {
                 src={BgMotorway}
                 alt='motorway sign pointing down'
               />
+              <figcaption className='hero-role'>
+                <a href='#about'>Full stack developer, Sydney</a>
+              </figcaption>
             </figure>
             <figure id='bg-life'>
               <img

@@ -1,44 +1,17 @@
-# 👋
+# Leo Wong
 
-I'm Leo. This repo is a portfolio of my work. The application portfolio is organised by functionality and stars (⭐). 
+Full stack developer in Sydney.
 
-## Featured
+The personal site is [leowong.vercel.app](https://leowong.vercel.app). The product is [ingré](https://ingre.vercel.app), a shopping list built from recipes. Source: [leoelicos/ingre](https://github.com/leoelicos/ingre).
 
-| Category     | App          | Description           |
-| ------------ | ------------ | --------------------- |
-| Search 🔎    | ingré⭐      | home shopping utility |
-| Search 🔎    | Readr⭐      | book search           |
-| Search 🔎    | MOOVEE⭐     | find movie trailers   |
-| Ecommerce 🛒 | Shopr⭐      | fast shopping cart    |
-| Forums 💬    | submitted!⭐ | student dev blog      |
-| Forums 💬    | kiddin'⭐    | baby image forum      |
+iPhone and Android apps are in progress and are not in the stores.
 
-## Other
+## Contact
 
-| Category      | App      | Description             |
-| ------------- | -------- | ----------------------- |
-| Search 🔎     | LOCus    | library search tool     |
-| Games 🕹️      | Spriddle | word guess              |
-|               | SYTYCJ   | javascript              |
-|               | 123Go    | classic children's game |
-| Management ⚒️ | Hourly   | day planner             |
-|               | Emply    | team manager            |
-|               | Fundr    | crowdfund projects      |
-| Editors 🗒️    | Docu     | readme editor           |
-|               | Txtly    | js supported editor     |
-| Articles 📰   | RegExpo  | regex tutorial          |
-|               | Algoz    | algorithm blog          |
+- [leoelicos@gmail.com](mailto:leoelicos@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/leoelicos)
+- [GitHub](https://github.com/leoelicos)
 
-## Learn More
+## Licence
 
-You can learn about the projects at [The Coding Boot Camp at the University of Sydney](https://techbootcamp.sydney.edu.au/coding).
-
-### Deployment
-
-The apps are deployed at [leowong.vercel.app](https://leowong.vercel.app)
-
-## License
-
-© Leo Wong [leoelicos@gmail.com](leoelicos@gmail.com)
-
-Licensed under the [MIT License](./LICENSE.txt).
+© Leo Wong. Licensed under the [MIT License](./LICENSE.txt).

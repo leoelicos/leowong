@@ -1,40 +1,22 @@
-import Project from './Project'
-
-import appData from '../../../../data/apps.js'
-
 import './style.css'
-import { Link } from 'react-router-dom'
-
-const { ingre, submitted, shopr, kiddin, moovee, readr } = appData
 
 export default function Projects() {
-  const projects = [ingre, submitted, kiddin, readr, moovee, shopr]
-
   return (
     <div
       className='projects'
       id='projects'>
-      <h3 className='projects-header'>Projects</h3>
-      <div className='project-cards'>
-        {projects.map((project) => {
-          return (
-            <Project
-              key={project.title}
-              project={project}
-            />
-          )
-        })}
-      </div>
-      <Link
-        className='project-all '
-        to={`/all`}>
-        <h4
-          style={{
-            margin: 0
-          }}>
-          See all
-        </h4>
-      </Link>
+      <h3 className='projects-header'>Work</h3>
+      <article className='case-study'>
+        <h4>ingré</h4>
+        <p>
+          A shopping list built from recipes, with Australian supermarket sections. The recipes ship with the website. Sign-in and card payments stay on a small API.
+        </p>
+        <p>The website is live. The iPhone and Android apps are not in the stores yet.</p>
+        <p className='case-study-links'>
+          <a href='https://ingre.vercel.app/'>Website</a>
+          <a href='https://github.com/leoelicos/ingre'>Code</a>
+        </p>
+      </article>
     </div>
   )
 }

@@ -33,17 +33,22 @@
 .home .about-me p {
   padding: 0 10vw;
   width: 100%;
-  font-size: max(14px, 3vmin);
+  font-size: max(14px, 2.4vmin);
+  line-height: 1.5;
+}
+.app-05 .hashtags {
+  text-align: center !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-}
-.app-05 .hashtags {
-  text-align: center !important;
+  gap: 0.4rem;
 }
 .app-05 .hashtag {
-  margin: 0.15rem 0.3rem;
+  margin: 0.15rem;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
 }
 
 @keyframes around-the-world {

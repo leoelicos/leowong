@@ -132,3 +132,8 @@
 .home a.footer-link:active {
   background-color: #aaa;
 }
+
+.home #bg-life,
+.home #bg-car {
+  display: none;
+}

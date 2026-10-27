@@ -144,3 +144,13 @@
   color: white;
   text-underline-offset: 0.2em;
 }
+
+.home .projects {
+  background-color: #000;
+  color: #fff;
+}
+
+.home .projects-header {
+  color: #fff;
+  font-size: 1.5rem;
+}

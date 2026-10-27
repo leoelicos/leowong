@@ -5,7 +5,7 @@ export default function Projects() {
     <div
       className='projects'
       id='projects'>
-      <h3 className='projects-header'>Work</h3>
+      <h2 className='projects-header'>Work</h2>
       <article className='case-study'>
         <h4>ingré</h4>
         <p>

@@ -10,34 +10,34 @@ import useTitle from '../../../../hooks/useTitle.js'
 
 export default function Hero({ children }) {
   useFavicon('/favicons/home.png')
-  useTitle('Leo Wong')
+  useTitle('Leo Wong, full stack developer in Sydney')
   return (
     <div className='app-05'>
       <div className='body'>
         <main id='top'>
-          <a href='#about'>
-            <figure id='bg-motorway'>
+          <figure id='bg-motorway'>
+            <a href='#about'>
               <img
                 src={BgMotorway}
-                alt='motorway sign pointing down'
+                alt='Motorway sign. Continue to the introduction.'
               />
-              <figcaption className='hero-role'>
-                <a href='#about'>Full stack developer, Sydney</a>
-              </figcaption>
-            </figure>
-            <figure id='bg-life'>
-              <img
-                src={BgRoad}
-                alt='trees and roads'
-              />
-            </figure>
-            <figure id='bg-car'>
-              <img
-                src={BgCar}
-                alt='car interior'
-              />
-            </figure>
-          </a>
+            </a>
+            <figcaption className='hero-role'>
+              <a href='#about'>Full stack developer, Sydney</a>
+            </figcaption>
+          </figure>
+          <figure id='bg-life'>
+            <img
+              src={BgRoad}
+              alt=''
+            />
+          </figure>
+          <figure id='bg-car'>
+            <img
+              src={BgCar}
+              alt=''
+            />
+          </figure>
           {children}
         </main>
         <a

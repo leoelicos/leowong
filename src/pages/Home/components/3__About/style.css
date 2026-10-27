@@ -46,9 +46,10 @@
 }
 .app-05 .hashtag {
   margin: 0.15rem;
-  padding: 0.15rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.2rem 0.75rem;
+  border: 1px solid #fff;
   border-radius: 999px;
+  color: #fff;
 }
 
 @keyframes around-the-world {

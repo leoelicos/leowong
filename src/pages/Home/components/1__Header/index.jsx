@@ -1,98 +1,63 @@
-import { faAngleLeft, faAngleRight, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './style.css'
 
+const links = [
+  ['/#about', 'About'],
+  ['/#projects', 'Work'],
+  ['/#resume', 'Contact']
+]
+
 export default function Header() {
-  let params = useParams()
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  // for description nav button
-  const order = ['ingre', 'submitted', 'kiddin', 'readr', 'moovee', 'shopr']
-  let currPosition = undefined
-  let prevPosition = undefined
-  let nextPosition = undefined
-  if (params.appName !== undefined) {
-    currPosition = order.indexOf(params.appName)
-    prevPosition = Math.max(0, currPosition - 1)
-    nextPosition = Math.min(order.length - 1, currPosition + 1)
+  const closeMenu = () => {
+    setMenuOpen(false)
   }
-
-  const [showMenu, setShowMenu] = useState(true)
-
-  const toggle = () => {
-    setShowMenu((m) => !m)
-  }
-
-  const onDescriptionPage = params.appName !== undefined
 
   return (
     <header>
-      {onDescriptionPage ? (
-        <a
-          className='logo'
-          href={params.appName === undefined ? '/#top' : '/#projects'}>
-          <FontAwesomeIcon icon={faAngleLeft} />
-          &nbsp;WORK
-        </a>
-      ) : (
-        <Link
-          className='logo'
-          href={params.appName === undefined ? '/#top' : '/#projects'}>
-          LEOWONG
-        </Link>
-      )}
+      <Link
+        className='logo'
+        href='/#top'>
+        LEOWONG
+      </Link>
 
-      <nav className='nav'>
-        {onDescriptionPage ? (
-          <ul className='menu small description'>
-            {currPosition > 0 ? (
-              <a href={`/description/${order[prevPosition]}`}>
-                <FontAwesomeIcon icon={faAngleLeft} />
-              </a>
-            ) : (
-              <span className='nolink'>&emsp;</span>
-            )}
-            {currPosition < order.length - 1 ? (
-              <a href={`/description/${order[nextPosition]}`}>
-                <FontAwesomeIcon icon={faAngleRight} />
-              </a>
-            ) : (
-              <span className='nolink'>&emsp;</span>
-            )}
-          </ul>
-        ) : (
-          <>
-            <ul className='menu small'>
-              <a href='/#about'>ABOUT</a>
-              <a href='/#projects'>WORK</a>
-              <a href='/#resume'>CONTACT</a>
-            </ul>
-            <button
-              className='hamburger'
-              onClick={toggle}>
-              <FontAwesomeIcon icon={faBars} />
-            </button>
+      <nav
+        className='nav'
+        aria-label='Sections'>
+        <ul className='menu small'>
+          {links.map(([href, label]) => (
+            <li key={href}>
+              <a href={href}>{label}</a>
+            </li>
+          ))}
+        </ul>
+        <button
+          type='button'
+          className='hamburger'
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-controls='site-menu'
+          aria-label='Menu'>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
 
-            <ul className={`menu big ${showMenu ? 'hide' : ''}`}>
+        <ul
+          id='site-menu'
+          className={`menu big ${menuOpen ? '' : 'hide'}`}>
+          {links.map(([href, label]) => (
+            <li key={href}>
               <a
-                href='/#about'
-                onClick={toggle}>
-                ABOUT
+                href={href}
+                onClick={closeMenu}>
+                {label}
               </a>
-              <a
-                href='/#projects'
-                onClick={toggle}>
-                WORK
-              </a>
-              <a
-                href='/#resume'
-                onClick={toggle}>
-                CONTACT
-              </a>
-            </ul>
-          </>
-        )}
+            </li>
+          ))}
+        </ul>
       </nav>
     </header>
   )

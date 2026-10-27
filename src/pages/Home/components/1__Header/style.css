@@ -146,3 +146,13 @@
     width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.home ul.menu li {
+  display: contents;
+}
+
+.home button.hamburger:focus-visible,
+.home a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

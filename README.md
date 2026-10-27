@@ -2,7 +2,7 @@
 
 Full stack developer in Sydney.
 
-The site is Vite, React, and TypeScript.
+The site is Vite, React, and TypeScript. `npm test` runs the unit tests. `npm run test:e2e` runs the browser tests.
 
 The personal site is [leowong.vercel.app](https://leowong.vercel.app). The product is [ingré](https://ingre.vercel.app), a shopping list built from recipes. Source: [leoelicos/ingre](https://github.com/leoelicos/ingre).
 

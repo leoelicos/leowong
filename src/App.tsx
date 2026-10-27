@@ -1,10 +1,5 @@
 import { contact, person, skills, work } from "./content";
-
-function external(href: string) {
-  return href.startsWith("http")
-    ? ({ target: "_blank", rel: "noreferrer" } as const)
-    : {};
-}
+import { linkProps } from "./links";
 
 export function App() {
   return (
@@ -87,8 +82,8 @@ export function App() {
                 <div key={fact.term}>
                   <dt>{fact.term}</dt>
                   <dd>
-                    {"href" in fact ? (
-                      <a href={fact.href} {...external(fact.href)}>
+                    {fact.href !== undefined ? (
+                      <a href={fact.href} {...linkProps(fact.href)}>
                         {fact.detail}
                       </a>
                     ) : (
@@ -101,7 +96,7 @@ export function App() {
             <ul className="links">
               {work.links.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} {...external(link.href)}>
+                  <a href={link.href} {...linkProps(link.href)}>
                     {link.label}
                   </a>
                 </li>
@@ -115,7 +110,7 @@ export function App() {
           <ul className="links">
             {contact.map((link) => (
               <li key={link.href}>
-                <a href={link.href} {...external(link.href)}>
+                <a href={link.href} {...linkProps(link.href)}>
                   {link.label}
                 </a>
               </li>

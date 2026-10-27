@@ -6,3 +6,6 @@
 .env 
 /build
 /dist
+/playwright-report
+/test-results
+

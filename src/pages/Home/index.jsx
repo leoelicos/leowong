@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Header from './components/1__Header/index.jsx'
@@ -10,19 +11,22 @@ import './style.css'
 export default function Home() {
   return (
     <div className='home'>
+      <a
+        className='skip'
+        href='#about'>
+        Skip to introduction
+      </a>
       <Header />
-
-      {<Outlet />}
+      <Outlet />
     </div>
   )
 }
 export function HomeContent() {
-  setTimeout(() => {
-    const hash = window.location.hash
-    const id = hash === '#about' ? 'about' : hash === '#projects' ? 'projects' : hash === '#resume' ? 'resume' : 'top'
-    const element = document.getElementById(id)
-    element.scrollIntoView({ alignToTop: true })
-  }, 0)
+  useEffect(() => {
+    const id = window.location.hash.replace('#', '')
+    if (!id) return
+    document.getElementById(id)?.scrollIntoView()
+  }, [])
 
   return (
     <div className='home-content'>

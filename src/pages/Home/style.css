@@ -49,3 +49,27 @@
   font-size: max(20px, 4vmin);
   margin: 2vh 0;
 }/*# sourceMappingURL=style.css.map */
+
+.home {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.home .skip {
+  position: fixed;
+  left: 0.5rem;
+  top: 0.5rem;
+  z-index: 40;
+  transform: translateY(-200%);
+  background: #000;
+  color: #fff;
+  padding: 0.6rem 0.8rem;
+}
+
+.home .skip:focus {
+  transform: none;
+}
+
+.home .home-content {
+  height: calc(100vh - max(48px, 5vh));
+}

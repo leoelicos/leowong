@@ -1,9 +1,7 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import BgCar from '../../images/bg/car.png'
 import BgMotorway from '../../images/bg/motorway.png'
-import BgRoad from '../../images/bg/road.png'
 import './style.css'
 import useFavicon from '../../../../hooks/useFavicon.js'
 import useTitle from '../../../../hooks/useTitle.js'
@@ -26,25 +24,16 @@ export default function Hero({ children }) {
               <a href='#about'>Full stack developer, Sydney</a>
             </figcaption>
           </figure>
-          <figure id='bg-life'>
-            <img
-              src={BgRoad}
-              alt=''
-            />
-          </figure>
-          <figure id='bg-car'>
-            <img
-              src={BgCar}
-              alt=''
-            />
-          </figure>
           {children}
         </main>
         <a
           className='footer-link'
           href='#top'>
-          Back to Top&nbsp;
-          <FontAwesomeIcon icon={faArrowUp} />
+          Back to top
+          <FontAwesomeIcon
+            icon={faArrowUp}
+            aria-hidden='true'
+          />
         </a>
       </div>
     </div>

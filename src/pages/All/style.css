@@ -119,3 +119,22 @@
 .all ::-webkit-scrollbar {
   display: none;
 }/*# sourceMappingURL=style.css.map */
+
+.all {
+  background: #000;
+  color: #fff;
+  -webkit-user-select: text;
+  user-select: text;
+  padding: 12vh 8vw;
+}
+
+.all h1,
+.all p,
+.all a {
+  color: #fff;
+}
+
+.all a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

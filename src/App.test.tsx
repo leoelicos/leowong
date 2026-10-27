@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 
@@ -40,5 +40,7 @@ describe("App", () => {
     const scene = container.querySelector(".scene");
     expect(scene).toHaveAttribute("aria-hidden", "true");
     expect(scene?.querySelector("img[src='/bg/car.png']")).not.toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Stop motion" }));
+    expect(screen.getByRole("button", { name: "Play motion" })).toBeVisible();
   });
 });

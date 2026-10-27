@@ -27,7 +27,7 @@ describe("App", () => {
   });
 
   it("lists the web skills and the section links", () => {
-    render(<App />);
+    const { container } = render(<App />);
 
     for (const skill of ["React", "TypeScript", "Node.js", "Express", "MongoDB"]) {
       expect(screen.getByText(skill)).toBeVisible();
@@ -37,5 +37,8 @@ describe("App", () => {
       "#content",
     );
     expect(screen.getByRole("navigation", { name: "Sections" })).toBeVisible();
+    const scene = container.querySelector(".scene");
+    expect(scene).toHaveAttribute("aria-hidden", "true");
+    expect(scene?.querySelector("img[src='/bg/car.png']")).not.toBeNull();
   });
 });

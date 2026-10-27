@@ -1,7 +1,11 @@
+import { useRef } from "react";
 import { contact, person, skills, work } from "./content";
 import { linkProps } from "./links";
+import { Scene } from "./Scene";
 
 export function App() {
+  const heroRef = useRef<HTMLElement>(null);
+
   return (
     <>
       <a className="skip" href="#content">
@@ -26,29 +30,36 @@ export function App() {
         </nav>
       </header>
       <main id="content">
-        <section className="hero" id="top" aria-labelledby="name">
-          <div>
-            <p className="eyebrow">
-              {person.role}, {person.place}
-            </p>
-            <h1 id="name">{person.name}</h1>
-            <p className="lede">{person.summary}</p>
-            <p className="actions">
-              <a className="button" href={`mailto:${person.email}`}>
-                Email
-              </a>
-              <a className="button button-quiet" href="https://ingre.vercel.app/">
-                ingré
-              </a>
-            </p>
+        <section
+          className="hero"
+          id="top"
+          aria-labelledby="name"
+          ref={heroRef}>
+          <Scene target={heroRef} />
+          <div className="hero-copy">
+            <div>
+              <p className="eyebrow">
+                {person.role}, {person.place}
+              </p>
+              <h1 id="name">{person.name}</h1>
+              <p className="lede">{person.summary}</p>
+              <p className="actions">
+                <a className="button" href={`mailto:${person.email}`}>
+                  Email
+                </a>
+                <a className="button button-quiet" href="https://ingre.vercel.app/">
+                  ingré
+                </a>
+              </p>
+            </div>
+            <img
+              className="portrait"
+              src="/avatar.png"
+              width="512"
+              height="512"
+              alt="Leo Wong"
+            />
           </div>
-          <img
-            className="portrait"
-            src="/avatar.png"
-            width="512"
-            height="512"
-            alt="Leo Wong"
-          />
         </section>
 
         <section id="about" aria-labelledby="about-heading">

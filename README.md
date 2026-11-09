@@ -13,7 +13,10 @@ iPhone and Android apps are in progress and are not in the stores.
 - [leoelicos@gmail.com](mailto:leoelicos@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/leoelicos)
 - [GitHub](https://github.com/leoelicos)
+- [CV](https://drive.google.com/file/d/1Z6-Ec7gif7m8Zc9oGTFRcGc_SKSbtbzV/view?usp=sharing)
 
 ## Licence
 
 © Leo Wong. Licensed under the [MIT License](./LICENSE.txt).
+
+Skill logos from [Simple Icons](https://simpleicons.org) (CC0-1.0). Brand marks remain their owners'. Accessibility, Motion and Playwright use custom inline SVGs.

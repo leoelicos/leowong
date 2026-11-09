@@ -1,7 +1,32 @@
 import { useRef } from "react";
-import { contact, person, skills, work } from "./content";
+import {
+  about,
+  contact,
+  cvHref,
+  experience,
+  person,
+  skills,
+  work,
+  type Skill,
+} from "./content";
 import { linkProps } from "./links";
 import { Scene } from "./Scene";
+import { SkillIcon } from "./SkillIcon";
+
+function SkillList({ items }: { readonly items: readonly Skill[] }) {
+  return (
+    <ul className="tags">
+      {items.map((skill) => (
+        <li key={skill.name}>
+          <span className="skill">
+            <SkillIcon id={skill.icon} />
+            <span>{skill.name}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function App() {
   const heroRef = useRef<HTMLElement>(null);
@@ -19,6 +44,9 @@ export function App() {
           <ul>
             <li>
               <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#experience">Experience</a>
             </li>
             <li>
               <a href="#work">Work</a>
@@ -47,7 +75,13 @@ export function App() {
                 <a className="button" href={`mailto:${person.email}`}>
                   Email
                 </a>
-                <a className="button button-quiet" href="https://ingre.vercel.app/">
+                <a className="button" href={cvHref} {...linkProps(cvHref)}>
+                  CV
+                </a>
+                <a
+                  className="button button-quiet"
+                  href="https://ingre.vercel.app/"
+                  {...linkProps("https://ingre.vercel.app/")}>
                   ingré
                 </a>
               </p>
@@ -64,22 +98,32 @@ export function App() {
 
         <section id="about" aria-labelledby="about-heading">
           <h2 id="about-heading">About</h2>
-          <p>
-            An iPhone app and an Android app are in progress. They will use the
-            same recipes as the website.
-          </p>
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+          ))}
           <h3>Web</h3>
-          <ul className="tags">
-            {skills.web.map((skill) => (
-              <li key={skill}>{skill}</li>
-            ))}
-          </ul>
+          <SkillList items={skills.web} />
+          <h3>Quality and shipping</h3>
+          <SkillList items={skills.quality} />
           <h3>In progress</h3>
-          <ul className="tags">
-            {skills.inProgress.map((skill) => (
-              <li key={skill}>{skill}</li>
-            ))}
-          </ul>
+          <SkillList items={skills.inProgress} />
+        </section>
+
+        <section id="experience" aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Experience</h2>
+          <article>
+            <h3>{experience.org}</h3>
+            <p className="role-dates">{experience.dates}</p>
+            <p>{experience.summary}</p>
+            <ul className="roles">
+              {experience.roles.map((role) => (
+                <li key={role.title}>
+                  <span className="role-title">{role.title}</span>
+                  <span className="role-dates">{role.dates}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </section>
 
         <section id="work" aria-labelledby="work-heading">
@@ -88,6 +132,11 @@ export function App() {
             <h3>{work.name}</h3>
             <p>{work.summary}</p>
             <p>{work.detail}</p>
+            <ul className="work-bullets">
+              {work.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
             <dl>
               {work.facts.map((fact) => (
                 <div key={fact.term}>

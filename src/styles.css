@@ -73,25 +73,84 @@ img {
   transform: none;
 }
 
-.site-header,
 main,
 footer {
   width: min(72rem, calc(100% - 2rem));
   margin-inline: auto;
 }
 
+/* Fixed over the hero so the parallax starts at the top and bleeds through. */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
+  isolation: isolate;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
-  padding: 0.25rem 0;
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  border-bottom: 1px solid var(--line);
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0.25rem max(1rem, calc((100vw - 72rem) / 2));
+  /* Solid-ish fallback when backdrop-filter is unsupported. */
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  color: var(--ink);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .site-header {
+    background: color-mix(in srgb, var(--bg) 68%, transparent);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    backdrop-filter: blur(16px) saturate(1.2);
+  }
+}
+
+/* Soft scrim so wordmark/nav stay AA over bright sky and darker scene bands. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg) 62%, transparent),
+    color-mix(in srgb, var(--bg) 28%, transparent)
+  );
+}
+
+/* Dark scheme needs a denser frost: light ink over the bright sky otherwise fails AA. */
+@media (prefers-color-scheme: dark) {
+  .site-header {
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+  }
+
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .site-header {
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+    }
+  }
+
+  .site-header::before {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--bg) 72%, transparent),
+      color-mix(in srgb, var(--bg) 42%, transparent)
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+  }
 }
 
 .wordmark {

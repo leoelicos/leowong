@@ -212,18 +212,18 @@ section {
   height: min(78vh, 48rem);
   min-height: 18rem;
   overflow: hidden;
-  background: #28292e;
+  background: #7eb7d4;
 }
 
 .scene-layer {
   position: absolute;
   left: 50%;
-  top: -28%;
-  width: 135%;
+  top: -6%;
+  width: 112%;
   max-width: none;
-  height: 170%;
-  margin-left: -67.5%;
-  transform-origin: center 60%;
+  height: 112%;
+  margin-left: -56%;
+  transform-origin: center 50%;
 }
 
 .scene-layer picture,
@@ -236,7 +236,7 @@ section {
 
 .scene-layer img {
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 52%;
 }
 
 .scene-car-extend {
@@ -250,19 +250,19 @@ section {
 
 @media (max-width: 700px) {
   .scene {
-    height: min(58vw, 40vh, 20rem);
-    min-height: 13rem;
+    height: min(78vw, 52vh, 24rem);
+    min-height: 15rem;
   }
 
   .scene-layer {
-    top: -16%;
-    width: 112%;
-    height: 145%;
-    margin-left: -56%;
+    top: -4%;
+    width: 108%;
+    height: 110%;
+    margin-left: -54%;
   }
 
   .scene-layer img {
-    object-position: 46% 28%;
+    object-position: 48% 52%;
   }
 }
 

@@ -14,10 +14,10 @@ export function Scene({ target }: { target: RefObject<HTMLElement | null> }) {
     offset: ["start start", "end start"],
   });
   const still = reduce || stopped ? 0 : 1;
-  const far = useTransform(scrollYProgress, [0, 1], [0, -24 * still]);
-  const sign = useTransform(scrollYProgress, [0, 1], [0, -48 * still]);
-  const road = useTransform(scrollYProgress, [0, 1], [0, -72 * still]);
-  const car = useTransform(scrollYProgress, [0, 1], [0, -110 * still]);
+  const far = useTransform(scrollYProgress, [0, 1], [0, -80 * still]);
+  const sign = useTransform(scrollYProgress, [0, 1], [0, -160 * still]);
+  const road = useTransform(scrollYProgress, [0, 1], [0, -260 * still]);
+  const car = useTransform(scrollYProgress, [0, 1], [0, -380 * still]);
 
   return (
     <div className="illustration">

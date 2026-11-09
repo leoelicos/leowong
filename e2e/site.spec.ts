@@ -9,7 +9,10 @@ test("the page names Leo Wong and links the live work", async ({ page }) => {
     "href",
     "mailto:leoelicos@gmail.com",
   );
+  await expect(page.locator(".actions a", { hasText: "CV" })).toBeVisible();
   await expect(page.getByRole("link", { name: "ingre.vercel.app" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Experience" })).toBeVisible();
+  await expect(page.getByText("Dec 2025 – present")).toBeVisible();
   await expect(page.getByRole("img", { name: "Leo Wong" })).toBeVisible();
   await expect(page.locator(".scene")).toHaveAttribute("aria-hidden", "true");
   await expect(page.locator(".scene img[src='/bg/car.png']")).toBeAttached();
@@ -39,4 +42,3 @@ test.describe("reduced motion", () => {
     await expect(car).toHaveCSS("transform", "none");
   });
 });
-

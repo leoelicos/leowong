@@ -316,6 +316,69 @@ footer {
   }
 }
 
+
+/* skill-and-experience */
+
+.skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  display: block;
+}
+
+.tags li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.roles {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--measure);
+}
+
+.roles li {
+  display: grid;
+  grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  gap: 0.35rem 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.role-title {
+  font-weight: 650;
+}
+
+.role-dates {
+  color: var(--muted);
+  margin: 0.15rem 0 0.6rem;
+}
+
+.work-bullets {
+  max-width: var(--measure);
+  margin: 0.85rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.work-bullets li {
+  margin: 0.35rem 0;
+}
+
+@media (max-width: 480px) {
+  .roles li {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
+/* end-skill-and-experience */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -36,7 +36,10 @@ test.describe("reduced motion", () => {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Leo Wong");
     const car = page.locator(".scene img[src='/bg/car.png']");
     await expect(car).toBeAttached();
-    await expect(car).toHaveCSS("transform", "none");
+    const carLayer = page.locator(".scene-layer").filter({
+      has: page.locator("img[src='/bg/car.png']"),
+    });
+    await expect(carLayer).toHaveCSS("transform", "none");
   });
 });
 
